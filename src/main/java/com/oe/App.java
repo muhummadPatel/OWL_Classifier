@@ -11,7 +11,7 @@ public class App{
     public static void main(String[] args){
         System.out.println("\n\n--------------START MAIN---------------\n\n\n");
 
-        String filename = "Beverages.owl";
+        String filename = "AirIncidentOntology.owl";
         // String filename = "pizza.owl";
 
         System.out.println("Attempting to load ontology: " + filename);
