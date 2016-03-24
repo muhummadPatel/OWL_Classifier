@@ -155,7 +155,7 @@ public class UI extends JFrame// implements ComponentListener
       while (tabbedPane.getTabCount() > 0) //Remove current panes
         tabbedPane.remove(0);
 
-      for (int i = 0; i < titles.Length; ++i)
+      for (int i = 0; i < titles.length; ++i)
       {
         JTextArea area = new JTextArea();
         //violationsPane.setSize(500,400);
