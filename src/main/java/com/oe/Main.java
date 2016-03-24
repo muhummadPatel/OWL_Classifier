@@ -22,6 +22,14 @@ public class Main {
          */
         OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
         Set<OWLOntology> ontologies = OntologyLoader.loadOntology(filePath, true);
+        System.out.println();
+
+        /**
+         * Example expressivity check
+         */
+        ExpressivityChecker expCheck = new ExpressivityChecker(ontologies);
+        String dlName = expCheck.getDescriptionLogicName();
+        System.out.println("Ontology Expressivity: " + dlName+"\n");
 
         /**
          * Example call to ProfileChecker
