@@ -152,8 +152,15 @@ public class UI extends JFrame// implements ComponentListener
       else
         tabbedPane = violationsPane;
 
-      while (tabbedPane.getTabCount() > 0)
+      while (tabbedPane.getTabCount() > 0) //Remove current panes
         tabbedPane.remove(0);
+
+      for (int i = 0; i < titles.Length; ++i)
+      {
+        JTextArea area = new JTextArea();
+        //violationsPane.setSize(500,400);
+        tabbedPane.addTab(titles[i], area);
+      }
     }
 
     //On click for the 'open file' button
