@@ -3,7 +3,6 @@ package com.oe;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.util.DLExpressivityChecker;
 
 import java.io.File;
 import java.util.HashSet;
@@ -30,7 +29,7 @@ public class OntologyLoader{
         System.out.println("Attempting to load " + filePath + extra);
         OWLOntologyManager owlOntologyManager = OWLManager.createOWLOntologyManager();
         OWLOntology ontology;
-        Set ontologies = new HashSet<OWLOntology>();
+        Set<OWLOntology> ontologies = new HashSet<>();
 
         try{
             File ontFile = new File(filePath);
@@ -47,7 +46,6 @@ public class OntologyLoader{
             System.out.println("Ontology creation Error:\n" + ex.getMessage());
             System.exit(1);
         }
-
 
         return ontologies;
     }
