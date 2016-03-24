@@ -23,7 +23,7 @@ public class Main {
         System.out.println("OWL2DL: " + profile.checkOntology(mainOntology));
         System.out.println(mainOntology.getLogicalAxioms());
 
-        DLExpressivityChecker expCheck = new DLExpressivityChecker(ontologies);
+        ExpressivityChecker expCheck = new ExpressivityChecker(ontologies);
         String dlName = expCheck.getDescriptionLogicName();
         System.out.println("Ontology Expressivity: " + dlName);
 
