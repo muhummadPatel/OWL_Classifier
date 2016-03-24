@@ -10,54 +10,23 @@ import org.semanticweb.owlapi.util.*;
 
 public class Main {
     public static void main(String[] args){
-        Main main = new Main();
-        main.doStuff();
-    }
+        System.out.println("--------------START MAIN---------------\n");
 
-    public void doStuff() {
-        System.out.println("\n\n--------------START MAIN---------------\n\n\n");
+        // The OWL file to be loaded
+        String filePath = "AirIncidentOntology.owl";
 
-        boolean usesImports = true;
-        String filename = "AirIncidentOntology.owl";
-        // String filename = "Beverages.owl";
-
-        System.out.println("Attempting to load ontology: " + filename);
-        OWLOntologyManager m = OWLManager.createOWLOntologyManager();
-        OWLOntologyManager m2 = OWLManager.createOWLOntologyManager();
-        OWLOntology ontology = null;
-        OWLOntology ontology2 = null;
-        // DLExpressivityChecker takes in a Set, so we need to build a set
-        Set<OWLOntology> ontologies = new HashSet<OWLOntology>();
-        try{
-            File ontFile = new File(filename);
-            ontology = m.loadOntologyFromOntologyDocument(ontFile);
-            ontologies.add(ontology);
-            if(usesImports) {
-                addImports(ontologies, ontology);
-            }
-
-        }catch(org.semanticweb.owlapi.model.OWLOntologyCreationException ex){
-            System.out.println("Ontology creation Error:\n" + ex.getMessage());
-            System.exit(0);
-        }
-        System.out.println(filename + " loaded.");
+        // Example calls to OntologyLoader for single or a set of ontologies
+        OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
+        Set<OWLOntology> ontologies = OntologyLoader.loadOntology(filePath, true);
 
         OWL2QLProfile profile = new OWL2QLProfile();
-        //System.out.println("OWL2DL: " + profile.checkOntology(ontology));
-        System.out.println(ontology.getLogicalAxioms());
+        System.out.println("OWL2DL: " + profile.checkOntology(mainOntology));
+        System.out.println(mainOntology.getLogicalAxioms());
 
         DLExpressivityChecker expCheck = new DLExpressivityChecker(ontologies);
         String dlName = expCheck.getDescriptionLogicName();
         System.out.println("Ontology Expressivity: " + dlName);
 
-        System.out.println("\n\n\n---------------END MAIN----------------\n\n");
-    }
-
-    public void addImports(Set<OWLOntology> ontologies, OWLOntology ontology) {
-        Set<OWLOntology> importOntologies = ontology.getImports();
-        for(OWLOntology singleImport : importOntologies) {
-            ontologies.add(singleImport);
-            addImports(ontologies, singleImport);
-        }
+        System.out.println("\n---------------END MAIN----------------");
     }
 }
