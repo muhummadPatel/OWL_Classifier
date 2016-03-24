@@ -5,12 +5,13 @@ import java.util.*;
 
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.apibinding.*;
+import org.semanticweb.owlapi.profiles.OWL2QLProfile;
 import org.semanticweb.owlapi.util.*;
 
-public class App{
+public class Main {
     public static void main(String[] args){
-        App app = new App();
-        app.doStuff();
+        Main main = new Main();
+        main.doStuff();
     }
 
     public void doStuff() {
@@ -18,7 +19,7 @@ public class App{
 
         boolean usesImports = true;
         String filename = "AirIncidentOntology.owl";
-        // String filename = "pizza.owl";
+        // String filename = "Beverages.owl";
 
         System.out.println("Attempting to load ontology: " + filename);
         OWLOntologyManager m = OWLManager.createOWLOntologyManager();
@@ -41,7 +42,9 @@ public class App{
         }
         System.out.println(filename + " loaded.");
 
-
+        OWL2QLProfile profile = new OWL2QLProfile();
+        //System.out.println("OWL2DL: " + profile.checkOntology(ontology));
+        System.out.println(ontology.getLogicalAxioms());
 
         DLExpressivityChecker expCheck = new DLExpressivityChecker(ontologies);
         String dlName = expCheck.getDescriptionLogicName();
