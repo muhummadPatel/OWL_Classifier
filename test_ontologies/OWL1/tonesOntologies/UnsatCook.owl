@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/UnsatCook.owl#"
+     xml:base="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/UnsatCook.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cookstheorem="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/UnsatCook.owl">
+        <rdfs:comment>This was originally going to be an ontology that encoded Cook&#39;s theorem, however, as I was building it, several unsatisfiable classes cropped up and they seemed to have interesting explanations, so I preserved it for these.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextPosition -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextPosition"/>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextSymbol -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextSymbol"/>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasPosition -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasPosition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasState -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasState">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasTime"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#BlankSymbol -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#BlankSymbol">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Symbol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Configuration -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Configuration">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasState"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#State"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Symbol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>For a given configuration the TM is in a particular state, at a particular position on the tape, and is seeing a particular symbol.  (We don&#39;t print any symbols and we always move right).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Input -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Input">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#WordLength3"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position0"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextSymbol"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position1"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextSymbol"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position2"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextSymbol"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Class>
+                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position3"/>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextSymbol"/>
+                                                                        <owl:someValuesFrom>
+                                                                            <owl:Class>
+                                                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position4"/>
+                                                                                    <owl:Restriction>
+                                                                                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol"/>
+                                                                                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                                                                                    </owl:Restriction>
+                                                                                </owl:intersectionOf>
+                                                                            </owl:Class>
+                                                                        </owl:someValuesFrom>
+                                                                    </owl:Restriction>
+                                                                    <owl:Restriction>
+                                                                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol"/>
+                                                                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                                                                    </owl:Restriction>
+                                                                </owl:intersectionOf>
+                                                            </owl:Class>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol"/>
+                                                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasSymbol"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>Encodes an input of length 3</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position0"/>
+                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position1"/>
+                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position2"/>
+                    <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position3"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>Represents positions on the Turing Machine Tape.  Since we limit ourselves to length of input 3, there are 4 positions (including the start position).
+
+This class is covered by the various positions, which are disjoint with each other.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position0 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position0">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position1 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position1">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position2 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position2">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position3"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position3 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position3">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position4 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position4">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#hasNextPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Qno -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Qno">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#State"/>
+        <rdfs:comment>Represents the reject state</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Qyes -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Qyes">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#State"/>
+        <rdfs:comment>Represents the accept state</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#State -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#State">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Symbol -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Symbol">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>Represents the symbols from the alphabet {a, b} and BLANK</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#SymbolA -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#SymbolA">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Symbol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#SymbolB -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#SymbolB">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Symbol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>Represents times, starting with T0.  We only have input of length 3 and the read/write head on the Turing Machine only reads and only moves right until it reaches the first blank which marks the end of the string.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time0 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time0">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time1 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time1">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time2 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time2">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time3 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time3">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Word -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Word">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#WordLength3 -->
+
+    <owl:Class rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#WordLength3">
+        <rdfs:subClassOf rdf:resource="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Word"/>
+        <rdfs:comment>Words of length 3 (for simplicity)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time0"/>
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time1"/>
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time2"/>
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Time3"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position0"/>
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position1"/>
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position2"/>
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position3"/>
+            <rdf:Description rdf:about="http://www.cs.man.ac.uk/~horridgm/ontologies/complexity/cookstheorem.owl#Position4"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

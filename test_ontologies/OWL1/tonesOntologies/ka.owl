@@ -1,0 +1,2088 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.cs.man.ac.uk/~horrocks/OWL/Ontologies/ka.owl#"
+     xml:base="http://www.cs.man.ac.uk/~horrocks/OWL/Ontologies/ka.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ka="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#">
+    <owl:Ontology rdf:about="http://www.cs.man.ac.uk/~horrocks/OWL/Ontologies/ka.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publisher -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publisher"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#affiliation -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#affiliation"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#atEvent -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#atEvent"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#author -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#author"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#authorOfOntology -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#authorOfOntology"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#bibliographies -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#bibliographies"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#book -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#book"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#carriedOutBy -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#carriedOutBy"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#carriesOut -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#carriesOut"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#conference -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#conference"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#containsArticle -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#containsArticle"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#cooperatesWith -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#cooperatesWith"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#describesProject -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#describesProject"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#developedBy -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#developedBy"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#develops -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#develops"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#editor -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#editor"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#employs -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#employs"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#events -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#events"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#financedBy -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#financedBy"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#finances -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#finances"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#hasParts -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#hasParts"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#head -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#head"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#headOf -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#headOf"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#headOfGroup -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#headOfGroup"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#internationalFundingAgencies -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#internationalFundingAgencies"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#isAbout -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#isAbout"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#journal -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#journal"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#journals -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#journals"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#member -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#member"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#memberOf -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#memberOf"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#memberOfPC -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#memberOfPC"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#nationalFundingAgencies -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#nationalFundingAgencies"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#onlineVersion -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#onlineVersion"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#onlineVersionOf -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#onlineVersionOf"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#orgCommittee -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#orgCommittee"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#organization -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#organization"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#organizerOrChairOf -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#organizerOrChairOf"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#participant -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#participant"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#product -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#product"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productPublication -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productPublication"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productedBy -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productedBy"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#products -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#products"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#programCommittee -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#programCommittee"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#projectInfo -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#projectInfo"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#projects -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#projects"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#publication -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#publication"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#publishes -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#publishes"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#relatedTopics -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#relatedTopics"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchGroups -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchGroups"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchInterest -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchInterest"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchers -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchers"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#secretaryOf -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#secretaryOf"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#student -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#student"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#studiesAt -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#studiesAt"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#subTopics -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#subTopics"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#supervises -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#supervises"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#supervisor -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#supervisor"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#technicalReport -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#technicalReport"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#worksAtProject -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#worksAtProject"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#workshop -->
+
+    <owl:ObjectProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#workshop"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#abstract -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#abstract"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#address -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#address"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#applicationAreas -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#applicationAreas"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#approaches -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#approaches"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#date -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#date"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#dateOfLastModification -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#dateOfLastModification"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#description -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#description"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#email -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#email"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#eventTitle -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#eventTitle"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#fax -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#fax"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstName -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstName"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstPage -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstPage"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#keyword -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#keyword"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastName -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastName"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastPage -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastPage"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#location -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#location"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#mailingLists -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#mailingLists"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#middleInitial -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#middleInitial"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#name -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#name"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#number -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#number"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#phone -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#phone"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#photo -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#photo"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#proceedingsTitle -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#proceedingsTitle"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productFAQ -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productFAQ"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productMailingList -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productMailingList"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productName -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productName"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#series -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#series"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#title -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#title"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#type -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#type"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#volume -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#volume"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#webpages -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#webpages"/>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#year -->
+
+    <owl:DatatypeProperty rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#year"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Abduction -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Abduction">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AcademicStaff -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AcademicStaff">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Employee"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#supervises"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PhDStudent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#organizerOrChairOf"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#editor"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#publication"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#memberOfPC"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Activity -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Activity">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AdministrativeStaff -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AdministrativeStaff">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Employee"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AnomalyDetection -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AnomalyDetection">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validation_And_Verification"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AnomalyRepairAndKnowledgeRevision -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AnomalyRepairAndKnowledgeRevision">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validation_And_Verification"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Article -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Article">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ArticleInBook -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ArticleInBook">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Article"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#book"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Book"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AutomatedCodeGenerationFromSpecification -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AutomatedCodeGenerationFromSpecification">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguages"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AutomatedPSMGeneration -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AutomatedPSMGeneration">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Book -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Book">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publisher"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#containsArticle"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ArticleInBook"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#editor"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#CaseBaseReasoning -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#CaseBaseReasoning">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Conference -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Conference">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#number"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#series"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ConferencePaper -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ConferencePaper">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Article"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#conference"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Conference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#proceedingsTitle"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#CooperativeKnowledgeAcquisition -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#CooperativeKnowledgeAcquisition">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#DataMining -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#DataMining">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Department -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Department">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#hasParts"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Institute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#DevelopmentProject -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#DevelopmentProject">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Editor -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Editor">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ElicitationTool -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ElicitationTool">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Employee -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Employee">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#headOf"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#headOfGroup"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#affiliation"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#worksAtProject"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Enterprise -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Enterprise">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#EvaluationOfKA -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#EvaluationOfKA">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#date"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#hasParts"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#eventTitle"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#publication"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#orgCommittee"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#location"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#programCommittee"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#atEvent"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ExecutableSpecificationLanguages -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ExecutableSpecificationLanguages">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguages"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Formalisms -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Formalisms">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validation_And_Verification"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Guideline -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Guideline">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ImplementationEnvironment -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ImplementationEnvironment">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Institute -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Institute">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#hasParts"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#InternetTool -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#InternetTool">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Journal -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Journal">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#volume"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publisher"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#editor"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#containsArticle"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#JournalArticle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#number"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#JournalArticle -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#JournalArticle">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Article"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#journal"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Journal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodologies -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodologies">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeBasedRefinement -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeBasedRefinement">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeDiscoveryInDatasets -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeDiscoveryInDatasets">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeElicitation -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeElicitation">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeManagement -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KnowledgeManagement">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#LearningApprenticeSystems -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#LearningApprenticeSystems">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Lecturer -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Lecturer">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AcademicStaff"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Meeting -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Meeting">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#title"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#participant"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#date"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Methodologies -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Methodologies">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Ontologies"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Methodology -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Methodology">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validation_And_Verification"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ModelingLanguage -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ModelingLanguage">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#NLParser -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#NLParser">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#keyword"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#OnlinePublication -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#OnlinePublication">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#type"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#onlineVersionOf"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Ontologies -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Ontologies">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Reuse"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Ontology -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Ontology">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#OntologyLibrary -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#OntologyLibrary">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#name"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#finances"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#location"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#employs"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#carriesOut"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#develops"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Product"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#publishes"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#technicalReport"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TechnicalReport"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSM -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSM">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMLibrary -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMLibrary">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMevaluation -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMevaluation">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMlibraries -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMlibraries">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMnotations -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMnotations">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Reuse"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PaperLibrary -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PaperLibrary">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#photo"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#middleInitial"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#email"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#name"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#fax"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstName"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#address"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#phone"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastName"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PhDStudent -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PhDStudent">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Researcher"/>
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Student"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#supervisor"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AcademicStaff"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Product -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Product">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productPublication"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productName"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productMailingList"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#developedBy"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productFAQ"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#productedBy"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#financedBy"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#carriedOutBy"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#head"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Employee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#projectInfo"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#product"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Product"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#isAbout"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#title"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#member"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Employee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#title"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#year"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#author"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#describesProject"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#onlineVersion"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#OnlinePublication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#abstract"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ReinforcementLearning -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ReinforcementLearning">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAThroughMachineLearning"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchGroup -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchGroup">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#member"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Researcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#head"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Employee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchProject -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchProject">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#nationalFundingAgencies"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#description"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#webpages"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#relatedTopics"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#internationalFundingAgencies"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#approaches"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#authorOfOntology"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Researcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#projects"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#name"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#applicationAreas"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#products"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Product"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#bibliographies"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Publication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#mailingLists"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#events"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#subTopics"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchGroups"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchers"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Researcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#dateOfLastModification"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#journals"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Journal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Researcher -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Researcher">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AcademicStaff"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#cooperatesWith"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Researcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#memberOf"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#researchInterest"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Reuse -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Reuse">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Secretary -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Secretary">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AdministrativeStaff"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#secretaryOf"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SoftwareApplications -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SoftwareApplications">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Ontologies"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SoftwareProject -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SoftwareProject">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#DevelopmentProject"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SoftwareReuse -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SoftwareReuse">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Reuse"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecialIssueEvent -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecialIssueEvent">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecialIssuePublication -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecialIssuePublication">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Journal"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguage -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguage">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#KAMethodology"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguages -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguages">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationMethodology -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationMethodology">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguages"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationOfControlKnowledge -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationOfControlKnowledge">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguages"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Student -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Student">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#studiesAt"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#University"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SupportToolsForFormalMethods -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SupportToolsForFormalMethods">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#SpecificationLanguages"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Sysiphus_III_Experiment -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Sysiphus_III_Experiment">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TechnicalReport -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TechnicalReport">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Article"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#series"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#number"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#organization"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TechnicalStaff -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TechnicalStaff">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#AdministrativeStaff"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TheoreticalFoundations -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TheoreticalFoundations">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Ontologies"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TransformationTool -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#TransformationTool">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#University -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#University">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Organization"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#student"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Student"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#hasParts"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Department"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#V_And_V_Of_MAS -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#V_And_V_Of_MAS">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validation_And_Verification"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validation_And_Verification -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validation_And_Verification">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ResearchTopic"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validator -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Validator">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Verifier -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Verifier">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#ComputerSupport"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#WebMediatedPSMSelection -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#WebMediatedPSMSelection">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#PSMs"/>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Workshop -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Workshop">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#number"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#series"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#WorkshopPaper -->
+
+    <owl:Class rdf:about="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#WorkshopPaper">
+        <rdfs:subClassOf rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Article"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#proceedingsTitle"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#workshop"/>
+                <owl:allValuesFrom rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#Workshop"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#firstPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="file:F:/Projects/OIL/DAMLOilEd/ontologies/ka.daml#lastPage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

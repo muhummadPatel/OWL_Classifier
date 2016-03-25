@@ -1,0 +1,366 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#"
+     xml:base="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:eukariotic="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#">
+    <owl:Ontology rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#AvianRedBloodCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#AvianRedBloodCell">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalRedBloodCell"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">We would like this to be considered a normal eukariotic cell</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell"/>
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#ProkarioticCell"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Has the advantage that the conditions making EukarioticCell normal are only maintained in on place - in TypicalEukarioticCell</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalEukarioticCell"/>
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalEukarioticCell"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalEukarioticCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalEukarioticCell">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalEukarioticCell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalRedBloodCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalRedBloodCell">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalRedBloodCell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Nucleus -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Nucleus"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#ProbeBothEukarioticAndProkarioticCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#ProbeBothEukarioticAndProkarioticCell">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell"/>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#ProkarioticCell"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cannot have something that is both</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#ProkarioticCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#ProkarioticCell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell"/>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any Cell that do not have a nucleus and is not a eukariotic cell.
+(Eg Blood Cells are eukariotic, but don&#39;t have a nucleus)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalRedBloodCell"/>
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalRedBloodCell"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalEukarioticCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalEukarioticCell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#EukarioticCell"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalRedBloodCell -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#TypicalRedBloodCell">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#a_nucleus -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#a_nucleus">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Nucleus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#b_nucleus -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#b_nucleus">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Nucleus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_1_nucleus -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_1_nucleus">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell"/>
+        <hasNucleus rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#a_nucleus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_2_nucleii -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_2_nucleii">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell"/>
+        <hasNucleus rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#a_nucleus"/>
+        <hasNucleus rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#b_nucleus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_no_nucleii -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_no_nucleii">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Could be a bloodcell, so we don&#39;t have enough information to state that it is a ProkarioticCell</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_no_nucleii_that_not_an_abnormal_eukariotic_cell -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_no_nucleii_that_not_an_abnormal_eukariotic_cell">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#NonTypicalEukarioticCell"/>
+            </owl:Class>
+        </rdf:type>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Only way we can determine that this is not, for example, a blood cell</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_unstated_nucleii -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#cell_with_unstated_nucleii">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#Cell"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_1_nucleus -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_1_nucleus">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell"/>
+        <hasNucleus rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#a_nucleus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_2_nucleii -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_2_nucleii">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell"/>
+        <hasNucleus rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#a_nucleus"/>
+        <hasNucleus rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#b_nucleus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_no_nucleii -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_no_nucleii">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#hasNucleus"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_unstated_nucleii -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#redbloodcell_with_unstated_nucleii">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#RedBloodCell"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#a_nucleus"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/eukariotic/2005/06/01/eukariotic.owl#b_nucleus"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

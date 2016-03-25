@@ -56,11 +56,39 @@
         <!--owlapi previous version jars-->
         <!--TODO: do the other jars just like this. It should work.-->
         <dependency>
-            <groupId>abstract-parser</groupId>
-            <artifactId>abstract-parser-id</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/validation.jar</systemPath>
+            <groupId>owlapi-api</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-validation</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-io</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-rdfapi</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-rdfparser</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-impl</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-antlr</groupId>
+            <artifactId>owlapi</artifactId>
+            <version>1.4.3</version>
         </dependency>
     </dependencies>
 
