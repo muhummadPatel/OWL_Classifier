@@ -4,7 +4,7 @@
  * March, 2016
  ***/
 
-//package com.oe;
+package com.oe;
 	/* This is commented out in the mean time because you need to specify
 	   the class path and other package stuff when compiling it alone
 	   from the command line */
@@ -12,7 +12,13 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.io.File;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+import java.io.*;
+import java.util.*;
 
 public class UI extends JFrame// implements ComponentListener
 {
@@ -25,6 +31,9 @@ public class UI extends JFrame// implements ComponentListener
 
 	private float fileNameAreaPercentage = 0.5f; //Percentage of the width of the screen that the file name text area occupies
 	private float fontSize = 12.0f; //Approximation of the font size, to calculate the width of text components
+
+  OWLOntology mainOntology;
+  Set<OWLOntology> ontologies;
 
 	private String species; //OWL 2DL, QL, etc.
 	private String[] expressivity; //['S','R','O','Q','(D)'] etc.
@@ -82,57 +91,40 @@ public class UI extends JFrame// implements ComponentListener
       frame.setLayout(new GridBagLayout());
       frame.addComponentListener(new Window()); //Window is defined further down. Mainly for doing stuff when the window is resized.
 
-
+      JMenuBar bar = new JMenuBar();
+      JMenu fileMenu = new JMenu("File");
+      JMenuItem loadItem = new JMenuItem("Load Ontology");
+      loadItem.addActionListener(new OpenFileClickListener());
+      fileMenu.add(loadItem);
+      bar.add(fileMenu);
+      frame.setJMenuBar(bar);
 
       GridBagConstraints gbc = new GridBagConstraints();
 
-      JButton openFile = new JButton("Choose File");
-      openFile.addActionListener(new OpenFileClickListener());
-      gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
-      gbc.weighty = 1; gbc.weightx = 1;
-      frame.add(openFile,gbc);
-
-      fileName = new JTextField("[Enter File Name]",15);
-      //fileName.setLineWrap(true);
-      //fileName.setEditable(false);
-      gbc.gridx = 1; gbc.gridy = 0; gbc.gridwidth = 3; gbc.gridheight = 1;
-      gbc.weighty = 1; gbc.weightx = 1;
-      frame.add(fileName,gbc);
-
-      JButton loadOntology = new JButton("Load Ontology");
-      loadOntology.addActionListener(new LoadOntologyClickListener());
-      gbc.gridx = 4; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
-      gbc.weighty = 1; gbc.weightx = 1;
-      frame.add(loadOntology,gbc);
-
       speciesLabel = new JLabel("OWL Species: ");
-      gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; gbc.gridheight = 1;
-      gbc.weighty = 1; gbc.weightx = 1;
+      gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
+      gbc.weighty = 0; gbc.weightx = 0;
       frame.add(speciesLabel,gbc);
 
       expressivityLabel = new JLabel("Expressivity: ");
-      gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 1; gbc.gridheight = 1;
-      gbc.weighty = 1; gbc.weightx = 1;
+      gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; gbc.gridheight = 1;
+      gbc.weighty = 0.14; gbc.weightx = 0;
       frame.add(expressivityLabel,gbc);
 
       expressivityPane = new JTabbedPane();
-      JTextArea field1 = new JTextArea();
-      JTextArea field2 = new JTextArea();
+      JTextArea tempField1 = new JTextArea();
     //  expressivityPane.setSize(500,400);
-      expressivityPane.addTab("S", field1);
-      expressivityPane.addTab("R", field2);
-      gbc.gridx = 0; gbc.gridy = 3; gbc.gridwidth = 4; gbc.gridheight = 4;
+      expressivityPane.addTab("Expressivity Information", tempField1);
+      gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 4; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(expressivityPane,gbc);
 
       violationsPane = new JTabbedPane();
-      JTextArea field3 = new JTextArea();
-      JTextArea field4 = new JTextArea();
+      JTextArea tempField2 = new JTextArea();
       //violationsPane.setSize(500,400);
-      violationsPane.addTab("OWL 2 DL", field3);
-      violationsPane.addTab("OWL 2 QL", field4);
-      gbc.gridx = 0; gbc.gridy = 7; gbc.gridwidth = 4; gbc.gridheight = 4;
+      violationsPane.addTab("Violation Information",tempField2);
+      gbc.gridx = 0; gbc.gridy = 6; gbc.gridwidth = 4; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(violationsPane,gbc);
@@ -173,15 +165,17 @@ public class UI extends JFrame// implements ComponentListener
     		File workingDirectory = new File(System.getProperty("user.dir"));
     		chooser.setCurrentDirectory(workingDirectory);
 
+        String filePath = "";
     		chooser.showOpenDialog(null);
     		try
     		{
-    			String fName = chooser.getSelectedFile().getAbsolutePath();
-    			fileName.setText(fName);
-    			fileName.setColumns((int)(frame.getBounds().width*fileNameAreaPercentage/fontSize));
+    			filePath = chooser.getSelectedFile().getAbsolutePath();
     		}
     		catch(Exception ex) //User opens dialog box but then doesn't select anything/exits
     		{}
+
+        mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
+        ontologies = OntologyLoader.loadOntology(filePath, true);
     	}
     }
 
