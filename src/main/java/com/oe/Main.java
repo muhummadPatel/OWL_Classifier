@@ -16,8 +16,7 @@ public class Main {
 
         // The OWL file to be loaded
 
-        String filePath = "Beverages.owl";
-        //String filePath = "AirIncidentOntology.owl";
+        String filePath = "test_ontologies/OWL1/tonesOntologies/family-tree.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
@@ -60,6 +59,9 @@ public class Main {
             }
             System.out.println();
         }
+
+        System.out.println();
+        System.out.println(OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI(filePath)));
 
         System.out.println("\n---------------END MAIN----------------");
     }

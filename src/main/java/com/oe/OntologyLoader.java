@@ -6,6 +6,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import java.io.File;
+import java.net.URI;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +52,11 @@ public class OntologyLoader{
         }
 
         return ontologies;
+    }
+
+    public static URI getOntologyURI(String filePath) {
+        File ontFile = new File(filePath);
+        return ontFile.toURI();
     }
 
     private static void addImports(Set<OWLOntology> ontologies, OWLOntology ontology) {

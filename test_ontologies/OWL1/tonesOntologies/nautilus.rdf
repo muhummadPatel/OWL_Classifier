@@ -1,0 +1,476 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.co-ode.org/nautilus#"
+     xml:base="http://www.co-ode.org/nautilus"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:nautilus="http://www.co-ode.org/nautilus#">
+    <owl:Ontology rdf:about="http://www.co-ode.org/nautilus"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.co-ode.org/nautilus#myDate"/>
+    <owl:AnnotationProperty rdf:about="http://www.co-ode.org/nautilus#myOwnAnnotation"/>
+    <owl:AnnotationProperty rdf:about="http://www.co-ode.org/nautilus#version"/>
+    <owl:AnnotationProperty rdf:about="http://www.co-ode.org/nautilus#myName"/>
+    <owl:AnnotationProperty rdf:about="http://www.co-ode.org/nautilus#annotationsCreatedBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#has_body_type -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/nautilus#has_body_type">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/nautilus#Animal"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/nautilus#Body_type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#has_shell -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/nautilus#has_shell">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/nautilus#Animal"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/nautilus#Yes-No"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#annotationsCreatedBy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/nautilus#annotationsCreatedBy"/>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#myDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/nautilus#myDate"/>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#myName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/nautilus#myName"/>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#myOwnAnnotation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/nautilus#myOwnAnnotation"/>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#partOfPattern -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/nautilus#partOfPattern"/>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#partOfValuePartition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/nautilus#partOfValuePartition">
+        <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/nautilus#partOfPattern"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#version -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/nautilus#version"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Animal -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Animal">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Domain_Entity"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Atypical_cephalopod -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Atypical_cephalopod">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#Cephalopod"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.co-ode.org/nautilus#Typical_cephalopod"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Atypical_mollusc -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Atypical_mollusc">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#Mollusc"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://www.co-ode.org/nautilus#Typical_mollusc"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Body_type -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Body_type">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#Hard_bodied"/>
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#Soft_bodied"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#ValuePartition"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Cephalopod -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Cephalopod">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Mollusc"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/nautilus#Clam"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Clam -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Clam">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Mollusc"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/nautilus#has_shell"/>
+                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/nautilus#Yes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Domain_Entity -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Domain_Entity">
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Hard_bodied -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Hard_bodied">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Body_type"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/nautilus#Soft_bodied"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Invertebrate -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Invertebrate">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Animal"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Mollusc -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Mollusc">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Invertebrate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/nautilus#has_body_type"/>
+                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/nautilus#Soft_bodied"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Nautiloid -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Nautiloid">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Cephalopod"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/nautilus#has_shell"/>
+                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/nautilus#Yes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/nautilus#Octopus"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/nautilus#Squid"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#No -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#No">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Yes-No"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/nautilus#Yes"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Octopus -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Octopus">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Cephalopod"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/nautilus#has_shell"/>
+                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/nautilus#No"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/nautilus#Squid"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Soft_bodied -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Soft_bodied">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Body_type"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Squid -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Squid">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Cephalopod"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/nautilus#has_shell"/>
+                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/nautilus#No"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Typical_cephalopod -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Typical_cephalopod">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#Cephalopod"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/nautilus#has_shell"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/nautilus#No"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Typical_mollusc -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Typical_mollusc">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#Mollusc"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/nautilus#has_shell"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/nautilus#Yes"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#ValuePartition -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#ValuePartition">
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Yes -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Yes">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#Yes-No"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/nautilus#Yes-No -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/nautilus#Yes-No">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#No"/>
+                    <rdf:Description rdf:about="http://www.co-ode.org/nautilus#Yes"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/nautilus#ValuePartition"/>
+        <version rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.0</version>
+        <myOwnAnnotation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funky</myOwnAnnotation>
+        <myDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jun 7, 2005</myDate>
+        <myName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alanrector</myName>
+        <annotationsCreatedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.co-ode.org/downloads/autoannotator/</annotationsCreatedBy>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

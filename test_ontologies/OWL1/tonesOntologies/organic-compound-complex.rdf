@@ -1,0 +1,670 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontology.dumontierlab.com/organic-compound-complex#"
+     xml:base="http://ontology.dumontierlab.com/organic-compound-complex"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ontology="http://ontology.dumontierlab.com/">
+    <owl:Ontology rdf:about="http://ontology.dumontierlab.com/organic-compound-complex">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.0</owl:versionInfo>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2007-10-01</dc:date>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complex class descriptions for the classification of organic compounds based on the presence of functional groups.</dc:description>
+        <dc:publisher rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumontier Lab</dc:publisher>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michel Dumontier</dc:creator>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Organic Compound Ontology (complex)</dc:title>
+        <dc:format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rdf+xml</dc:format>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</dc:language>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/annotation"/>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/organic-compound-primitive"/>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/organic-functional-group-complex"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/language"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/format"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasPart">
+        <owl:inverseOf rdf:resource="http://ontology.dumontierlab.com/isPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isPartOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylBromide -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylBromide">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/AcylHalide"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AcylBromideGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylBromideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylBromideGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylChloride -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylChloride">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/AcylHalide"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AcylChlorideGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylChlorideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylChlorideGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylCompound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylCompound">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AcylGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylFluoride -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylFluoride">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/AcylHalide"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AcylFluorideGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylFluorideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylFluorideGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylHalide -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylHalide">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AcylHalideGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylHalideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylHalideGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylIodide -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylIodide">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/AcylHalide"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AcylIodideGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylIodideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylIodideGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Alcohol -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Alcohol">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HydroxylGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Aldehyde -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Aldehyde">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AldehydeGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AldehydeGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AldehydeGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Amide -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Amide">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AmideGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AmideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AmideGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Amine -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Amine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/AmineGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AmineGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Atom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Atom">
+        <owl:disjointWith rdf:resource="http://ontology.dumontierlab.com/OrganicCompound"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonylCompound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonylCompound">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarbonylGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonylGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonylGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarboxylicAcid -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarboxylicAcid">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarboxylicAcidGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarboxylicAcidGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarboxylicAcidGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Compound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Compound"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Ester -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Ester">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/EsterGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/EsterGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/EsterGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Ether -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Ether">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/EtherGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/EtherGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/EtherGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HalogenAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HalogenAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HalogenCompound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HalogenCompound">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HalogenAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Hydrocarbon -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Hydrocarbon">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HydrogenAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HydrogenAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HydroxylGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HydroxylGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Imine -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Imine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/ImineGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ImineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ImineGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Ketone -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Ketone">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/KetoneGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/KetoneGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/KetoneGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicCompound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicCompound">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/Compound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarbonGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicSulfurCompound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicSulfurCompound">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OrganicSulfurGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicSulfurGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicSulfurGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PrimaryAmine -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PrimaryAmine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/PrimaryAmineGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PrimaryAmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PrimaryAmineGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SecondaryAmine -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SecondaryAmine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/SecondaryAmineGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SecondaryAmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SecondaryAmineGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TertiaryAmine -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TertiaryAmine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicCompound"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasPart"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/TertiaryAmineGroup"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TertiaryAmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TertiaryAmineGroup"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,1746 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontology.dumontierlab.com/chemistry-primitive#"
+     xml:base="http://ontology.dumontierlab.com/chemistry-primitive"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ontology="http://ontology.dumontierlab.com/">
+    <owl:Ontology rdf:about="http://ontology.dumontierlab.com/chemistry-primitive">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.0</owl:versionInfo>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2007-10-01</dc:date>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chemistry Ontology (primitive)</dc:title>
+        <dc:publisher rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumontier Lab</dc:publisher>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Entities and relations for the chemistry domain.</dc:description>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michel Dumontier</dc:creator>
+        <dc:format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rdf+xml</dc:format>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</dc:language>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/annotation"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    <owl:AnnotationProperty rdf:about="http://ontology.dumontierlab.com/synonym"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/language"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/format"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    <owl:AnnotationProperty rdf:about="http://ontology.dumontierlab.com/example"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasCharge -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasCharge">
+        <rdfs:range rdf:resource="http://ontology.dumontierlab.com/ElectricCharge"/>
+        <rdfs:domain rdf:resource="http://ontology.dumontierlab.com/Ion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasConformer -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasConformer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has conformer</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A relation between two diastereomers in which there is only a difference in the rotation of bonds.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/hasDiastereomer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasDiastereomer -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasDiastereomer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has diastereomer</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A symmetric relation between two stereoisomers in which they are not mirror images of one another.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/hasStereoIsomer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasElectronegativity -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasElectronegativity">
+        <rdfs:range rdf:resource="http://ontology.dumontierlab.com/Electronegativity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasEnantiomer -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasEnantiomer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has enantiomer</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A symmetric relation between two stereoisomers in which they are the mirror images of each other.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/hasStereoIsomer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasIsomer -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasIsomer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has isomer</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A symmetric relation between two compounds for which there is an identical composition, but different spatial arrangement of atoms.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+        <rdfs:range rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasStereoIsomer -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasStereoIsomer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has stereoisomer</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A symmetric, transitive relation between two isomeric compounds whose atomic connectivity is the same, but differs in its spatial arrangement of atoms.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/hasIsomer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasStructuralIsomer -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasStructuralIsomer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has structural isomer</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A symmetric, transitive relation between two isomers in which the bond structure differs.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/hasIsomer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasDeltaH -->
+
+    <owl:DatatypeProperty rdf:about="http://ontology.dumontierlab.com/hasDeltaH">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has delta H</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The enthalpic component of free energy.</rdfs:comment>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">change in enthalpy</ontology:synonym>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heat content</ontology:synonym>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasDeltaS -->
+
+    <owl:DatatypeProperty rdf:about="http://ontology.dumontierlab.com/hasDeltaS">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has delta S</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The entropy component of free energy.</rdfs:comment>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">change in entropy</ontology:synonym>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Acid -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Acid">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acid</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical compound that when dissolved in water, has a pH less than 7.0. It is also defined by a compound that donates a hydrogen ion.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcidBaseReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcidBaseReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acid-base reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction in which an acid reacts with a base.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Acidic -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Acidic">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acidic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Acidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Acidity -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Acidity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acidity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of being acidic, basic or neutral.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AdditionReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AdditionReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">addition reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/OrganicReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An organic reaction where two or more molecules combine to form a larger one. Addition reactions are limited to chemical compounds that have multiply-bonded atoms:
+    * Molecules with carbon-carbon double bonds or triple bonds
+    * Molecules with carbon - hetero double bonds like C=O or C=N</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AggregatedCarbonNanorods -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AggregatedCarbonNanorods">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">aggregated carbon nanorods</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An allotrope of carbon considered to be the least compressible material known, as measured by its isothermal bulk modulus; aggregated diamond nanorods have a modulus of 491 gigapascals (GPa), while a conventional diamond has a modulus of 442 GPa. ADNRs are also 0.3% denser than regular diamond. T</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Allotrope -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Allotrope">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">allotrope</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/PureSubstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A structural variant of an element.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AmorphousCarbon -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AmorphousCarbon">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">amorphous carbon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amorphous carbon is an allotrope of carbon that does not have any crystalline structure. As with all glassy materials, some short-range order can be observed, but there is no long-range pattern of atomic positions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Anion -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Anion">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">anion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Ion"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A negatively charged ion.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AntiConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AntiConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">anti conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An anti conformation is a chemical conformation in which the torsion angle is between +/-90 and 180 degrees.</rdfs:comment>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AnticlinalConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AnticlinalConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">anticlinal conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An anticlinal conformation is a chemical conformation in which the torsion angle is between 90 to 150 or -90  to -150 degrees.</rdfs:comment>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AromaticBond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AromaticBond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">aromatic bond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalBond"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical bond that in which extra stability is obtained by the sharing of electrons below and above the plane.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Base -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Base">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Basic -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Basic">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">basic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Acidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/BinaryCompound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/BinaryCompound">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">binary compound</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical compound consisting of only atoms of two different element.</rdfs:comment>
+        <ontology:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NaCl (Sodium Chloride) is a binary compound, as it is an ionically bound compound made up of two elements.</ontology:example>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/BoseEinsteinCondensate -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/BoseEinsteinCondensate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bose einstein condensate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonAllotrope -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonAllotrope">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">carbon allotrope</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Allotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An allotrope of carbon.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonNanofoam -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonNanofoam">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">carbon nanofoam</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An allotrope of carbon that consists of a low-density cluster-assembly of carbon atoms strung together in a loose three-dimensional web. Each cluster is about 6 nanometers wide and consists of about 4000 carbon atoms linked in graphite-like sheets that are given negative curvature by the inclusion of heptagons among the regular hexagonal pattern.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Catalyst -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Catalyst">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">catalyst</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Reagent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical agent that increases the rate of reaction by lowering the activation energy.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CatalyzedReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CatalyzedReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">catalyzed reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction that is catalyzed by some agent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Cation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Cation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Ion"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A positively charged ion.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CationPiInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CationPiInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cation pi interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectronicInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An electronic interaction between the localized negative charge of &#960; orbital electrons, located above and below the plane of an aromatic ring, and a positive charge.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Chaoite -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Chaoite">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chaoite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An allotrope of carbon that is slightly harder than graphite with a reflection colour of grey to white.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalAgent -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalAgent">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical agent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Reagent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical that acts on another chemical.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalBond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalBond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical bond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A strong interaction between atoms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of a conformer due to the spatial orientation of atoms rotating about a bond.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalDegradationPathway -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalDegradationPathway">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReactionPathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical interaction</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interaction having one or more chemical participants.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A quality of the state of a macroscopic physical system with relatively uniform chemical composition and physical properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalQuality -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalQuality">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical quality</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A quality of a chemical.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical reaction</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A process in which at least one chemical is converted into another.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalReactionPathway -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalReactionPathway">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical reaction pathway</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalSubstance -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalSubstance">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical substance</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Any material with a definite chemical composition.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChemicalSynthesisPathway -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChemicalSynthesisPathway">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReactionPathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ChiralCenter -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ChiralCenter">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chiral center</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularCenter"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of an atom that is bonded to four different chemical species, allowing for optical isomerism.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CisIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CisIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cis isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CisTransIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A cis isomer is a diastereomer in which the substituent groups are placed on the same side of the double bond.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CisTransIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CisTransIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cis/trans isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Diastereomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Isomers cannot be interconverted by chemical bond rotations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ClinalConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ClinalConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">clinal conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A clinal conformation is a chemical conformation in which the torsion angle is  30 to 150 or -30 to -150 degrees.</rdfs:comment>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Cofactor -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Cofactor">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Reagent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A reagent that is required for catalysis of some reaction. It is not consumed/transformed in the chemical reaction.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CommonChemicalPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CommonChemicalPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">common chemical phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalPhase"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A quality of a chemical system that is commonly observed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Complex -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Complex">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">complex</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A complex is a compound in which molecules, atoms, or ions may interact through weak non-covalent chemical bonds.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Compound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Compound">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compound</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A substance made up of two or more elements covalently bonded together.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Conformer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Conformer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conformer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Diastereomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A conformer is a diastereomer due to chemical bond rotations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CovalentBond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CovalentBond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">covalent bond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalBond"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A strong bond between two atoms sharing one or more electrons.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CrystallinePhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CrystallinePhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">crystalline phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DLIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An D isomer is an optical isomer in which the three highest priority substitutents decreases in clockwise direction when the lowest is pointed away from the viewer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DLIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DLIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D or L isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/OpticalIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D or L isomers are optical isomers that are identified by comparing the spatial configuration of its atoms to glyceraldehyde.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DecompositionReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DecompositionReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decomposition reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/InorganicReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An inorganic reaction in which a chemical compound is fragmented into elements or smaller compounds.</rdfs:comment>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical analysis</ontology:synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Diamond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Diamond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">diamond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A carbon allotrope in which each carbon atom in diamond is covalently bonded to four other carbons in a tetrahedron. These tetrahedrons together form a 3-dimensional network of puckered six-membered rings of atoms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Diastereomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Diastereomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">diastereomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Stereoisomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A diastereomer is a stereoisomer that is not a mirror image of its isomer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DipoleDipoleInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DipoleDipoleInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dipole-dipole interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectronicInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interaction that occurs between strongly electronegative atoms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DisplacementReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DisplacementReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">displacement reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/InorganicReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An inorganic reaction in which an elementary substance displaces and sets free a constituent element from a compound.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DisulfideBond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DisulfideBond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disulfide bond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CovalentBond"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical bond between two sulfur atoms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DoubleDisplacementReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DoubleDisplacementReaction">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DisplacementReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A double displacement reaction is a displacement reaction in which two compounds swap ions, effectively displacing each other to form two new compounds.</rdfs:comment>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">double replacement</ontology:synonym>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ion exchange reactions</ontology:synonym>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">metathesis</ontology:synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/EclipsedConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/EclipsedConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">eclipsed conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of a chemical conformation that exists in any open chain single chemical bond connecting two sp3 hybridised atoms as a conformational energy maximum due to steric hindrance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ElectricCharge -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ElectricCharge">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electric charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of having an imbalance of electric charge.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Electronegativity -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Electronegativity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Electronegativity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of force required to remove an electron from the outer shell.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ElectronicInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ElectronicInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electronic interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An intermolecular interaction that involves the interaction of electrons.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ElectrophilicAddition -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ElectrophilicAddition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electrophilic addition reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/PolarAdditionReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A polar addition reaction where a pi bond is removed by the creation of two new covalent bonds.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ElectrostaticInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ElectrostaticInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electrostatic interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interation that involves the interaction of electrons, but that are not shared.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Enantiomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Enantiomer">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Stereoisomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An enantiomer is a stereoisomer that is a mirror image of its isomer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/FermionicCondensate -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/FermionicCondensate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fermionic condensate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/FerromagneticPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/FerromagneticPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ferromagnetic phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/FreeRadicalAddition -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/FreeRadicalAddition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">free radical addition</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/NonPolarAdditionReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A non-polar addition reaction involving free radicals.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Fullerene -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Fullerene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fullerene</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A carbon allotrope which take the form of a hollow sphere, ellipsoid, or tube.</rdfs:comment>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">buckyball</ontology:synonym>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">buckytube</ontology:synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/GasPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/GasPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gas phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CommonChemicalPhase"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of substance to be in a gas phase.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/GaucheConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/GaucheConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gauche conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A gauche conformation is a chemical conformation in which the torsion angle is between 30 to 90 or -30 to -90 degrees.</rdfs:comment>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</dc:source>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">skew conformation</ontology:synonym>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synclinal conformation</ontology:synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/GlassyCarbon -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/GlassyCarbon">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">glassy carbon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An allotrope of carbon which is widely used as an electrode material in electrochemistry, as well as for high temperature crucibles and as a component of some prosthetic devices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Graphite -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Graphite">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">graphite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An allotrope of carbon which is a conductor, and is the most stable form of solid carbon.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HeterogeneousMixture -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HeterogeneousMixture">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heterogeneous mixture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Mixture"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A heterogeneous mixture is a mixture without definite composition.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HomogeneousMixture -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HomogeneousMixture">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">homogeneous mixture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Mixture"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A mixture of definite composition and properties such that any amount of a given mixture has the same composition and properties</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HydrogenBond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HydrogenBond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydrogen bond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/PolarBond"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A dipole interaction between a hydrogen bound to an electronegative atom and some other electronegative atom.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Hydrophilic -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Hydrophilic">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydrophilic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Hydrophobicity"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of interacting favourably (decreases the energy of the system) with water.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Hydrophobic -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Hydrophobic">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydrophobic</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Hydrophobicity"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of poorly iinteracting with water (increases the energy of the system).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HydrophobicInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HydrophobicInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydrophobic interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectronicInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interaction between non-polar groups in aqueous solvent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Hydrophobicity -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Hydrophobicity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydrophobicity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A quality that reflects how well the compound interacts with surrounding water molecules.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/InorganicReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/InorganicReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inorganic reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An inorganic reaction is a chemical reaction that involves the transformation of inorganic participants.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/InterMolecularInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/InterMolecularInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intermolecular interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interaction between molecules.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Ion -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Ion">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A particle that is electrically charged.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/IonicBond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/IonicBond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ionic bond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalBond"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A strong electrostatic interaction between oppositely charged atoms which have an electronegativity difference of over 1.6 (by convention).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/IonicCompound -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/IonicCompound">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ionic compound</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/BinaryCompound"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A binary compound that consists of positive and negative ions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Isomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Isomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A compound that is compositionally identical to another compound as a result of a different atomic connectivity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Isomerization -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Isomerization">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">isomerization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction in which a molecule is derived into its isomer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/LIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/LIsomer">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DLIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An L isomer is an optical isomer in which the three highest priority substitutents decreases in a counter-clockwise direction when the lowest is pointed away from the viewer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/LinearMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/LinearMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A linear geometry of a molecule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/LiquidCrystalPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/LiquidCrystalPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liquid crystal phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/LiquidPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/LiquidPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liquid phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Lonsdaleite -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Lonsdaleite">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lonsdaleite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonAllotrope"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A hexagonal allotrope of the carbon allotrope diamond.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MetalComplex -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MetalComplex">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">metal complex</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Complex"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A complex that contains at least one metal.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Mixture -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Mixture">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mixture</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A substance consisting of two or more substances mixed together.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MolecularCenter -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MolecularCenter">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">molecular center</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MolecularComplexAssembly -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MolecularComplexAssembly">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">molecular complex assembly</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularComplexInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MolecularComplexDisassociation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MolecularComplexDisassociation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">molecular complex disassociation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularComplexInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MolecularComplexInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MolecularComplexInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">molecular complex formation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/InterMolecularInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interaction between molecules that leads</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The geometry of a molecule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MullikenElectronegativity -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MullikenElectronegativity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mulliken electronegativity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Electronegativity"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A quality of the average ionization potential and electron affinity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NegativeCharge -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NegativeCharge">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">negative charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectricCharge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NeutralAcidity -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NeutralAcidity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutral acidity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Acidity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NeutralCharge -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NeutralCharge">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutral phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectricCharge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NonPolar -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NonPolar">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non polar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Polarity"/>
+        <ontology:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Methane is considered non-polar because the carbon shares the hydrogen molecules uniformally.</ontology:example>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of equal sharing of electrons among atoms in a covalent bond.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NonPolarAdditionReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NonPolarAdditionReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non polar addition reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/AdditionReaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NonpolarSolvent -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NonpolarSolvent">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nonpolar solvent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Solvent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A solvent that has the quality of being nonpolar.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NucleophilicAddition -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NucleophilicAddition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nucleophilic addition reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/PolarAdditionReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An addition reaction where a pi bond is removed by the creation of two new covalent bonds by the addition from a nucleophile.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OctahedralMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OctahedralMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">octahedral molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A molecular geometry in which 6 ligands are symmetrically arranged around a central atom in an octahedral geometry.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OpticalIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OpticalIsomer">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Stereoisomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An optical isomer rotates the plane of polarization of a beam of plane polarized light.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">organic reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction involving at least one organic compound or substance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OxidizingAgent -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OxidizingAgent">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oxidizing agent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalAgent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical agent that oxidizes another compound.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ParamagneticPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ParamagneticPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">paramagnetic phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PaulingElectronegativity -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PaulingElectronegativity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pauling electronegativity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Electronegativity"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A quality of electronegativity that ranges from 0 to 4.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PeriplanarConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PeriplanarConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">periplanar conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A periplanar conformation is a chemical conformation in which the torsion angle is between 0 to 30 or 150 to 180 degrees.</rdfs:comment>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PlasmaPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PlasmaPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">plasma phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Polar -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Polar">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">polar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Polarity"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of unequal sharing of electrons from atoms in a covalent bond.</rdfs:comment>
+        <ontology:example rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Water is considered polar because of the uneven sharing of its electrons.</ontology:example>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PolarAdditionReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PolarAdditionReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">polar addition reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/AdditionReaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PolarBond -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PolarBond">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">polar bond</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectrostaticInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An electrostatic interaction between atoms which have an electronegativity difference of over 1.6 (by convention).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PolarSolvent -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PolarSolvent">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">polar solvent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Solvent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A solvent that has the quality of being polar.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Polarity -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Polarity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">polarity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalQuality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Polarity is a quality that refers to the dipole-dipole intermolecular forces between the slightly positively-charged end of one molecule to the negative end of another or the same molecule. Molecular polarity is dependent on the difference in electronegativity between atoms in a compound and the asymmetry of the compound&#39;s structure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PostiiveCharge -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PostiiveCharge">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">positive charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectricCharge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Precipitate -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Precipitate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">precipitate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Product"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An insoluble product.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PrecipitationReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PrecipitationReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">precipitation reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction in which two soluble ionic compounds react to form an insoluble product, a precipitate.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Product -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Product">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Reagent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PureSubstance -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PureSubstance">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pure substance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical substance that cannot be separated into other substances by any mechanical process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/QuarkGluonPlasmaPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/QuarkGluonPlasmaPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">quark gluon plasma phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/RIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/RIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/RSIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An R isomer is an optical isomer in which the three highest priority substitutents decreases in clockwise direction when the lowest is pointed away from the viewer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/RSIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/RSIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R or S isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/OpticalIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An RSIsomer is an optical isomer based on the chiral center(s) of the molecule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/RacemicMixture -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/RacemicMixture">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">racemic mixture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Solution"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An equimolar solution of two enantiomers capable of rotating the plane of plane-polarized light in opposite directions shows no optical rotation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Radical -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Radical">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">radical</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An atom or molecule with an unpaired electron.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/RadicalCenter -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/RadicalCenter">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">radical center</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularCenter"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of an atom (or group of atoms) on which an unpaired electron is largely localized.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Reactant -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Reactant">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Reagent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Reagent -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Reagent">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/RedoxReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/RedoxReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">redox reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical reaction in which there is a net movement of electrons from one reactant to another.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ReducingAgent -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ReducingAgent">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reducing agent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalAgent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A chemical agent that reduces another compound.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Rotamer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Rotamer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rotamer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Conformer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A rotamer is a conformer for which the rotation barrier is the activation energy required to jump from one conformer to another.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/RSIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An S isomer is an optical isomer in which the three highest priority substitutents decreases in counter-clockwise direction when the lowest is pointed away from the viewer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SingleDisplacementReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SingleDisplacementReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single displacement reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DisplacementReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A displacement reaction where one element is transferred out of one compound and into another.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SolidPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SolidPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">solid phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Solute -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Solute">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">solute</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A substance that dissolves in a solvent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Solution -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Solution">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/HomogeneousMixture"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A solution is a homogeneous mixture composed of one or more substances, known as solutes, dissolved in another substance, known as a solvent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Solvent -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Solvent">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">solvent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalSubstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A substance that dissolves other substances, thus forming a solution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SquarePlanarMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SquarePlanarMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">square planar molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A molecular geometry in which molecules have their atoms lying in a square about a central atom.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SquarePyramidalMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SquarePyramidalMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">square pyramidal molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An octrahedral molecular geometry in which four bonded atoms and two lone electron pair.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/StaggeredConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/StaggeredConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">staggered conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A staggered conformation is a chemical conformation that exists in any open chain single chemical bond connecting two sp3 hybridised atoms as a conformational energy minimum</rdfs:comment>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Stereoisomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Stereoisomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stereoisomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Isomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A stereoisomer is an isomer in which the atomic connectivity is the same, but differs in its spatial arrangement of atoms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/StrangeMatterPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/StrangeMatterPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">strange matter phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/StructuralIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/StructuralIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">structural isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Isomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A structural isomer is an isomer in which the atoms are joined together in different ways.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Substrate -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Substrate">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">substrate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Reactant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A reactant that is consumed or changed in a chemical reaction.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SuperFluidPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SuperFluidPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">super fluid phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SuperSolidPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SuperSolidPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">super solid phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/UncommonChemicalPhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SynConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SynConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">syn conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A syn conformation is a chemical conformation in which the torsion angle is between -90 and 90 degrees.</rdfs:comment>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SynperiplanarConformation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SynperiplanarConformation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wikipedia</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synperiplanar conformation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalConformation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A synperiplanar conformation is a chemical conformation in which the torsion angle is between 0 to 30 degrees.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SynthesisReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SynthesisReaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synthesis reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/InorganicReaction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An inorganic reaction in which two or more reagents are chemically bonded together to produce a single product.</rdfs:comment>
+        <ontology:synonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">combination reaction</ontology:synonym>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TetrahedralMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TetrahedralMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tetrahedral molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A molecular geometry in which a central atom of the molecule is located at the center with four substituents located at the corners of a tetrahedron.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TopologicalComplex -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TopologicalComplex">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">topological complex</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Complex"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A topological complex is a complex in which the exact interactions between the components are specified.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TransIsomer -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TransIsomer">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trans isomer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CisTransIsomer"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A trans isomer is a diastereomer in which substituent groups are placed on the opposite side of the double bond.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TrigonalBipyramidalMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TrigonalBipyramidalMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trigonal bipyramidal molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A molecular geometry in which one atom at the center and 5 more at the corners of a triangular dipyramid.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TrigonalPlanarMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TrigonalPlanarMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trigonal planar molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A molecular geometry in which the molecule contains one atom at the center and three atoms at the corners of a triangle all in one plane.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TrigonalPyramidalMolecularGeometry -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TrigonalPyramidalMolecularGeometry">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">trigonal pyramidal molecular geometry</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/MolecularGeometry"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A molecular geometry in which the molecule has one atom at the apex and three atoms at the corners of a trigonal base.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/UncommonChemicalPhase -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/UncommonChemicalPhase">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">uncommon chemical phase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ChemicalPhase"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The quality of a macroscopic physical system that is not commonly observed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/VanDerWaalsInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/VanDerWaalsInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">van der Waal&#39;s interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/ElectronicInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A weak interaction between an instantaneous dipole and induced dipole.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

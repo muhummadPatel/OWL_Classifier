@@ -1,0 +1,885 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontology.dumontierlab.com/organic-functional-group-complex#"
+     xml:base="http://ontology.dumontierlab.com/organic-functional-group-complex"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ontology="http://ontology.dumontierlab.com/">
+    <owl:Ontology rdf:about="http://ontology.dumontierlab.com/organic-functional-group-complex">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.0</owl:versionInfo>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2007-10-01</dc:date>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complex class descriptions for the realization of organic functional groups.</dc:description>
+        <dc:publisher rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumontier Lab</dc:publisher>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michel Dumontier</dc:creator>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Organic Functional Group Ontology (complex)</dc:title>
+        <dc:format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rdf+xml</dc:format>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</dc:language>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/annotation"/>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/atom-common"/>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/organic-functional-group-primitive"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/language"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/format"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasAromaticBondWith -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasAromaticBondWith"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasBondWith -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasBondWith"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasDoubleBondWith -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasSingleBondWith -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylBromideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylBromideGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/BromineAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OrganicGroup"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OrganicGroup"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AcylHalideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AcylHalideGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/HalogenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OrganicGroup"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AldehydeGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AldehydeGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Alkyl -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Alkyl">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AmideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AmideGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/NitrogenAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/AmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/AmineGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/NitrogenAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Aryl -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Aryl">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasAromaticBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/BromineAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/BromineAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/Alkyl"/>
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/Aryl"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarbonylGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarbonylGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/CarboxylicAcidGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/CarboxylicAcidGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/EsterGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/EsterGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/EtherGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/EtherGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OxygenAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/Alkyl"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HalogenAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HalogenAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HeteroAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HeteroAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HydrogenAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HydrogenAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/HydroxylGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/HydroxylGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OxygenAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ImineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ImineGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/NitrogenAtom"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/KetoneGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/KetoneGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonAtom"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                <owl:onClass rdf:resource="http://ontology.dumontierlab.com/Alkyl"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MethylGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MethylGroup">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonGroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NitrogenAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NitrogenAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicGroup"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicNitrogenGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicNitrogenGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/NitrogenAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicPhosphateGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicPhosphateGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/PhosphorusAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/OrganicGroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OrganicSulfurGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OrganicSulfurGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OrganicGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/SulfurAtom"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/OxygenAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/OxygenAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PhosphorusAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PhosphorusAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PrimaryAmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PrimaryAmineGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/NitrogenAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarbonAtom"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SecondaryAmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SecondaryAmineGroup">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/CarbonGroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SulfinicAcidGeneralGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SulfinicAcidGeneralGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/SulfurAtom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SulfonicAcidDerivativeGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SulfonicAcidDerivativeGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://ontology.dumontierlab.com/SulfurAtom"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                                <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HeteroAtom"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SulfonicAcidGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SulfonicAcidGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/SulfurAtom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SulfonylHalideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SulfonylHalideGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/SulfurAtom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HalogenAtom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SulfoxideGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SulfoxideGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/SulfurAtom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/CarbonGroup"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/CarbonGroup"/>
+                                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasDoubleBondWith"/>
+                                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/OxygenAtom"/>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SulfurAtom -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SulfurAtom"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/TertiaryAmineGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/TertiaryAmineGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/NitrogenAtom"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:onClass rdf:resource="http://ontology.dumontierlab.com/CarbonAtom"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ThiolGroup -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ThiolGroup">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/CarbonGroup"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://ontology.dumontierlab.com/SulfurAtom"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasSingleBondWith"/>
+                                        <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/HydrogenAtom"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

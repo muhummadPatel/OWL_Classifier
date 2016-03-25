@@ -1,0 +1,906 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.owl-ontologies.com/Ontology1191594278.owl#"
+     xml:base="http://www.owl-ontologies.com/Ontology1191594278.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:Ontology1191594278="http://www.owl-ontologies.com/Ontology1191594278.owl#">
+    <owl:Ontology rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#composedMusicFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#composedMusicFor">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Music_Composer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#featuresActor -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#featuresActor">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Actor"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#featuresMusicBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#featuresMusicBy">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Music_Composer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasArtDirector -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasArtDirector">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Art_Director"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasCostumeDesigner -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasCostumeDesigner">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Costume_Designer"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasExtraGenre -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasExtraGenre">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Extra_Genres_Apart_From_Script"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasRating -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasRating">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasSoundEffectsCoordinator -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasSoundEffectsCoordinator">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Sound_Effects_Coordinator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasViolenceLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasViolenceLevel">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Violence_Levels"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasVisualEffectsCoordinator -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasVisualEffectsCoordinator">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Visual_Effects_Coordinator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#hasWritten -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#hasWritten">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ScriptWriter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isArtDirectorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isArtDirectorOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Art_Director"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isCostumeDesignerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isCostumeDesignerOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Costume_Designer"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isDirectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isDirectedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Director"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isDirectorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isDirectorOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Director"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isProducedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isProducedBy">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Producer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isProducerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isProducerOf">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Producer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isSoundEffectsCoordinatorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isSoundEffectsCoordinatorOf">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Sound_Effects_Coordinator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#isWrittenBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#isWrittenBy">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ScriptWriter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#playsIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#playsIn">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Actor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Actor">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Art_Director -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Art_Director">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Certifications -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Certifications">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Rating -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Rating">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Comedy -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Comedy">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasExtraGenre"/>
+                        <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraParody"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                        <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ComedyScript"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Drama"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Thriller"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#War"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#ComedyScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#ComedyScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ThrillerScript"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#WarScript"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Costume_Designer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Costume_Designer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Descent_Movie -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Descent_Movie">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasRating"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Three_Stars"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Two_Stars"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Director -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Director">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Documentary -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Documentary">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#DocumentaryScript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#DocumentaryScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#DocumentaryScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#DontEvenBotherToSee_Movie -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#DontEvenBotherToSee_Movie">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasRating"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#One_Star"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Drama -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Drama">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#DramaScript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Thriller"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#War"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#DramaScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#DramaScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraMusical -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraMusical">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Extra_Genres_Apart_From_Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraParody -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraParody">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Extra_Genres_Apart_From_Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraVisualEffectsDelight -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraVisualEffectsDelight">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Extra_Genres_Apart_From_Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Extra_Genres_Apart_From_Script -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Extra_Genres_Apart_From_Script"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Five_Stars -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Five_Stars">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Four_Stars -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Four_Stars">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Full_Of_Visual_Effects -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Full_Of_Visual_Effects">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasExtraGenre"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraVisualEffectsDelight"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#General_Audiences -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#General_Audiences">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasViolenceLevel"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Low"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#None"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Certifications"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#High -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#High">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Violence_Levels"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Low"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Medium"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#None"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Low -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Low">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Violence_Levels"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Medium"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#None"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Medium -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Medium">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Violence_Levels"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#None"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Movie -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Movie">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#featuresActor"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Actor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasCostumeDesigner"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Costume_Designer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasVisualEffectsCoordinator"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Visual_Effects_Coordinator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#featuresMusicBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Music_Composer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#isDirectedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Director"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasArtDirector"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Art_Director"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasSoundEffectsCoordinator"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Sound_Effects_Coordinator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasRating"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#isProducedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Producer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Music_Composer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Music_Composer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Musical -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Musical">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#MusicalScript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#MusicalScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#MusicalScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Musical_Comedy -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Musical_Comedy">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Comedy"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasExtraGenre"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraMusical"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Musical_Documentary -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Musical_Documentary">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Documentary"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasExtraGenre"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ExtraMusical"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#None -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#None">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Violence_Levels"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#One_Star -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#One_Star">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Parental_Advisory_Suggested -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Parental_Advisory_Suggested">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasViolenceLevel"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Medium"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Certifications"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Person -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Producer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Producer">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#R_Rated -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#R_Rated">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                        <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ThrillerScript"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasViolenceLevel"/>
+                        <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#High"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Certifications"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Rating -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Value_Specifications"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Really_Good_Movie -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Really_Good_Movie">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasRating"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Five_Stars"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Four_Stars"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorized_Movie_By_Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Romance -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Romance">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#RomanceScript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#RomanceScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#RomanceScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#SciFiScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#SciFiScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Science_Fiction -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Science_Fiction">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#SciFiScript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Script -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Script">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#isWrittenBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ScriptWriter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#isWrittenBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ScriptWriter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#ScriptWriter -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#ScriptWriter">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Sound_Effects_Coordinator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Sound_Effects_Coordinator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Three_Stars -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Three_Stars">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Thriller -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Thriller">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#ThrillerScript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#War"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#ThrillerScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#ThrillerScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#WarScript"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Two_Stars -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Two_Stars">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Rating"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Value_Specifications -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Value_Specifications"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Violence_Levels -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Violence_Levels">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Value_Specifications"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#Visual_Effects_Coordinator -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#Visual_Effects_Coordinator">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#War -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#War">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Categorised_Movie_By_Genre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#hasScript"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#WarScript"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1191594278.owl#WarScript -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1191594278.owl#WarScript">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1191594278.owl#Script"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,1276 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/NET/biopax-obo/examples/reaction.owl#"
+     xml:base="http://purl.org/NET/biopax-obo/examples/reaction.owl"
+     xmlns:example-reaction-2008-06-04="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ro="http://www.obofoundry.org/ro/ro.owl#"
+     xmlns:example-reaction-2008-06-042="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#"
+     xmlns:snap="http://www.ifomis.org/bfo/1.1/snap#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:GO="http://purl.org/obo/owl/GO#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:CHEBI="http://purl.org/obo/owl/CHEBI#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:PRO="http://purl.org/obo/owl/PRO#"
+     xmlns:span="http://www.ifomis.org/bfo/1.1/span#">
+    <owl:Ontology rdf:about="http://purl.org/NET/biopax-obo/examples/reaction.owl">
+        <rdfs:comment>This is a toy ontology to demonstrate an idea about how to represent chemical reactions for BioPAX OWL. The granularity is the molecular level. A chemical reaction here means a single case of some molecules coming together, during which atoms are rearranged and new molecules are formed from the old.</rdfs:comment>
+        <dc:creator rdf:resource="http://mumble.net/~alanr/ThePersonAlanRuttenberg"/>
+        <owl:imports rdf:resource="http://purl.org/obo/owl/OBO_REL"/>
+        <owl:imports rdf:resource="http://www.ifomis.org/bfo/1.1"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#ObjectProperty1213734503546713000 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#ObjectProperty1213734503546713000">
+        <rdfs:label>has_direct_part</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/bears -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/bears">
+        <rdfs:label>bears</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/function_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/function_of">
+        <rdfs:label>function_of</rdfs:label>
+        <owl:inverseOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_function"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_acceptor_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_acceptor_participant">
+        <rdfs:label>has_acceptor_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_substrate_participant"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/acceptor"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/acceptor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_donor_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_donor_participant">
+        <rdfs:label>has_donor_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_substrate_participant"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/donor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/donor"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_enzyme_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_enzyme_participant">
+        <rdfs:label>has_enzyme_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_function"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0003824"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0003824"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_function -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_function">
+        <rdfs:label>has_function</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/bears"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_kinase_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_kinase_participant">
+        <rdfs:label>has_kinase_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_enzyme_participant"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0016301"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_function"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0016301"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_phosphate_acceptor_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_phosphate_acceptor_participant">
+        <rdfs:label>has_phosphate_acceptor_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_acceptor_participant"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_acceptor"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_acceptor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_phosphate_donor_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_phosphate_donor_participant">
+        <rdfs:label>has_phosphate_donor_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_donor_participant"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_donor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_donor"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_product_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_product_participant">
+        <rdfs:label>has_product_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role">
+        <rdfs:label>has_role</rdfs:label>
+        <rdfs:comment>independent continuant has_role role</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/bears"/>
+        <owl:inverseOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/role_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_substrate_participant -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_substrate_participant">
+        <rdfs:label>has_substrate_participant</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/substrate_role"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/substrate_role"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>inheres_in</rdfs:label>
+        <owl:inverseOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/bears"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of">
+        <rdfs:label>is_realization_of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/realized_as -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/realized_as">
+        <rdfs:label>realized_as</rdfs:label>
+        <rdfs:comment>realizable_entity realized_as process</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.obofoundry.org/ro/ro.owl#relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/role_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/role_of">
+        <rdfs:label>role_of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.obofoundry.org/ro/ro.owl#has_part -->
+
+    <owl:ObjectProperty rdf:about="http://www.obofoundry.org/ro/ro.owl#has_part"/>
+    
+
+
+    <!-- http://www.obofoundry.org/ro/ro.owl#has_participant -->
+
+    <owl:ObjectProperty rdf:about="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+    
+
+
+    <!-- http://www.obofoundry.org/ro/ro.owl#located_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+    
+
+
+    <!-- http://www.obofoundry.org/ro/ro.owl#participates_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.obofoundry.org/ro/ro.owl#participates_in"/>
+    
+
+
+    <!-- http://www.obofoundry.org/ro/ro.owl#relationship -->
+
+    <owl:ObjectProperty rdf:about="http://www.obofoundry.org/ro/ro.owl#relationship"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734305676821000 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734305676821000">
+        <rdfs:label>chemical group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734318333738000 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734318333738000">
+        <rdfs:label>phosphate group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734305676821000"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734420573617000 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734420573617000">
+        <rdfs:label>phosphate compound</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#ObjectProperty1213734503546713000"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734318333738000"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213735275161221000 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213735275161221000">
+        <rdfs:label>chemical group role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213735288446298000 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213735288446298000">
+        <rdfs:label>transferred group role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213735275161221000"/>
+        <rdfs:comment>transfered group role is a role realized by a part of some subtrate that, in the process of the reaction is separated from the substrate (the donor) and becomes part of a product, by binding to the acceptor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213736109561793000 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213736109561793000">
+        <rdfs:label>group transport reaction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_part"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734305676821000"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213735288446298000"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1">
+        <rdfs:label>E1</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#participates_in"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphorylation_reaction"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_26078"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/protein_complex"/>
+                            <rdf:Description rdf:about="http://purl.org/obo/owl/PRO#PRO_000000001"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_function"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0003824"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>Stub for whatever enzyme it is that catalyzes our sample reaction. Didn&#39;t have time to research exactly what it is, and it isn&#39;t necessary for this example.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/Enzyme -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/Enzyme">
+        <rdfs:label>Enzyme</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/protein_complex"/>
+                            <rdf:Description rdf:about="http://purl.org/obo/owl/PRO#PRO_000000001"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_function"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0003824"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:comment>Definition of Enzyme as a protein or protein complex that has catalytic activity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/acceptor -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/acceptor">
+        <rdfs:label>acceptor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/substrate_role"/>
+        <rdfs:comment>role of a molecule that bears substrate role that become a new molecule by binding to a chemical group that is detached from another molecule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/atp_dependent_reaction -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/atp_dependent_reaction">
+        <rdfs:label>atp dependent reaction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15422"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+        <rdfs:comment>Example defining a class of reactions that involve ATP</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction">
+        <rdfs:label>chemical reaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#Process"/>
+        <rdfs:comment>A process involving a specific set of molecules which come together, during which times atoms are rearranged, and in which new molecules are created from the constituents of the old.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/cytoplasmic_reaction -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/cytoplasmic_reaction">
+        <rdfs:label>cytoplasmic reaction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0005737"/>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+        <rdfs:comment>Example defining a class of reactions that have some participant in the cytoplasm</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/cytoplasmic_water_reaction -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/cytoplasmic_water_reaction">
+        <rdfs:label>cytoplasmic water reaction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_15377"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0005737"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+        <rdfs:comment>Example of definiton of reactions that involve water in the cytoplasm. For Oliver.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/donor -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/donor">
+        <rdfs:label>donor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/substrate_role"/>
+        <rdfs:comment>role of a molecule that bears product role that become a new molecule by detaching a chemical group that is attached to another molecule that is substrate</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_acceptor -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_acceptor">
+        <rdfs:label>phosphate acceptor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphorylation_reaction"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/acceptor"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/realized_as"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/span#Process"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                                        <owl:onClass>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#ObjectProperty1213734503546713000"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734318333738000"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_role"/>
+                                                                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213735288446298000"/>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:onClass>
+                                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>acceptor role where the group accepted is a phosphate group (CHEBI:32958)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_donor -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_donor">
+        <rdfs:label>phosphate donor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/donor"/>
+        <rdfs:comment>donor role where the group donated is a phosphate group (CHEBI:32958)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphorylation_reaction -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphorylation_reaction">
+        <rdfs:label>phosphorylation reaction</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_acceptor"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_donor"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0016301"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+        <rdfs:comment>Example of definition of phosphorylation reaction.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role">
+        <rdfs:label>product role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reactant_role"/>
+        <rdfs:comment>role of the participants that are newly created in the chemical reaction</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/protein_complex -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/protein_complex">
+        <rdfs:label>protein complex</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:comment>Stub definition. Needs more thought. Intended to allow for there to be other constituants of the complex, such as RNA.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reactant_role -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reactant_role">
+        <rdfs:label>reactant role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Role"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/realized_as"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A reactant role is the role of a participant in a chemical reaction.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reaction1 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reaction1">
+        <rdfs:label>H2 + ATP -&gt; H3P04 + ADP (2)</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_kinase_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_phosphate_acceptor_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15377"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_phosphate_donor_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15422"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_product_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_16761"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/has_product_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_26078"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/chemical_reaction"/>
+        <rdfs:comment>Example of the reaction using the property hierarchy. Once can abbreviate the lower example - get the same inferences, if the properties are defined in terms of the roles and functions. (using domain and range)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reaction2 -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reaction2">
+        <rdfs:label>H20 + ATP -&gt; H3P04 + ADP</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_acceptor"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15377"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_donor"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15422"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_16761"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_26078"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/obo/owl/GO#GO_0016301"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0005737"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_15377"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0005737"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_15422"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0005737"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_16761"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0005737"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_26078"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#located_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/GO#GO_0005737"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#Process"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_acceptor"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15377"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/phosphate_donor"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15422"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_16761"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/product_role"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_26078"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/is_realization_of"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.org/obo/owl/GO#GO_0016301"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/inheres_in"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15377"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_15422"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_16761"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:onClass rdf:resource="http://purl.org/obo/owl/CHEBI#CHEBI_26078"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_participant"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>Example of the  definition of the reaction process using the mechanism of realization_of roles and functions. Each participant is distinguished in that in this process specific roles or functions of it are realized. Added location to demonstrate one way to do so.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/substrate_role -->
+
+    <owl:Class rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/substrate_role">
+        <rdfs:label>substrate role</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/reactant_role"/>
+        <rdfs:comment>role of an participant in a chemical reaction that no longer exists at the end of the reactions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/CHEBI#CHEBI_15377 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_15377">
+        <rdfs:label>H20</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:comment>from Chebi</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/CHEBI#CHEBI_15422 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_15422">
+        <rdfs:label>ATP</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#ObjectProperty1213734503546713000"/>
+                <owl:onClass rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734318333738000"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>from ChEBI</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/CHEBI#CHEBI_16761 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_16761">
+        <rdfs:label>ADP</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#ObjectProperty1213734503546713000"/>
+                <owl:onClass rdf:resource="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04.owl#Class1213734318333738000"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>from ChEBI</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/CHEBI#CHEBI_26078 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_26078">
+        <rdfs:label>H3P04</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:comment>from ChEBI</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/GO#GO_0003824 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/GO#GO_0003824">
+        <rdfs:label>catalytic activity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Function"/>
+        <rdfs:comment>from GO</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/GO#GO_0005634 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/GO#GO_0005634">
+        <rdfs:label>nucleus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Site"/>
+        <rdfs:comment>from GO CC</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/GO#GO_0005737 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/GO#GO_0005737">
+        <rdfs:label>cytoplasm</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Site"/>
+        <rdfs:comment>from GO CC</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/GO#GO_0016301 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/GO#GO_0016301">
+        <rdfs:label>kinase activity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/obo/owl/GO#GO_0003824"/>
+        <rdfs:comment>from GO</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/obo/owl/PRO#PRO_000000001 -->
+
+    <owl:Class rdf:about="http://purl.org/obo/owl/PRO#PRO_000000001">
+        <rdfs:label>protein</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+        <rdfs:comment>from PRO
+http://purl.org/obo/owl/PRO</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Continuant -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Function -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1/snap#Function"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Object -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Role -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1/snap#Role"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/snap#Site -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1/snap#Site"/>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.1/span#Process -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.1/span#Process"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://mumble.net/~alanr/ThePersonAlanRuttenberg">
+        <rdfs:label>ThePersonAlanRuttenberg</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/NET/biopax-obo/examples/example-reaction-2008-06-04/E1"/>
+            <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_15377"/>
+            <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_15422"/>
+            <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_16761"/>
+            <rdf:Description rdf:about="http://purl.org/obo/owl/CHEBI#CHEBI_26078"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+
