@@ -56,7 +56,16 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="module-library">
-      <library name="Maven: abstract-parser:abstract-parser-id:1.0.0">
+      <library name="Maven: owlapi-api:abstract-parser-id:1.4.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/api.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: owlapi-validation:abstract-parser-id:1.4.3">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/validation.jar!/" />
         </CLASSES>
@@ -64,6 +73,50 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: owlapi-io:abstract-parser-id:1.4.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/io.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: owlapi-rdfapi:abstract-parser-id:1.4.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/rdfapi.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: owlapi-rdfparser:abstract-parser-id:1.4.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/rdfparser.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: owlapi-impl:abstract-parser-id:1.4.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/impl.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: owlapi-antlr:abstract-parser-id:1.4.3">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/antlr.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

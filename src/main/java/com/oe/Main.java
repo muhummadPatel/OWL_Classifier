@@ -16,7 +16,7 @@ public class Main {
 
         // The OWL file to be loaded
 
-        String filePath = "test_ontologies/OWL1/tonesOntologies/family-tree.owl";
+        String filePath = "test_ontologies/OWL2_QL/iLog.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies

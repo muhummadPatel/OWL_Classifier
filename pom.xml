@@ -56,11 +56,53 @@
         <!--owlapi previous version jars-->
         <!--TODO: do the other jars just like this. It should work.-->
         <dependency>
-            <groupId>abstract-parser</groupId>
+            <groupId>owlapi-api</groupId>
             <artifactId>abstract-parser-id</artifactId>
-            <version>1.0.0</version>
+            <version>1.4.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/api.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-validation</groupId>
+            <artifactId>abstract-parser-id</artifactId>
+            <version>1.4.3</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/validation.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-io</groupId>
+            <artifactId>abstract-parser-id</artifactId>
+            <version>1.4.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/io.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-rdfapi</groupId>
+            <artifactId>abstract-parser-id</artifactId>
+            <version>1.4.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/rdfapi.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-rdfparser</groupId>
+            <artifactId>abstract-parser-id</artifactId>
+            <version>1.4.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/rdfparser.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-impl</groupId>
+            <artifactId>abstract-parser-id</artifactId>
+            <version>1.4.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/impl.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>owlapi-antlr</groupId>
+            <artifactId>abstract-parser-id</artifactId>
+            <version>1.4.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/antlr.jar</systemPath>
         </dependency>
     </dependencies>
 
