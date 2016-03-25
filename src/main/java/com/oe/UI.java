@@ -32,6 +32,9 @@ public class UI extends JFrame// implements ComponentListener
   private JTabbedPane expressivityPane;
   private JTabbedPane violationsPane;
 
+	private String[] profiles = new String[]{"OWL 2", "OWL 2 EL", "OWL 2 DL", "OWL 2 QL", "OWL 2 RL"};
+	private JCheckBox[] checkBoxes = new JCheckBox[profiles.length]; //The check box profiles
+
 	private float fileNameAreaPercentage = 0.5f; //Percentage of the width of the screen that the file name text area occupies
 	private float fontSize = 12.0f; //Approximation of the font size, to calculate the width of text components
 
@@ -68,22 +71,39 @@ public class UI extends JFrame// implements ComponentListener
       /* The rest is to create the indivual components and place them using gridbaglayout*/
       GridBagConstraints gbc = new GridBagConstraints();
 
-      speciesLabel = new JLabel("OWL Species: ");
-      gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
-      gbc.weighty = 0; gbc.weightx = 0;
-      frame.add(speciesLabel,gbc);
 
       expressivityLabel = new JLabel("Expressivity: ");
-      gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; gbc.gridheight = 1;
+      gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
       gbc.weighty = 0.14; gbc.weightx = 0;
       frame.add(expressivityLabel,gbc);
+
+			for (int i = 0; i < profiles.length; ++i)
+			{
+				checkBoxes[i] = new JCheckBox(profiles[i]);
+				checkBoxes[i].setModel(new DefaultButtonModel() //Only way to make check boxes read only. SetEnabled(false) greys out the component
+				{
+					@Override
+					public void setSelected(boolean b)
+					{
+					// Stop events from being raised...
+					}});
+					gbc.gridx = i; gbc.gridy = 1; gbc.gridwidth = 1; gbc.gridheight = 1;
+			//		gbc.weighty = 0; gbc.weightx = 0;
+					frame.add(checkBoxes[i],gbc);
+			}
+
+		/*	speciesLabel = new JLabel("OWL Species: ");
+      gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
+      gbc.weighty = 0; gbc.weightx = 0;
+      frame.add(speciesLabel,gbc);*/
+
 
 
 			//The explanation area before the expressivity information
 			explanationArea = new JTextArea("");
 			explanationArea.setEditable(false);
 			JScrollPane scrollableArea = new JScrollPane (explanationArea);//, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-			gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 4; gbc.gridheight = 3;
+			gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 6; gbc.gridheight = 3;
 			gbc.weighty = 1; gbc.weightx = 1;
 			gbc.fill = GridBagConstraints.BOTH;
 			frame.add(scrollableArea,gbc);
@@ -92,7 +112,7 @@ public class UI extends JFrame// implements ComponentListener
       JTextArea tempField1 = new JTextArea();
     //  expressivityPane.setSize(500,400);
       expressivityPane.addTab("Expressivity Information", tempField1);
-      gbc.gridx = 0; gbc.gridy = 5; gbc.gridwidth = 4; gbc.gridheight = 4;
+      gbc.gridx = 0; gbc.gridy = 5; gbc.gridwidth = 6; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(expressivityPane,gbc);
@@ -101,7 +121,7 @@ public class UI extends JFrame// implements ComponentListener
       JTextArea tempField2 = new JTextArea();
       //violationsPane.setSize(500,400);
       violationsPane.addTab("Violation Information",tempField2);
-      gbc.gridx = 0; gbc.gridy = 9; gbc.gridwidth = 4; gbc.gridheight = 4;
+      gbc.gridx = 0; gbc.gridy = 9; gbc.gridwidth = 6; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(violationsPane,gbc);
