@@ -38,10 +38,6 @@ public class UI extends JFrame// implements ComponentListener
   OWLOntology mainOntology;
   Set<OWLOntology> ontologies;
 
-	private String species; //OWL 2DL, QL, etc.
-	private String[] expressivity; //['S','R','O','Q','(D)'] etc.
-  String [][] axioms; //Buckets for axioms for each letter
-
 	//Constructor
     public UI()
     {
@@ -88,20 +84,26 @@ public class UI extends JFrame// implements ComponentListener
 
     	frame.setVisible(true);*/
 
+      //The main frame
       frame = new JFrame("Ontology Profile Checker");
       frame.setSize(700,900);
       frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
       frame.setLayout(new GridBagLayout());
       frame.addComponentListener(new Window()); //Window is defined further down. Mainly for doing stuff when the window is resized.
 
+      //Creating the menu bar
       JMenuBar bar = new JMenuBar();
       JMenu fileMenu = new JMenu("File");
       JMenuItem loadItem = new JMenuItem("Load Ontology");
+      JMenuItem helpItem = new JMenuItem("Help");
       loadItem.addActionListener(new OpenFileClickListener());
+      helpItem.addActionListener(new HelpClickListener());
       fileMenu.add(loadItem);
+      fileMenu.add(helpItem);
       bar.add(fileMenu);
       frame.setJMenuBar(bar);
 
+      /* The rest is to create the indivual components and place them using gridbaglayout*/
       GridBagConstraints gbc = new GridBagConstraints();
 
       speciesLabel = new JLabel("OWL Species: ");
@@ -135,9 +137,7 @@ public class UI extends JFrame// implements ComponentListener
       frame.setVisible(true);
     }
 
-
-    //Just to test that I can dynamically populate the tabbed panes after loading the onto
-    //pane = 1 or 2 (expressivityPane or violationsPane); titles = headings of tables; values = bucket of axiomns for each tab
+    //Called when an owl file is loaded to populate the tabbed pane with the letters and their axioms
     public void populateExpressivityPane(HashMap<String, ArrayList<OWLAxiom>> axiomClassifications)
     {
 /*      JTabbedPane tabbedPane;
@@ -165,14 +165,15 @@ public class UI extends JFrame// implements ComponentListener
       for(String letter: axiomClassifications.keySet())
       {
           JTextArea area = new JTextArea(); //The list of axioms for this particular letter
-        //  area.setEditable(false);
+          area.setEditable(false);
           for(OWLAxiom axiom: axiomClassifications.get(letter))
           {
-              area.append(counter + " - " + axiom.toString() + "\n"); //Populate this area with the list of axioms
+              String cleanedAxiom =  axiom.toString().replaceAll("(?<=:)[^#]*#","").replaceAll("http:",""); //Not the most elegant regex but it works
+              area.append(counter + " - " + cleanedAxiom + "\n"); //Populate this area with the list of axioms
               ++counter;
           }
 
-          //Add the final list for the letter as a tab in the tabbed pane
+          //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
           JScrollPane scrollableArea = new JScrollPane (area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
           expressivityPane.addTab(letter,scrollableArea);
           counter = 1;
@@ -218,12 +219,12 @@ public class UI extends JFrame// implements ComponentListener
     	}
     }
 
-    //On click for the 'Load' button
-    private class LoadOntologyClickListener implements ActionListener
+    //On click for the 'Help' menu item
+    private class HelpClickListener implements ActionListener
     {
     	public void actionPerformed(ActionEvent e)
     	{
-
+          //Maybe just load a popup box here with information about the app, etc.
     	}
     }
 
@@ -233,10 +234,7 @@ public class UI extends JFrame// implements ComponentListener
     	//Adjust sizes of whatever should change over here
 	    public void componentResized(ComponentEvent e)
 	    {
-	    	int newColumns = (int)(frame.getBounds().width*fileNameAreaPercentage/fontSize); //Calc the new width
-	        fileName.setColumns(newColumns);
-	    	fileName.setText(fileName.getText()+""); //Slight hack to force the text area to update its size. repaint() doesn't work for some reason
-	    					//Does not work again for some reason! Will try fix later
+
 	    }
 
 	    //The rest of the methods just need to be included for the sake of the interface
