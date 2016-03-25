@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OWL1ProfileReport {
-    private String violations;
+    private List<String> violations;
     private boolean isInProfile;
 
     public OWL1ProfileReport() {
-        violations = null;
+        violations = new ArrayList<>();
         isInProfile = false;
     }
 
-    public void setViolations(String violation) {
-        violations = violation;
+    public void addViolation(String violation) {
+        violations.add(violation);
     }
 
-    public String getViolations() {
-        return violations.trim();
+    public List<String> getViolations() {
+        return new ArrayList<String>(violations);
     }
 
     public boolean isInProfile() {

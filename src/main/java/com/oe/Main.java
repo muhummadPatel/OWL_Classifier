@@ -13,8 +13,9 @@ public class Main {
 
         // The OWL file to be loaded
 
-        //String filePath = "test_ontologies/OWL2_QL/iLog.owl";
-        String filePath = "test_ontologies/OWL1/tonesOntologies/DOLCE_Lite_397.owl";
+        //String filePath = "EmptyOntology.owl";
+        //String filePath = "test_ontologies/OWL1/tonesOntologies/adolena.owl";
+        String filePath = "AirIncidentOntology.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
@@ -72,7 +73,9 @@ public class Main {
 
             // Display violations (Note that it is a single (pre-formated) string in this case)
             // It was done like this for technical (implementation) reasons
-            System.out.println(profileReport.getViolations());
+            for(String violation : profileReport.getViolations()) {
+                System.out.println(violation);
+            }
 
             // Check if ontology falls within that profile
             System.out.println(profileReport.isInProfile());
