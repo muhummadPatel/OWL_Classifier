@@ -70,43 +70,54 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
             if (constructsSet.contains(C)) {
                 // Remove existential because this can be represented
                 // with AL + Neg
-                explanation += "~ E removed because ALC is present\n";
-                explanation += indent + "E can be represented with AL + negation\n";
-                constructsSet.remove(E);
+                if(constructsSet.remove(E)){
+                    explanation += "~ E removed because ALC is present\n";
+                    explanation += indent + "E can be represented with AL + negation\n";
+                }
                 // Remove out union (intersection + negation (demorgan))
-                explanation += "~ U removed because ALC is present\n";
-                explanation += indent + "U can be represented with intersection + negation\n";
-                constructsSet.remove(U);
+                if(constructsSet.remove(U)){
+                    explanation += "~ U removed because ALC is present\n";
+                    explanation += indent + "U can be represented with intersection + negation\n";
+                }
             } else if (constructsSet.contains(E) && constructsSet.contains(U)) {
                 // Simplify to ALC
-                explanation += "~ E and U replaced with ALC\n";
                 constructsSet.add(AL);
                 constructsSet.add(C);
-                constructsSet.remove(E);
-                constructsSet.remove(U);
+                if(constructsSet.remove(E)){
+                    explanation += "~ E ";
+                    if(constructsSet.remove(U)){
+                        explanation += " and U replaced with ALC\n";
+                    }else{
+                        explanation += "replaced with ALC\n";
+                    }
+                }else if(constructsSet.remove(U)){
+                    explanation += "~ U replaced with ALC\n";
+                }
             }
         }
         if (constructsSet.contains(N) || constructsSet.contains(Q)) {
-            explanation += "~ F removed because N and/or Q is present\n";
-            constructsSet.remove(F);
+            if(constructsSet.remove(F)){
+                explanation += "~ F removed because N and/or Q is present\n";
+            }
         }
         if (constructsSet.contains(Q)) {
-            explanation += "~ N removed because Q is present\n";
-            explanation += indent + "Q is more general than N\n";
-            constructsSet.remove(N);
+            if(constructsSet.remove(N)){
+                explanation += "~ N removed because Q is present\n";
+                explanation += indent + "Q is more general than N\n";
+            }
         }
         if (constructsSet.contains(AL) && constructsSet.contains(C)
                 && constructsSet.contains(TRAN)) {
-            explanation += "~ ALC and + replaced with S\n";
-            constructsSet.remove(AL);
-            constructsSet.remove(C);
-            constructsSet.remove(TRAN);
+            if(constructsSet.remove(AL) | constructsSet.remove(C) | constructsSet.remove(TRAN)){
+                explanation += "~ ALC and + replaced with S\n";
+            }
             constructsSet.add(S);
         }
         if (constructsSet.contains(R)) {
-            explanation += "~ H removed because R is present\n";
-            explanation += indent + "R allows for H\n";
-            constructsSet.remove(H);
+            if(constructsSet.remove(H)){
+                explanation += "~ H removed because R is present\n";
+                explanation += indent + "R allows for H\n";
+            }
         }
 
         axiomClassificationExplanation = explanation;
