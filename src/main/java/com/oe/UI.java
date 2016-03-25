@@ -85,8 +85,8 @@ public class UI extends JFrame// implements ComponentListener
 					@Override
 					public void setSelected(boolean b)
 					{
-					// Stop events from being raised...
-					}});
+						super.setSelected(b); //This allows me to programatically change the check boxes, but not the user (I don't really know why)
+				}});
 					gbc.gridx = i; gbc.gridy = 1; gbc.gridwidth = 1; gbc.gridheight = 1;
 			//		gbc.weighty = 0; gbc.weightx = 0;
 					frame.add(checkBoxes[i],gbc);
@@ -132,25 +132,8 @@ public class UI extends JFrame// implements ComponentListener
     //Called when an owl file is loaded to populate the tabbed pane with the letters and their axioms
     public void populateExpressivityPane(HashMap<String, ArrayList<OWLAxiom>> axiomClassifications)
     {
-/*      JTabbedPane tabbedPane;
-
-      if (pane == 1)
-        tabbedPane = expressivityPane;
-      else
-        tabbedPane = violationsPane;
-
-      while (tabbedPane.getTabCount() > 0) //Remove current panes
-        tabbedPane.remove(0);
-
-      for (int i = 0; i < titles.length; ++i)
-      {
-        JTextArea area = new JTextArea();
-        //violationsPane.setSize(500,400);
-        tabbedPane.addTab(titles[i], area);
-      } */
-
       //Remove the current content in the expressivity tabbed pane
-      while (expressivityPane.getTabCount() > 0) //Remove current panes
+      while (expressivityPane.getTabCount() > 0) //Remove current tabs
         expressivityPane.remove(0);
 
       int counter = 1; //Counter of axioms for each letter
@@ -166,15 +149,44 @@ public class UI extends JFrame// implements ComponentListener
           }
 
           //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
-          JScrollPane scrollableArea = new JScrollPane (area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+          JScrollPane scrollableArea = new JScrollPane (area);
           expressivityPane.addTab(letter,scrollableArea);
           counter = 1;
       }
     }
 
+		//To populate the violations pane
 		public void populateViolationsPane(HashMap<String, OWLProfileReport> ontologyProfileReports)
 		{
+			checkBoxes[0].setSelected(true);
 
+			while (violationsPane.getTabCount() > 0) //Remove current tabs
+				violationsPane.remove(0);
+
+			int counter = 1; //Counter of axioms for each letter
+
+			for(String profileName : ProfileChecker.PROFILE_NAMES)
+			{
+				if (ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+				{
+					checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
+					continue;
+				}
+
+				JTextArea area = new JTextArea(); //The list of axioms for this particular profile
+				area.setEditable(false);
+
+				for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations())
+				{
+					String cleanedViolation =  violation.toString().replaceAll("(?<=:)[^#]*#","").replaceAll("http:",""); //Not the most elegant regex but it works
+					area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with the list of axioms
+					++counter;
+				}
+				//Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
+				JScrollPane scrollableArea = new JScrollPane (area);
+				violationsPane.addTab(profileName,scrollableArea);
+				counter = 1;
+			}
 		}
 
     //On click for the 'open file' button
@@ -208,7 +220,7 @@ public class UI extends JFrame// implements ComponentListener
         }
 
         ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
-        expressivityLabel.setText(expressivityLabel.getText() + expChecker.getDescriptionLogicName());
+        expressivityLabel.setText("Expresivity: " + expChecker.getDescriptionLogicName());
         ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
 				explanationArea.setText("Explanation: \n\n" + result.explanation);
         HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
