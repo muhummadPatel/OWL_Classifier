@@ -15,7 +15,7 @@ public class Main {
         System.out.println("--------------START MAIN---------------\n");
 
         // The OWL file to be loaded
-        String filePath = "AirIncidentOntology.owl";
+        String filePath = "EmptyOntology.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
@@ -38,9 +38,10 @@ public class Main {
          * 3. The profile is looked up and the violations printed out
          */
         HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
-        String profileName = ProfileChecker.PROFILE_NAMES.get(1);
+        String profileName = ProfileChecker.PROFILE_NAMES.get(4);
+        System.out.println(ontologyProfileReports.get(profileName).isInProfile());
         for(OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
-            System.out.println(violation.toString());
+            System.out.println (violation.toString());
         }
 
         System.out.println("\n---------------END MAIN----------------");

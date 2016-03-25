@@ -2,6 +2,7 @@ package com.oe;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import java.io.File;
@@ -39,11 +40,13 @@ public class OntologyLoader{
                 addImports(ontologies, ontology);
             }
 
-
             System.out.println(ontFile.getName() + " loaded" + extra);
 
-        }catch(org.semanticweb.owlapi.model.OWLOntologyCreationException ex){
-            System.out.println("Ontology creation Error:\n" + ex.getMessage());
+        }catch(OWLOntologyCreationException ex){
+            ex.printStackTrace();
+            System.exit(1);
+        } catch(org.semanticweb.owlapi.io.OWLOntologyInputSourceException ex) {
+            ex.printStackTrace();
             System.exit(1);
         }
 
