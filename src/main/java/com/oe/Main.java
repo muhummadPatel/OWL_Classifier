@@ -1,14 +1,11 @@
 package com.oe;
 
-import java.io.*;
 import java.util.*;
 
+import org.semanticweb.owlapi.io.SystemOutDocumentTarget;
 import org.semanticweb.owlapi.model.*;
-import org.semanticweb.owlapi.apibinding.*;
-import org.semanticweb.owlapi.profiles.OWL2QLProfile;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import org.semanticweb.owlapi.profiles.OWLProfileViolation;
-import org.semanticweb.owlapi.util.*;
 
 public class Main {
     public static void main(String[] args){
@@ -16,7 +13,8 @@ public class Main {
 
         // The OWL file to be loaded
 
-        String filePath = "test_ontologies/OWL2_QL/iLog.owl";
+        //String filePath = "test_ontologies/OWL2_QL/iLog.owl";
+        String filePath = "test_ontologies/OWL1/tonesOntologies/DOLCE_Lite_397.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
@@ -49,7 +47,7 @@ public class Main {
          * Example call to ProfileChecker
          * 1. The profile reports are generated
          * 2. The profile name is looked up using the PROFILE_NAMES list
-         * 3. The profile is looked up and the violations printed out
+         * 3. The profile is looked up and the getViolations printed out
          */
         HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
         for(String profileName : ProfileChecker.PROFILE_NAMES) {
@@ -60,8 +58,26 @@ public class Main {
             System.out.println();
         }
 
-        System.out.println();
-        System.out.println(OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI(filePath)));
+        /**
+         * Example call to OWL1ProfileChecker
+         */
+        // Calculate the report profiles
+        HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI(filePath));
+        for(String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
+            // Display profile
+            System.out.println("Violations for profile " + profileName + ":");
+
+            // Get the report
+            OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
+
+            // Display violations (Note that it is a single (pre-formated) string in this case)
+            // It was done like this for technical (implementation) reasons
+            System.out.println(profileReport.getViolations());
+
+            // Check if ontology falls within that profile
+            System.out.println(profileReport.isInProfile());
+            System.out.println();
+        }
 
         System.out.println("\n---------------END MAIN----------------");
     }

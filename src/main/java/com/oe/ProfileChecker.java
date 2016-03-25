@@ -2,17 +2,17 @@ package com.oe;
 
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.profiles.*;
-import uk.ac.man.cs.img.owl.validation.*;
 
 import java.util.*;
 
 public class ProfileChecker {
+    public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList(new OWL2Profile().getName(), new OWL2ELProfile().getName(), new OWL2DLProfile().getName(), new OWL2QLProfile().getName(), new OWL2RLProfile().getName()));
+
     public static final List<Class<? extends org.semanticweb.owlapi.profiles.OWLProfile>> OWL_PROFILES = Collections.unmodifiableList(Arrays.asList(OWL2Profile
             .class, OWL2ELProfile.class, OWL2DLProfile.class, OWL2QLProfile.class, OWL2RLProfile.class));
-    public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList("OWL 2", "OWL 2 EL", "OWL 2 DL", "OWL 2 QL", "OWL 2 RL"));
 
     /**
-     * Calculates the a report of the OWL profiles which can be used to determine if an ontology falls within that profile and the violations (if any) that
+     * Calculates the a report of the OWL profiles which can be used to determine if an ontology falls within that profile and the getViolations (if any) that
      * occurred
      *
      * @param ontology the ontology to generate the reports for
