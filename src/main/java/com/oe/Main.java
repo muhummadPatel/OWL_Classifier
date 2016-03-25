@@ -15,7 +15,9 @@ public class Main {
         System.out.println("--------------START MAIN---------------\n");
 
         // The OWL file to be loaded
-        String filePath = "EmptyOntology.owl";
+
+        // String filePath = "Beverages.owl";
+        String filePath = "AirIncidentOntology.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
@@ -23,13 +25,6 @@ public class Main {
         OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
         Set<OWLOntology> ontologies = OntologyLoader.loadOntology(filePath, true);
         System.out.println();
-
-        /**
-         * Example expressivity check
-         */
-        ExpressivityChecker expCheck = new ExpressivityChecker(ontologies);
-        String dlName = expCheck.getDescriptionLogicName();
-        System.out.println("Ontology Expressivity: " + dlName+"\n");
 
         /**
          * Example call to ProfileChecker
@@ -43,6 +38,26 @@ public class Main {
         for(OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
             System.out.println (violation.toString());
         }
+
+        // Example call to ExpressivityChecker
+        // First, here we get the description logic name and display it
+        ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
+        String expressivity = expChecker.getDescriptionLogicName();
+        System.out.println("Ontology Expressivity: " + expressivity + "\n");
+
+        // Here we get the axiom classifications and the explanation for how we
+        // ended up at the final list of letters (why some letters were removed, etc)
+        ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
+        HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
+        System.out.println("Axiom Classifications:");
+        for(String letter: axiomClassifications.keySet()){
+            System.out.println("=== " + letter + " ===");
+            for(OWLAxiom axiom: axiomClassifications.get(letter)){
+                System.out.println(axiom);
+            }
+            System.out.println();
+        }
+        System.out.println("Axiom Classifications Explanations:\n" + result.explanation);
 
         System.out.println("\n---------------END MAIN----------------");
     }
