@@ -13,9 +13,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.apibinding.*;
+import org.semanticweb.owlapi.profiles.OWL2QLProfile;
+import org.semanticweb.owlapi.profiles.OWLProfileReport;
+import org.semanticweb.owlapi.profiles.OWLProfileViolation;
+import org.semanticweb.owlapi.util.*;
 
 import java.io.*;
 import java.util.*;
@@ -135,9 +138,9 @@ public class UI extends JFrame// implements ComponentListener
 
     //Just to test that I can dynamically populate the tabbed panes after loading the onto
     //pane = 1 or 2 (expressivityPane or violationsPane); titles = headings of tables; values = bucket of axiomns for each tab
-    public void populatePane(int pane, String[] titles, String[][] values)
+    public void populateExpressivityPane(HashMap<String, ArrayList<OWLAxiom>> axiomClassifications)
     {
-      JTabbedPane tabbedPane;
+/*      JTabbedPane tabbedPane;
 
       if (pane == 1)
         tabbedPane = expressivityPane;
@@ -152,6 +155,27 @@ public class UI extends JFrame// implements ComponentListener
         JTextArea area = new JTextArea();
         //violationsPane.setSize(500,400);
         tabbedPane.addTab(titles[i], area);
+      } */
+
+      //Remove the current content in the expressivity tabbed pane
+      while (expressivityPane.getTabCount() > 0) //Remove current panes
+        expressivityPane.remove(0);
+
+      int counter = 1; //Counter of axioms for each letter
+      for(String letter: axiomClassifications.keySet())
+      {
+          JTextArea area = new JTextArea(); //The list of axioms for this particular letter
+        //  area.setEditable(false);
+          for(OWLAxiom axiom: axiomClassifications.get(letter))
+          {
+              area.append(counter + " - " + axiom.toString() + "\n"); //Populate this area with the list of axioms
+              ++counter;
+          }
+
+          //Add the final list for the letter as a tab in the tabbed pane
+          JScrollPane scrollableArea = new JScrollPane (area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+          expressivityPane.addTab(letter,scrollableArea);
+          counter = 1;
       }
     }
 
@@ -174,8 +198,23 @@ public class UI extends JFrame// implements ComponentListener
     		catch(Exception ex) //User opens dialog box but then doesn't select anything/exits
     		{}
 
-        mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
-        ontologies = OntologyLoader.loadOntology(filePath, true);
+        try //Try to open owl file
+        {
+          mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
+          ontologies = OntologyLoader.loadOntology(filePath, true);
+          frame.setTitle(frame.getTitle() + " - " + filePath);
+        }
+        catch(Exception ex)
+        { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
+          System.out.println("Invalid file!"); //Will change this to make a error window popup
+        }
+
+        ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
+        expressivityLabel.setText(expressivityLabel.getText() + expChecker.getDescriptionLogicName());
+        ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
+        HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
+
+        populateExpressivityPane(axiomClassifications);
     	}
     }
 
@@ -184,22 +223,7 @@ public class UI extends JFrame// implements ComponentListener
     {
     	public void actionPerformed(ActionEvent e)
     	{
-    		//Create Ontology Loader object
-    		String fName = fileName.getText();
-    		// ...
 
-    		//Do expressivity checks
-    		// ...
-    		//Use dummy data in the mean time
-    		//If the methods return different data structures, can just edit this or transform them into arrays or whatever
-    		species = "OWL 2 DL";
-    		expressivity = new String[]{"S","R","O"};
-        axioms = new String[][]{
-          {"bla","hey"},
-          {"hi","bbs"},
-          {"Ss","sass"}
-        };
-        populatePane(1, expressivity, axioms);
     	}
     }
 
