@@ -45,7 +45,7 @@ public class OntologyLoader{
         }catch(OWLOntologyCreationException ex){
             ex.printStackTrace();
             System.exit(1);
-        } catch(org.semanticweb.owlapi.io.OWLOntologyInputSourceException ex) {
+        } catch(Exception ex) {
             ex.printStackTrace();
             System.exit(1);
         }
