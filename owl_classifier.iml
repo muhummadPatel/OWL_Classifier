@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -13,25 +13,25 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-distribution:4.1.2" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.owlapi:owlapi-distribution:4.2.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.tukaani:xz:1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-model:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-util:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-api:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-languages:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-datatypes:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-binary:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-n3:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-nquads:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-ntriples:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-rdfjson:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-rdfxml:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-trix:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-turtle:2.7.12" level="project" />
-    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-trig:2.7.12" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-model:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-util:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-api:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-languages:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-datatypes:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-binary:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-n3:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-nquads:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-ntriples:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-rdfjson:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-rdfxml:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-trix:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-turtle:2.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.openrdf.sesame:sesame-rio-trig:2.7.16" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsonld-java:jsonld-java-sesame:0.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsonld-java:jsonld-java:0.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient-cache:4.2.5" level="project" />

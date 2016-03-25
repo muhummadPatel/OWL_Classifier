@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.oe</groupId>
     <artifactId>owl_classifier</artifactId>
@@ -7,6 +7,14 @@
     <version>1.0-SNAPSHOT</version>
     <name>owl_classifier</name>
     <url>http://maven.apache.org</url>
+
+    <repositories>
+        <repository>
+            <id>lib_id</id>
+            <url>file://${project.basedir}/lib</url>
+        </repository>
+    </repositories>
+
 
     <dependencies>
         <!--unit tests-->
@@ -21,7 +29,7 @@
         <dependency>
             <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>owlapi-distribution</artifactId>
-            <version>4.1.2</version>
+            <version>4.2.3</version>
         </dependency>
 
         <!--logging framework-->
@@ -33,16 +41,26 @@
         </dependency>
 
         <dependency>
-        	<groupId>org.slf4j</groupId>
-        	<artifactId>slf4j-log4j12</artifactId>
-        	<version>1.6.1</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
         </dependency>
 
         <dependency>
-        	<groupId>log4j</groupId>
-        	<artifactId>log4j</artifactId>
-        	<version>1.2.16</version>
-        	<scope>runtime</scope>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--owlapi previous version jars-->
+        <!--TODO: do the other jars just like this. It should work.-->
+        <dependency>
+            <groupId>abstract-parser</groupId>
+            <artifactId>abstract-parser-id</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/abstractparser.jar</systemPath>
         </dependency>
     </dependencies>
 

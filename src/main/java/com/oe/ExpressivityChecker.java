@@ -64,15 +64,18 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
 
     private void pruneConstructs() {
         String explanation = "";
+        String indent = "\t* ";
         if (constructsSet.contains(AL)) {
             // AL + U + E can be represented using ALC
             if (constructsSet.contains(C)) {
                 // Remove existential because this can be represented
                 // with AL + Neg
                 explanation += "~ E removed because ALC is present\n";
+                explanation += indent + "E can be represented with AL + negation\n";
                 constructsSet.remove(E);
                 // Remove out union (intersection + negation (demorgan))
                 explanation += "~ U removed because ALC is present\n";
+                explanation += indent + "U can be represented with intersection + negation\n";
                 constructsSet.remove(U);
             } else if (constructsSet.contains(E) && constructsSet.contains(U)) {
                 // Simplify to ALC
@@ -89,6 +92,7 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
         }
         if (constructsSet.contains(Q)) {
             explanation += "~ N removed because Q is present\n";
+            explanation += indent + "Q is more general than N\n";
             constructsSet.remove(N);
         }
         if (constructsSet.contains(AL) && constructsSet.contains(C)
@@ -101,6 +105,7 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
         }
         if (constructsSet.contains(R)) {
             explanation += "~ H removed because R is present\n";
+            explanation += indent + "R allows for H\n";
             constructsSet.remove(H);
         }
 
