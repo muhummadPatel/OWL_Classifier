@@ -26,7 +26,7 @@ import java.util.*;
 public class UI extends JFrame// implements ComponentListener
 {
 	private JFrame frame;
-	private JTextField fileName;
+	private JTextArea explanationArea;
 	private JLabel speciesLabel;
 	private JLabel expressivityLabel;
   private JTabbedPane expressivityPane;
@@ -45,45 +45,7 @@ public class UI extends JFrame// implements ComponentListener
     }
 
     private void initialize()
-    {
-/*    	frame = new JFrame("Ontology Profile Checker");
-    	frame.setSize(700,900);
-    	frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    	frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
-    	frame.addComponentListener(new Window()); //Window is defined further down. Mainly for doing stuff when the window is resized.
-
-    	//Panel for the open file buttons and text areas next to it
-    	JPanel buttonPanel = new JPanel();
-    	//Panel for expressivity and species
-    	JPanel infoPanel = new JPanel();
-
-    	fileName = new JTextField("[File Name]",(int)(frame.getBounds().width*fileNameAreaPercentage/fontSize));
-    	//fileName.setLineWrap(true);
-    	//fileName.setEditable(false);
-
-    	infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.PAGE_AXIS));
-    	speciesLabel = new JLabel("OWL Species: ");
-    	expressivityLabel = new JLabel("Expressivity: ");
-    	infoPanel.add(expressivityLabel);
-    	infoPanel.add(speciesLabel);
-
-
-    	JButton openFile = new JButton("Choose File");
-    	openFile.addActionListener(new OpenFileClickListener());
-
-    	JButton loadOntology = new JButton("Load Ontology");
-    	loadOntology.addActionListener(new LoadOntologyClickListener());
-
-    	buttonPanel.setLayout(new FlowLayout());
-    	buttonPanel.add(openFile);
-    	buttonPanel.add(fileName);
-    	buttonPanel.add(loadOntology);
-
-    	frame.add(buttonPanel);//, BorderLayout.NORTH);
-    	frame.add(infoPanel);//, BorderLayout.CENTER);
-
-    	frame.setVisible(true);*/
-
+{
       //The main frame
       frame = new JFrame("Ontology Profile Checker");
       frame.setSize(700,900);
@@ -116,11 +78,21 @@ public class UI extends JFrame// implements ComponentListener
       gbc.weighty = 0.14; gbc.weightx = 0;
       frame.add(expressivityLabel,gbc);
 
+
+			//The explanation area before the expressivity information
+			explanationArea = new JTextArea("");
+			explanationArea.setEditable(false);
+			JScrollPane scrollableArea = new JScrollPane (explanationArea);//, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+			gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 4; gbc.gridheight = 3;
+			gbc.weighty = 1; gbc.weightx = 1;
+			gbc.fill = GridBagConstraints.BOTH;
+			frame.add(scrollableArea,gbc);
+
       expressivityPane = new JTabbedPane();
       JTextArea tempField1 = new JTextArea();
     //  expressivityPane.setSize(500,400);
       expressivityPane.addTab("Expressivity Information", tempField1);
-      gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 4; gbc.gridheight = 4;
+      gbc.gridx = 0; gbc.gridy = 5; gbc.gridwidth = 4; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(expressivityPane,gbc);
@@ -129,7 +101,7 @@ public class UI extends JFrame// implements ComponentListener
       JTextArea tempField2 = new JTextArea();
       //violationsPane.setSize(500,400);
       violationsPane.addTab("Violation Information",tempField2);
-      gbc.gridx = 0; gbc.gridy = 6; gbc.gridwidth = 4; gbc.gridheight = 4;
+      gbc.gridx = 0; gbc.gridy = 9; gbc.gridwidth = 4; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(violationsPane,gbc);
@@ -180,6 +152,11 @@ public class UI extends JFrame// implements ComponentListener
       }
     }
 
+		public void populateViolationsPane(HashMap<String, OWLProfileReport> ontologyProfileReports)
+		{
+
+		}
+
     //On click for the 'open file' button
     private class OpenFileClickListener implements ActionListener
     {
@@ -213,9 +190,15 @@ public class UI extends JFrame// implements ComponentListener
         ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
         expressivityLabel.setText(expressivityLabel.getText() + expChecker.getDescriptionLogicName());
         ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
+				explanationArea.setText("Explanation: \n\n" + result.explanation);
         HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
 
+				System.out.println(result.explanation);
+				OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
+				HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
+
         populateExpressivityPane(axiomClassifications);
+				populateViolationsPane(ontologyProfileReports);
     	}
     }
 
