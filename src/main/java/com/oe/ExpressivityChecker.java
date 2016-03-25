@@ -2,6 +2,7 @@ package com.oe;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.*;
 import javax.annotation.Nonnull;
 
 import static org.semanticweb.owlapi.model.parameters.Imports.EXCLUDED;
@@ -12,8 +13,11 @@ import org.semanticweb.owlapi.model.*;
 
 public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressivityChecker {
 
-    private final Set<Construct> constructs;
+    private final Set<Construct> constructsSet; // the original set, we needed the list below because we need to see letters being added
+    private final ArrayList<Construct> constructs; // So we can examine which letter each axiom is adding
+    private final HashMap<String, ArrayList<OWLAxiom>> axiomClassifications; // to classify the axioms by letter
     private final Set<OWLOntology> ontologies;
+    private String axiomClassificationExplanation; // to explain the actions of the pruneConstructs method
 
     /** @return ordered constructs */
     public List<Construct> getConstructs() {
@@ -27,7 +31,10 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
     public ExpressivityChecker(Set<OWLOntology> ontologies) {
         super(ontologies);
         this.ontologies = ontologies;
-        constructs = new HashSet<>();
+        constructsSet = new HashSet<>();
+        constructs = new ArrayList<>();
+        axiomClassifications = new HashMap<>();
+        axiomClassificationExplanation = "";
     }
 
     /** @return DL name */
@@ -40,51 +47,96 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
         return verifyNotNull(s.toString());
     }
 
-    private void pruneConstructs() {
-        if (constructs.contains(AL)) {
-            // AL + U + E can be represented using ALC
-            if (constructs.contains(C)) {
-                // Remove existential because this can be represented
-                // with AL + Neg
-                constructs.remove(E);
-                // Remove out union (intersection + negation (demorgan))
-                constructs.remove(U);
-            } else if (constructs.contains(E) && constructs.contains(U)) {
-                // Simplify to ALC
-                constructs.add(AL);
-                constructs.add(C);
-                constructs.remove(E);
-                constructs.remove(U);
-            }
+    /**
+     * Returns an AxiomClassificationResult (static class nested in this class)
+     * that contains a hashmap mapping from expressivity letters to the axioms
+     * in the ontology. It also contains a string explaining how the Expressivity
+     * was altered by the pruneConstructs method. Interesting to see how the constructs
+     * consume and replace each other.
+     */
+    public AxiomClassificationResult getAxiomClassifications(){
+        if(axiomClassifications.isEmpty()){
+            getOrderedConstructs();
         }
-        if (constructs.contains(N) || constructs.contains(Q)) {
-            constructs.remove(F);
-        }
-        if (constructs.contains(Q)) {
-            constructs.remove(N);
-        }
-        if (constructs.contains(AL) && constructs.contains(C)
-                && constructs.contains(TRAN)) {
-            constructs.remove(AL);
-            constructs.remove(C);
-            constructs.remove(TRAN);
-            constructs.add(S);
-        }
-        if (constructs.contains(R)) {
-            constructs.remove(H);
-        }
+
+        return (new AxiomClassificationResult(axiomClassifications, axiomClassificationExplanation));
     }
 
+    private void pruneConstructs() {
+        String explanation = "";
+        if (constructsSet.contains(AL)) {
+            // AL + U + E can be represented using ALC
+            if (constructsSet.contains(C)) {
+                // Remove existential because this can be represented
+                // with AL + Neg
+                explanation += "~ E removed because ALC is present\n";
+                constructsSet.remove(E);
+                // Remove out union (intersection + negation (demorgan))
+                explanation += "~ U removed because ALC is present\n";
+                constructsSet.remove(U);
+            } else if (constructsSet.contains(E) && constructsSet.contains(U)) {
+                // Simplify to ALC
+                explanation += "~ E and U replaced with ALC\n";
+                constructsSet.add(AL);
+                constructsSet.add(C);
+                constructsSet.remove(E);
+                constructsSet.remove(U);
+            }
+        }
+        if (constructsSet.contains(N) || constructsSet.contains(Q)) {
+            explanation += "~ F removed because N and/or Q is present\n";
+            constructsSet.remove(F);
+        }
+        if (constructsSet.contains(Q)) {
+            explanation += "~ N removed because Q is present\n";
+            constructsSet.remove(N);
+        }
+        if (constructsSet.contains(AL) && constructsSet.contains(C)
+                && constructsSet.contains(TRAN)) {
+            explanation += "~ ALC and + replaced with S\n";
+            constructsSet.remove(AL);
+            constructsSet.remove(C);
+            constructsSet.remove(TRAN);
+            constructsSet.add(S);
+        }
+        if (constructsSet.contains(R)) {
+            explanation += "~ H removed because R is present\n";
+            constructsSet.remove(H);
+        }
+
+        axiomClassificationExplanation = explanation;
+    }
+
+
+
     private List<Construct> getOrderedConstructs() {
+        axiomClassifications.clear();
+        constructsSet.clear();
         constructs.clear();
         constructs.add(AL);
         for (OWLOntology ont : ontologies) {
             for (OWLAxiom ax : ont.getLogicalAxioms()) {
                 ax.accept(this);
+
+                // Classify this axiom into the appropriate construct letter bucket
+                String lastAdded = constructs.get(constructs.size()-1).toString();
+                if(axiomClassifications.containsKey(lastAdded)){
+                    axiomClassifications.get(lastAdded).add(ax);
+                }else{
+                    ArrayList<OWLAxiom> axiomsList = new ArrayList<>();
+                    axiomsList.add(ax);
+                    axiomClassifications.put(lastAdded, axiomsList);
+                }
             }
         }
+
+        // put the constructs arraylist into the constructs set (remove duplicates)
+        for(Construct c: constructs){
+            constructsSet.add(c);
+        }
+
         pruneConstructs();
-        List<Construct> cons = new ArrayList<>(constructs);
+        List<Construct> cons = new ArrayList<>(constructsSet);
         Collections.sort(cons, new ConstructComparator());
         return cons;
     }
@@ -513,5 +565,19 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
     @Override
     public void visit(OWLInverseObjectPropertiesAxiom axiom) {
         constructs.add(I);
+    }
+
+    /**
+     * Used to return the axiomClassifications and the explanation for why some
+     * letters were added/removed by the pruneConstructs method.
+     */
+    public static class AxiomClassificationResult{
+        public HashMap<String, ArrayList<OWLAxiom>> classifications;
+        public String explanation;
+
+        AxiomClassificationResult(HashMap<String, ArrayList<OWLAxiom>> c, String e){
+            classifications = c;
+            explanation = e;
+        }
     }
 }
