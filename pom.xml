@@ -60,7 +60,7 @@
             <artifactId>abstract-parser-id</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/lib/abstractparser.jar</systemPath>
+            <systemPath>${basedir}/lib/validation.jar</systemPath>
         </dependency>
     </dependencies>
 
