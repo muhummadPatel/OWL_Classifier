@@ -16,8 +16,8 @@ public class Main {
 
         // The OWL file to be loaded
 
-        // String filePath = "Beverages.owl";
-        String filePath = "AirIncidentOntology.owl";
+        String filePath = "Beverages.owl";
+        //String filePath = "AirIncidentOntology.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
@@ -25,19 +25,6 @@ public class Main {
         OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
         Set<OWLOntology> ontologies = OntologyLoader.loadOntology(filePath, true);
         System.out.println();
-
-        /**
-         * Example call to ProfileChecker
-         * 1. The profile reports are generated
-         * 2. The profile name is looked up using the PROFILE_NAMES list
-         * 3. The profile is looked up and the violations printed out
-         */
-        HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
-        String profileName = ProfileChecker.PROFILE_NAMES.get(4);
-        System.out.println(ontologyProfileReports.get(profileName).isInProfile());
-        for(OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
-            System.out.println (violation.toString());
-        }
 
         // Example call to ExpressivityChecker
         // First, here we get the description logic name and display it
@@ -58,6 +45,21 @@ public class Main {
             System.out.println();
         }
         System.out.println("Axiom Classifications Explanations:\n" + result.explanation);
+
+        /**
+         * Example call to ProfileChecker
+         * 1. The profile reports are generated
+         * 2. The profile name is looked up using the PROFILE_NAMES list
+         * 3. The profile is looked up and the violations printed out
+         */
+        HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
+        for(String profileName : ProfileChecker.PROFILE_NAMES) {
+            System.out.println("Violations for profile " + profileName + ":");
+            for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
+                System.out.println(violation.toString());
+            }
+            System.out.println();
+        }
 
         System.out.println("\n---------------END MAIN----------------");
     }
