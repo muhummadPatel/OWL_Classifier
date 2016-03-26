@@ -34,7 +34,7 @@ public class UI extends JFrame {
     private String[] profiles = new String[]{"OWL 2", "OWL 2 EL", "OWL 2 DL", "OWL 2 QL", "OWL 2 RL", "OWL 1 Lite", "OWL 1 DL", "OWL 1 Full"};
     private JCheckBox[] checkBoxes = new JCheckBox[profiles.length]; //The check box profiles
 
-    private JCheckBox iriToggle;
+    private JCheckBoxMenuItem toggleIriButton;
 
     private float fileNameAreaPercentage = 0.5f; //Percentage of the width of the screen that the file name text area occupies
     private float fontSize = 12.0f; //Approximation of the font size, to calculate the width of text components
@@ -63,13 +63,13 @@ public class UI extends JFrame {
             UIManager.setLookAndFeel(
                     UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException e) {
-            // handle exception
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            // handle exception
+            e.printStackTrace();
         } catch (InstantiationException e) {
-            // handle exception
+            e.printStackTrace();
         } catch (IllegalAccessException e) {
-            // handle exception
+            e.printStackTrace();
         }
 
         //The main frame
@@ -82,16 +82,21 @@ public class UI extends JFrame {
         //Creating the menu bar
         JMenuBar bar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
+        JMenu viewMenu = new JMenu("View");
         JMenuItem loadItem = new JMenuItem("Load Ontology");
         JMenuItem helpItem = new JMenuItem("Help");
+        toggleIriButton = new JCheckBoxMenuItem("Show full IRI");
+        toggleIriButton.addActionListener(new ToggleIRIClickListener());
         loadItem.addActionListener(new OpenFileClickListener());
         helpItem.addActionListener(new HelpClickListener());
         fileMenu.add(loadItem);
         fileMenu.add(helpItem);
+        viewMenu.add(toggleIriButton);
         bar.add(fileMenu);
+        bar.add(viewMenu);
         frame.setJMenuBar(bar);
 
-      /* The rest is to create the indivual components and place them using gridbaglayout*/
+      /* The rest is to create the individual components and place them using gridbaglayout*/
         GridBagConstraints gbc = new GridBagConstraints();
 
 
@@ -104,9 +109,6 @@ public class UI extends JFrame {
         gbc.weightx = 0;
         frame.add(expressivityLabel, gbc);
 
-        iriToggle = new JCheckBox("View full IRI's");
-        iriToggle.setSelected(false);
-        iriToggle.addActionListener(new ToggleIRIClickListener());
         gbc.gridx = 5;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -114,7 +116,6 @@ public class UI extends JFrame {
         gbc.weighty = 0.14;
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.BOTH;
-        frame.add(iriToggle, gbc);
 
         for (int i = 0; i < profiles.length; ++i) {
             checkBoxes[i] = new JCheckBox(profiles[i]);
@@ -235,7 +236,7 @@ public class UI extends JFrame {
         int counter = 1; //Counter of axioms for each letter
 
         for (String profileName : ProfileChecker.PROFILE_NAMES) {
-            if (ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+            if (ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
             {
                 checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
                 continue;
@@ -257,7 +258,7 @@ public class UI extends JFrame {
 
         //Now do the same for the OWL 1 profiles
         for (String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
-            if (owl1ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+            if (owl1ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
             {
                 checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
                 continue;
@@ -307,20 +308,22 @@ public class UI extends JFrame {
                 ontologies = OntologyLoader.loadOntology(filePath, true);
                 frame.setTitle(frame.getTitle() + " - " + filePath);
             } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
-                System.out.println("Invalid file!"); //Will change this to make a error window popup
+                JOptionPane.showMessageDialog(new JFrame(), "Invalid file!", "Dialog", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
+            for(JCheckBox checkbox : checkBoxes) {
+                checkbox.setSelected(false);
+            }
             ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
             expressivityLabel.setText("Expresivity: " + expChecker.getDescriptionLogicName());
             ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
-            explanationArea.setText("Explanation: \n\n" + result.explanation);
+            explanationArea.setText("Explanation: \n" + result.explanation);
             HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
 
-            OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
             HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
             HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI
                     (filePath));
-
 
             populateExpressivityPane(axiomClassifications);
             populateViolationsPane(ontologyProfileReports, owl1ontologyProfileReports);
@@ -333,11 +336,13 @@ public class UI extends JFrame {
             if (expAreas != null) {
                 //Toggle between full and cleaned axioms
                 for (int i = 0; i < expAreas.length; ++i) {
-                    if (iriToggle.isSelected())
+                    if (toggleIriButton.isSelected())
                         expAreas[i].setText(fullExpAxioms[i]);
                     else
                         expAreas[i].setText(cleanExpAxioms[i]);
                 }
+            } else {
+                toggleIriButton.setSelected(false);
             }
         }
     }
