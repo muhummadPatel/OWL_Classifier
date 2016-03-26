@@ -14,25 +14,23 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import org.semanticweb.owlapi.model.*;
-import org.semanticweb.owlapi.apibinding.*;
-import org.semanticweb.owlapi.profiles.OWL2QLProfile;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import org.semanticweb.owlapi.profiles.OWLProfileViolation;
-import org.semanticweb.owlapi.util.*;
 
 import java.io.*;
 import java.util.*;
+import java.util.List;
 
 public class UI extends JFrame {
     private JFrame frame;
     private JTextArea explanationArea;
     private JLabel speciesLabel;
-    private JLabel expressivityLabel;
+    //private JLabel expressivityLabel;
     private JTabbedPane expressivityPane;
     private JTabbedPane violationsPane;
 
-    private String[] profiles = new String[]{"OWL 2", "OWL 2 EL", "OWL 2 DL", "OWL 2 QL", "OWL 2 RL", "OWL 1 Lite", "OWL 1 DL", "OWL 1 Full"};
-    private JCheckBox[] checkBoxes = new JCheckBox[profiles.length]; //The check box profiles
+    private String[] profiles;
+    private JCheckBox[] checkBoxes; //The check box profiles
 
     private JCheckBoxMenuItem toggleIriButton;
 
@@ -74,7 +72,8 @@ public class UI extends JFrame {
 
         //The main frame
         frame = new JFrame("Ontology Profile Checker");
-        frame.setSize(700, 900);
+        frame.setSize(1000, 900);
+        frame.setResizable(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setLayout(new GridBagLayout());
         frame.addComponentListener(new Window()); //Window is defined further down. Mainly for doing stuff when the window is resized.
@@ -99,16 +98,24 @@ public class UI extends JFrame {
       /* The rest is to create the individual components and place them using gridbaglayout*/
         GridBagConstraints gbc = new GridBagConstraints();
 
+        List<String> profileList = new ArrayList<>();
+        profileList.addAll(ProfileChecker.PROFILE_NAMES);
+        profileList.addAll(OWL1ProfileChecker.PROFILE_NAMES);
+        profiles = new String[profileList.size()];
+        profiles = profileList.toArray(profiles);
+        checkBoxes = new JCheckBox[profiles.length];
 
+        /*
         expressivityLabel = new JLabel("Expressivity: ");
+
+        frame.add(expressivityLabel, gbc);
+        */
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.weighty = 0.14;
         gbc.weightx = 0;
-        frame.add(expressivityLabel, gbc);
-
         gbc.gridx = 5;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -316,14 +323,18 @@ public class UI extends JFrame {
                 checkbox.setSelected(false);
             }
             ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
-            expressivityLabel.setText("Expresivity: " + expChecker.getDescriptionLogicName());
+            //expressivityLabel.setText("Expresivity: " + expChecker.getDescriptionLogicName());
             ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
-            explanationArea.setText("Explanation: \n" + result.explanation);
+            String displayExplaination = result.explanation;
+            System.out.println(displayExplaination + " " + expChecker.getDescriptionLogicName());
+            if(expChecker.getDescriptionLogicName().trim().equals("AL") && displayExplaination.trim().length()==0) {
+                displayExplaination = "~ AL is the base language used";
+            }
+            explanationArea.setText("Expresivity: " + expChecker.getDescriptionLogicName() + "\n"+ "Explanation of description logic name: \n" + displayExplaination);
             HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
 
             HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
-            HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI
-                    (filePath));
+            HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI(filePath));
 
             populateExpressivityPane(axiomClassifications);
             populateViolationsPane(ontologyProfileReports, owl1ontologyProfileReports);

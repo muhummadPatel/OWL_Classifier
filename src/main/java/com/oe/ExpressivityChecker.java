@@ -64,7 +64,7 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
 
     private void pruneConstructs() {
         String explanation = "";
-        String indent = "\t* ";
+        String indent = "    * ";
         if (constructsSet.contains(AL)) {
             // AL + U + E can be represented using ALC
             if (constructsSet.contains(C)) {

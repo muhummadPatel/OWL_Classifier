@@ -15,7 +15,7 @@ public class Main {
 
         //String filePath = "EmptyOntology.owl";
         //String filePath = "test_ontologies/OWL1/tonesOntologies/adolena.owl";
-        String filePath = "AirIncidentOntology.owl";
+        String filePath = "Pizza.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
@@ -53,7 +53,9 @@ public class Main {
         HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
         for(String profileName : ProfileChecker.PROFILE_NAMES) {
             System.out.println("Violations for profile " + profileName + ":");
-            for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
+            OWLProfileReport profileReport = ontologyProfileReports.get(profileName);
+            System.out.println(profileReport.isInProfile());
+            for (OWLProfileViolation violation : profileReport.getViolations()) {
                 System.out.println(violation.toString());
             }
             System.out.println();
@@ -71,14 +73,16 @@ public class Main {
             // Get the report
             OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
 
+            // Check if ontology falls within that profile
+            System.out.println(profileReport.isInProfile());
+
             // Display violations (Note that it is a single (pre-formated) string in this case)
             // It was done like this for technical (implementation) reasons
             for(String violation : profileReport.getViolations()) {
                 System.out.println(violation);
             }
 
-            // Check if ontology falls within that profile
-            System.out.println(profileReport.isInProfile());
+
             System.out.println();
         }
 
