@@ -12,7 +12,7 @@ public class Main {
 
         // The OWL file to be loaded
 
-        String filePath = "Pizza.owl";
+        String filePath = "pizza.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
