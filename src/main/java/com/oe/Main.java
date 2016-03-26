@@ -73,7 +73,7 @@ public class Main {
             // Check if ontology falls within that profile
             System.out.println(profileReport.isInProfile());
 
-            // Display violations (Note that it is a single (pre-formated) string in this case)
+            // Display violations (Note that it is a single (pre-formatted) string in this case)
             // It was done like this for technical (implementation) reasons
             for(String violation : profileReport.getViolations()) {
                 System.out.println(violation);

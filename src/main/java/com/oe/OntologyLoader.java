@@ -43,14 +43,12 @@ public class OntologyLoader{
 
             System.out.println(ontFile.getName() + " loaded" + extra);
 
-        }catch(OWLOntologyCreationException ex){
+        } catch(OWLOntologyCreationException ex){
             ex.printStackTrace();
             return null;
-            //System.exit(1);
         } catch(Exception ex) {
             ex.printStackTrace();
             return null;
-            //System.exit(1);
         }
 
         return ontologies;

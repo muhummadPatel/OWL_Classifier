@@ -15,7 +15,7 @@ public class OWL1ProfileChecker {
     public static final int PADDING = 15;
 
     /**
-     * Calculates the a report of the OWL profiles which can be used to determine if an ontology falls within that profile and the getViolations (if any) that
+     * Calculates a report of the OWL profiles which can be used to determine if an ontology falls within that profile and the violations (if any) that
      * occurred
      *
      * @param ontologyFileURI to the ontology to generate the reports for
@@ -23,8 +23,7 @@ public class OWL1ProfileChecker {
      */
     public static HashMap<String, OWL1ProfileReport> calculateOntologyProfileReports(URI ontologyFileURI) {
         HashMap<String, OWL1ProfileReport> profileMap = new HashMap<>();
-        String test;
-        SpeciesValidator speciesValidator = null;
+        SpeciesValidator speciesValidator;
         try {
             SpeciesValidatorReporter speciesValidatorReporter = new SpeciesValidatorReporter() {
                 @Override
@@ -48,6 +47,15 @@ public class OWL1ProfileChecker {
                     System.out.println(message);
                 }
             };
+
+            /* The OWL 1 validator api cannot return a list of violations.
+            The standard output is temporally redirected to a byte array output stream which can be converted into a string.
+            The newlines are then used to separate it into an array. The output from the validator api has been
+            set to a specific format (the code above) which is used to calculate at which profile the explanation is labeled.
+            This is then used to filter the messages for each profile check.
+            The violation message is then cleaned up and added to the profile report.
+            Standard output is restored after all the profiles are calculated.*/
+
             // Create a stream to redirect standard output
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             PrintStream ps = new PrintStream(outputStream);
