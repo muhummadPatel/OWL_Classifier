@@ -5,7 +5,12 @@ import org.semanticweb.owlapi.profiles.*;
 
 import java.util.*;
 
-public class ProfileChecker {
+/**
+ * Encapsulates functionality to check the profile of an OWL 2 ontology
+ *
+ * @author Brian Mc George
+ */
+public class OWL2ProfileChecker {
     public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList(new OWL2Profile().getName(), new OWL2ELProfile().getName(),
             new OWL2DLProfile().getName(), new OWL2QLProfile().getName(), new OWL2RLProfile().getName()));
 

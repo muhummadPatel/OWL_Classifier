@@ -1,9 +1,3 @@
-/***
- * Ontology Engineering: Profile Checker
- * User-interface class
- * March, 2016
- ***/
-
 package com.oe;
     /* This is commented out in the mean time because you need to specify
 	   the class path and other package stuff when compiling it alone
@@ -21,6 +15,15 @@ import java.io.*;
 import java.util.*;
 import java.util.List;
 
+/**
+ * Ontology Engineering: Profile Checker
+ * User-interface class
+ * March, 2016
+ *
+ * @author Aashiq Parker
+ * @author Brian Mc George
+ * @author Muhummad Patel⁠⁠⁠⁠⁠
+ */
 public class UI extends JFrame {
     private JFrame frame;
     private JTextArea explanationArea;
@@ -104,7 +107,7 @@ public class UI extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
 
         List<String> profileList = new ArrayList<>();
-        profileList.addAll(ProfileChecker.PROFILE_NAMES);
+        profileList.addAll(OWL2ProfileChecker.PROFILE_NAMES);
         profileList.addAll(OWL1ProfileChecker.PROFILE_NAMES);
         profiles = new String[profileList.size()];
         profiles = profileList.toArray(profiles);
@@ -263,7 +266,7 @@ public class UI extends JFrame {
         fullVioAxioms = new String[profiles.length];
         cleanVioAxioms = new String[profiles.length];
         int index = 0;
-        for (String profileName : ProfileChecker.PROFILE_NAMES) {
+        for (String profileName : OWL2ProfileChecker.PROFILE_NAMES) {
             System.out.println("Is in " + profileName + "? " + ontologyProfileReports.get(profileName).isInProfile());
             if (ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
             {
@@ -325,6 +328,7 @@ public class UI extends JFrame {
             violationsPane.addTab(profileName, scrollableArea);
             counter = 1;
             vioAreas[index] = area;
+            vioAreas[index].setCaretPosition(0);
             System.out.println(area.getText());
             fullVioAxioms[index] = fullAxioms;
             cleanVioAxioms[index] = cleanedAxioms;
@@ -376,7 +380,7 @@ public class UI extends JFrame {
             System.out.println("\n" + explainMessage);
             HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
 
-            HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
+            HashMap<String, OWLProfileReport> ontologyProfileReports = OWL2ProfileChecker.calculateOntologyProfileReports(mainOntology);
             HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI
                     (filePath));
 

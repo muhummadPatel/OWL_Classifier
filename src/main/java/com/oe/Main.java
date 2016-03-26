@@ -42,13 +42,13 @@ public class Main {
         System.out.println("Axiom Classifications Explanations:\n" + result.explanation);
 
         /**
-         * Example call to ProfileChecker
+         * Example call to OWL2ProfileChecker
          * 1. The profile reports are generated
          * 2. The profile name is looked up using the PROFILE_NAMES list
          * 3. The profile is looked up and the getViolations printed out
          */
-        HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
-        for (String profileName : ProfileChecker.PROFILE_NAMES) {
+        HashMap<String, OWLProfileReport> ontologyProfileReports = OWL2ProfileChecker.calculateOntologyProfileReports(mainOntology);
+        for (String profileName : OWL2ProfileChecker.PROFILE_NAMES) {
             System.out.println("Violations for profile " + profileName + ":");
             OWLProfileReport profileReport = ontologyProfileReports.get(profileName);
             System.out.println(profileReport.isInProfile());

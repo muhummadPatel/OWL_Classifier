@@ -9,6 +9,11 @@ import java.io.*;
 import java.net.URI;
 import java.util.*;
 
+/**
+ * Encapsulates functionality to check the profile of an OWL 1 ontology
+ *
+ * @author Brian Mc George
+ */
 public class OWL1ProfileChecker {
     public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList("OWL 1 Lite", "OWL 1 DL", "OWL 1 Full"));
     public static final String NOT_OWL = "OTHER";

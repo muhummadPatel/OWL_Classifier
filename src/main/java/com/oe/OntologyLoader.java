@@ -12,6 +12,8 @@ import java.util.Set;
 
 /**
  * Class is responsible for loading ontologies from file
+ *
+ * @author Brian Mc George
  */
 public class OntologyLoader {
     /**
