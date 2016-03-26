@@ -23,7 +23,7 @@ import org.semanticweb.owlapi.util.*;
 import java.io.*;
 import java.util.*;
 
-public class UI extends JFrame// implements ComponentListener
+public class UI extends JFrame
 {
 	private JFrame frame;
 	private JTextArea explanationArea;
@@ -89,8 +89,16 @@ public class UI extends JFrame// implements ComponentListener
 				}});
 					gbc.gridx = i; gbc.gridy = 1; gbc.gridwidth = 1; gbc.gridheight = 1;
 			//		gbc.weighty = 0; gbc.weightx = 0;
+
+					//Remove the checkBoxes MouseListener so that it doesnt seem as if you can click it
+					MouseListener[] ml = (MouseListener[])checkBoxes[i].getListeners(MouseListener.class);
+
+					for (int j = 0; j < ml.length; ++j)
+							checkBoxes[i].removeMouseListener( ml[j] );
+
 					frame.add(checkBoxes[i],gbc);
 			}
+
 
 		/*	speciesLabel = new JLabel("OWL Species: ");
       gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
@@ -232,9 +240,12 @@ public class UI extends JFrame// implements ComponentListener
     		{
     			filePath = chooser.getSelectedFile().getAbsolutePath();
     		}
-    		catch(Exception ex) //User opens dialog box but then doesn't select anything/exits
-    		{}
+    		catch(NullPointerException ex) //User opens dialog box but then doesn't select anything/exits
+    		{
+					return;
+				}
 
+				System.out.println("Opened");
         try //Try to open owl file
         {
           mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
