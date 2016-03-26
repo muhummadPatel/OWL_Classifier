@@ -35,8 +35,20 @@ public class UI extends JFrame
 	private String[] profiles = new String[]{"OWL 2", "OWL 2 EL", "OWL 2 DL", "OWL 2 QL", "OWL 2 RL", "OWL 1 Lite", "OWL 1 DL", "OWL 1 Full"};
 	private JCheckBox[] checkBoxes = new JCheckBox[profiles.length]; //The check box profiles
 
+	private JCheckBox iriToggle;
+
 	private float fileNameAreaPercentage = 0.5f; //Percentage of the width of the screen that the file name text area occupies
 	private float fontSize = 12.0f; //Approximation of the font size, to calculate the width of text components
+
+	//For the toggling, can't reverse a regex so we need this
+	private String[] fullExpAxioms;
+	private String[] fullVioAxioms;
+	private String[] cleanExpAxioms;
+	private String[] cleanVioAxioms;
+
+	private JTextArea[] expAreas;
+	private JTextArea[] vioAreas;
+
 
   OWLOntology mainOntology;
   Set<OWLOntology> ontologies;
@@ -76,6 +88,14 @@ public class UI extends JFrame
       gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
       gbc.weighty = 0.14; gbc.weightx = 0;
       frame.add(expressivityLabel,gbc);
+
+			iriToggle = new JCheckBox("View full IRI's");
+			iriToggle.setSelected(true);
+			iriToggle.addActionListener(new ToggleIRIClickListener());
+			gbc.gridx = 5; gbc.gridy = 0; gbc.gridwidth = 2; gbc.gridheight = 1;
+			gbc.weighty = 0.14; gbc.weightx = 0;
+			gbc.fill = GridBagConstraints.BOTH;
+			frame.add(iriToggle,gbc);
 
 			for (int i = 0; i < profiles.length; ++i)
 			{
@@ -144,22 +164,35 @@ public class UI extends JFrame
       while (expressivityPane.getTabCount() > 0) //Remove current tabs
         expressivityPane.remove(0);
 
+			int size = axiomClassifications.keySet().size();
+			expAreas = new JTextArea[size];
+			fullExpAxioms = new String[size];
+			cleanExpAxioms = new String[size];
+
       int counter = 1; //Counter of axioms for each letter
+			int index = 0;
       for(String letter: axiomClassifications.keySet())
       {
           JTextArea area = new JTextArea(); //The list of axioms for this particular letter
           area.setEditable(false);
+					String fullAxioms = "";
+					String cleanedAxioms = "";
           for(OWLAxiom axiom: axiomClassifications.get(letter))
           {
-              String cleanedAxiom =  axiom.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:",""); //Not the most elegant regex but it works
-              area.append(counter + " - " + cleanedAxiom + "\n"); //Populate this area with the list of axioms
+              cleanedAxioms += counter + " - " + axiom.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:","") + "\n"; //Not the most elegant regex but it works
+							fullAxioms += counter + " - " + axiom.toString() + "\n";
+							area.append(counter + " - " + axiom.toString() + "\n"); //Populate this area with the list of axioms
               ++counter;
           }
 
           //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
-          JScrollPane scrollableArea = new JScrollPane (area);
+					expAreas[index] = area;
+					fullExpAxioms[index] = fullAxioms;
+					cleanExpAxioms[index] = cleanedAxioms;
+					JScrollPane scrollableArea = new JScrollPane (area);
           expressivityPane.addTab(letter,scrollableArea);
           counter = 1;
+					++index;
       }
     }
 
@@ -272,6 +305,21 @@ public class UI extends JFrame
 				populateViolationsPane(ontologyProfileReports, owl1ontologyProfileReports);
     	}
     }
+
+		//On click for the 'View full IRI's" toggle check box
+		private class ToggleIRIClickListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e)
+			{	  //Toggle between full and cleaned axioms
+					for (int i = 0; i < expAreas.length; ++i)
+					{
+						if (iriToggle.isSelected())
+							expAreas[i].setText(fullExpAxioms[i]);
+						else
+							expAreas[i].setText(cleanExpAxioms[i]);
+					}
+			}
+		}
 
     //On click for the 'Help' menu item
     private class HelpClickListener implements ActionListener
