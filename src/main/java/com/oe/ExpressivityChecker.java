@@ -2,13 +2,11 @@ package com.oe;
 
 import java.io.Serializable;
 import java.util.*;
-import java.util.stream.*;
 import javax.annotation.Nonnull;
 
 import static org.semanticweb.owlapi.model.parameters.Imports.EXCLUDED;
 import static org.semanticweb.owlapi.util.DLExpressivityChecker.Construct.*;
 import static org.semanticweb.owlapi.util.OWLAPIPreconditions.verifyNotNull;
-import static org.semanticweb.owlapi.util.DLExpressivityChecker.Construct;
 import org.semanticweb.owlapi.model.*;
 
 public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressivityChecker {

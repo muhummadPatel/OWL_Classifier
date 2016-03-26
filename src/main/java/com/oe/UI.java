@@ -25,7 +25,6 @@ public class UI extends JFrame {
     private JFrame frame;
     private JTextArea explanationArea;
     private JLabel speciesLabel;
-    //private JLabel expressivityLabel;
     private JTabbedPane expressivityPane;
     private JTabbedPane violationsPane;
 
@@ -238,6 +237,8 @@ public class UI extends JFrame {
 
             //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
             expAreas[index] = area;
+            System.out.println("=== " + letter + " ===");
+            System.out.println(area.getText());
             fullExpAxioms[index] = fullAxioms;
             cleanExpAxioms[index] = cleanedAxioms;
             JScrollPane scrollableArea = new JScrollPane(area);
@@ -262,8 +263,8 @@ public class UI extends JFrame {
 				int index = 0;
 				for(String profileName : ProfileChecker.PROFILE_NAMES)
 				{
-
-					if (ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+                    System.out.println("Is in " + profileName + "? " + ontologyProfileReports.get(profileName).isInProfile());
+					if (ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
 					{
 						checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
 						++index;
@@ -283,6 +284,7 @@ public class UI extends JFrame {
 					}
 					//Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
 					vioAreas[index] = area;
+                    System.out.println(area.getText());
 					fullVioAxioms[index] = fullAxioms;
 					cleanVioAxioms[index] = cleanedAxioms;
 					JScrollPane scrollableArea = new JScrollPane (area);
@@ -294,7 +296,8 @@ public class UI extends JFrame {
 				//Now do the same for the OWL 1 profiles
 				for(String profileName : OWL1ProfileChecker.PROFILE_NAMES)
 				{
-					if (owl1ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+                    System.out.println("Is in " + profileName + "? " + owl1ontologyProfileReports.get(profileName).isInProfile());
+					if (owl1ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
 					{
 						checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
 						++index;
@@ -319,6 +322,7 @@ public class UI extends JFrame {
 					violationsPane.addTab(profileName,scrollableArea);
 					counter = 1;
 					vioAreas[index] = area;
+                    System.out.println(area.getText());
 					fullVioAxioms[index] = fullAxioms;
 					cleanVioAxioms[index] = cleanedAxioms;
 					++index;
@@ -341,8 +345,7 @@ public class UI extends JFrame {
             {
                 return;
             }
-
-            System.out.println("Opened");
+            
             try //Try to open owl file
             {
                 mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
@@ -357,14 +360,15 @@ public class UI extends JFrame {
                 checkbox.setSelected(false);
             }
             ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
-            //expressivityLabel.setText("Expresivity: " + expChecker.getDescriptionLogicName());
             ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
             String displayExplaination = result.explanation;
-            System.out.println(displayExplaination + " " + expChecker.getDescriptionLogicName());
             if(expChecker.getDescriptionLogicName().trim().equals("AL") && displayExplaination.trim().length()==0) {
                 displayExplaination = "~ AL is the base language used";
             }
-            explanationArea.setText("Expresivity: " + expChecker.getDescriptionLogicName() + "\n"+ "Explanation of description logic name: \n" + displayExplaination);
+
+            String explainMessage = "Expresivity: " + expChecker.getDescriptionLogicName() + "\n"+ "Explanation of description logic name: \n" + displayExplaination;
+            explanationArea.setText(explainMessage);
+            System.out.println("\n" + explainMessage);
             HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
 
             HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);

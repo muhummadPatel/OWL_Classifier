@@ -2,7 +2,6 @@ package com.oe;
 
 import java.util.*;
 
-import org.semanticweb.owlapi.io.SystemOutDocumentTarget;
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import org.semanticweb.owlapi.profiles.OWLProfileViolation;
@@ -13,8 +12,6 @@ public class Main {
 
         // The OWL file to be loaded
 
-        //String filePath = "EmptyOntology.owl";
-        //String filePath = "test_ontologies/OWL1/tonesOntologies/adolena.owl";
         String filePath = "Pizza.owl";
 
         /**

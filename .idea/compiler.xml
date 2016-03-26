@@ -26,7 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="owl_classifier" target="8" />
+      <module name="owl_classifier" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>

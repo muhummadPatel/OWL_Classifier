@@ -2,7 +2,6 @@ package com.oe;
 
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.profiles.*;
-import uk.ac.man.cs.img.owl.validation.*;
 
 import java.util.*;
 
