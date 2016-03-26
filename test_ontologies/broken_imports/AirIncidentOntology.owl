@@ -33,6 +33,54 @@ NOTE: Various relationships have been annotated to describe the reason for the c
     
 
 
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#exact-location -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#exact-location"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-location -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-location"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#r-location -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#r-location"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporally-present-at -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporally-present-at"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#specific-constant-constituent-of -->
+
+    <owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#specific-constant-constituent-of"/>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasAircraft -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasAircraft">
@@ -252,11 +300,83 @@ NOTE: Various relationships have been annotated to describe the reason for the c
     
 
 
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#achievement -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#achievement"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#arbitrary-sum -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#arbitrary-sum"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-endurant -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-endurant"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-object -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-object"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#particular -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#particular"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proposition -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proposition"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quale -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quale"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#region -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#space-region -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#space-region"/>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporal-region -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporal-region"/>
+    
+
+
     <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-location_q -->
 
-    <rdf:Description rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-location_q">
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-location_q">
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fatalities"/>
-    </rdf:Description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-quality -->
+
+    <owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-quality"/>
     
 
 
