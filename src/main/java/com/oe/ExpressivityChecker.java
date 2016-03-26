@@ -28,13 +28,8 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
     private final Set<OWLOntology> ontologies;
     private String axiomClassificationExplanation; // to explain the actions of the pruneConstructs method
 
-    /**
-     * @return ordered constructs
-     */
-    public List<Construct> getConstructs() {
-        return getOrderedConstructs();
-    }
 
+    // ============ New/augmented methods ================
     /**
      * @param ontologies ontologies
      */
@@ -46,19 +41,6 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
         axiomClassifications = new HashMap<>();
         axiomClassificationExplanation = "";
     }
-
-    /**
-     * @return DL name
-     */
-    @Nonnull
-    public String getDescriptionLogicName() {
-        StringBuilder s = new StringBuilder();
-        for (Construct c : getOrderedConstructs()) {
-            s.append(c);
-        }
-        return verifyNotNull(s.toString());
-    }
-
     /**
      * Returns an AxiomClassificationResult (static class nested in this class)
      * that contains a hashmap mapping from expressivity letters to the axioms
@@ -74,6 +56,11 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
         return (new AxiomClassificationResult(axiomClassifications, axiomClassificationExplanation));
     }
 
+    /**
+     * This method (based on the original in the base class) has been edited to
+     * write the explanations for the expressivity string simplifications to the
+     * explanation String for later presentation to the user.
+     */
     private void pruneConstructs() {
         String explanation = "";
         String indent = "    * ";
@@ -136,6 +123,12 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
     }
 
 
+    /**
+     * This method has been edited from the original to keep track of which axioms
+     * are adding which letters to the expressivity string. The axioms are placed
+     * in the appropriate buckets in the axiomClassifications hashtable based on which
+     * letter they added to the expressivity string.
+     */
     private List<Construct> getOrderedConstructs() {
         axiomClassifications.clear();
         constructsSet.clear();
@@ -166,6 +159,43 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
         List<Construct> cons = new ArrayList<>(constructsSet);
         Collections.sort(cons, new ConstructComparator());
         return cons;
+    }
+
+    /**
+     * Used to return the axiomClassifications and the explanation for why some
+     * letters were added/removed by the pruneConstructs method.
+     */
+    public static class AxiomClassificationResult {
+        public HashMap<String, ArrayList<OWLAxiom>> classifications;
+        public String explanation;
+
+        AxiomClassificationResult(HashMap<String, ArrayList<OWLAxiom>> c, String e) {
+            classifications = c;
+            explanation = e;
+        }
+    }
+
+    // ============ From base class ================
+    // These methods are in the base class, but we need to reproduce them here
+    // because they access private members of the base class.
+
+    /**
+     * @return ordered constructs
+     */
+    public List<Construct> getConstructs() {
+        return getOrderedConstructs();
+    }
+
+    /**
+     * @return DL name
+     */
+    @Nonnull
+    public String getDescriptionLogicName() {
+        StringBuilder s = new StringBuilder();
+        for (Construct c : getOrderedConstructs()) {
+            s.append(c);
+        }
+        return verifyNotNull(s.toString());
     }
 
     /**
@@ -594,19 +624,5 @@ public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressiv
     @Override
     public void visit(OWLInverseObjectPropertiesAxiom axiom) {
         constructs.add(I);
-    }
-
-    /**
-     * Used to return the axiomClassifications and the explanation for why some
-     * letters were added/removed by the pruneConstructs method.
-     */
-    public static class AxiomClassificationResult {
-        public HashMap<String, ArrayList<OWLAxiom>> classifications;
-        public String explanation;
-
-        AxiomClassificationResult(HashMap<String, ArrayList<OWLAxiom>> c, String e) {
-            classifications = c;
-            explanation = e;
-        }
     }
 }
