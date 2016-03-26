@@ -9,6 +9,14 @@ import static org.semanticweb.owlapi.util.DLExpressivityChecker.Construct.*;
 import static org.semanticweb.owlapi.util.OWLAPIPreconditions.verifyNotNull;
 import org.semanticweb.owlapi.model.*;
 
+/**
+ * An extension of the owlapi DLExpressivityChecker which add functionality to collect the letters used to construct
+ * the expressivity statement and the reason why those letters occurred.
+ * It further adds functionality to explain how the final expressivity string was constructed.
+ *
+ * The code in this class to calculate the expressivity of the ontology is based entirely on the DLExpressivityChecker code which can be found here:
+ * https://github.com/owlcs/owlapi/blob/version4/api/src/main/java/org/semanticweb/owlapi/util/DLExpressivityChecker.java
+ */
 public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressivityChecker {
 
     private final Set<Construct> constructsSet; // the original set, we needed the list below because we need to see letters being added

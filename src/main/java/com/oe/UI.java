@@ -183,7 +183,7 @@ public class UI extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         frame.add(expressivityPane, gbc);
 
-		profileHeading = new JLabel("<html><b><u>Profile Violation Axioms</u></b></html>");
+		profileHeading = new JLabel("<html><b><u>Profile Violations</u></b></html>");
 		gbc.gridx = 0;
 		gbc.gridy = 10;
 		gbc.weighty = 0;
@@ -237,6 +237,7 @@ public class UI extends JFrame {
 
             //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
             expAreas[index] = area;
+            expAreas[index].setCaretPosition(0);
             System.out.println("=== " + letter + " ===");
             System.out.println(area.getText());
             fullExpAxioms[index] = fullAxioms;
@@ -284,6 +285,7 @@ public class UI extends JFrame {
 					}
 					//Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
 					vioAreas[index] = area;
+                    vioAreas[index].setCaretPosition(0);
                     System.out.println(area.getText());
 					fullVioAxioms[index] = fullAxioms;
 					cleanVioAxioms[index] = cleanedAxioms;
@@ -345,7 +347,7 @@ public class UI extends JFrame {
             {
                 return;
             }
-            
+
             try //Try to open owl file
             {
                 mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
@@ -368,6 +370,7 @@ public class UI extends JFrame {
 
             String explainMessage = "Expresivity: " + expChecker.getDescriptionLogicName() + "\n"+ "Explanation of description logic name: \n" + displayExplaination;
             explanationArea.setText(explainMessage);
+            explanationArea.setCaretPosition(0);
             System.out.println("\n" + explainMessage);
             HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
 
@@ -385,19 +388,25 @@ public class UI extends JFrame {
             if (expAreas != null) {
                 //Toggle between full and cleaned axioms
                 for (int i = 0; i < expAreas.length; ++i) {
-                    if (toggleIriButton.isSelected())
+                    if (toggleIriButton.isSelected()) {
                         expAreas[i].setText(fullExpAxioms[i]);
-                    else
+                    } else {
                         expAreas[i].setText(cleanExpAxioms[i]);
+                    }
+                    expAreas[i].setCaretPosition(0);
                 }
 				for (int i = 0; i < vioAreas.length; ++i){
-					if (vioAreas[i] == null) //Not all of the profiles will be violated
-						continue;
+                    int caretPosition = expAreas[i].getCaretPosition();
+					if (vioAreas[i] == null) { //Not all of the profiles will be violated
+                        continue;
+                    }
 
-					if (toggleIriButton.isSelected())
-						vioAreas[i].setText(fullVioAxioms[i]);
-					else
-						vioAreas[i].setText(cleanVioAxioms[i]);
+					if (toggleIriButton.isSelected()) {
+                        vioAreas[i].setText(fullVioAxioms[i]);
+                    } else {
+                        vioAreas[i].setText(cleanVioAxioms[i]);
+                    }
+                    vioAreas[i].setCaretPosition(0);
 				}
             } else {
                 toggleIriButton.setSelected(false);
