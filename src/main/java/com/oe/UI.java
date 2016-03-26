@@ -231,10 +231,10 @@ public class UI extends JFrame {
             String fullAxioms = "";
             String cleanedAxioms = "";
             for (OWLAxiom axiom : axiomClassifications.get(letter)) {
-                cleanedAxioms += counter + " - " + axiom.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"; //Not the most elegant
+                cleanedAxioms += counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
                 // regex but it works
                 fullAxioms += counter + " - " + axiom.toString() + "\n";
-                area.append(counter + " - " + axiom.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"); //Populate this area with the
+                area.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with the
                 // list of axioms
                 ++counter;
             }
@@ -280,10 +280,10 @@ public class UI extends JFrame {
             area.setEditable(false);
 
             for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
-                cleanedAxioms += counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"; //Not the most elegant
+                cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
                 // regex but it works
                 fullAxioms += counter + " - " + violation.toString() + "\n";
-                area.append(counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"); //Populate this area with
+                area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
                 // the list of axioms
                 ++counter;
             }
@@ -316,10 +316,10 @@ public class UI extends JFrame {
             String cleanedAxioms = "";
 
             for (String violation : profileReport.getViolations()) {
-                cleanedAxioms += counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"; //Not the most elegant
+                cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
                 // regex but it works
                 fullAxioms += counter + " - " + violation.toString() + "\n";
-                area.append(counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"); //Populate this area with
+                area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
                 // the list of axioms
                 ++counter;
             }
@@ -403,7 +403,6 @@ public class UI extends JFrame {
                     expAreas[i].setCaretPosition(0);
                 }
                 for (int i = 0; i < vioAreas.length; ++i) {
-                    int caretPosition = expAreas[i].getCaretPosition();
                     if (vioAreas[i] == null) { //Not all of the profiles will be violated
                         continue;
                     }
