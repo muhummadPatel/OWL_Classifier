@@ -404,9 +404,42 @@ public class UI extends JFrame {
     //On click for the 'Help' menu item
     private class HelpClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            //Maybe just load a popup box here with information about the app, etc.
+            HelpWindow window = new HelpWindow();
+			window.setVisible(true);
         }
     }
+
+	private class HelpWindow extends JFrame
+	{
+		public HelpWindow()
+		{
+		    initialize();
+		}
+
+		//To close only this frame and not the main application
+		WindowListener exitListener = new WindowAdapter()
+		{
+		    @Override
+		    public void windowClosing(WindowEvent e)
+			{
+		        dispose();
+		    }
+		};
+
+		public void initialize()
+		{
+			setTitle("Help");
+			setSize(400, 550);
+			setResizable(false);
+			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+			addWindowListener(exitListener);
+
+			//The actualy help text
+			JLabel info = new JLabel("\n\n\nHeeeeeeeeeeeeeeeeeeeeeeeeeeeeey\n\n\n");
+
+			add(info);
+		}
+	}
 
     //For defining what happens when you resize the window
     private class Window implements ComponentListener {
