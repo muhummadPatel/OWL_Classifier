@@ -156,10 +156,8 @@ public class UI extends JFrame// implements ComponentListener
     }
 
 		//To populate the violations pane
-		public void populateViolationsPane(HashMap<String, OWLProfileReport> ontologyProfileReports)
+		public void populateViolationsPane(HashMap<String, OWLProfileReport> ontologyProfileReports, HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports)
 		{
-			checkBoxes[0].setSelected(true);
-
 			while (violationsPane.getTabCount() > 0) //Remove current tabs
 				violationsPane.remove(0);
 
@@ -186,6 +184,27 @@ public class UI extends JFrame// implements ComponentListener
 				JScrollPane scrollableArea = new JScrollPane (area);
 				violationsPane.addTab(profileName,scrollableArea);
 				counter = 1;
+
+				/*
+				for(String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
+						// Display profile
+						System.out.println("Violations for profile " + profileName + ":");
+
+						// Get the report
+						OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
+
+						// Display violations (Note that it is a single (pre-formated) string in this case)
+						// It was done like this for technical (implementation) reasons
+						for(String violation : profileReport.getViolations()) {
+								System.out.println(violation);
+						}
+
+						// Check if ontology falls within that profile
+						System.out.println(profileReport.isInProfile());
+						System.out.println();
+				}
+
+				*/
 			}
 		}
 
@@ -225,12 +244,13 @@ public class UI extends JFrame// implements ComponentListener
 				explanationArea.setText("Explanation: \n\n" + result.explanation);
         HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
 
-				System.out.println(result.explanation);
 				OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
 				HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
+				HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI(filePath));
+
 
         populateExpressivityPane(axiomClassifications);
-				populateViolationsPane(ontologyProfileReports);
+				populateViolationsPane(ontologyProfileReports, owl1ontologyProfileReports);
     	}
     }
 
