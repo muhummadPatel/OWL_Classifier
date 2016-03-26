@@ -143,7 +143,7 @@ public class UI extends JFrame// implements ComponentListener
           area.setEditable(false);
           for(OWLAxiom axiom: axiomClassifications.get(letter))
           {
-              String cleanedAxiom =  axiom.toString().replaceAll("(?<=:)[^#]*#","").replaceAll("http:",""); //Not the most elegant regex but it works
+              String cleanedAxiom =  axiom.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:",""); //Not the most elegant regex but it works
               area.append(counter + " - " + cleanedAxiom + "\n"); //Populate this area with the list of axioms
               ++counter;
           }
@@ -178,8 +178,8 @@ public class UI extends JFrame// implements ComponentListener
 
 				for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations())
 				{
-					String cleanedViolation =  violation.toString().replaceAll("(?<=:)[^#]*#","").replaceAll("http:",""); //Not the most elegant regex but it works
-					area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with the list of axioms
+                    String cleanedViolation =  violation.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:",""); //Not the most elegant regex but it works
+					area.append(counter + " - " + cleanedViolation + "\n"); //Populate this area with the list of axioms
 					++counter;
 				}
 				//Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
