@@ -219,7 +219,7 @@ public class UI extends JFrame {
                 cleanedAxioms += counter + " - " + axiom.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"; //Not the most elegant
                 // regex but it works
                 fullAxioms += counter + " - " + axiom.toString() + "\n";
-                area.append(cleanedAxioms); //Populate this area with the list of axioms
+                area.append(counter + " - " + axiom.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"); //Populate this area with the list of axioms
                 ++counter;
             }
 
@@ -234,62 +234,82 @@ public class UI extends JFrame {
         }
     }
 
-    //To populate the violations pane
-    public void populateViolationsPane(HashMap<String, OWLProfileReport> ontologyProfileReports, HashMap<String, OWL1ProfileReport>
-            owl1ontologyProfileReports) {
-        while (violationsPane.getTabCount() > 0) //Remove current tabs
-            violationsPane.remove(0);
+	//To populate the violations pane
+			public void populateViolationsPane(HashMap<String, OWLProfileReport> ontologyProfileReports, HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports)
+			{
+				while (violationsPane.getTabCount() > 0) //Remove current tabs
+					violationsPane.remove(0);
 
-        int counter = 1; //Counter of axioms for each letter
+				int counter = 1; //Counter of axioms for each letter
 
-        for (String profileName : ProfileChecker.PROFILE_NAMES) {
-            if (ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
-            {
-                checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
-                continue;
-            }
+				vioAreas = new JTextArea[profiles.length];
+				fullVioAxioms = new String[profiles.length];
+				cleanVioAxioms = new String[profiles.length];
+				int index = 0;
+				for(String profileName : ProfileChecker.PROFILE_NAMES)
+				{
 
-            JTextArea area = new JTextArea(); //The list of axioms for this particular profile
-            area.setEditable(false);
+					if (ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+					{
+						checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
+						++index;
+						continue;
+					}
+					String fullAxioms = "";
+					String cleanedAxioms = "";
+					JTextArea area = new JTextArea(); //The list of axioms for this particular profile
+					area.setEditable(false);
 
-            for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
-                String cleanedViolation = violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", ""); //Not the most elegant regex but it works
-                area.append(counter + " - " + cleanedViolation + "\n"); //Populate this area with the list of axioms
-                ++counter;
-            }
-            //Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
-            JScrollPane scrollableArea = new JScrollPane(area);
-            violationsPane.addTab(profileName, scrollableArea);
-            counter = 1;
-        }
+					for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations())
+					{
+						cleanedAxioms += counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"; //Not the most elegant regex but it works
+						fullAxioms += counter + " - " + violation.toString() + "\n";
+						area.append(counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"); //Populate this area with the list of axioms
+						++counter;
+					}
+					//Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
+					vioAreas[index] = area;
+					fullVioAxioms[index] = fullAxioms;
+					cleanVioAxioms[index] = cleanedAxioms;
+					JScrollPane scrollableArea = new JScrollPane (area);
+					violationsPane.addTab(profileName,scrollableArea);
+					counter = 1;
+					++index;
+				}
 
-        //Now do the same for the OWL 1 profiles
-        for (String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
-            if (owl1ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
-            {
-                checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
-                continue;
-            }
-            JTextArea area = new JTextArea(); //The list of axioms for this particular profile
-            area.setEditable(false);
-            OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
+				//Now do the same for the OWL 1 profiles
+				for(String profileName : OWL1ProfileChecker.PROFILE_NAMES)
+				{
+					if (owl1ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+					{
+						checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
+						++index;
+						continue;
+					}
+					JTextArea area = new JTextArea(); //The list of axioms for this particular profile
+					area.setEditable(false);
+					OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
 
-            // Display violations (Note that it is a single (pre-formated) string in this case)
-            // It was done like this for technical (implementation) reasons
-            for (String violation : profileReport.getViolations()) {
-                String cleanedViolation = violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", ""); //Not the most elegant regex but it works
-                area.append(counter + " - " + cleanedViolation + "\n"); //Populate this area with the list of axioms
-                ++counter;
-            }
+					String fullAxioms = "";
+					String cleanedAxioms = "";
 
-            JScrollPane scrollableArea = new JScrollPane(area);
-            violationsPane.addTab(profileName, scrollableArea);
-            counter = 1;
-            // Check if ontology falls within that profile
-            System.out.println(profileReport.isInProfile());
-            System.out.println();
-        }
-    }
+					for(String violation : profileReport.getViolations())
+					{
+						cleanedAxioms += counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:","") + "\n"; //Not the most elegant regex but it works
+						fullAxioms += counter + " - " + violation.toString() + "\n";
+						area.append(counter + " - " + violation.toString().replaceAll("(?<=:)[^#]*/", "").replaceAll("http:", "") + "\n"); //Populate this area with the list of axioms
+						++counter;
+					}
+
+					JScrollPane scrollableArea = new JScrollPane (area);
+					violationsPane.addTab(profileName,scrollableArea);
+					counter = 1;
+					vioAreas[index] = area;
+					fullVioAxioms[index] = fullAxioms;
+					cleanVioAxioms[index] = cleanedAxioms;
+					++index;
+				}
+			}
 
     //On click for the 'open file' button
     private class OpenFileClickListener implements ActionListener {
@@ -352,6 +372,15 @@ public class UI extends JFrame {
                     else
                         expAreas[i].setText(cleanExpAxioms[i]);
                 }
+				for (int i = 0; i < vioAreas.length; ++i){
+					if (vioAreas[i] == null) //Not all of the profiles will be violated
+						continue;
+
+					if (toggleIriButton.isSelected())
+						vioAreas[i].setText(fullVioAxioms[i]);
+					else
+						vioAreas[i].setText(cleanVioAxioms[i]);
+				}
             } else {
                 toggleIriButton.setSelected(false);
             }
