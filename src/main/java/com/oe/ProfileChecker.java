@@ -6,7 +6,8 @@ import org.semanticweb.owlapi.profiles.*;
 import java.util.*;
 
 public class ProfileChecker {
-    public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList(new OWL2Profile().getName(), new OWL2ELProfile().getName(), new OWL2DLProfile().getName(), new OWL2QLProfile().getName(), new OWL2RLProfile().getName()));
+    public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList(new OWL2Profile().getName(), new OWL2ELProfile().getName(),
+            new OWL2DLProfile().getName(), new OWL2QLProfile().getName(), new OWL2RLProfile().getName()));
 
     public static final List<Class<? extends org.semanticweb.owlapi.profiles.OWLProfile>> OWL_PROFILES = Collections.unmodifiableList(Arrays.asList(OWL2Profile
             .class, OWL2ELProfile.class, OWL2DLProfile.class, OWL2QLProfile.class, OWL2RLProfile.class));

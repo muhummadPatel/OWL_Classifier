@@ -13,16 +13,17 @@ import java.util.Set;
 /**
  * Class is responsible for loading ontologies from file
  */
-public class OntologyLoader{
+public class OntologyLoader {
     /**
      * Takes a path to a file and a boolean representing if imports should be included and returns a set of OWLOntology objects
-     * @param filePath path to file being loaded
+     *
+     * @param filePath         path to file being loaded
      * @param isLoadingImports should imports be included in the set
      * @return A set of OWLOntology objects
      */
     public static Set<OWLOntology> loadOntology(String filePath, boolean isLoadingImports) {
         String extra;
-        if(isLoadingImports) {
+        if (isLoadingImports) {
             extra = " including imports";
         } else {
             extra = " without imports";
@@ -33,20 +34,20 @@ public class OntologyLoader{
         OWLOntology ontology;
         Set<OWLOntology> ontologies = new HashSet<>();
 
-        try{
+        try {
             File ontFile = new File(filePath);
             ontology = owlOntologyManager.loadOntologyFromOntologyDocument(ontFile);
             ontologies.add(ontology);
-            if(isLoadingImports) {
+            if (isLoadingImports) {
                 addImports(ontologies, ontology);
             }
 
             System.out.println(ontFile.getName() + " loaded" + extra);
 
-        } catch(OWLOntologyCreationException ex){
+        } catch (OWLOntologyCreationException ex) {
             ex.printStackTrace();
             return null;
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             return null;
         }
@@ -61,7 +62,7 @@ public class OntologyLoader{
 
     private static void addImports(Set<OWLOntology> ontologies, OWLOntology ontology) {
         Set<OWLOntology> importOntologies = ontology.getImports();
-        for(OWLOntology singleImport : importOntologies) {
+        for (OWLOntology singleImport : importOntologies) {
             ontologies.add(singleImport);
             addImports(ontologies, singleImport);
         }

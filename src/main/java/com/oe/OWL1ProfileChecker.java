@@ -43,7 +43,8 @@ public class OWL1ProfileChecker {
 
                 @Override
                 public void explain(int l, int code, String s) {
-                    String message = level(l) + "[" + SpeciesValidator.readableCode(code).trim() + "]: " + s.replaceAll("\t", "");;
+                    String message = level(l) + "[" + SpeciesValidator.readableCode(code).trim() + "]: " + s.replaceAll("\t", "");
+                    ;
                     System.out.println(message);
                 }
             };
@@ -71,7 +72,7 @@ public class OWL1ProfileChecker {
 
             BufferedReader rdr = new BufferedReader(new StringReader(outputStream.toString()));
             for (String line = rdr.readLine(); line != null; line = rdr.readLine()) {
-                if(line.contains(PROFILE_NAMES.get(1)) || line.contains(PROFILE_NAMES.get(2)) || line.contains(NOT_OWL)) {
+                if (line.contains(PROFILE_NAMES.get(1)) || line.contains(PROFILE_NAMES.get(2)) || line.contains(NOT_OWL)) {
                     profileReportLite.addViolation(removePadding(line));
                 }
             }
@@ -86,8 +87,8 @@ public class OWL1ProfileChecker {
             profileMap.put(PROFILE_NAMES.get(1), profileReportDL);
             rdr = new BufferedReader(new StringReader(outputStream.toString()));
             for (String line = rdr.readLine(); line != null; line = rdr.readLine()) {
-                if(line.contains(PROFILE_NAMES.get(2)) || line.contains(NOT_OWL)) {
-                   profileReportDL.addViolation(removePadding(line));
+                if (line.contains(PROFILE_NAMES.get(2)) || line.contains(NOT_OWL)) {
+                    profileReportDL.addViolation(removePadding(line));
                 }
             }
             rdr.close();
@@ -103,7 +104,7 @@ public class OWL1ProfileChecker {
             rdr = new BufferedReader(new StringReader(outputStream.toString()));
             for (String line = rdr.readLine(); line != null; line = rdr.readLine()) {
                 // This may still require tweaking
-                if(line.contains(NOT_OWL)) {
+                if (line.contains(NOT_OWL)) {
                     profileReportFull.addViolation(removePadding(line));
                 }
             }
@@ -139,7 +140,7 @@ public class OWL1ProfileChecker {
 
         // Pad the level to ensure that the length is always == padding
         int len = (PADDING - level.length());
-        for(int i = 0; i < len; ++i) {
+        for (int i = 0; i < len; ++i) {
             level += " ";
         }
 

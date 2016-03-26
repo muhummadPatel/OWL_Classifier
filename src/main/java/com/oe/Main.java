@@ -7,7 +7,7 @@ import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import org.semanticweb.owlapi.profiles.OWLProfileViolation;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println("--------------START MAIN---------------\n");
 
         // The OWL file to be loaded
@@ -32,9 +32,9 @@ public class Main {
         ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
         HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
         System.out.println("Axiom Classifications:");
-        for(String letter: axiomClassifications.keySet()){
+        for (String letter : axiomClassifications.keySet()) {
             System.out.println("=== " + letter + " ===");
-            for(OWLAxiom axiom: axiomClassifications.get(letter)){
+            for (OWLAxiom axiom : axiomClassifications.get(letter)) {
                 System.out.println(axiom);
             }
             System.out.println();
@@ -48,7 +48,7 @@ public class Main {
          * 3. The profile is looked up and the getViolations printed out
          */
         HashMap<String, OWLProfileReport> ontologyProfileReports = ProfileChecker.calculateOntologyProfileReports(mainOntology);
-        for(String profileName : ProfileChecker.PROFILE_NAMES) {
+        for (String profileName : ProfileChecker.PROFILE_NAMES) {
             System.out.println("Violations for profile " + profileName + ":");
             OWLProfileReport profileReport = ontologyProfileReports.get(profileName);
             System.out.println(profileReport.isInProfile());
@@ -62,8 +62,9 @@ public class Main {
          * Example call to OWL1ProfileChecker
          */
         // Calculate the report profiles
-        HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI(filePath));
-        for(String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
+        HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI
+                (filePath));
+        for (String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
             // Display profile
             System.out.println("Violations for profile " + profileName + ":");
 
@@ -73,9 +74,9 @@ public class Main {
             // Check if ontology falls within that profile
             System.out.println(profileReport.isInProfile());
 
-            // Display violations (Note that it is a single (pre-formatted) string in this case)
+            // Display violations
             // It was done like this for technical (implementation) reasons
-            for(String violation : profileReport.getViolations()) {
+            for (String violation : profileReport.getViolations()) {
                 System.out.println(violation);
             }
 
