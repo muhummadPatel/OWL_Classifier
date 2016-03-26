@@ -43,9 +43,15 @@ public class UI extends JFrame {
     private String[] cleanExpAxioms;
     private String[] cleanVioAxioms;
 
+	//Heading
+	private JLabel checkboxHeading;
+	private JLabel profileHeading;
+	private JLabel expHeading;
+
     private JTextArea[] expAreas;
     private JTextArea[] vioAreas;
 
+	private int letterWidth = 10; //Total length of the letter + spaces used to for expressivity tabs
 
     OWLOntology mainOntology;
     Set<OWLOntology> ontologies;
@@ -105,25 +111,18 @@ public class UI extends JFrame {
         profiles = profileList.toArray(profiles);
         checkBoxes = new JCheckBox[profiles.length];
 
-        /*
-        expressivityLabel = new JLabel("Expressivity: ");
+		checkboxHeading = new JLabel("<html><b><u>OWL Profiles</u></b></html>");
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.insets = new Insets(10,10,10,10); //Padding
+		gbc.gridwidth = 4;
+		gbc.gridheight = 1;
+		gbc.weighty = 0;
+		gbc.weightx = 0;
+		gbc.fill = GridBagConstraints.BOTH;
+		frame.add(checkboxHeading,gbc);
 
-        frame.add(expressivityLabel, gbc);
-        */
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
-        gbc.weighty = 0.14;
-        gbc.weightx = 0;
-        gbc.gridx = 5;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        gbc.gridheight = 1;
-        gbc.weighty = 0.14;
-        gbc.weightx = 0;
-        gbc.fill = GridBagConstraints.BOTH;
-
+		gbc.insets = new Insets(0,0,0,0); //Padding
         for (int i = 0; i < profiles.length; ++i) {
             checkBoxes[i] = new JCheckBox(profiles[i]);
             checkBoxes[i].setModel(new DefaultButtonModel() //Only way to make check boxes read only. SetEnabled(false) greys out the component
@@ -147,12 +146,7 @@ public class UI extends JFrame {
 
             frame.add(checkBoxes[i], gbc);
         }
-
-
-		/*	speciesLabel = new JLabel("OWL Species: ");
-      gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1; gbc.gridheight = 1;
-      gbc.weighty = 0; gbc.weightx = 0;
-      frame.add(speciesLabel,gbc);*/
+	    gbc.insets = new Insets(10,10,10,10); //Padding
 
 
         //The explanation area before the expressivity information
@@ -164,16 +158,25 @@ public class UI extends JFrame {
         gbc.gridwidth = 9;
         gbc.gridheight = 3;
         gbc.weighty = 1;
-        gbc.weightx = 1;
         gbc.fill = GridBagConstraints.BOTH;
         frame.add(scrollableArea, gbc);
+
+		expHeading = new JLabel("<html><b><u>Expressivity Axioms</u></b></html>");
+		gbc.gridx = 0;
+		gbc.gridy = 5;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(0,10,10,0); //Padding different for label
+		gbc.gridheight = 1;
+		frame.add(expHeading,gbc);
+
+		gbc.insets = new Insets(10,10,10,10); //Reset padding
 
         expressivityPane = new JTabbedPane();
         JTextArea tempField1 = new JTextArea();
         //  expressivityPane.setSize(500,400);
-        expressivityPane.addTab("Expressivity Information", tempField1);
+        expressivityPane.addTab("          ", tempField1);
         gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.gridwidth = 9;
         gbc.gridheight = 4;
         gbc.weighty = 1;
@@ -181,12 +184,22 @@ public class UI extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         frame.add(expressivityPane, gbc);
 
+		profileHeading = new JLabel("<html><b><u>Profile Violation Axioms</u></b></html>");
+		gbc.gridx = 0;
+		gbc.gridy = 10;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(0,10,10,0);
+		gbc.gridheight = 1;
+		frame.add(profileHeading,gbc);
+
+		gbc.insets = new Insets(10,10,10,10);
+
         violationsPane = new JTabbedPane();
         JTextArea tempField2 = new JTextArea();
         //violationsPane.setSize(500,400);
-        violationsPane.addTab("Violation Information", tempField2);
+        violationsPane.addTab("          ", tempField2);
         gbc.gridx = 0;
-        gbc.gridy = 9;
+        gbc.gridy = 11;
         gbc.gridwidth = 9;
         gbc.gridheight = 4;
         gbc.weighty = 1;
@@ -228,7 +241,8 @@ public class UI extends JFrame {
             fullExpAxioms[index] = fullAxioms;
             cleanExpAxioms[index] = cleanedAxioms;
             JScrollPane scrollableArea = new JScrollPane(area);
-            expressivityPane.addTab(letter, scrollableArea);
+			String formatString = String.format(letter + "%1$"+ letterWidth + "s", ""); //Add the padding
+            expressivityPane.addTab(formatString, scrollableArea);
             counter = 1;
             ++index;
         }
