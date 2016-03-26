@@ -45,10 +45,12 @@ public class OntologyLoader{
 
         }catch(OWLOntologyCreationException ex){
             ex.printStackTrace();
-            System.exit(1);
+            return null;
+            //System.exit(1);
         } catch(Exception ex) {
             ex.printStackTrace();
-            System.exit(1);
+            return null;
+            //System.exit(1);
         }
 
         return ontologies;
