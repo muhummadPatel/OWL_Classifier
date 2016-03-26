@@ -32,7 +32,7 @@ public class UI extends JFrame// implements ComponentListener
   private JTabbedPane expressivityPane;
   private JTabbedPane violationsPane;
 
-	private String[] profiles = new String[]{"OWL 2", "OWL 2 EL", "OWL 2 DL", "OWL 2 QL", "OWL 2 RL"};
+	private String[] profiles = new String[]{"OWL 2", "OWL 2 EL", "OWL 2 DL", "OWL 2 QL", "OWL 2 RL", "OWL 1 Lite", "OWL 1 DL", "OWL 1 Full"};
 	private JCheckBox[] checkBoxes = new JCheckBox[profiles.length]; //The check box profiles
 
 	private float fileNameAreaPercentage = 0.5f; //Percentage of the width of the screen that the file name text area occupies
@@ -103,7 +103,7 @@ public class UI extends JFrame// implements ComponentListener
 			explanationArea = new JTextArea("");
 			explanationArea.setEditable(false);
 			JScrollPane scrollableArea = new JScrollPane (explanationArea);//, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-			gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 6; gbc.gridheight = 3;
+			gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 9; gbc.gridheight = 3;
 			gbc.weighty = 1; gbc.weightx = 1;
 			gbc.fill = GridBagConstraints.BOTH;
 			frame.add(scrollableArea,gbc);
@@ -112,7 +112,7 @@ public class UI extends JFrame// implements ComponentListener
       JTextArea tempField1 = new JTextArea();
     //  expressivityPane.setSize(500,400);
       expressivityPane.addTab("Expressivity Information", tempField1);
-      gbc.gridx = 0; gbc.gridy = 5; gbc.gridwidth = 6; gbc.gridheight = 4;
+      gbc.gridx = 0; gbc.gridy = 5; gbc.gridwidth = 9; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(expressivityPane,gbc);
@@ -121,7 +121,7 @@ public class UI extends JFrame// implements ComponentListener
       JTextArea tempField2 = new JTextArea();
       //violationsPane.setSize(500,400);
       violationsPane.addTab("Violation Information",tempField2);
-      gbc.gridx = 0; gbc.gridy = 9; gbc.gridwidth = 6; gbc.gridheight = 4;
+      gbc.gridx = 0; gbc.gridy = 9; gbc.gridwidth = 9; gbc.gridheight = 4;
       gbc.weighty = 1; gbc.weightx = 1;
       gbc.fill = GridBagConstraints.BOTH;
       frame.add(violationsPane,gbc);
@@ -176,7 +176,7 @@ public class UI extends JFrame// implements ComponentListener
 
 				for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations())
 				{
-                    String cleanedViolation =  violation.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:",""); //Not the most elegant regex but it works
+          String cleanedViolation =  violation.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:",""); //Not the most elegant regex but it works
 					area.append(counter + " - " + cleanedViolation + "\n"); //Populate this area with the list of axioms
 					++counter;
 				}
@@ -184,27 +184,35 @@ public class UI extends JFrame// implements ComponentListener
 				JScrollPane scrollableArea = new JScrollPane (area);
 				violationsPane.addTab(profileName,scrollableArea);
 				counter = 1;
+			}
 
-				/*
-				for(String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
-						// Display profile
-						System.out.println("Violations for profile " + profileName + ":");
+			//Now do the same for the OWL 1 profiles
+			for(String profileName : OWL1ProfileChecker.PROFILE_NAMES)
+			{
+				if (owl1ontologyProfileReports.get(profileName).getViolations().size() == 0) //If there are no violations
+				{
+					checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
+					continue;
+				}
+				JTextArea area = new JTextArea(); //The list of axioms for this particular profile
+				area.setEditable(false);
+				OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
 
-						// Get the report
-						OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
-
-						// Display violations (Note that it is a single (pre-formated) string in this case)
-						// It was done like this for technical (implementation) reasons
-						for(String violation : profileReport.getViolations()) {
-								System.out.println(violation);
-						}
-
-						// Check if ontology falls within that profile
-						System.out.println(profileReport.isInProfile());
-						System.out.println();
+				// Display violations (Note that it is a single (pre-formated) string in this case)
+				// It was done like this for technical (implementation) reasons
+				for(String violation : profileReport.getViolations())
+				{
+						String cleanedViolation =  violation.toString().replaceAll("(?<=:)[^#]*/","").replaceAll("http:",""); //Not the most elegant regex but it works
+						area.append(counter + " - " + cleanedViolation + "\n"); //Populate this area with the list of axioms
+						++counter;
 				}
 
-				*/
+				JScrollPane scrollableArea = new JScrollPane (area);
+				violationsPane.addTab(profileName,scrollableArea);
+				counter = 1;
+				// Check if ontology falls within that profile
+				System.out.println(profileReport.isInProfile());
+				System.out.println();
 			}
 		}
 
