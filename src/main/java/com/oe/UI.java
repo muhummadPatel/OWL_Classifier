@@ -240,11 +240,17 @@ public class UI extends JFrame {
             String fullAxioms = "";
             String cleanedAxioms = "";
             for (OWLAxiom axiom : axiomClassifications.get(letter)) {
-                cleanedAxioms += counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                // regex but it works
+                if(axiom.toString().contains("#")){
+                    cleanedAxioms += counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
+                    // regex but it works
+                    area.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with the
+                    // list of axioms
+                }else{
+                    cleanedAxioms += counter + " - " + axiom.toString() + "\n";
+                    area.append(counter + " - " + axiom.toString() + "\n"); //Populate this area with the
+                    // list of axioms
+                }
                 fullAxioms += counter + " - " + axiom.toString() + "\n";
-                area.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with the
-                // list of axioms
                 ++counter;
             }
 
@@ -289,11 +295,17 @@ public class UI extends JFrame {
             area.setEditable(false);
 
             for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
-                cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                // regex but it works
+                if(violation.toString().contains("#")){
+                    cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
+                    // regex but it works
+                    area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
+                    // the list of axioms
+                }else{
+                    cleanedAxioms += counter + " - " + violation.toString() + "\n";
+                    area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with
+                    // the list of axioms
+                }
                 fullAxioms += counter + " - " + violation.toString() + "\n";
-                area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
-                // the list of axioms
                 ++counter;
             }
             //Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
@@ -325,11 +337,17 @@ public class UI extends JFrame {
             String cleanedAxioms = "";
 
             for (String violation : profileReport.getViolations()) {
-                cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                // regex but it works
+                if(violation.toString().contains("#")){
+                    cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
+                    // regex but it works
+                    area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
+                    // the list of axioms
+                }else{
+                    cleanedAxioms += counter + " - " + violation.toString() + "\n";
+                    area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with
+                    // the list of axioms
+                }
                 fullAxioms += counter + " - " + violation.toString() + "\n";
-                area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
-                // the list of axioms
                 ++counter;
             }
 
