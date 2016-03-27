@@ -116,7 +116,7 @@ public class UI extends JFrame {
         checkboxHeading = new JLabel("<html><b><u>OWL Profiles</u></b></html>");
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.insets = new Insets(10, 10, 10, 10); //Padding
+        gbc.insets = new Insets(5, 10, 0, 0); //Padding
         gbc.gridwidth = 4;
         gbc.gridheight = 1;
         gbc.weighty = 0;
@@ -124,7 +124,7 @@ public class UI extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         frame.add(checkboxHeading, gbc);
 
-        gbc.insets = new Insets(0, 0, 0, 0); //Padding
+        gbc.insets = new Insets(0, 6, 5, 0); //Padding
         for (int i = 0; i < profiles.length; ++i) {
             checkBoxes[i] = new JCheckBox(profiles[i]);
             checkBoxes[i].setModel(new DefaultButtonModel() //Only way to make check boxes read only. SetEnabled(false) greys out the component
@@ -148,37 +148,46 @@ public class UI extends JFrame {
 
             frame.add(checkBoxes[i], gbc);
         }
-        gbc.insets = new Insets(10, 10, 10, 10); //Padding
 
+		//Explanation area heading
+		JLabel explanationHeading = new JLabel("<html><b><u>Expressivity Information</u></b></html>");
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(0, 10, 2, 0); //Padding different for label
+		gbc.gridheight = 1;
+		gbc.gridwidth = 5;
+		frame.add(explanationHeading, gbc);
 
         //The explanation area before the expressivity information
         explanationArea = new JTextArea("");
         explanationArea.setEditable(false);
         JScrollPane scrollableArea = new JScrollPane(explanationArea);//, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = 3;
         gbc.gridwidth = 9;
         gbc.gridheight = 3;
+		gbc.insets = new Insets(0, 10, 8, 0);
         gbc.weighty = 1;
         gbc.fill = GridBagConstraints.BOTH;
         frame.add(scrollableArea, gbc);
 
         expHeading = new JLabel("<html><b><u>Expressivity Axioms</u></b></html>");
         gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.weighty = 0;
-        gbc.insets = new Insets(0, 10, 10, 0); //Padding different for label
+        gbc.insets = new Insets(0, 10,2, 0); //Padding different for label
         gbc.gridheight = 1;
         frame.add(expHeading, gbc);
 
-        gbc.insets = new Insets(10, 10, 10, 10); //Reset padding
+        gbc.insets = new Insets(0, 10, 8, 0); //Reset padding
 
         expressivityPane = new JTabbedPane();
         JTextArea tempField1 = new JTextArea();
         //  expressivityPane.setSize(500,400);
         expressivityPane.addTab("          ", tempField1);
         gbc.gridx = 0;
-        gbc.gridy = 6;
+        gbc.gridy = 7;
         gbc.gridwidth = 9;
         gbc.gridheight = 4;
         gbc.weighty = 1;
@@ -188,20 +197,20 @@ public class UI extends JFrame {
 
         profileHeading = new JLabel("<html><b><u>Profile Violations</u></b></html>");
         gbc.gridx = 0;
-        gbc.gridy = 10;
+        gbc.gridy = 11;
         gbc.weighty = 0;
-        gbc.insets = new Insets(0, 10, 10, 0);
+        gbc.insets = new Insets(0, 10, 2, 0);
         gbc.gridheight = 1;
         frame.add(profileHeading, gbc);
 
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.insets = new Insets(0, 10, 8, 0);
 
         violationsPane = new JTabbedPane();
         JTextArea tempField2 = new JTextArea();
         //violationsPane.setSize(500,400);
         violationsPane.addTab("          ", tempField2);
         gbc.gridx = 0;
-        gbc.gridy = 11;
+        gbc.gridy = 12;
         gbc.gridwidth = 9;
         gbc.gridheight = 4;
         gbc.weighty = 1;
