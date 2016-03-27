@@ -28,3 +28,4 @@ The makefile included in this project encapsulates the build process for this pr
 * `make clean` - deletes all build artifacts from the project folder
 * `make build` - compiles and packages the project
 * `make run` - executes the project (project must have been built successfully for this command to work)
+* `make deploy` - builds and packages an executable, standalone .jar file including all dependencies that will run OWL Classifier. The .jar file is located in the 'target' directory and can be run by simply double clicking it. This jar file can be freely distributed and run on any computer with an appropriate JVM/JRE.

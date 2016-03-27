@@ -29,3 +29,6 @@ build:
 
 run:
 	mvn exec:java
+
+deploy:
+	mvn clean compile assembly:single && touch ./target/.gitkeep
