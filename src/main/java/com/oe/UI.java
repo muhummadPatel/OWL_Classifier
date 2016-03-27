@@ -1,7 +1,4 @@
 package com.oe;
-    /* This is commented out in the mean time because you need to specify
-	   the class path and other package stuff when compiling it alone
-	   from the command line */
 
 import java.awt.*;
 import java.awt.event.*;
