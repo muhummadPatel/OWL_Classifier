@@ -14,11 +14,11 @@ OWL Classifier is a Java app that loads an ontology (as specified by the user) a
 ###Setting Up This Project:
 OWL Classifier is a Java project built and managed using Maven. The build process has been encapsulated in a makefile for easy building and running (see next section for further details on using the makefile). The following is a quick guide to getting the OWL Classifier project up and running on your machine:
 * Ensure that you have the following tools installed on your machine:
-    * Java 8
+    * Java 8 ***(recommended, although Java 7 will suffice)***
     * Maven
     * Make
-    * git
-* Clone this repo to your machine using `git clone https://github.com/muhummadPatel/OWL_Classifier.git`
+    * git ***(recommended)***
+* Clone this repo to your machine using `git clone https://github.com/muhummadPatel/OWL_Classifier.git`. Alternatively, you could download a zipped copy of this repo (using the 'Download ZIP' button on this GitHub page) and unzip it
 * Navigate to the newly created project folder (probably OWL_Classifier) in a terminal
 * run `make` to clean, build, and run the project
 
