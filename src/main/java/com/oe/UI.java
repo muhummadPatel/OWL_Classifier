@@ -83,7 +83,7 @@ public class UI extends JFrame {
         }
 
         //The main frame
-        frame = new JFrame("OntoCheck");
+        frame = new JFrame("OWL Classifier");
         frame.setSize(1000, 900);
         frame.setResizable(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -398,7 +398,7 @@ public class UI extends JFrame {
             {
                 mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
                 ontologies = OntologyLoader.loadOntology(filePath, true);
-                frame.setTitle("OntoCheck" + " - " + filePath);
+                frame.setTitle("OWL Classifier" + " - " + filePath);
             } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
                 JOptionPane.showMessageDialog(new JFrame(), "Invalid file!", "Dialog", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -497,9 +497,9 @@ public class UI extends JFrame {
 
             //The actual help text
 			String text =  "<html>******************************************************"
-			         		   + "<center>OntoCheck v1.0</center>"
+			         		   + "<center>OWL Classifier v1.0</center>"
 			         		   + "******************************************************<br>"
-			         		   + "<p align = justify>OntoCheck is a lightweight ontology profiler tool that classifies"
+			         		   + "<p align = justify>OWL Classifier is a lightweight ontology profiler tool that classifies"
 			         		   + "OWL 1 and OWL 2 ontologies and provides more information about"
 			         		   + "the expressivity and axioms. <br><br>"
 
@@ -509,7 +509,7 @@ public class UI extends JFrame {
 					 		   + "cause the expressivity of the ontology and the axioms that"
 							   + "violate the other OWL 1 and OWL 2 profiles.<br><br>"
 
-							   + "OntoCheck was created by a group of 3 university students at"
+							   + "OWL Classifier was created by a group of 3 university students at"
 							   + "UCT as part of an Ontology Engineering course.<br><br>"
 					 		   + "</p></html>";
             JLabel info = new JLabel(text);
