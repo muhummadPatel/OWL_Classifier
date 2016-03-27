@@ -79,7 +79,7 @@ public class UI extends JFrame {
         }
 
         //The main frame
-        frame = new JFrame("Ontology Profile Checker");
+        frame = new JFrame("OntoCheck");
         frame.setSize(1000, 900);
         frame.setResizable(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -366,7 +366,7 @@ public class UI extends JFrame {
             {
                 mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
                 ontologies = OntologyLoader.loadOntology(filePath, true);
-                frame.setTitle(frame.getTitle() + " - " + filePath);
+                frame.setTitle("OntoCheck" + " - " + filePath);
             } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
                 JOptionPane.showMessageDialog(new JFrame(), "Invalid file!", "Dialog", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -454,13 +454,34 @@ public class UI extends JFrame {
             setTitle("Help");
             setSize(400, 550);
             setResizable(false);
+			setLayout(new BorderLayout());
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             addWindowListener(exitListener);
 
-            //The actualy help text
-            JLabel info = new JLabel("\n\n\nHeeeeeeeeeeeeeeeeeeeeeeeeeeeeey\n\n\n");
+            //The actual help text
+			String text =  "<html>******************************************************"
+			         		   + "<center>OntoCheck v1.0</center>"
+			         		   + "******************************************************<br>"
+			         		   + "<p align = justify>OntoCheck is a lightweight ontology profiler tool that classifies <br>"
+			         		   + "OWL 1 and OWL 2 ontologies and provides more information about  <br>"
+			         		   + "the expressivity and axioms. <br><br>"
 
-            add(info);
+					 		   + "Using the tool, users can check the profiles that ontologies fall<br>"
+					 		   + "under. The expressivity of the ontology and an explanation is<br>"
+					 		   + "also provided. Lastly, users can also check the axioms that<br>"
+					 		   + "cause the expressivity of the ontology and the axioms that<br>"
+							   + "violate the other OWL 1 and OWL 2 profiles.<br><br>"
+
+							   + "OntoCheck was created by a group of 3 university students at<br>"
+							   + "UCT as part of an Ontology Engineering course.<br>"
+							   + "<br>"
+							   + "<br>"
+					 		   + "</p></html>";
+            JLabel info = new JLabel(text);
+			info.setHorizontalAlignment(JLabel.CENTER);
+			info.setVerticalAlignment(JLabel.CENTER);
+
+            add(info, BorderLayout.CENTER);
         }
     }
 
