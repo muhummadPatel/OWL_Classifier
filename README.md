@@ -20,7 +20,7 @@ OWL Classifier is a Java project built and managed using Maven. The build proces
     * git ***(recommended)***
 * Clone this repo to your machine using `git clone https://github.com/muhummadPatel/OWL_Classifier.git`. Alternatively, you could download a zipped copy of this repo (using the 'Download ZIP' button on this GitHub page) and unzip it
 * Navigate to the newly created project folder (probably OWL_Classifier) in a terminal
-* run `make` to clean, build, and run the project
+* run `make` to clean, build, and run the project. Please note that a working internet connection is required when building the project for the first time as the dependencies will need to be downloaded.
 
 ###Using the Makefile:
 The makefile included in this project encapsulates the build process for this project. The following commands are supported by the OWL Classifier Makefile:
