@@ -66,7 +66,7 @@ public class UI extends JFrame {
 
     private void initialize() {
         // Default to printing results to terminal
-        printResultsToTerminal = true;
+        printResultsToTerminal = false;
 
         try {
             // Set System L&F
