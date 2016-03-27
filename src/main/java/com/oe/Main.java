@@ -14,8 +14,7 @@ public class Main {
         System.out.println("--------------START MAIN---------------\n");
 
         // The OWL file to be loaded
-
-        String filePath = "pizza.owl";
+        String filePath = "test_ontologies/Simple/pizza.owl";
 
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
