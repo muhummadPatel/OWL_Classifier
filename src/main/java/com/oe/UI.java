@@ -486,36 +486,39 @@ public class UI extends JFrame {
 
         public void initialize() {
             setTitle("Help");
-            setSize(400, 550);
+            setSize(400, 450);
             setResizable(false);
-			setLayout(new BorderLayout());
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             addWindowListener(exitListener);
+
+            JPanel panel = new JPanel();
+            panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+			panel.setLayout(new BorderLayout());
 
             //The actual help text
 			String text =  "<html>******************************************************"
 			         		   + "<center>OntoCheck v1.0</center>"
 			         		   + "******************************************************<br>"
-			         		   + "<p align = justify>OntoCheck is a lightweight ontology profiler tool that classifies <br>"
-			         		   + "OWL 1 and OWL 2 ontologies and provides more information about  <br>"
+			         		   + "<p align = justify>OntoCheck is a lightweight ontology profiler tool that classifies"
+			         		   + "OWL 1 and OWL 2 ontologies and provides more information about"
 			         		   + "the expressivity and axioms. <br><br>"
 
-					 		   + "Using the tool, users can check the profiles that ontologies fall<br>"
-					 		   + "under. The expressivity of the ontology and an explanation is<br>"
-					 		   + "also provided. Lastly, users can also check the axioms that<br>"
-					 		   + "cause the expressivity of the ontology and the axioms that<br>"
+					 		   + "Using the tool, users can check the profiles that ontologies fall"
+					 		   + "under. The expressivity of the ontology and an explanation is"
+					 		   + "also provided. Lastly, users can also check the axioms that"
+					 		   + "cause the expressivity of the ontology and the axioms that"
 							   + "violate the other OWL 1 and OWL 2 profiles.<br><br>"
 
-							   + "OntoCheck was created by a group of 3 university students at<br>"
-							   + "UCT as part of an Ontology Engineering course.<br>"
-							   + "<br>"
-							   + "<br>"
+							   + "OntoCheck was created by a group of 3 university students at"
+							   + "UCT as part of an Ontology Engineering course.<br><br>"
 					 		   + "</p></html>";
             JLabel info = new JLabel(text);
 			info.setHorizontalAlignment(JLabel.CENTER);
 			info.setVerticalAlignment(JLabel.CENTER);
 
-            add(info, BorderLayout.CENTER);
+            panel.add(info, BorderLayout.CENTER);
+
+            add(panel);
         }
     }
 
