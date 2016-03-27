@@ -1,0 +1,561 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontology.dumontierlab.com/pharmacogenomics-primitive#"
+     xml:base="http://ontology.dumontierlab.com/pharmacogenomics-primitive"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ontology="http://ontology.dumontierlab.com/">
+    <owl:Ontology rdf:about="http://ontology.dumontierlab.com/pharmacogenomics-primitive">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.0</owl:versionInfo>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michel Dumontier</dc:creator>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology for pharmacogenomics knowledge representation.</dc:description>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</dc:language>
+        <dc:publisher rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://dumontierlab.com</dc:publisher>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pharmacogenomics ontology (primitive)</dc:title>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/biological-measure-primitive"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/language"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasDisposition -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasDisposition">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tell us what diseases a particular gene may play a part in.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasPart">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <owl:inverseOf rdf:resource="http://ontology.dumontierlab.com/isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasParticipant">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used to relate individual element involved in a drug, gene, disease and outcome interaction.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasQuality">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasReference -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasReference">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasSource -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasSource">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasUnit -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasUnit">
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isDispositionOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isDispositionOf">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a disease to what genes might play a part in its development.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://ontology.dumontierlab.com/hasDisposition"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates an outcome to a particular interaction of some gene, drug and disease.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isParticipantIn -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isParticipantIn">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used to relate a particular gene, drug or disease involved in an interaction together.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isQualityOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isQualityOf">
+        <owl:inverseOf rdf:resource="http://ontology.dumontierlab.com/hasQuality"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isReferenceFor -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isReferenceFor">
+        <owl:inverseOf rdf:resource="http://ontology.dumontierlab.com/hasReference"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isRelatedTo -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isRelatedTo"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isUnitFor -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isUnitFor">
+        <owl:inverseOf rdf:resource="http://ontology.dumontierlab.com/hasUnit"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/isVariantOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/isVariantOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Relates a gene to its variants.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://ontology.dumontierlab.com/isRelatedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DatabaseSource -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DatabaseSource">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">database source</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A database as a source of information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DecreasedDiseaseSusceptibilityWithGene -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DecreasedDiseaseSusceptibilityWithGene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decreased disease susceptibility with gene</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/GeneDiseaseInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DecreasedDrugMetabolismByGene -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DecreasedDrugMetabolismByGene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decreased drug metabolism by gene</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugMetabolismByGene"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drug metabolism that is decreased involving a gene.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DecreasedGeneExpressionByDrug -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DecreasedGeneExpressionByDrug">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decreased gene expression by drug</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugModifiedGeneExpression"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene expression that is decreased involving a drug.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Disease -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Disease">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interruption, cessation, or disorder of body functions, systems, or organs.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DoseRecommendation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DoseRecommendation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dose recommendation</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The recommended dose for a given drug</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Drug -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Drug">
+        <rdfs:label>Drug</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A substance that modifies a biological process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DrugGeneInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DrugGeneInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug gene interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interaction between a drug and a gene/gene product.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DrugInducedSideEffect -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DrugInducedSideEffect">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug induced side effect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A drug interaction that results in a side effect.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DrugInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DrugInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An interaction involving a drug.</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Interaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DrugMetabolismByGene -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DrugMetabolismByGene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug metabolism by gene</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugGeneInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drug metabolism that includes a specific gene.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DrugModifiedGeneExpression -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DrugModifiedGeneExpression">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug modified gene expression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugGeneInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Changes in gene expression involving a drug.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DrugTreatment -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DrugTreatment">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug treatment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugInteraction"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The use of a drug for treating some condition.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/FatalDrugInducedSideEffect -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/FatalDrugInducedSideEffect">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fatal drug induced side effect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugInducedSideEffect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Gene -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Gene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gene</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A region of DNA that is transcribed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/GeneDiseaseInteraction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/GeneDiseaseInteraction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gene disease interaction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Interaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/GeneVariant -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/GeneVariant">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gene variant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/Gene"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A gene related to another that exhibits mutational differences.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/IncreasedDiseaseSusceptibilityWithGene -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/IncreasedDiseaseSusceptibilityWithGene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">increased disease susceptibility with gene</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/GeneDiseaseInteraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/IncreasedDrugMetabolismByGene -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/IncreasedDrugMetabolismByGene">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">increased drug metabolism by gene</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugMetabolismByGene"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drug metabolism that is increased by a particular gene.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/IncreasedGeneExpressionByDrug -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/IncreasedGeneExpressionByDrug">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">increased gene expression by drug</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugModifiedGeneExpression"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene expression that is increased involving a drug.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Interaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Interaction">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">interaction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/IntronicGeneVariant -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/IntronicGeneVariant">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intronic gene variant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/GeneVariant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A gene variant in which the mutation occurs in an intron.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/IntronicSingleNucleotidePolymorphismRecord -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/IntronicSingleNucleotidePolymorphismRecord">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intronic single nucleotide polymorphism record</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/SingleNucleotidePolymorphismRecord"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/MildDrugInducedSideEffect -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/MildDrugInducedSideEffect">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mild drug induced side effect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugInducedSideEffect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ModerateDrugInducedSideEffect -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ModerateDrugInducedSideEffect">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">moderate drug induced side effect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugInducedSideEffect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NonSynonymousGeneVariant -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NonSynonymousGeneVariant">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">non-synonymous gene variant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/GeneVariant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A gene variant in which the mutation results in an amino acid mutation in the protein product.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NonsynonymousSingleNucleotidePolymorphismRecord -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NonsynonymousSingleNucleotidePolymorphismRecord">
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/SingleNucleotidePolymorphismRecord"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Pathway -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Pathway">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pathway</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A sequence of molecular interactions leading to some outcome.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/PersonalizedDoseRecommendation -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/PersonalizedDoseRecommendation">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">personalized dose recommendation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DoseRecommendation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The recommended dose of a drug given a specific allele</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Phenotype -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Phenotype">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">phenotype</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An observable characteristic.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Publication -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Publication">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">publication</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A published work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SevereDrugInducedSideEffect -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SevereDrugInducedSideEffect">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">severe drug induced side effect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/DrugInducedSideEffect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SingleNucleotidePolymorphism -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SingleNucleotidePolymorphism">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single nucleotide polymorphism</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A variation in a nucleotide position.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SingleNucleotidePolymorphismRecord -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SingleNucleotidePolymorphismRecord">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single nucleotide polymorphism record</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A record containing single nucleotide polymorphism information - allelic frequencies, position, gene.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/StartCodonGeneVariant -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/StartCodonGeneVariant">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start codon gene variant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/GeneVariant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A gene variant in which a mutation occurs in the start codon of a protein product.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/StartCodonSingleNucleotidePolymorphismRecord -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/StartCodonSingleNucleotidePolymorphismRecord">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start codon single nucleotide polymorphism record</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/SingleNucleotidePolymorphismRecord"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SynonymousGeneVariant -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SynonymousGeneVariant">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synonymous gene variant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/GeneVariant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A gene variant in which the mutation has no mutational effect on the protein product.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/SynonymousSingleNucleotidePolymorphismRecord -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/SynonymousSingleNucleotidePolymorphismRecord">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synonymous single nucleotide polymorphism record</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontology.dumontierlab.com/SingleNucleotidePolymorphismRecord"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Unit -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Unit"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

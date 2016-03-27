@@ -1,0 +1,3187 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY metamodelCDML "http://www.meteck.org/files/ontologies/metamodelCDML.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.meteck.org/files/ontologies/metamodelCDML.owl#"
+     xml:base="http://www.meteck.org/files/ontologies/metamodelCDML.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:metamodelCDML="http://www.meteck.org/files/ontologies/metamodelCDML.owl#">
+    <owl:Ontology rdf:about="http://www.meteck.org/files/ontologies/metamodelCDML.owl">
+        <dc:creator>C. Maria Keet</dc:creator>
+        <rdfs:comment xml:lang="en">In the annotations for the entities, besides occasional comments, there is a list of terms as it is use in the covered conceptual data modelling languages, which is in the order of and format:
+UML v2.4.1
+EER
+ORM </rdfs:comment>
+        <rdfs:comment xml:lang="en">This is the OWLized version of the unifying metamodel for the static, structural components of UML class diagrams, EER, and ORM2, and their constraints.
+
+The diagrammatic representation of the static structural components only, and their rationale, are described in the following two publications:
+
+Keet, C.M., Fillottrani, P.R. Toward an ontology-driven unifying metamodel for UML Class Diagrams, EER, and ORM2. 32nd International Conference on Conceptual Modeling (ER&apos;13). W. Ng, V.C. Storey, and J. Trujillo (Eds.). Springer LNCS 8217, 313-326. 11-13 November, 2013, Hong Kong.
+
+Keet, C.M., Fillottrani, P.R. Structural entities of an ontology-driven unifying metamodel for UML, EER, and ORM2. 3rd International Conference on Model &amp; Data Engineering (MEDI&apos;13). A. Cuzzocrea and S. Maabout (Eds.) September 25-27, 2013, Amantea, Calabria, Italy. Springer LNCS 8216, 188-199.
+
+A paper describing the full metamodel, including the constraints, is currently under review with an international journal</rdfs:comment>
+        <owl:versionInfo xml:lang="en">version 1.2, December 2014.</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#aggregatesInto -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;aggregatesInto"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ap1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;ap1">
+        <rdfs:domain rdf:resource="&metamodelCDML;AttributiveProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;CardRR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ap3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;ap3">
+        <rdfs:domain rdf:resource="&metamodelCDML;AttributiveProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;CardOR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#att3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;att3">
+        <rdfs:domain rdf:resource="&metamodelCDML;Attribute"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesAR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#avc4 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;avc4">
+        <rdfs:domain rdf:resource="&metamodelCDML;AttributeValueConstraint"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesAR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#cc1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;cc1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;CardOR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#cc2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;cc2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;CardRR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#comparisonOperator -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;comparisonOperator">
+        <rdfs:comment xml:lang="en">for value comparisons</rdfs:comment>
+        <rdfs:range rdf:resource="&metamodelCDML;Comparison"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueComparisonConstraint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;contains">
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;hasPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#declaredAs -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;declaredAs"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#declaredOn -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;declaredOn">
+        <rdfs:comment xml:lang="en">There is also a &apos;constrained with&apos; in the metamodel that can be seen to be the inverse of declaredOn. We now use the inverse(declaredOn) for that to reduce a bit the number of object properties and gain some in reasoner performance.</rdfs:comment>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;AttributiveProperty"/>
+                    <rdf:Description rdf:about="&metamodelCDML;CompletenessConstraint"/>
+                    <rdf:Description rdf:about="&metamodelCDML;DisjointObjectTypes"/>
+                    <rdf:Description rdf:about="&metamodelCDML;DisjointRelationships"/>
+                    <rdf:Description rdf:about="&metamodelCDML;DisjointRoles"/>
+                    <rdf:Description rdf:about="&metamodelCDML;EntityType"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+                    <rdf:Description rdf:about="&metamodelCDML;QualifiedRelationship"/>
+                    <rdf:Description rdf:about="&metamodelCDML;Relationship"/>
+                    <rdf:Description rdf:about="&metamodelCDML;Role"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ValueProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#dim1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;dim1">
+        <rdfs:domain rdf:resource="&metamodelCDML;Dimension"/>
+        <rdfs:range rdf:resource="&metamodelCDML;DimensionalAttributionR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#dim2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;dim2">
+        <rdfs:domain rdf:resource="&metamodelCDML;Dimension"/>
+        <rdfs:range rdf:resource="&metamodelCDML;DimensionalValueTypingR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#domain -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;domain">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+                    <rdf:Description rdf:about="&metamodelCDML;Relationship"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ValueType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;AttributiveProperty"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ValueProperty"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#dt1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;dt1">
+        <rdfs:domain rdf:resource="&metamodelCDML;DataType"/>
+        <rdfs:range rdf:resource="&metamodelCDML;DimensionalValueTypingR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#dt2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;dt2">
+        <rdfs:domain rdf:resource="&metamodelCDML;DataType"/>
+        <rdfs:range rdf:resource="&metamodelCDML;DimensionalAttributionR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#dvt3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;dvt3">
+        <rdfs:domain rdf:resource="&metamodelCDML;DimensionalValueType"/>
+        <rdfs:range rdf:resource="&metamodelCDML;DimensionalValueTypingR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#efc4 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;efc4">
+        <rdfs:domain rdf:resource="&metamodelCDML;CompoundCardinalityConstraint"/>
+        <rdfs:range rdf:resource="&metamodelCDML;CompoundCardinalityR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#eu3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;eu3">
+        <rdfs:range rdf:resource="&metamodelCDML;ExtUniqueR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ExternalUniqueness"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#first -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;first">
+        <rdfs:range rdf:resource="&metamodelCDML;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;participant"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;RelationshipConstraint"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ValueComparisonConstraint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#hasPart -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;hasPart"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#hasStrong -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;hasStrong">
+        <rdfs:comment xml:lang="en">Not very imaginative name, but it is for asserting that each wak object type must be related to a normal (&apos;strong&apos;) one</rdfs:comment>
+        <rdfs:range rdf:resource="&metamodelCDML;ObjectType"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;WeakObjectType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#hasType -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;hasType">
+        <rdfs:range rdf:resource="&metamodelCDML;DataType"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;ValueComparisonConstraint"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ValueRange"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#identifies -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;identifies">
+        <rdfs:comment xml:lang="en">Same story as with the declaredOn: also here one could choose to keep either identifies and identifiedBy. We chose the identifies, and avail of the other direciion by using inverse</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#jo3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;jo3">
+        <rdfs:domain rdf:resource="&metamodelCDML;JoinConstraint"/>
+        <rdfs:range rdf:resource="&metamodelCDML;JoiningR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#linkedTo2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;linkedTo2">
+        <rdfs:domain rdf:resource="&metamodelCDML;Role"/>
+        <rdfs:range rdf:resource="&metamodelCDML;RolePlayingR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#naryProperty -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;naryProperty">
+        <rdfs:comment xml:lang="en">The object subproperties of naryProperty are only here due to reifying ternaries and quaternary. Thus, they are NOT to be used for any other axiom than for said reification.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#objectifies -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;objectifies"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#of3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;of3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+        <rdfs:range rdf:resource="&metamodelCDML;RolePlayingR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ot2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;ot2">
+        <rdfs:range rdf:resource="&metamodelCDML;CardOR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ObjectType"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ot3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;ot3">
+        <rdfs:range rdf:resource="&metamodelCDML;DimensionalAttributionR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ObjectType"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#partOf -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;partOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#partPlayer -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;partPlayer">
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;participant"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;CompositeAggregate"/>
+                    <rdf:Description rdf:about="&metamodelCDML;Part"/>
+                    <rdf:Description rdf:about="&metamodelCDML;SharedAggregate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;AttributiveProperty"/>
+                    <rdf:Description rdf:about="&metamodelCDML;DataType"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#partiallyIdentifies -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;partiallyIdentifies"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#participant -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;participant">
+        <rdfs:comment xml:lang="en">The metamodel also has participatesIn, which is replaced by inverse(participant); like with identifies and declaredOn</rdfs:comment>
+        <rdfs:domain rdf:resource="&metamodelCDML;Entity"/>
+        <rdfs:range rdf:resource="&metamodelCDML;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#plays1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;plays1">
+        <rdfs:domain rdf:resource="&metamodelCDML;EntityType"/>
+        <rdfs:range rdf:resource="&metamodelCDML;RolePlayingR"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#playsSub -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;playsSub">
+        <rdfs:range rdf:resource="&metamodelCDML;Entity"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Subsumption"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#playsSuper -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;playsSuper">
+        <rdfs:range rdf:resource="&metamodelCDML;Entity"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Subsumption"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#propertPartOf -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;propertPartOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;partOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#range -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;range">
+        <rdfs:domain rdf:resource="&metamodelCDML;AttributiveProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;DataType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#reifiedAs -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;reifiedAs"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#rel1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;rel1">
+        <rdfs:range rdf:resource="&metamodelCDML;ExtUniqueR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#rel2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;rel2">
+        <rdfs:range rdf:resource="&metamodelCDML;CompoundCardinalityR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#rel3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;rel3">
+        <rdfs:range rdf:resource="&metamodelCDML;CardRR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#rel4 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;rel4">
+        <rdfs:range rdf:resource="&metamodelCDML;DimensionalAttributionR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#relj1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;relj1">
+        <rdfs:range rdf:resource="&metamodelCDML;JoiningR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#rol1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;rol1">
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesRR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#role1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;role1">
+        <rdfs:range rdf:resource="&metamodelCDML;CompoundCardinalityR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#role2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;role2">
+        <rdfs:range rdf:resource="&metamodelCDML;ExtUniqueR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#rolj2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;rolj2">
+        <rdfs:range rdf:resource="&metamodelCDML;JoiningR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#rvc4 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;rvc4">
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesRR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;RoleValueConstraint"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#second -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;second">
+        <rdfs:range rdf:resource="&metamodelCDML;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;participant"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;RelationshipConstraint"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ValueComparisonConstraint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ve1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;ve1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesVR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueEnumeration"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ve2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;ve2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesAR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueEnumeration"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ve3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;ve3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesRR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueEnumeration"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#vp2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;vp2">
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesVR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#vr1 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;vr1">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesAR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueRange"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#vr2 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;vr2">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesRR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueRange"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#vr3 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;vr3">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesVR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueRange"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#vtc4 -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;vtc4">
+        <rdfs:range rdf:resource="&metamodelCDML;ConstrainingValuesVR"/>
+        <rdfs:domain rdf:resource="&metamodelCDML;ValueTypeConstraint"/>
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;naryProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#wholePlayer -->
+
+    <owl:ObjectProperty rdf:about="&metamodelCDML;wholePlayer">
+        <rdfs:subPropertyOf rdf:resource="&metamodelCDML;participant"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;AttributiveProperty"/>
+                    <rdf:Description rdf:about="&metamodelCDML;DataType"/>
+                    <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;CompositeAggregate"/>
+                    <rdf:Description rdf:about="&metamodelCDML;Part"/>
+                    <rdf:Description rdf:about="&metamodelCDML;SharedAggregate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#hasCValue -->
+
+    <owl:DatatypeProperty rdf:about="&metamodelCDML;hasCValue">
+        <rdfs:comment xml:lang="en">Intrduced as artefact from formalising in OWL (&apos;flattened&apos; last part of values in cardinality constraints)</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;MaximumCardinality"/>
+                    <rdf:Description rdf:about="&metamodelCDML;MinimumCardinality"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="&metamodelCDML;hasValue">
+        <rdfs:comment xml:lang="en">Intrduced as artefact from formalising in OWL (&apos;flattened&apos; last part of values in value constraints)</rdfs:comment>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&metamodelCDML;MaximumValue"/>
+                    <rdf:Description rdf:about="&metamodelCDML;MinimumValue"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Abstract -->
+
+    <owl:Class rdf:about="&metamodelCDML;Abstract">
+        <rdfs:comment xml:lang="en">This class is used to group several otherwhise &apos;orphan&apos; classes (subsumed only by Thing), for they have in common they deal with abstract things (numbers, values, value ranges)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Antisymmetry -->
+
+    <owl:Class rdf:about="&metamodelCDML;Antisymmetry">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;RelationshipConstraint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#AssociativeEntityType -->
+
+    <owl:Class rdf:about="&metamodelCDML;AssociativeEntityType">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ObjectType"/>
+        <rdfs:comment>relic from the past, but available, so included</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Asymmetry -->
+
+    <owl:Class rdf:about="&metamodelCDML;Asymmetry">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Antisymmetry"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Irreflexivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Attribute -->
+
+    <owl:Class rdf:about="&metamodelCDML;Attribute">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;AttributiveProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredAs"/>
+                <owl:onClass rdf:resource="&metamodelCDML;SingleIdentification"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>attribute  
+attribute, but without including a data type in the diagram
+absent (represented differently)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#AttributeValueConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;AttributeValueConstraint">
+        <owl:equivalentClass rdf:resource="&metamodelCDML;ConstrainingValuesAR"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ValueConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;avc4"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ConstrainingValuesAR"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&metamodelCDML;RoleValueConstraint"/>
+        <owl:disjointWith rdf:resource="&metamodelCDML;ValueTypeConstraint"/>
+        <rdfs:comment>attribute value constraint
+absent
+absent</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#AttributiveProperty -->
+
+    <owl:Class rdf:about="&metamodelCDML;AttributiveProperty">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;domain"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+                            <rdf:Description rdf:about="&metamodelCDML;Relationship"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;range"/>
+                <owl:onClass rdf:resource="&metamodelCDML;DataType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Generalization of the various types of attributes</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;Attribute"/>
+            <rdf:Description rdf:about="&metamodelCDML;CompositeAttribute"/>
+            <rdf:Description rdf:about="&metamodelCDML;DimensionalAttribute"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#AttributivePropertyCardinality -->
+
+    <owl:Class rdf:about="&metamodelCDML;AttributivePropertyCardinality">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+        <owl:disjointWith rdf:resource="&metamodelCDML;ObjectTypeCardinality"/>
+        <rdfs:comment>for attributes for both relationships and for attributes of object types</rdfs:comment>
+        <rdfs:comment>Attributive property cardinality constraint in our MM, in the others:
+multiplicity on attribute
+cardinality on attribute
+absent (add cardinality to the fact type with a lexical object type)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CardOR -->
+
+    <owl:Class rdf:about="&metamodelCDML;CardOR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;AttributivePropertyCardinality"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;cc1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;ot2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ObjectType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;ap3"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;AttributiveProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CardRR -->
+
+    <owl:Class rdf:about="&metamodelCDML;CardRR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;AttributivePropertyCardinality"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;rel3"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Relationship"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;cc2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;ap1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;AttributiveProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CardinalityConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;CardinalityConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&metamodelCDML;MaximumCardinality"/>
+                            <rdf:Description rdf:about="&metamodelCDML;MinimumCardinality"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">For cardinality on attributes, object types, and complex ones (ORM&apos;s frequency constraints over &gt;1 role)</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;AttributivePropertyCardinality"/>
+            <rdf:Description rdf:about="&metamodelCDML;CompoundCardinalityConstraint"/>
+            <rdf:Description rdf:about="&metamodelCDML;ObjectTypeCardinality"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Comparison -->
+
+    <owl:Class rdf:about="&metamodelCDML;Comparison">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:comment>These are the comparison operators for the value comparison constraint</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;EqualOrGreaterThan"/>
+            <rdf:Description rdf:about="&metamodelCDML;EqualOrLesserThan"/>
+            <rdf:Description rdf:about="&metamodelCDML;EqualTo"/>
+            <rdf:Description rdf:about="&metamodelCDML;GreaterThan"/>
+            <rdf:Description rdf:about="&metamodelCDML;LesserThan"/>
+            <rdf:Description rdf:about="&metamodelCDML;NotEqual"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CompletenessConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;CompletenessConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Subsumption"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>complete 
+total
+total (exhaustive) covering subtypes
+Note: they are declared among subtypes on the subsumption relation, not between any object types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CompositeAggregate -->
+
+    <owl:Class rdf:about="&metamodelCDML;CompositeAggregate">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;SharedAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;partPlayer"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;EntityType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;partPlayer"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;wholePlayer"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>composite aggregation 
+absent 
+absent </rdfs:comment>
+        <rdfs:comment>Same representation issues as noted for PartWhole, but then for CompositeAggregate</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CompositeAttribute -->
+
+    <owl:Class rdf:about="&metamodelCDML;CompositeAttribute">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;AttributiveProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;wholePlayer"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;Part"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>more general: a property can be a composite of another property (and an attribute is a property)
+composite attribute
+implicitly present by adding new roles</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CompoundCardinalityConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;CompoundCardinalityConstraint">
+        <owl:equivalentClass rdf:resource="&metamodelCDML;CompoundCardinalityR"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;efc4"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;CompoundCardinalityR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>CompoundCardinalityConstraint (involving &gt; 1 role) in our MM, respectively:
+absent
+absent
+frequency constraints in one fact type over more than one role	</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#CompoundCardinalityR -->
+
+    <owl:Class rdf:about="&metamodelCDML;CompoundCardinalityR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;efc4"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;CompoundCardinalityConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;rel2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Relationship"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;role1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ConstrainingValuesAR -->
+
+    <owl:Class rdf:about="&metamodelCDML;ConstrainingValuesAR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="&metamodelCDML;avc4"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="&metamodelCDML;AttributeValueConstraint"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="&metamodelCDML;ve2"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueEnumeration"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="&metamodelCDML;avc4"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;AttributeValueConstraint"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="&metamodelCDML;ve2"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueEnumeration"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;vr1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueRange"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ConstrainingValuesRR -->
+
+    <owl:Class rdf:about="&metamodelCDML;ConstrainingValuesRR">
+        <owl:equivalentClass rdf:resource="&metamodelCDML;RoleValueConstraint"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="&metamodelCDML;ve3"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueEnumeration"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="&metamodelCDML;vr2"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueRange"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="&metamodelCDML;ve3"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueEnumeration"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="&metamodelCDML;vr2"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueRange"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;rvc4"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;RoleValueConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;rol1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ConstrainingValuesVR -->
+
+    <owl:Class rdf:about="&metamodelCDML;ConstrainingValuesVR">
+        <owl:equivalentClass rdf:resource="&metamodelCDML;ValueTypeConstraint"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;vtc4"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueTypeConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="&metamodelCDML;ve1"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueEnumeration"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <rdf:Description>
+                                        <owl:inverseOf rdf:resource="&metamodelCDML;vr3"/>
+                                    </rdf:Description>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueRange"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="&metamodelCDML;ve1"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueEnumeration"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty>
+                                            <rdf:Description>
+                                                <owl:inverseOf rdf:resource="&metamodelCDML;vr3"/>
+                                            </rdf:Description>
+                                        </owl:onProperty>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueRange"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;vp2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Constraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;Constraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DataType -->
+
+    <owl:Class rdf:about="&metamodelCDML;DataType">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;EntityType"/>
+        <rdfs:comment>Data type; LiteralSpecification 
+absent 
+data type		 </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Dimension -->
+
+    <owl:Class rdf:about="&metamodelCDML;Dimension">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:comment>for the dimensional attributes and value types, such as the kg, km, km/h etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DimensionalAttribute -->
+
+    <owl:Class rdf:about="&metamodelCDML;DimensionalAttribute">
+        <owl:equivalentClass rdf:resource="&metamodelCDML;DimensionalAttributionR"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;AttributiveProperty"/>
+        <rdfs:comment>absent (no recording of dimension)
+absent 
+absent (represented differently)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DimensionalAttributionR -->
+
+    <owl:Class rdf:about="&metamodelCDML;DimensionalAttributionR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="&metamodelCDML;ot3"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ObjectType"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="&metamodelCDML;rel4"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="&metamodelCDML;Relationship"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;dt2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;DataType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;dim1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Dimension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DimensionalValueType -->
+
+    <owl:Class rdf:about="&metamodelCDML;DimensionalValueType">
+        <owl:equivalentClass rdf:resource="&metamodelCDML;DimensionalValueTypingR"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ValueProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;dvt3"/>
+                <owl:onClass rdf:resource="&metamodelCDML;DimensionalValueTypingR"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent
+absent
+lexical object type / value type, with dimension</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DimensionalValueTypingR -->
+
+    <owl:Class rdf:about="&metamodelCDML;DimensionalValueTypingR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;dt1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;DataType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;dvt3"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;DimensionalValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;dim2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Dimension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DisjointObjectTypes -->
+
+    <owl:Class rdf:about="&metamodelCDML;DisjointObjectTypes">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;DisjointnessConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Subsumption"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>disjoint 
+disjoint 
+exclusive subtypes
+Note: they are declared among subtypes on the subsumption relation, not between any object types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DisjointRelationships -->
+
+    <owl:Class rdf:about="&metamodelCDML;DisjointRelationships">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;DisjointnessConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Relationship"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent 
+absent 
+exclusion (on fact types)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DisjointRoles -->
+
+    <owl:Class rdf:about="&metamodelCDML;DisjointRoles">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;DisjointnessConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>\{xor\} 
+XOR 
+exclusion (on roles)
+Note: here it is declared on the roles, not via the subsumption relation, as with object types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DisjointnessConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;DisjointnessConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:comment xml:lang="en">To group disjoint Object types, relationships, and roles</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;DisjointObjectTypes"/>
+            <rdf:Description rdf:about="&metamodelCDML;DisjointRelationships"/>
+            <rdf:Description rdf:about="&metamodelCDML;DisjointRoles"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#DisjunctiveMandatory -->
+
+    <owl:Class rdf:about="&metamodelCDML;DisjunctiveMandatory">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;MandatoryConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>implicitly present (e.g., as an \{or\}, see pp58-59 of \cite{UMLspec12})
+absent 
+disjunctive mandatory/inclusive-or on roles</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Entity -->
+
+    <owl:Class rdf:about="&metamodelCDML;Entity">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;Constraint"/>
+            <rdf:Description rdf:about="&metamodelCDML;EntityType"/>
+            <rdf:Description rdf:about="&metamodelCDML;Relationship"/>
+            <rdf:Description rdf:about="&metamodelCDML;Role"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#EntityType -->
+
+    <owl:Class rdf:about="&metamodelCDML;EntityType">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;wholePlayer"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;CompositeAggregate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>classifier  
+absent  
+object type</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;DataType"/>
+            <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+            <rdf:Description rdf:about="&metamodelCDML;Qualifier"/>
+            <rdf:Description rdf:about="&metamodelCDML;ValueProperty"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#EqualOrGreaterThan -->
+
+    <owl:Class rdf:about="&metamodelCDML;EqualOrGreaterThan">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Comparison"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#EqualOrLesserThan -->
+
+    <owl:Class rdf:about="&metamodelCDML;EqualOrLesserThan">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Comparison"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#EqualTo -->
+
+    <owl:Class rdf:about="&metamodelCDML;EqualTo">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Comparison"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#EqualityConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;EqualityConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ExtUniqueR -->
+
+    <owl:Class rdf:about="&metamodelCDML;ExtUniqueR">
+        <owl:equivalentClass rdf:resource="&metamodelCDML;ExternalUniqueness"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;rel1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Relationship"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;role2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;eu3"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ExternalUniqueness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The following constraints are not represented in the OWL:
+&apos;The cardinality of Relationship and Role in ext unique is equal.&apos;
+and 
+&apos;The Roles on which an External uniqueness is declared on are contained in the
+         Relationships that participate in the ext unique.&apos; </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ExternalIdentification -->
+
+    <owl:Class rdf:about="&metamodelCDML;ExternalIdentification">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;IdentificationConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Relationship"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&metamodelCDML;InternalIdentification"/>
+        <rdfs:comment>an (extended) alt key mechanism \cite{UMLODM09}; see also a refinement in \cite{Keet11keys} 
+needed for weak entity type 
+compound reference scheme</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ExternalUniqueness -->
+
+    <owl:Class rdf:about="&metamodelCDML;ExternalUniqueness">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;UniquenessConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;eu3"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ExtUniqueR"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&metamodelCDML;InternalUniqueness"/>
+        <rdfs:comment>exists in part, with the qualified association 
+exists in part, where the participants are all attributes
+external uniqueness constraint</rdfs:comment>
+        <rdfs:comment>see annotation ExtUniqueR</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#GlobalReflexivity -->
+
+    <owl:Class rdf:about="&metamodelCDML;GlobalReflexivity">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;LocalReflexivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#GreaterThan -->
+
+    <owl:Class rdf:about="&metamodelCDML;GreaterThan">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Comparison"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#IdentificationConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;IdentificationConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;identifies"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;AttributiveProperty"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueProperty"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&metamodelCDML;AttributiveProperty"/>
+                                    <rdf:Description rdf:about="&metamodelCDML;ValueProperty"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Partial representation for the various identifiers</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;ExternalIdentification"/>
+            <rdf:Description rdf:about="&metamodelCDML;InternalIdentification"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#InclusiveMandatory -->
+
+    <owl:Class rdf:about="&metamodelCDML;InclusiveMandatory">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;DisjunctiveMandatory"/>
+        <rdfs:comment>implicitly present (e.g., as an \{and\}, see pp58-59 of \cite{UMLspec12})
+AND for relationships
+absent</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#InternalIdentification -->
+
+    <owl:Class rdf:about="&metamodelCDML;InternalIdentification">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;IdentificationConstraint"/>
+        <rdfs:comment>alt key mechanism, for one class 
+compound identifier, for attributes within entity type 
+absent</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#InternalUniqueness -->
+
+    <owl:Class rdf:about="&metamodelCDML;InternalUniqueness">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;UniquenessConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent
+exists in part, where the participants are all attributes (see also EER&apos;s compound identifier) 
+internal uniqueness constraint</rdfs:comment>
+        <rdfs:comment>not represented:
+&apos;The cardinality of Internal uniqueness being declared on at least one Role 
+         has a maximum cardinality less than or equal the number of Roles in 
+         the Relationship that contains those Roles.&apos;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Intransitivity -->
+
+    <owl:Class rdf:about="&metamodelCDML;Intransitivity">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Irreflexivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Irreflexivity -->
+
+    <owl:Class rdf:about="&metamodelCDML;Irreflexivity">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;RelationshipConstraint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#JoinConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;JoinConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;jo3"/>
+                <owl:onClass rdf:resource="&metamodelCDML;JoiningR"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">4</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;Relationship"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;Relationship"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">4</owl:maxQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#JoinDisjointnessConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;JoinDisjointnessConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;DisjointRoles"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;JoinConstraint"/>
+        <owl:disjointWith rdf:resource="&metamodelCDML;JoinEqualityConstraint"/>
+        <owl:disjointWith rdf:resource="&metamodelCDML;JoinSubsetConstraint"/>
+        <rdfs:comment>absent 
+absent 
+join-exclusion among four roles in three or four relationships</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#JoinEqualityConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;JoinEqualityConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;JoinConstraint"/>
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;RoleEquality"/>
+        <owl:disjointWith rdf:resource="&metamodelCDML;JoinSubsetConstraint"/>
+        <rdfs:comment>absent 
+absent 
+join-equality among four roles in three or four relationships</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#JoinSubsetConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;JoinSubsetConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;JoinConstraint"/>
+        <rdfs:comment>absent
+absent
+join-subset constraint among four roles in three or four relationships</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#JoiningR -->
+
+    <owl:Class rdf:about="&metamodelCDML;JoiningR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;jo3"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;JoinConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;relj1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Relationship"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;rolj2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#LesserThan -->
+
+    <owl:Class rdf:about="&metamodelCDML;LesserThan">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Comparison"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#LocalReflexivity -->
+
+    <owl:Class rdf:about="&metamodelCDML;LocalReflexivity">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;RelationshipConstraint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Mandatory -->
+
+    <owl:Class rdf:about="&metamodelCDML;Mandatory">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;MandatoryConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>mandatory role
+mandatory 
+mandatory</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#MandatoryConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;MandatoryConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Not represented, due to OWL limitations:
+&apos;If a Mandatory constraint is declared on two or more Roles, 
+       then those Roles must be contained in distinct Relationships.&apos;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#MappedTo -->
+
+    <owl:Class rdf:about="&metamodelCDML;MappedTo">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Attribute"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;domain"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ValueType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;range"/>
+                <owl:onClass rdf:resource="&metamodelCDML;DataType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&metamodelCDML;MultivaluedAttribute"/>
+        <rdfs:comment>This is ORM&apos;s hidden attribute, from Value type to Data type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#MaximumCardinality -->
+
+    <owl:Class rdf:about="&metamodelCDML;MaximumCardinality">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;propertPartOf"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasCValue"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>reified and flattened out representation for cardinality.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#MaximumValue -->
+
+    <owl:Class rdf:about="&metamodelCDML;MaximumValue">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasValue"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;propertPartOf"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueRange"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>reified and flattened out representation for values.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#MinimumCardinality -->
+
+    <owl:Class rdf:about="&metamodelCDML;MinimumCardinality">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;propertPartOf"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasCValue"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>reified and flattened out representation for cardinality.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#MinimumValue -->
+
+    <owl:Class rdf:about="&metamodelCDML;MinimumValue">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;propertPartOf"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ValueRange"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasValue"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>reified and flattened out representation for values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#MultivaluedAttribute -->
+
+    <owl:Class rdf:about="&metamodelCDML;MultivaluedAttribute">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Attribute"/>
+        <rdfs:comment>absent (represented differently)
+multivalued attribute 
+absent (represented differently)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#NestedObjectType -->
+
+    <owl:Class rdf:about="&metamodelCDML;NestedObjectType">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ObjectType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;objectifies"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Relationship"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>association class 
+associative entity 
+objectified fact type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#NotEqual -->
+
+    <owl:Class rdf:about="&metamodelCDML;NotEqual">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Comparison"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ObjectType -->
+
+    <owl:Class rdf:about="&metamodelCDML;ObjectType">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;EntityType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;identifies"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;IdentificationConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;declaredOn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;CompletenessConstraint"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>class 
+entity type 
+non-lexical object type / entity type
+for Object subtype, there is the naming, respectively:
+subclass  
+subtype 
+subtype</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ObjectTypeCardinality -->
+
+    <owl:Class rdf:about="&metamodelCDML;ObjectTypeCardinality">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+        <rdfs:comment>for in the relationship</rdfs:comment>
+        <rdfs:comment>Object type cardinality constraint in our MM, in the others, respectively: 
+multiplicity constraint; min max
+cardinality constraint; min cardinality, max cardinality 
+frequency (object cardinality) constraint; min cardinality, max cardinality</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Part -->
+
+    <owl:Class rdf:about="&metamodelCDML;Part">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;PartWhole"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;partPlayer"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;AttributiveProperty"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;wholePlayer"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;CompositeAttribute"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                <owl:onClass rdf:resource="&metamodelCDML;AttributiveProperty"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Same representation issues as noted for PartWhole, but then for CompositeAttribute and AttributiveProperty</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#PartWhole -->
+
+    <owl:Class rdf:about="&metamodelCDML;PartWhole">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:comment>We actually want to say that for each PartWhole, there are exactly 2 EntityTypes participating in it, of which exaclty 1 is the partPlayer and exacty one is the wholePlayer, and them together consitute a subset of the participant relation. This cannot be expressed.</rdfs:comment>
+        <rdfs:comment>In addition, we want the AttributiveProperty and CompositeAttribute linked to part, but if we add that explicitly, then it would exclude others, and it would contradict the EntityType as domain and range for PartWhole, because AttrubutiveProeprty and EntityType are disjoint. So we put them together in PartWhole</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#PurelyReflexive -->
+
+    <owl:Class rdf:about="&metamodelCDML;PurelyReflexive">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;LocalReflexivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#QualifiedIdentification -->
+
+    <owl:Class rdf:about="&metamodelCDML;QualifiedIdentification">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ExternalIdentification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;partiallyIdentifies"/>
+                <owl:onClass rdf:resource="&metamodelCDML;QualifiedRelationship"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&metamodelCDML;WeakIdentification"/>
+        <rdfs:comment>qualified association 
+absent 
+(limited version of) external uniqueness</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#QualifiedRelationship -->
+
+    <owl:Class rdf:about="&metamodelCDML;QualifiedRelationship">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;declaredOn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Qualifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;declaredOn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;Qualifier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>qualified association
+absent
+absent</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Qualifier -->
+
+    <owl:Class rdf:about="&metamodelCDML;Qualifier">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;EntityType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&metamodelCDML;QualifiedRelationship"/>
+                            <rdf:Description rdf:about="&metamodelCDML;Role"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&metamodelCDML;Attribute"/>
+                            <rdf:Description rdf:about="&metamodelCDML;DimensionalAttribute"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ReifiedNAry -->
+
+    <owl:Class rdf:about="&metamodelCDML;ReifiedNAry">
+        <rdfs:comment xml:lang="en">Separate, just to make clear where they come from. They all have an &quot;R&quot; appended in the naming scheme in this OWL file, and their own set of object properties not to be used elsewhere</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Relationship -->
+
+    <owl:Class rdf:about="&metamodelCDML;Relationship">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Entity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;contains"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;rel1"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;ExtUniqueR"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;rel1"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;ExtUniqueR"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;reifiedAs"/>
+                <owl:onClass rdf:resource="&metamodelCDML;NestedObjectType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>association, can be binary according to the MOF 2.4.1, but also &gt;2-ary according to the Superstructure Spec 2.4.1
+relationship, &gt;=2-ary
+atomic/compound fact type, &gt;=1-ary
+For a Sub-relationship, the name is, respectively:
+subsetting or subtyping of association
+subtyping the relationship (not present in all EER variants)
+subset constraint on fact type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#RelationshipConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;RelationshipConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;second"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;first"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">They&apos;re all in ORM, though the refinement on reflexivity is quite new and not all ORM tools have that</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#RelationshipEquality -->
+
+    <owl:Class rdf:about="&metamodelCDML;RelationshipEquality">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;EqualityConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Relationship"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent 
+absent
+equality (on fact types)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Role -->
+
+    <owl:Class rdf:about="&metamodelCDML;Role">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Entity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;role1"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;CompoundCardinalityR"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;role1"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;CompoundCardinalityR"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;linkedTo2"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;RolePlayingR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;contains"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;Relationship"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;role2"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;ExtUniqueR"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;role2"/>
+                        <owl:onClass rdf:resource="&metamodelCDML;ExtUniqueR"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;declaredOn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;Mandatory"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;declaredOn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;Qualifier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;participant"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;RelationshipConstraint"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">4</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>association end / member end 
+component of a relationship
+role</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#RoleEquality -->
+
+    <owl:Class rdf:about="&metamodelCDML;RoleEquality">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;EqualityConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent
+absent
+equality (on roles)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#RolePlayingR -->
+
+    <owl:Class rdf:about="&metamodelCDML;RolePlayingR">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ReifiedNAry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;linkedTo2"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;Role"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;plays1"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;EntityType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;of3"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;CardinalityConstraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#RoleValueConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;RoleValueConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ValueConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;rvc4"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ConstrainingValuesRR"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&metamodelCDML;ValueTypeConstraint"/>
+        <rdfs:comment>absent  
+absent 
+role value constraint (redundant, because one can also model it with a subtype; include it for the time being [provided it does not become too cumbersome])</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#SharedAggregate -->
+
+    <owl:Class rdf:about="&metamodelCDML;SharedAggregate">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;PartWhole"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&metamodelCDML;partPlayer"/>
+                                <owl:onClass rdf:resource="&metamodelCDML;DataType"/>
+                                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&metamodelCDML;wholePlayer"/>
+                                <owl:onClass rdf:resource="&metamodelCDML;DataType"/>
+                                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&metamodelCDML;partPlayer"/>
+                                <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&metamodelCDML;wholePlayer"/>
+                                <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;partPlayer"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&metamodelCDML;DataType"/>
+                                    <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;wholePlayer"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&metamodelCDML;DataType"/>
+                                    <rdf:Description rdf:about="&metamodelCDML;ObjectType"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>shared aggregation 
+absent 
+absent </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#SingleIdentification -->
+
+    <owl:Class rdf:about="&metamodelCDML;SingleIdentification">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;InternalIdentification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&metamodelCDML;Attribute"/>
+                            <rdf:Description rdf:about="&metamodelCDML;ValueType"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>alt key mechanism (in  \cite{UMLODM09}, not in v2.4.1) made mandatory 1:1 
+unary identifier (mandatory 1:1)  
+(simple) reference mode (mandatory 1:1)</rdfs:comment>
+        <rdfs:comment>not represented fully:
+&apos;The Single identification has a Mandatory and a 1:1 Cardinality constraint.&apos; </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#StronglyIntransitive -->
+
+    <owl:Class rdf:about="&metamodelCDML;StronglyIntransitive">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Intransitivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#SubsetConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;SubsetConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:comment>not named in the MM: Role subset (inherited from the subsumption on Entity), and implcitly present: 
+subsetting of association ends 
+absent 
+subset constraint on role </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Subsumption -->
+
+    <owl:Class rdf:about="&metamodelCDML;Subsumption">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Relationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;playsSub"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Entity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;playsSuper"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Entity"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>More precisely regarding the sub and super:
+&apos;For each sub participating in a Subsumption, 
+       there must be a matching super and its participating Entity is of the same category as the 
+       Entity participating in the sub.&apos;
+`category&apos; in the textual constraint refers to that a subsumption can be declared among any two  Relationships, between any two Object types etc., but not between, say, an Object type and an Attributive property</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Symmetry -->
+
+    <owl:Class rdf:about="&metamodelCDML;Symmetry">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;RelationshipConstraint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#Transitivity -->
+
+    <owl:Class rdf:about="&metamodelCDML;Transitivity">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;RelationshipConstraint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#UniquenessConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;UniquenessConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:comment>absent 
+absent 
+uniqueness constraint</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;ExternalUniqueness"/>
+            <rdf:Description rdf:about="&metamodelCDML;InternalUniqueness"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ValueComparisonConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;ValueComparisonConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;first"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;second"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;comparisonOperator"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Comparison"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasType"/>
+                <owl:onClass rdf:resource="&metamodelCDML;DataType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;participant"/>
+                <owl:onClass rdf:resource="&metamodelCDML;Role"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent 
+absent 
+value comparison constraint</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ValueConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;ValueConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Constraint"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;AttributeValueConstraint"/>
+            <rdf:Description rdf:about="&metamodelCDML;RoleValueConstraint"/>
+            <rdf:Description rdf:about="&metamodelCDML;ValueTypeConstraint"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ValueEnumeration -->
+
+    <owl:Class rdf:about="&metamodelCDML;ValueEnumeration">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;ve1"/>
+                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ConstrainingValuesVR"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;ve2"/>
+                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ConstrainingValuesAR"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;ve3"/>
+                        <owl:someValuesFrom rdf:resource="&metamodelCDML;ConstrainingValuesRR"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;partOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&metamodelCDML;AttributeValueConstraint"/>
+                            <rdf:Description rdf:about="&metamodelCDML;RoleValueConstraint"/>
+                            <rdf:Description rdf:about="&metamodelCDML;ValueTypeConstraint"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>reified and flattened out representation for values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ValueProperty -->
+
+    <owl:Class rdf:about="&metamodelCDML;ValueProperty">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;EntityType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;domain"/>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;ObjectType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;DimensionalValueType"/>
+            <rdf:Description rdf:about="&metamodelCDML;ValueType"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ValueRange -->
+
+    <owl:Class rdf:about="&metamodelCDML;ValueRange">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;Abstract"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;partOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&metamodelCDML;RoleValueConstraint"/>
+                            <rdf:Description rdf:about="&metamodelCDML;ValueTypeConstraint"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasType"/>
+                <owl:onClass rdf:resource="&metamodelCDML;DataType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>reified and flattened out representation for values, to go with min nad max values</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ValueType -->
+
+    <owl:Class rdf:about="&metamodelCDML;ValueType">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ValueProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;domain"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;MappedTo"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;participant"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&metamodelCDML;SingleIdentification"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent
+absent
+lexical object type / value type, without dimension</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#ValueTypeConstraint -->
+
+    <owl:Class rdf:about="&metamodelCDML;ValueTypeConstraint">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ValueConstraint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;vtc4"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ConstrainingValuesVR"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Value specification (see SS fig 7.5) only with optional upper and lower values, but in SS fig 7.13, there&apos;s also enumeration) 
+absent 
+value constraint</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#WeakIdentification -->
+
+    <owl:Class rdf:about="&metamodelCDML;WeakIdentification">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ExternalIdentification"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                        <owl:someValuesFrom rdf:resource="&metamodelCDML;AttributiveProperty"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&metamodelCDML;declaredOn"/>
+                        <owl:someValuesFrom rdf:resource="&metamodelCDML;Relationship"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;identifies"/>
+                <owl:onClass rdf:resource="&metamodelCDML;WeakObjectType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Not represented:
+&apos;A Weak identification is a combination of one or more Attributive property of the Weak object type it identifies 
+        together with the Identification constraint of its related &apos;strong&apos; Object type.&apos;</rdfs:comment>
+        <rdfs:comment>absent 
+weak identifier
+(limited version of) external uniqueness</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/metamodelCDML.owl#WeakObjectType -->
+
+    <owl:Class rdf:about="&metamodelCDML;WeakObjectType">
+        <rdfs:subClassOf rdf:resource="&metamodelCDML;ObjectType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&metamodelCDML;hasStrong"/>
+                <owl:onClass rdf:resource="&metamodelCDML;ObjectType"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&metamodelCDML;identifies"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="&metamodelCDML;WeakIdentification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>absent
+weak entity type
+absent</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;AttributiveProperty"/>
+            <rdf:Description rdf:about="&metamodelCDML;PartWhole"/>
+            <rdf:Description rdf:about="&metamodelCDML;Subsumption"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;Irreflexivity"/>
+            <rdf:Description rdf:about="&metamodelCDML;LocalReflexivity"/>
+            <rdf:Description rdf:about="&metamodelCDML;Symmetry"/>
+            <rdf:Description rdf:about="&metamodelCDML;Transitivity"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;AttributiveProperty"/>
+            <rdf:Description rdf:about="&metamodelCDML;QualifiedRelationship"/>
+            <rdf:Description rdf:about="&metamodelCDML;Subsumption"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;DisjointObjectTypes"/>
+            <rdf:Description rdf:about="&metamodelCDML;DisjointRelationships"/>
+            <rdf:Description rdf:about="&metamodelCDML;DisjointRoles"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;Antisymmetry"/>
+            <rdf:Description rdf:about="&metamodelCDML;LocalReflexivity"/>
+            <rdf:Description rdf:about="&metamodelCDML;Symmetry"/>
+            <rdf:Description rdf:about="&metamodelCDML;Transitivity"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&metamodelCDML;EntityType"/>
+            <rdf:Description rdf:about="&metamodelCDML;Relationship"/>
+            <rdf:Description rdf:about="&metamodelCDML;Role"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

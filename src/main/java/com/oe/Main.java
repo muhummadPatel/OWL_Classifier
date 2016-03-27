@@ -6,6 +6,9 @@ import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import org.semanticweb.owlapi.profiles.OWLProfileViolation;
 
+/**
+ * Used for development and debugging purposes while UI is developed
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("--------------START MAIN---------------\n");

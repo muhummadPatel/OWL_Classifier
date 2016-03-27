@@ -1,0 +1,2605 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY RCC-Ontology "http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#" >
+    <!ENTITY ArchitecturalConstruction "http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#"
+     xml:base="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ArchitecturalConstruction="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#"
+     xmlns:RCC-Ontology="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment xml:lang="en"
+            >IFC related aspects of spatial (architectural) information, importing RCC-8 ontology for specifying relations between regions.</rdfs:comment>
+        <dc:creator xml:lang="en"
+            >Joana Hois, Project I1-OntoSpace</dc:creator>
+        <owl:imports rdf:resource="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#connectedWith -->
+
+    <owl:ObjectProperty rdf:about="#connectedWith">
+        <rdfs:comment xml:lang="en"
+            >Certain structural building elements are physically connected with each other.</rdfs:comment>
+        <owl:equivalentProperty rdf:resource="&RCC-Ontology;connectsWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#containedIn -->
+
+    <owl:ObjectProperty rdf:about="#containedIn">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Structural building elements or other architectural entities can be contained in a building.</rdfs:comment>
+        <owl:inverseOf rdf:resource="#contains"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="#contains">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdfs:comment xml:lang="en"
+            >A building can contain several different spatial and architectural entities by using this relation. In particular, some distribution element and structural building element need to be contained in a building.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Building"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#hasFunctionalSpace -->
+
+    <owl:ObjectProperty rdf:about="#hasFunctionalSpace">
+        <rdfs:comment xml:lang="en"
+            >Structural elements can define a functional space, which is a spatial region that provides certain functionalities. For example, a door provides the functionality that it can be opened and the functional space for this is defined by the door and the opening functionality. Here, an agents needs to be in the door&#39;s functional space to open the door.</rdfs:comment>
+        <rdfs:range rdf:resource="#Space"/>
+        <rdfs:domain rdf:resource="#SpatialStructureElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#relatedObject -->
+
+    <owl:ObjectProperty rdf:about="#relatedObject">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment xml:lang="en"
+            >A spatial structure element might be used to define a spatial structure according to the IFC specification. This relation is modeled by the property relatedObject.</rdfs:comment>
+        <rdfs:domain rdf:resource="#SpatialStructureElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#connectsWith -->
+
+    <owl:ObjectProperty rdf:about="&RCC-Ontology;connectsWith"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#beamType -->
+
+    <owl:DatatypeProperty rdf:about="#beamType">
+        <rdfs:seeAlso xml:lang="en"
+            >http://www.buildingsmart-tech.org/ifc/IFC2x4/rc2/html/schema/ifcsharedbldgelements/lexical/ifcbeamtype.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#Beam"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">BEAM</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">JOIST</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">LINTEL</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">T_BEAM</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">USERDEFINED</rdf:first>
+                                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#columnType -->
+
+    <owl:DatatypeProperty rdf:about="#columnType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifccolumntypeenum.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#Column"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">COLUMN</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">USERDEFINED</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#curtainWallType -->
+
+    <owl:DatatypeProperty rdf:about="#curtainWallType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifccurtainwalltypeenum.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#CurtainWall"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">USERDEFINED</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#doorStyle -->
+
+    <owl:DatatypeProperty rdf:about="#doorStyle">
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcdoorstyleconstructionenum.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#Door"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">ALUMINIUM</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string"
+                                    >ALUMINIUM_PLASTIC</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">ALUMINIUM_WOOD</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string"
+                                                    >HIGH_GRADE_STEEL</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">PLASTIC</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">STEEL</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string">USERDEFINED</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                        <rdf:first rdf:datatype="&xsd;string">WOOD</rdf:first>
+                                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#height -->
+
+    <owl:DatatypeProperty rdf:about="#height">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >The height of structural elements.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#length -->
+
+    <owl:DatatypeProperty rdf:about="#length">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >The length of structural elements.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#materialType -->
+
+    <owl:DatatypeProperty rdf:about="#materialType">
+        <rdfs:comment xml:lang="en"
+            >The material of architectural entities, e.g., distributional or structural elements.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#openingAngle -->
+
+    <owl:DatatypeProperty rdf:about="#openingAngle">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Opening angle of doors, windows, or similar structural elements.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#railingType -->
+
+    <owl:DatatypeProperty rdf:about="#railingType">
+        <rdfs:seeAlso xml:lang="en"
+            >http://www.buildingsmart-tech.org/ifc/IFC2x3/TC1/html/ifcsharedbldgelements/lexical/ifcrailingtype.htm</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en"
+            >the railing type of some architectural elements.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Railing"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">BALUSTRADE</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">GUARDRAIL</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">HANDRAIL</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">USERDEFINED</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#rampType -->
+
+    <owl:DatatypeProperty rdf:about="#rampType">
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcwindowstyleconstructionenum.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#Ramp"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">HalfTurnRamp</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">NotDefined</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">QuarterTurnRamp</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">SpiralRamp</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string"
+                                                            >StraightRunRampStraightRunRamp</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string"
+                                                                    >TwoQuarterTurnRamp</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string"
+                                                                            >TwoStraightRunRamp</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string">UserDefined</rdf:first>
+                                                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#roofType -->
+
+    <owl:DatatypeProperty rdf:about="#roofType">
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcrooftypeenum.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#Roof"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">BARREL_ROOF</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">BUTTERFLY_ROOF</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">DOME_ROOF</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">FLAT_ROOF</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">FREEFORM</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">GABLE_ROOF</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">GAMBREL_ROOF</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string"
+                                                                                    >HIPPED_GABLE_ROOF</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                        <rdf:first rdf:datatype="&xsd;string">HIP_ROOF</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                <rdf:first rdf:datatype="&xsd;string">MANSARD_ROOF</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                        <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                <rdf:first rdf:datatype="&xsd;string">PAVILION_ROOF</rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                        <rdf:first rdf:datatype="&xsd;string">RAINBOW_ROOF</rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                                                                <rdf:first rdf:datatype="&xsd;string">SHED_ROOF</rdf:first>
+                                                                                                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#shapeType -->
+
+    <owl:DatatypeProperty rdf:about="#shapeType">
+        <rdfs:comment xml:lang="en"
+            >The shape of some architectural / structural entities.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#spatialFunction -->
+
+    <owl:DatatypeProperty rdf:about="#spatialFunction">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >The spatial function of a specific space entity.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Space"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string"
+                            >CommonRequirements</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string"
+                                    >FireSafetyRequirements</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string"
+                                            >LightingRequirements</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string"
+                                                    >OccupancyRequirements</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string"
+                                                            >ParkingRequirements</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string"
+                                                                    >ThermalRequirements</rdf:first>
+                                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#wallType -->
+
+    <owl:DatatypeProperty rdf:about="#wallType">
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcwalltypeenum.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#Wall"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">ELEMENTEDWALL</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">PLUMBINGWALL</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">POLYGONAL</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">SHEAR</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">STANDARD</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">USERDEFINED</rdf:first>
+                                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#width -->
+
+    <owl:DatatypeProperty rdf:about="#width">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >The width of structural elements.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#windowStyleConstruction -->
+
+    <owl:DatatypeProperty rdf:about="#windowStyleConstruction">
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcwindowstyleconstructionenum.htm</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="#Window"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">ALUMINIUM</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">ALUMINIUM_WOOD</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string"
+                                            >HIGH_GRADE_STEEL</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:datatype="&xsd;string">NOTDEFINED</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string"
+                                                            >OTHER_CONSTRUCTION</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                <rdf:first rdf:datatype="&xsd;string">PLASTIC</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                                        <rdf:first rdf:datatype="&xsd;string">STEEL</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                                                <rdf:first rdf:datatype="&xsd;string">WOOD</rdf:first>
+                                                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#AcousticHood -->
+
+    <owl:Class rdf:about="#AcousticHood">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#AntiBanditScreen -->
+
+    <owl:Class rdf:about="#AntiBanditScreen">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Armrest -->
+
+    <owl:Class rdf:about="#Armrest">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ArtificialPlant -->
+
+    <owl:Class rdf:about="#ArtificialPlant">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Ashtray -->
+
+    <owl:Class rdf:about="#Ashtray">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#BathroomCabinet -->
+
+    <owl:Class rdf:about="#BathroomCabinet">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Beam -->
+
+    <owl:Class rdf:about="#Beam">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curtainWallType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITY"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Ceiling"/>
+                            <rdf:Description rdf:about="#Floor"/>
+                            <rdf:Description rdf:about="#Plate"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Beanbag -->
+
+    <owl:Class rdf:about="#Beanbag">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Bed -->
+
+    <owl:Class rdf:about="#Bed">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#BedsideUnit -->
+
+    <owl:Class rdf:about="#BedsideUnit">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Bench -->
+
+    <owl:Class rdf:about="#Bench">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Blackboard -->
+
+    <owl:Class rdf:about="#Blackboard">
+        <rdfs:subClassOf rdf:resource="#Board"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Board -->
+
+    <owl:Class rdf:about="#Board">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#BottleRack -->
+
+    <owl:Class rdf:about="#BottleRack">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Building -->
+
+    <owl:Class rdf:about="#Building">
+        <rdfs:subClassOf rdf:resource="#IFCArchitecturalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#contains"/>
+                <owl:someValuesFrom rdf:resource="#StructuralBuildingElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#contains"/>
+                <owl:someValuesFrom rdf:resource="#DistributionElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso xml:lang="en"
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcproductextension/lexical/ifcbuilding.htm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#BunkBed -->
+
+    <owl:Class rdf:about="#BunkBed">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CO2sensor -->
+
+    <owl:Class rdf:about="#CO2sensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Carousel -->
+
+    <owl:Class rdf:about="#Carousel">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Ceiling -->
+
+    <owl:Class rdf:about="#Ceiling">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom rdf:resource="#Wall"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Chair -->
+
+    <owl:Class rdf:about="#Chair">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ChairBed -->
+
+    <owl:Class rdf:about="#ChairBed">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ChaiseLongue -->
+
+    <owl:Class rdf:about="#ChaiseLongue">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Chest -->
+
+    <owl:Class rdf:about="#Chest">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ChoirScreen -->
+
+    <owl:Class rdf:about="#ChoirScreen">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CloakroomUnit -->
+
+    <owl:Class rdf:about="#CloakroomUnit">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Clock -->
+
+    <owl:Class rdf:about="#Clock">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ClothesDryingCabinet -->
+
+    <owl:Class rdf:about="#ClothesDryingCabinet">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CoatRack -->
+
+    <owl:Class rdf:about="#CoatRack">
+        <rdfs:subClassOf rdf:resource="#Wardrobe"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CoffeeTable -->
+
+    <owl:Class rdf:about="#CoffeeTable">
+        <rdfs:subClassOf rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Column -->
+
+    <owl:Class rdf:about="#Column">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom rdf:resource="#Ceiling"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom rdf:resource="#Floor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curtainWallType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITY"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CommunicationElement -->
+
+    <owl:Class rdf:about="#CommunicationElement">
+        <rdfs:subClassOf rdf:resource="#DistributionElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ComplexBuilding -->
+
+    <owl:Class rdf:about="#ComplexBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#contains"/>
+                <owl:someValuesFrom rdf:resource="#SpatialStructureElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Instances span over several connected or disconnected buildings and specify a collection of buildings included in the site.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ConsultingCouch -->
+
+    <owl:Class rdf:about="#ConsultingCouch">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CoolingElement -->
+
+    <owl:Class rdf:about="#CoolingElement">
+        <rdfs:subClassOf rdf:resource="#DistributionElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Copyholder -->
+
+    <owl:Class rdf:about="#Copyholder">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Cot -->
+
+    <owl:Class rdf:about="#Cot">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Cradle -->
+
+    <owl:Class rdf:about="#Cradle">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Cupboard -->
+
+    <owl:Class rdf:about="#Cupboard">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CurtainPelmet -->
+
+    <owl:Class rdf:about="#CurtainPelmet">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#CurtainWall -->
+
+    <owl:Class rdf:about="#CurtainWall">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom rdf:resource="#Wall"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curtainWallType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITY"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Cushion -->
+
+    <owl:Class rdf:about="#Cushion">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DeskTidy -->
+
+    <owl:Class rdf:about="#DeskTidy">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DiningTable -->
+
+    <owl:Class rdf:about="#DiningTable">
+        <rdfs:subClassOf rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DissectionTable -->
+
+    <owl:Class rdf:about="#DissectionTable">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DistributionElement -->
+
+    <owl:Class rdf:about="#DistributionElement">
+        <rdfs:subClassOf rdf:resource="#IFCArchitecturalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#containedIn"/>
+                <owl:someValuesFrom rdf:resource="#Building"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#materialType"/>
+                <owl:allValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#shapeType"/>
+                <owl:allValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcproductextension/lexical/ifcdistributionelement.htm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Divan -->
+
+    <owl:Class rdf:about="#Divan">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Door -->
+
+    <owl:Class rdf:about="#Door">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#openingAngle"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wall"/>
+                            <rdf:Description rdf:about="#Window"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcdoorstyleoperationenum.htm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleDoorDoubleSwingDoor -->
+
+    <owl:Class rdf:about="#DoubleDoorDoubleSwingDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleDoorFolding -->
+
+    <owl:Class rdf:about="#DoubleDoorFolding">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleDoorSingleSwingDoor -->
+
+    <owl:Class rdf:about="#DoubleDoorSingleSwingDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleDoorSingleSwingOppositeLeftDoor -->
+
+    <owl:Class rdf:about="#DoubleDoorSingleSwingOppositeLeftDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleDoorSingleSwingOppositeRightDoor -->
+
+    <owl:Class rdf:about="#DoubleDoorSingleSwingOppositeRightDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleDoorSliding -->
+
+    <owl:Class rdf:about="#DoubleDoorSliding">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoublePanelHorizontalWindow -->
+
+    <owl:Class rdf:about="#DoublePanelHorizontalWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoublePanelVerticalWindow -->
+
+    <owl:Class rdf:about="#DoublePanelVerticalWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleSwingLeftDoor -->
+
+    <owl:Class rdf:about="#DoubleSwingLeftDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DoubleSwingRightDoor -->
+
+    <owl:Class rdf:about="#DoubleSwingRightDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DrawersChest -->
+
+    <owl:Class rdf:about="#DrawersChest">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Dresser -->
+
+    <owl:Class rdf:about="#Dresser">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DressingTable -->
+
+    <owl:Class rdf:about="#DressingTable">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#DryMarkerBoard -->
+
+    <owl:Class rdf:about="#DryMarkerBoard">
+        <rdfs:subClassOf rdf:resource="#Board"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#EasyChair -->
+
+    <owl:Class rdf:about="#EasyChair">
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ElectricalElement -->
+
+    <owl:Class rdf:about="#ElectricalElement">
+        <rdfs:subClassOf rdf:resource="#DistributionElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ElementBuilding -->
+
+    <owl:Class rdf:about="#ElementBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:comment xml:lang="en"
+            >Instances refer to exactly one building.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Fender -->
+
+    <owl:Class rdf:about="#Fender">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FilingCabinet -->
+
+    <owl:Class rdf:about="#FilingCabinet">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FireHood -->
+
+    <owl:Class rdf:about="#FireHood">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FireSensor -->
+
+    <owl:Class rdf:about="#FireSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Floor -->
+
+    <owl:Class rdf:about="#Floor">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom rdf:resource="#Wall"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FlowSensor -->
+
+    <owl:Class rdf:about="#FlowSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FoldawayBed -->
+
+    <owl:Class rdf:about="#FoldawayBed">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FoldingToLeftDoor -->
+
+    <owl:Class rdf:about="#FoldingToLeftDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FoldingToRightDoor -->
+
+    <owl:Class rdf:about="#FoldingToRightDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Font -->
+
+    <owl:Class rdf:about="#Font">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Footrest -->
+
+    <owl:Class rdf:about="#Footrest">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#FurnitureType -->
+
+    <owl:Class rdf:about="#FurnitureType">
+        <rdfs:subClassOf rdf:resource="#IFCArchitecturalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#containedIn"/>
+                <owl:someValuesFrom rdf:resource="#Building"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >entity resembles what is identified by IFCFurnitureType in IFC2x4a, with more structural definitions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Futon -->
+
+    <owl:Class rdf:about="#Futon">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#GasSensor -->
+
+    <owl:Class rdf:about="#GasSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Hatstand -->
+
+    <owl:Class rdf:about="#Hatstand">
+        <rdfs:subClassOf rdf:resource="#Wardrobe"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Headboard -->
+
+    <owl:Class rdf:about="#Headboard">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#HeatSensor -->
+
+    <owl:Class rdf:about="#HeatSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#HeatingElement -->
+
+    <owl:Class rdf:about="#HeatingElement">
+        <rdfs:subClassOf rdf:resource="#DistributionElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#HorizontalCarousel -->
+
+    <owl:Class rdf:about="#HorizontalCarousel">
+        <rdfs:subClassOf rdf:resource="#Carousel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#HospitalBed -->
+
+    <owl:Class rdf:about="#HospitalBed">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#HospitalBedhead -->
+
+    <owl:Class rdf:about="#HospitalBedhead">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#HumiditySensor -->
+
+    <owl:Class rdf:about="#HumiditySensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#IFCArchitecturalEntity -->
+
+    <owl:Class rdf:about="#IFCArchitecturalEntity">
+        <rdfs:comment
+            >structural architectural entities, taken from IFC2x4, available at :
+http://www.iai-tech.org/ifc/IFC2x4/alpha/html/index.htm</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#IndoorPosterDisplayUnit -->
+
+    <owl:Class rdf:about="#IndoorPosterDisplayUnit">
+        <rdfs:subClassOf rdf:resource="#PosterDisplayUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#InformationSign -->
+
+    <owl:Class rdf:about="#InformationSign">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#KeySecurityCabinet -->
+
+    <owl:Class rdf:about="#KeySecurityCabinet">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#KitchenCupboard -->
+
+    <owl:Class rdf:about="#KitchenCupboard">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Lectern -->
+
+    <owl:Class rdf:about="#Lectern">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#LightSensor -->
+
+    <owl:Class rdf:about="#LightSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Locker -->
+
+    <owl:Class rdf:about="#Locker">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#MapChest -->
+
+    <owl:Class rdf:about="#MapChest">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Mirror -->
+
+    <owl:Class rdf:about="#Mirror">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#MoistureSensor -->
+
+    <owl:Class rdf:about="#MoistureSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#MovementSensor -->
+
+    <owl:Class rdf:about="#MovementSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Mural -->
+
+    <owl:Class rdf:about="#Mural">
+        <rdfs:subClassOf rdf:resource="#Painting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Nameplate -->
+
+    <owl:Class rdf:about="#Nameplate">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#NotDefinedDoor -->
+
+    <owl:Class rdf:about="#NotDefinedDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#NotDefinedWindow -->
+
+    <owl:Class rdf:about="#NotDefinedWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#NoticeBoard -->
+
+    <owl:Class rdf:about="#NoticeBoard">
+        <rdfs:subClassOf rdf:resource="#Board"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Organ -->
+
+    <owl:Class rdf:about="#Organ">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Ornament -->
+
+    <owl:Class rdf:about="#Ornament">
+        <rdfs:subClassOf rdf:resource="#Painting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#OrnamentalScreen -->
+
+    <owl:Class rdf:about="#OrnamentalScreen">
+        <rdfs:subClassOf rdf:resource="#Painting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#OutdoorPosterDisplayUnit -->
+
+    <owl:Class rdf:about="#OutdoorPosterDisplayUnit">
+        <rdfs:subClassOf rdf:resource="#PosterDisplayUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Painting -->
+
+    <owl:Class rdf:about="#Painting">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PartialBuilding -->
+
+    <owl:Class rdf:about="#PartialBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:comment xml:lang="en"
+            >Instances refer to (vertical) sections of buildings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PinBoard -->
+
+    <owl:Class rdf:about="#PinBoard">
+        <rdfs:subClassOf rdf:resource="#Board"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PlanChest -->
+
+    <owl:Class rdf:about="#PlanChest">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Plant -->
+
+    <owl:Class rdf:about="#Plant">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Planter -->
+
+    <owl:Class rdf:about="#Planter">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Plaque -->
+
+    <owl:Class rdf:about="#Plaque">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Plate -->
+
+    <owl:Class rdf:about="#Plate">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PlumbingElement -->
+
+    <owl:Class rdf:about="#PlumbingElement">
+        <rdfs:subClassOf rdf:resource="#DistributionElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PointOfSaleUnit -->
+
+    <owl:Class rdf:about="#PointOfSaleUnit">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PostBox -->
+
+    <owl:Class rdf:about="#PostBox">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PostMortemTable -->
+
+    <owl:Class rdf:about="#PostMortemTable">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PosterDisplayUnit -->
+
+    <owl:Class rdf:about="#PosterDisplayUnit">
+        <rdfs:subClassOf rdf:resource="#Board"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PostroomRack -->
+
+    <owl:Class rdf:about="#PostroomRack">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#PressureSensor -->
+
+    <owl:Class rdf:about="#PressureSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Print -->
+
+    <owl:Class rdf:about="#Print">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Pulpit -->
+
+    <owl:Class rdf:about="#Pulpit">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Railing -->
+
+    <owl:Class rdf:about="#Railing">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Floor"/>
+                            <rdf:Description rdf:about="#Stair"/>
+                            <rdf:Description rdf:about="#Wall"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#railingType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITY"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Ramp -->
+
+    <owl:Class rdf:about="#Ramp">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#rampType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITIES"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Floor"/>
+                            <rdf:Description rdf:about="#Stair"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ReceptionDesk -->
+
+    <owl:Class rdf:about="#ReceptionDesk">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#RefuseBagHolder -->
+
+    <owl:Class rdf:about="#RefuseBagHolder">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#RevolvingDoor -->
+
+    <owl:Class rdf:about="#RevolvingDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#RollingUpDoor -->
+
+    <owl:Class rdf:about="#RollingUpDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Roof -->
+
+    <owl:Class rdf:about="#Roof">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Ceiling"/>
+                            <rdf:Description rdf:about="#Wall"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#wallType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITIES"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Safe -->
+
+    <owl:Class rdf:about="#Safe">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SanitaryProductDispenser -->
+
+    <owl:Class rdf:about="#SanitaryProductDispenser">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Scoreboard -->
+
+    <owl:Class rdf:about="#Scoreboard">
+        <rdfs:subClassOf rdf:resource="#Board"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Sculpture -->
+
+    <owl:Class rdf:about="#Sculpture">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SensorType -->
+
+    <owl:Class rdf:about="#SensorType">
+        <rdfs:subClassOf rdf:resource="#IFCArchitecturalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Ceiling"/>
+                            <rdf:Description rdf:about="#Column"/>
+                            <rdf:Description rdf:about="#Wall"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcbuildingcontrolsdomain/lexical/ifcsensortype.htm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Settee -->
+
+    <owl:Class rdf:about="#Settee">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#ShoeTree -->
+
+    <owl:Class rdf:about="#ShoeTree">
+        <rdfs:subClassOf rdf:resource="#Wardrobe"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Showcase -->
+
+    <owl:Class rdf:about="#Showcase">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Sideboard -->
+
+    <owl:Class rdf:about="#Sideboard">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SinglePanelWindow -->
+
+    <owl:Class rdf:about="#SinglePanelWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SingleSwingLeftDoor -->
+
+    <owl:Class rdf:about="#SingleSwingLeftDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SingleSwingRightDoor -->
+
+    <owl:Class rdf:about="#SingleSwingRightDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Slab -->
+
+    <owl:Class rdf:about="#Slab">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom rdf:resource="#Floor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SlidingToLeftDoor -->
+
+    <owl:Class rdf:about="#SlidingToLeftDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SlidingToRightDoor -->
+
+    <owl:Class rdf:about="#SlidingToRightDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SmokeSensor -->
+
+    <owl:Class rdf:about="#SmokeSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SoapDispenser -->
+
+    <owl:Class rdf:about="#SoapDispenser">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SoapHolder -->
+
+    <owl:Class rdf:about="#SoapHolder">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SofaBed -->
+
+    <owl:Class rdf:about="#SofaBed">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SoundSensor -->
+
+    <owl:Class rdf:about="#SoundSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Space -->
+
+    <owl:Class rdf:about="#Space">
+        <rdfs:subClassOf rdf:resource="#IFCArchitecturalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#spatialFunction"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITY"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcproductextension/lexical/ifcspace.htm</rdfs:seeAlso>
+        <rdfs:comment
+            >A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#SpatialStructureElement -->
+
+    <owl:Class rdf:about="#SpatialStructureElement">
+        <rdfs:subClassOf rdf:resource="#IFCArchitecturalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#relatedObject"/>
+                        <owl:someValuesFrom rdf:resource="#DistributionElement"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#relatedObject"/>
+                        <owl:someValuesFrom rdf:resource="#FurnitureType"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#relatedObject"/>
+                        <owl:someValuesFrom rdf:resource="#StructuralBuildingElement"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#relatedObject"/>
+                <owl:someValuesFrom rdf:resource="#Building"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Entity resembles IfcSpatialStructureElement.</rdfs:comment>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcproductextension/lexical/ifcspatialstructureelement.htm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Stair -->
+
+    <owl:Class rdf:about="#Stair">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom rdf:resource="#Floor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Stool -->
+
+    <owl:Class rdf:about="#Stool">
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#StructuralBuildingElement -->
+
+    <owl:Class rdf:about="#StructuralBuildingElement">
+        <rdfs:subClassOf rdf:resource="#IFCArchitecturalEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#height"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#width"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#length"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Entity resembles shared building elements in IFC2x4a.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Table -->
+
+    <owl:Class rdf:about="#Table">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Tapestry -->
+
+    <owl:Class rdf:about="#Tapestry">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TemperatureSensor -->
+
+    <owl:Class rdf:about="#TemperatureSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TowelDispenser -->
+
+    <owl:Class rdf:about="#TowelDispenser">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TowelRail -->
+
+    <owl:Class rdf:about="#TowelRail">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TriplePanelBottomWindow -->
+
+    <owl:Class rdf:about="#TriplePanelBottomWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TriplePanelHorizontalWindow -->
+
+    <owl:Class rdf:about="#TriplePanelHorizontalWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TriplePanelLeftWindow -->
+
+    <owl:Class rdf:about="#TriplePanelLeftWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TriplePanelRightWindow -->
+
+    <owl:Class rdf:about="#TriplePanelRightWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TriplePanelTopWindow -->
+
+    <owl:Class rdf:about="#TriplePanelTopWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#TriplePanelVerticalWindow -->
+
+    <owl:Class rdf:about="#TriplePanelVerticalWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Trolley -->
+
+    <owl:Class rdf:about="#Trolley">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#UmbrellaStand -->
+
+    <owl:Class rdf:about="#UmbrellaStand">
+        <rdfs:subClassOf rdf:resource="#Wardrobe"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#UndefinedSensor -->
+
+    <owl:Class rdf:about="#UndefinedSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#UserDefinedDoor -->
+
+    <owl:Class rdf:about="#UserDefinedDoor">
+        <rdfs:subClassOf rdf:resource="#Door"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#UserDefinedWindow -->
+
+    <owl:Class rdf:about="#UserDefinedWindow">
+        <rdfs:subClassOf rdf:resource="#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#UserdefinedSensor -->
+
+    <owl:Class rdf:about="#UserdefinedSensor">
+        <rdfs:subClassOf rdf:resource="#SensorType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Vase -->
+
+    <owl:Class rdf:about="#Vase">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#VentilationElement -->
+
+    <owl:Class rdf:about="#VentilationElement">
+        <rdfs:subClassOf rdf:resource="#DistributionElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#VerticalCarousel -->
+
+    <owl:Class rdf:about="#VerticalCarousel">
+        <rdfs:subClassOf rdf:resource="#Carousel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Wall -->
+
+    <owl:Class rdf:about="#Wall">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Ceiling"/>
+                            <rdf:Description rdf:about="#Wall"/>
+                            <rdf:Description rdf:about="#Window"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#wallType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;ENTITIES"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Wallhanging -->
+
+    <owl:Class rdf:about="#Wallhanging">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Wardrobe -->
+
+    <owl:Class rdf:about="#Wardrobe">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#WastePaperBin -->
+
+    <owl:Class rdf:about="#WastePaperBin">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#WaterBed -->
+
+    <owl:Class rdf:about="#WaterBed">
+        <rdfs:subClassOf rdf:resource="#Bed"/>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Window -->
+
+    <owl:Class rdf:about="#Window">
+        <rdfs:subClassOf rdf:resource="#StructuralBuildingElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#openingAngle"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#windowStyleConstruction"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#connectedWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Ceiling"/>
+                            <rdf:Description rdf:about="#Wall"/>
+                            <rdf:Description rdf:about="#Window"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >http://www.buildingsmart-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcwindow.htm</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#Worktop -->
+
+    <owl:Class rdf:about="#Worktop">
+        <rdfs:subClassOf rdf:resource="#FurnitureType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/ArchitecturalConstruction.owl#WritingBoard -->
+
+    <owl:Class rdf:about="#WritingBoard">
+        <rdfs:subClassOf rdf:resource="#Board"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

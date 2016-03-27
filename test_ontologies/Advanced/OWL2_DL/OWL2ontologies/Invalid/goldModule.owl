@@ -1,0 +1,2611 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.meteck.org/files/ontologies/goldModule.owl#"
+     xml:base="http://www.meteck.org/files/ontologies/goldModule.owl"
+     xmlns:gold="http://purl.org/linguistics/gold/"
+     xmlns:bibliography="http://www.linguistics-ontology.org/bibliography/bibliography.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.meteck.org/files/ontologies/goldModule.owl">
+        <owl:versionInfo>2010</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasMorphologicalConstituent -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/linguistics/gold/hasMorphologicalConstituent">
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/MorphologicalUnit"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/morphologicalRelation -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/linguistics/gold/morphologicalRelation">
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/MorphologicalUnit"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/linguistics/gold/acousticRealization -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/acousticRealization">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/realization"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">The relation between some linguistic unit and its corresponding spoken expression.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">acousticRealization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/adjunct -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/adjunct">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/hasSyntacticConstituent"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">adjunct</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/antonym -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/antonym">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/lexicalRelation"/>
+        <rdfs:comment xml:lang="eng">antonym</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">antonym</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/circumscribes -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/circumscribes">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/morphologicalRelation"/>
+        <rdfs:comment xml:lang="eng">NOTE: still lacks development. This relation holds between two form units and represents the notion of circumscription in a morphosyntactic system. That is, (circumscribes A B) means that part of A comes before B and part of A comes after B, in the linearization of the units of a language.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">circumscribes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/complement -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/complement">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/hasSyntacticConstituent"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">complement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/constituents -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/constituents">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">The relation holding between a linguistic unit and a list (rdf:Seq) of its constituents.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">constituents</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/dataStructureRelation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/dataStructureRelation">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">This subsumes all structuring relations used for LinguisticDataStructures. As a naming convention to distinguish relations in data structure from other relations, all names of dataStructuringRelations begin with &apos;has-&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">dataStructureRelation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/derivedForm -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/derivedForm">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/Stem"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">derivedForm</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/feature -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/feature">
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/LinguisticProperty"/>
+        <rdfs:comment xml:lang="eng">The relation between a linguistic unit and a linguistic feature. A feature inheres in its host. NOTE: this relation is distinct from the hasFeature which pertains to data structures.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">feature</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/follows -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/follows">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/orderingRelation"/>
+        <rdfs:comment xml:lang="eng">This relation holds between two linguistic units and represents the inverse of &apos;precedes&apos;. That is, (follows A B) means that A comes after B in the linearization of the realization of linguistic signs. The inverse of this relation is &apos;precedes&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">follows</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasComplexValue -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasComplexValue">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/ComplexSpecification"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/FeatureStructure"/>
+        <rdfs:comment xml:lang="eng">This relates a ComplexSpecification to a FeatureStructure, thus giving a FeatureStructure its recursive properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasComplexValue</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasConstituent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasConstituent">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">The relation hasConstituent is an abstract partial ordering relation that expresses dominance between two linguistic units. This relation is meant to cover all possible types of linguistic constituency: phonological, morphological, syntactic, etc. constituency.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasConstituent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasConstraint -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasConstraint">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/FeatureSystem"/>
+        <rdfs:comment xml:lang="eng">This relates a FeatureSystem to a FeatureContraint.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasConstraint</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasFeature -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasFeature">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/FeatureSpecification"/>
+        <rdfs:comment xml:lang="eng">This relates a FeatureSpecification to a type of LinguisticProperty.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasFeature</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasGlosses -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasGlosses">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:comment xml:lang="eng">The binary relation holding between an instance of interlinear glossed text (IGT) and a sequence of labels or &apos;grams&apos; used to describe the morphemes of the IGT.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasGlosses</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasGrammar -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasGrammar">
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/GrammarUnit"/>
+        <rdfs:comment xml:lang="eng">The relation that holds between a LinguisticSign and a GrammaticalUnit.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasGrammar</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasLexicalItem -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasLexicalItem">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/Lexicon"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/LexicalItem"/>
+        <rdfs:comment xml:lang="eng">The relation between a Lexicon and its contents, instances of LexicalItem. NOTE: this could probably be replaced by the memberOf relation from set theory.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasLexicalItem</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasLexicalUnit -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasLexicalUnit">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LexicalItem"/>
+        <rdfs:comment xml:lang="eng">This relates a LexicalItem to a LexicalUnit, those elements commonly represented in a dictionary.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasLexicalUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasMeaning -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasMeaning">
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/SemanticUnit"/>
+        <rdfs:comment xml:lang="eng">The relation that associates some LinguisticSign with a SemanticUnit.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasMeaning</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasMorphologicalConstituent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasMorphologicalConstituent">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/hasConstituent"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/MorphologicalUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasProperty -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasProperty">
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/LinguisticProperty"/>
+        <rdfs:comment xml:lang="eng">The relation between a linguistic unit and a linguistic property, e.g., (m1 hasProperty AllativeCase) where m1 is an instance of Morpheme.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasProperty</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasSourceLine -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasSourceLine">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:comment xml:lang="eng">The binary relation holding between an instance of interlinear glossed text and a linguistic unit (clause, phrase, etc.) from the source language.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasSourceLine</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasSpecification -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasSpecification">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/FeatureStructure"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/FeatureSpecification"/>
+        <rdfs:comment xml:lang="eng">This relates a FeatureStructure to a FeatureSpecification.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasSpecification</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasSyntacticConstituent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasSyntacticConstituent">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/hasConstituent"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/SyntacticUnit"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/SyntacticUnit"/>
+        <rdfs:comment xml:lang="eng">The relation hasSyntacticConstituent is an abstract partial ordering relation that expresses dominance between two syntactic units. This relation is meant to cover all possible types of syntactic constituency.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasSyntacticConstituent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasTerm -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasTerm">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/Termset"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/Term"/>
+        <rdfs:comment xml:lang="eng">The relation between some Termset and a Term.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasTerm</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasTranslationLine -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasTranslationLine">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:comment xml:lang="eng">The binary relation holding between an instance of interlinear glossed text and a linguistic unit (clause, phrase, etc.) acting as a free translation of the source text from the IGT instance.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasTranslationLine</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasType -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hasType">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/dataStructureRelation"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/FeatureStructure"/>
+        <rdfs:comment xml:lang="eng">This relates either a FeatureStructure or a FeatureConstraint to its type, expressed by an instance of PartOfSpeech.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasType</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/head -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/head">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/hasSyntacticConstituent"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/Phrase"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">head</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hypernym -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/hypernym">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/lexicalRelation"/>
+        <rdfs:comment xml:lang="eng">hypernym</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hypernym</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/inLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/inLanguage">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">The relation that holds between a LinguisticSign and a Language. The sign is said to be a member or part of that language.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">inLanguage</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/infixedIn -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/infixedIn">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/morphologicalRelation"/>
+        <rdfs:comment xml:lang="eng">infixedIn is the relation between a Lexical- or SublexicalUnit and a Root. The Root is realized as discontinuous, surrounding the inserted Lexical- or SublexicalUnit [Hartmann and Stork 1972, 111].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">infixedIn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/inflectedForm -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/inflectedForm">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/Stem"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">inflectedForm</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/lexicalRelation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/lexicalRelation">
+        <rdfs:comment xml:lang="eng">This is the superclass of common lexical relatations such as synonym, antonym, etc. NOTE: this needs work. Such relations really pertain to meaning and not form units.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">lexicalRelation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/meronym -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/meronym">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/lexicalRelation"/>
+        <rdfs:comment xml:lang="eng">meronym</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">meronym</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/morphologicalRelation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/morphologicalRelation">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/MorphologicalUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/names -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/names">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/WrittenLinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">This semiotic relation associates some OrthographicExpression with some Entity. It differs from &apos;labels&apos; in that a name is usually considered part of the orthographic system, where a label is not.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">names</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/orderingRelation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/orderingRelation">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">Any relation that establishes a linear ordering of linguistic units.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">orderingRelation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/precedes -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/precedes">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/orderingRelation"/>
+        <rdfs:comment xml:lang="eng">This relation holds between two linguistic units and represents the notion of precedence in a language. That is, (precedes A B) means that A comes before B in the linearization of the realization of linguistic signs. This inverse of this relation is &apos;follows&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">precedes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/prefix -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/prefix">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/morphologicalRelation"/>
+        <rdfs:comment xml:lang="eng">The relation between a morphological unit and the  lexical unit to which it is attached. The LexicalUnit is usually a Root or Stem. The inverse of prefix is suffix [Crystal 1980, 281; Hartmann and Stork 1972, 182].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">prefix</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/realization -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/realization">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/LinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">The relation holding between a linguistic unit and its physical form, either a spoken, written or signed expression.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">realization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/signedRealization -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/signedRealization">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/realization"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">The relation between some linguistic unit and its corresponding signed expression.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">signedRealization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/specifier -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/specifier">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/hasSyntacticConstituent"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">specifier</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/suffix -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/suffix">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/morphologicalRelation"/>
+        <rdfs:comment xml:lang="eng">The relation between a morphological unit and the  lexical unit to which it is attached. The LexicalUnit is usually a Root or Stem. The inverse of suffix is &apos;prefix&apos; [Crystal 1980, 340; Hartmann and Stork 1972, 226].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">suffix</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/synonym -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/synonym">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/lexicalRelation"/>
+        <rdfs:comment xml:lang="eng">synonym</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">synonym</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/writtenRealization -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/linguistics/gold/writtenRealization">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/realization"/>
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:range rdf:resource="http://purl.org/linguistics/gold/WrittenLinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">The relation between some linguistic unit and its corresponding written expression.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">writtenRealization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/linguistics/gold/abbreviation -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/linguistics/gold/abbreviation">
+        <rdfs:comment xml:lang="eng">The abbreviated form representing a scientific term, e.g., ACC, 2, CL.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">abbreviation</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/hasExample -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/linguistics/gold/hasExample">
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">hasExample</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/orthographicRep -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/linguistics/gold/orthographicRep">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/stringRep"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">orthographicRep</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/phonemicRep -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/linguistics/gold/phonemicRep">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/stringRep"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">phonemicRep</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/phoneticRep -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/linguistics/gold/phoneticRep">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/linguistics/gold/stringRep"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">phoneticRep</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/stringRep -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/linguistics/gold/stringRep">
+        <rdfs:domain rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">stringRep</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Abstract -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Abstract">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Thing"/>
+        <rdfs:comment xml:lang="eng">Properties or qualities as distinguished from any particular embodiment of the properties/ qualities in a physical medium. Instances of Abstract can be said to exist in the same sense as mathematical objects such as sets and relations, but they cannot exist at a particular place and time without some physical encoding or embodiment. [SUMO 2010]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Abstract</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Adjectival -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Adjectival">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">An adjectival, or &apos;adjective&apos;, is a part of speech whose members modify nouns. An adjectival specifies the attributes of a noun referent. Note: this is one case among many. Adjectivals are a class of modifiers. An adjectival may be inflected as comparitive or superlative [Crystal 1997: 8; Payne 1997: 63].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Adjectival</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/AdjectivePhrase -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/AdjectivePhrase">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Phrase"/>
+        <rdfs:comment xml:lang="eng">A phrase with an adjective as a head. [Crystal 2003: 11] Adjective phrases may contain complements following the head, and modifiers in either pre-head or post-head position, but for the  most part, complements in adjective phrase structure are optional elements: they qualify as complements by virtue of being licensed by the head rather than  being obligatory. [Huddleston and Pullum 2002: 22-23, 57, 542]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">AdjectivePhrase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Adposition -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Adposition">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Functor"/>
+        <rdfs:comment xml:lang="eng">An adposition is a part of speech whose members are of a closed set and occur before or after a complement composed of a noun phrase, noun, pronoun, or clause that functions as a noun phrase and forms a single structure with the complement to express its grammatical and semantic relation to another unit within a clause [Comrie 1989: 91; Crystal 1997: 305; Payne 1997: 86].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Adposition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Adverbial -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Adverbial">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">An adverbial, or &apos;adverb&apos;, narrowly defined, is a part of speech whose members modify verbs for such categories as time, manner, place, or direction. An adverbal, broadly defined, is a part of speech whose members modify any constituent class of words other than nouns, such as verbs, adjectives, adverbs, phrases, clauses, or sentences. Under this definition, the possible type of modification depends on the class of the constituent being modified [Crystal 1997: 11; Payne 1997: 69].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Adverbial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Adverbializer -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Adverbializer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SubordinatingConnective"/>
+        <rdfs:comment xml:lang="eng">An adverbializer is a subordinating connective that links a subordinate clause  to a main clause, and indicates that the subordinate clause has an adverbial or interpropositional relation  to the main clause, indicating purpose, condition, time, and location. [SIL International 2004]</rdfs:comment>
+        <rdfs:comment xml:lang="eng">Marks clauses as having some adverbial function, such as the expression of time, purpose, result, etc. In some languages, many of the words that serve as adverbializers also serve as prepositional or postpositional noun adjuncts. In some languages, an adverbializer in a subordinate clause may be optionally paired with another conjunction occurring in the main clause. There are also cases where an adverbializer in a subordinate clause is obligatorily paired with a conjunction in the main clause. [Schachter 1985: 51-52]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Adverbializer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Affix -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Affix">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Morpheme"/>
+        <rdfs:comment xml:lang="eng">An affix is a morpheme with an abstract meaning which can only be used when added to a root morpheme.  These are classified in four different ways, depending on their position with reference to the root: suffix, prefix, circumfix and infix. [Haspelmath 2002: 265; Crystal 1980: 17]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Affix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/AnimateGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/AnimateGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A grammatical gender property assigned to a class of nouns with animate denotation. In a given language it may include larger or smaller numbers of nouns which do not meet this semantic criterion. The animate gender may occur in a two-gender system, with the other gender being labeled inanimate. However, the animate gender may also occur in larger inventories (i.e. greater than two values). Examples of these larger systems are found in Bantu languages (where nouns denoting humans are included in the animate gender) and in languages of Daghestan (where the animate gender is typically for non-human animates) [Corbett 1991: 20-32].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">AnimateGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ArabicNumeralGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ArabicNumeralGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A labeling convention for gender categories. Arabic numerals are often used for languages for which there is a descriptive tradition involving use of the term &apos;noun class&apos; instead of &apos;gender&apos;, in particular in languages of the Caucasus or Bantu languages; If the &apos;noun classes&apos; are involved in agreement systems, they are gender systems. Arabic numerals may also be used in instances where another label is possible. For instance, in one language the gender to which nouns with human denotation are assigned might be called &apos;human&apos;, whereas in another language nouns with a similar denotation may be assigned to a gender with an arbitrary Arabic numerical label such as &apos;1&apos;. [Kibort and Corbett 2008a]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ArabicNumeralGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Article -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Article">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Determiner"/>
+        <rdfs:comment xml:lang="eng">An article is a member of a small class of determiners that identify a noun&apos;s definite or indefinite reference, and new or given status [Crystal 1997: 26].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Article</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/AugmentativeSize -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/AugmentativeSize">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SizeProperty"/>
+        <rdfs:comment xml:lang="eng">A special form of a noun that signals that the object being referred to is large relative to the usual size of such an object [Crystal 1980: 34].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">AugmentativeSize</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Auxiliary -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Auxiliary">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Verbal"/>
+        <rdfs:comment xml:lang="eng">Auxiliary is a term used to describe verbs which are used in coordination with another verb to express mood, tense or aspect of the action denoted by the main verb.  Marginal auxiliaries share some of these properties, but not all. [Crystal 1985: 28; Pei </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Auxiliary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/BinaryPredicator -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/BinaryPredicator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">Binary predicates define relationships between keywords. Each binary predicate is viewed as function: given the value of the first argument, it returns the set of values for the second argument that would make the predicate true. [Feldman and Hirsh 1996: 344] BinaryPredicators are the class of syntactic words that require two arguments. </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">BinaryPredicator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/BoundMorpheme -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/BoundMorpheme">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Morpheme"/>
+        <rdfs:comment xml:lang="eng">A bound morpheme (or bound form) is one which cannot occur on its own as a separate word, e.g. various affixes de-, -tion, -ize. [Crystal 2003: 56]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">BoundMorpheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/CardinalNumeral -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/CardinalNumeral">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Numeral"/>
+        <rdfs:comment xml:lang="eng">A cardinal numeral is a numeral of the class whose members are considered basic in form, are used in counting, and are used in expressing how many objects are referred to [Crystal 1997: 52].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">CardinalNumeral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/CategoryChanger -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/CategoryChanger">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/DerivationalMorpheme"/>
+        <rdfs:comment xml:lang="eng">CategoryChanger is a cover class for all derivational units that change the syntactic category of the root to which they are attached.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">CategoryChanger</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Character -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Character">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Abstract"/>
+        <rdfs:comment xml:lang="eng">A symbol used in writing, distinguished from others by its meaning, not its specific shape; similar to grapheme. It relates to the domain of orthographies and writing. Specific to the implementation of computers and other information systems. [Lyons, et al. 2001]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Circumfix -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Circumfix">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Affix"/>
+        <rdfs:comment xml:lang="eng">A discontinuous affix that occurs on both sides of the base.  [Haspelmath 2002: 267]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Circumfix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Classifier -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Classifier">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">In grammar, a morpheme whose function is to indicate the formal or semantic class to which items belong are  sometimes called classifiers, e.g. -ly is an adverb classifier, -ess is a &apos;femininity&apos; classifier. The marking of lexical items as belonging to the same semantic class is an important feature in many languages (e.g. Chinese, Vietnamese, Hopi), and sometimes quite unexpected bases of classification are found, in terms of shape, size, colour, movability, animacy, status and so on. [Crystal 2003: 74]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Classifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Clitic -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Clitic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Morpheme"/>
+        <rdfs:comment xml:lang="eng">Clitic is the class of units which members exhibit syntactic characteristics of a lexical unit, but show evidence of being morphologically bound to another lexical unit, the host, by being unstressed or subject to word-level phonological rules [Crystal 1980: 64; Hartmann and Stork 1972: 38; Anderson 1985: 158; Klavans 1982: xi-xiv, 74-76, 83, 93-95, 100-101; Zwicky 1977: 5].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Clitic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/CoVerb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/CoVerb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Verbal"/>
+        <rdfs:comment xml:lang="eng">A term referring to complex predicates comprised of two verbs; one of these is an auxiliary which contributes some form of meaning in the form of modality, direction, etc.  They serve a similar purpose to adpositions in Indo-European languages, and are almost always translated as such.  Some examples are found in some east and southeast Asian languages, as well as African languages and Hungarian.  [Yang and Kuo 1998: 20]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">CoVerb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/CommonNoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/CommonNoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Noun"/>
+        <rdfs:comment xml:lang="eng">CommonNouns refer to a class of objects, places, ideas, and so on.  This is in contrast with ProperNoun.  [Brown and Miller 1999: 424]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">CommonNoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ComparativeAdjective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ComparativeAdjective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Adjectival"/>
+        <rdfs:comment xml:lang="eng">The form of an adjective which expresses that one thing possesses a certain quality or attribute to a greater extent than another thing or in relation to another reference point. [Hartmann and Stork 1972: 60; Pei and Gaynor 1980: 43]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ComparativeAdjective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Complement -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Complement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">A complement, also called a predicative, is a phrase that gives a description of the subject or object via the verb, while the verb itself expresses no adequate thought without being complemented by this addition.  Most typically this is an adjective phrase. [Asher 1994: 4881; Jespersen 2006: 89; Huddleston and Pullam 2002: 251]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Complement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Complementizer -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Complementizer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SubordinatingConnective"/>
+        <rdfs:comment xml:lang="eng">A complementizer is a connective which marks a complement clause [Crystal 1997: 75].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Complementizer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ComplexSpecification -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ComplexSpecification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/FeatureSpecification"/>
+        <rdfs:comment xml:lang="eng">A ComplexSpecification is a kind of FeatureSpecification whose value must be a FeatureStructure. This class gives a feature system its recursive properites [Maxwell, Simons and Hayashi 2000].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ComplexSpecification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Compound -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Compound">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Morpheme"/>
+        <rdfs:comment xml:lang="eng">A term used widely in descriptive linguistic studies to refer to a linguistic unit which is composed of elements that function independently in other circumstances. [Crystal 2003: 92]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Compound</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Conjunction -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Conjunction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/CoordinatingConnective"/>
+        <rdfs:comment xml:lang="eng">A term used in the grammatical classification of words to refer to an item or a process whose primary function is to connect words or other constructions. The conventional subclassification of these &apos;connective&apos; items distinguishes co-ordinating conjunctions (e.g. and, or, but) and subordinating conjunctions (e.g. because, when, unless) -- also referred to as &apos;co-ordinators&apos; and &apos;subordinators&apos; respectively. [Crystal 2008: 101]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Conjunction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Connective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Connective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Functor"/>
+        <rdfs:comment xml:lang="eng">Also known as a conjunction, a Connective is a class of parts of speech whose members syntactically link words or larger  constituents, and expresses a semantic relationship between them. A conjunction is positionally fixed relative to one or more of the elements related by it, thus distinguishing it from constituents such as English conjunctive adverbs [Crystal 1997: 81].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Connective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Converb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Converb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Verbal"/>
+        <rdfs:comment xml:lang="eng">A nonfinite verb form, i.e., lacking specifications for tense, mood, and agreement with their arguments, whose main function is to mark adverbial subordination. Converbal constructions are generally not arguments but modifiers, and they generally modify verbs, clauses or sentences, but not nouns or noun phrases. They are embedded or incorporated into the superordinate clause, and contrast with coordinate constructions. Converbal constructions can often be paraphrased by means of coordinate constructions in languages that allow coordination of clauses, such as in the gloss for the Korean example below. [Haspelmath 1995: 3-8]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Converb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/CoordinatingConnective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/CoordinatingConnective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Connective"/>
+        <rdfs:comment xml:lang="eng">A coordinating connective is a connective that links constituents without syntactically subordinating one to the other [Crystal 1997: 93].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">CoordinatingConnective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Copula -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Copula">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Verbal"/>
+        <rdfs:comment xml:lang="eng">Indicates a relationship of equivalency between the subject and predicate or complement of a clause. Verbal copulas have essentially the same morphosyntactic properties as verbs: English  &apos;be&apos;, Spanish  &apos;ser&apos;, and Russian  &apos;byt’&apos; are illustrations of this class. Nonverbal copular items include the the pro-copula - a demonstrative or personal pronoun which serves as the linker between subject and predicate nominal, and which is obligatory in nominal predication - and particle copulas, which have their origin in a variety of markers of discourse-oriented phenomena such as topicalization, backgrounding, or contrastive focus for subjects or predicates. Zero copula refers to a construction in which the relation between a subject and a nominal predicate is not marked by an overt item. Zero copula is mandatory in some languages, such as Sinhalese, whereas it is conditional or restricted in other languages, such as Russian. [Stassen 2008]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Copula</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Copulative -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Copulative">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Verbal"/>
+        <rdfs:comment xml:lang="eng">A verb such as &apos;be&apos;, &apos;seem&apos;, &apos;become&apos;, &apos;look&apos;, etc. which relates the subject to the complement, e.g. in &apos;He is a teacher&apos;, &apos;The policeman seemed not at all satisfied&apos;, &apos;It got worse and and worse&apos;. [Hartmann and Stork 1972: 55]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Copulative</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/CorrelativeConnective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/CorrelativeConnective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/CoordinatingConnective"/>
+        <rdfs:comment xml:lang="eng">A correlative connective is either of a pair of  coordinating conjunctions (connectives) used in ordered fashion. Typically, one is used immediately before each member of a pair of constituents [Crystal 1997: 96].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">CorrelativeConnective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/DefiniteArticle -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/DefiniteArticle">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Article"/>
+        <rdfs:comment xml:lang="eng">An definite article is a part of speech whose members refer to a specific, identifiable entity (or class of entities) [Crystal 1997: 107].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">DefiniteArticle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Demonstrative -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Demonstrative">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Pronominal"/>
+        <rdfs:comment xml:lang="eng">A demonstrative is a determiner that is used deictically to indicate a referent&apos;s spatial, temporal, or discourse location. A demonstrative functions as a modifier of a noun, or a pronoun [Crystal 1997: 312].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Demonstrative</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/DerivationalMorpheme -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/DerivationalMorpheme">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/BoundMorpheme"/>
+        <rdfs:comment xml:lang="eng">DerivationalUnit is the class of functional units whose members function to derive a new lexical unit from an existing one, by systematically changing the meaning and possibly altering the part of speech feature of the root or stem it attaches to [Hartmann and Stork 1972: 62; Crystal 1985: 89; Bybee 1985: 81-82, 99].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">DerivationalMorpheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Determiner -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Determiner">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A Determiner is a part of speech whose members belong to a class of noun modifiers and express the reference, including  quantity, of a noun [Crystal 1997: 112].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Determiner</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Diacritic -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Diacritic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/OrthographicPart"/>
+        <rdfs:comment xml:lang="eng">An auxiliary mark or symbol added above, below or after conventional graphic signs to give more information about the pronunciation of the sound represented in writing. Such diacritic marks include acute accent, apostrophe, caret, cedilla, diaeresis or umlaut, grave accent, macron, tilde and circumflex. [Hartmann and Stork 1972: 65]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Diacritic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Dialect -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Dialect">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GeneticTaxon"/>
+        <rdfs:comment xml:lang="eng">A regional, temporal or social variety of a language, differing in pronunciation, grammar and vocabulary from the standard language,which is in itself a socially favoured dialect. [Hartmann and Stork 1972: 65]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Dialect</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Digraph -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Digraph">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/OrthographicPart"/>
+        <rdfs:comment xml:lang="eng">A term used in phonetics/phonology and graphics/graphology to refer to a graphic unit in which two symbols have combined to form a single element in a system. In the study of reading and spelling, digraph refers to any sequence of two letters pronounced as a single sound. [Crystal 2003: 139]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Digraph</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/DiminuativeSize -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/DiminuativeSize">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SizeProperty"/>
+        <rdfs:comment xml:lang="eng">A special form of a noun that signals that the object being referred to is small relative to the usual size of such an object.  In some cases it may be used as a term of endearment [Crystal 1980: 116].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">DiminuativeSize</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Disjunction -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Disjunction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/CoordinatingConnective"/>
+        <rdfs:comment xml:lang="eng">Disjunction refers to a process whose primary function is to mark a relationship of contrast or comparison between structures, using such disjunctive items as &apos;or&apos; and &apos;but&apos;. [Crystal 1985: 97]
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Disjunction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/DistributiveNumeral -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/DistributiveNumeral">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Numeral"/>
+        <rdfs:comment xml:lang="eng">Most languages also have various series of numerals, whose denotations combine the concept of number with other concepts of a variety of different kinds. The meaning of sentences containing distributive numerals can be described in terms of a binary semantic relationship of distributivity that obtains between an expression containing the distributive numeral, the distributive share, and some other expression in the sentence, the distributive key. [Gill 2005: 222] Distributive numerals are special adnominal numerals that express distributive relations, as in German ‘Die Männer trugen je drei Koffer’, ‘The men carried three suitcases each.’ English lacks distributive numerals, because in a sentence like ‘They carried three suitcases each, the numeral does not form a continuous constituent with the distributive word ‘each’, i.e. ‘three…each’ does not qualify as a numeral. [Michaelis, Maurer, Haspelmath and Huber 2008]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">DistributiveNumeral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/DitransitiveVerb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/DitransitiveVerb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/TertiaryPredicator"/>
+        <rdfs:comment xml:lang="eng">A ditransitive verb is a verb that takes two objects [Crystal 1997: 397].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">DitransitiveVerb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Enclitic -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Enclitic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Clitic"/>
+        <rdfs:comment xml:lang="eng">An enclitic is a clitic that is phonologically joined at the end of a preceding lexical unit to form a single phonological unit [Crystal 1980: 64; Pei and Gaynor 1954: 65].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Enclitic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ExistentialMarker -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ExistentialMarker">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Verbal"/>
+        <rdfs:comment xml:lang="eng">An existential marker is a syntactic category whose members are found in distinct clause types and which mark a referent&apos;s existence [Crystal 1997: 142].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ExistentialMarker</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Expletive -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Expletive">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">An expletive (also known as a dummy word) is a part of speech whose members have no meaning, but complete a sentence to make it grammatical [Crystal 1997: 127].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Expletive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/FeatureAssignmentSystem -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/FeatureAssignmentSystem">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">(The term &apos;assignment&apos;) was first used with respect to feature values by Corbett (1991) in his discussion of mechanisms for allotting nouns to different genders. Native speakers have the ability to ‘work out’ the gender of a noun, and models of this ability have been called ‘gender assignment systems’. So far, the concept of ‘assignment of a feature value’ has not been used outside gender. For some features, there may not be as much to say as for gender. However, using the concept of ‘assignment’ with respect to the values of all features is useful to be able to compare the features. Therefore, for this typology I have adopted the following definition: an assignment system is a set of rules that realise the value of a feature on an element. Note, however, that under this definition, a gender value is ‘assigned’ both to nouns, and to targets of agreement in gender with the noun. [Kibort 2008d: 8]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">FeatureAssignmentSystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/FeatureSpecification -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/FeatureSpecification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">A FeatureSpecification is a data structure that groups together a linguistic feature with a value [Maxwell, Simons and Hayashi 2000].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">FeatureSpecification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/FeatureStructure -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/FeatureStructure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">A FeatureStructure is a set of one or more FeatureSpecifications. A FeatureStructure is a kind of information structure, a container or data structure, used to group together qualities or features of some object. In a grammatical feature system, a FeatureStructure holds the grammatical information associated with some linguistic unit. In a typed feature system, a FeatureStructure has an associated type, usually a PartOfSpeech. [Shieber 1986; Maxwell, Simons and Hayashi 2000].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">FeatureStructure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/FeatureSystem -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/FeatureSystem">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">An utterance is divided into parts, which are assigned to word classes and then subclassified in terms of their &quot;accidents&quot; or properties. [Blevins 2006: 390] The properties, also referred to as features or categories, express what is shared by different linguistic elements, as opposed to what is idiosyncratic. [Kibort 2008d: 1]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">FeatureSystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/FeminineGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/FeminineGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A gender property established on the basis of agreement, to which nouns may be assigned if 1) they inherently denote females. Additionally, but not necessarily, nouns may be assigned this value if: 2) their formal properties (morphological or phonological) lead them to be assigned to the same agreement pattern as other nouns within the language that have female denotation. 3) they are arbitrarily assigned to the same agreement pattern as other nouns in the language that have female denotation. [Corbett 1991]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">FeminineGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/FormalAssignmentSystem -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/FormalAssignmentSystem">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/FeatureAssignmentSystem"/>
+        <rdfs:comment xml:lang="eng">One more distinction can be made within both types of inherently assigned feature values: that between formal and semantic assignment. This distinction was proposed by Corbett (1991) to account for the criteria according to which nouns can be allotted to genders. Corbett demonstrates that gender assignment systems in languages can be semantic or semantic-and-formal – that is, the set of rules that determine the assignment of inherent gender values to nouns refer to the meaning of words, or a combination of the meaning of words and the form of words. [Kibort 2008d: 12]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">FormalAssignmentSystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/FreeMorpheme -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/FreeMorpheme">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Morpheme"/>
+        <rdfs:comment xml:lang="eng">A morpheme which can be used on its own as a word with a distinct meaning, as opposed to a bound morpheme. [Hartmann and Stork 1972: 88]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">FreeMorpheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Functor -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Functor">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">Functor is the class of syntactic word whose members are neither relation- nor argument-like non-relational [Anderson 1997: 20]. Typical functors include adpositions, subordinators, and complementizers.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Functor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/GenderProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/GenderProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/MorphosyntacticProperty"/>
+        <rdfs:comment xml:lang="eng">GenderProperty is the class of properties that are assigned to nouns on the basis of their inherent properties by an AssignmentSystem and required by the syntax to appear on the target in an AgreementSystem. Gender may but need not be assigned on the basis of sex [Corbett 1991].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">GenderProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/GeneticTaxon -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/GeneticTaxon">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticTaxon"/>
+        <rdfs:comment xml:lang="eng">GeneticTaxon is the class of all taxons whose members are based on genetic relatedness.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">GeneticTaxon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/GeographicTaxon -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/GeographicTaxon">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticTaxon"/>
+        <rdfs:comment xml:lang="eng">GeographicTaxon is the class of linguistic taxons whose instances are groupings based on where, in general, the language varieties are used, e.g., AustralianLanguage.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">GeographicTaxon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Gerund -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Gerund">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Noun"/>
+        <rdfs:comment xml:lang="eng">A part of speech derived from a verb and used as a noun, usually restricted to non-finite forms of the verb [Crystal 1997: 279].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Gerund</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/GrammarUnit -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/GrammarUnit">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">A GrammarUnit is the structural component of the linguistic sign and includes notions such as morpheme, syntactic word, and construction. Grammar units are classified according to their mereology (part-whole and complexity),  morphosyntactic function, and whether they exist in a bound or free forms.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">GrammarUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/HumanGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/HumanGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A grammatical category used for analysis of word-classes displaying such contrasts as masculine/feminine/neuter, animate/inanimate, etc. It is also important to distinguish natural gender, items referring to the sex of real-world entities, and grammatical gender, which does not always correspond to sex, but which has an important role in signaling grammatical relations between words in a sentence. [Crystal 1985: 133]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">HumanGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/InanimateGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/InanimateGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A grammatical gender property such that membership in the inanimate grammatical class is largely based on meaning, in that non-living things, such as objects of manufacture and natural &apos;non-living&apos; things are included in it. For example, one of the two grammatical genders, or noun classes, of Nishnaabemwin, the other being animate [Valentine 2001: 114].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">InanimateGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/IndefiniteArticle -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/IndefiniteArticle">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Article"/>
+        <rdfs:comment xml:lang="eng">An article is a part of speech whose members are used to refer to an entity (or class of entities) which is not capable of specific identification [Crystal 1997: 193].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">IndefiniteArticle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/IndefinitePronoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/IndefinitePronoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Pronominal"/>
+        <rdfs:comment xml:lang="eng">An indefinite pronoun is a pronoun that belongs to a class whose members indicate  indefinite reference [Crystal 1997: 312].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">IndefinitePronoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Infix -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Infix">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Affix"/>
+        <rdfs:comment xml:lang="eng">A term used in morphology referring to an affix which is added within a root or stem. [Crystal 1985: 157]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Infix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/InflectionalMorpheme -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/InflectionalMorpheme">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/BoundMorpheme"/>
+        <rdfs:comment xml:lang="eng">InflectionalUnit is the class of functional units whose members designate such grammatical categories as tense, aspect, mood etc. The various forms of an InflectionalUnit plus the stem forms a grammatical paradigm and express a grammatical contrast that is obligatory for its stem&apos;s part of speech in some given grammatical context. An inflectional unit does not alter the part of speech feature of the root or stem it attaches to. It is typically located farther from its Root than a derivational unit and  produces a predictable, nonidiosyncratic change of meaning [Crystal 1980: 184; Hartmann and Stork 1972: 112; Bybee 1985: 2, 99].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">InflectionalMorpheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Interjection -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Interjection">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">An interjection is a part of speech, typically brief in form, such as one syllable or word, whose members are used most often as exclamations or parts of an exclamation. An interjection, typically expressing an emotional reaction, often with respect to an accompanying sentence, is not syntactically related to other accompanying expressions, and may include a combination of sounds not otherwise found in the language [Crystal 1997: 200].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Interjection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/InterrogativeOperator -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/InterrogativeOperator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">Also referred to as a &apos;question particle&apos;, an interrogative operator is a category whose members signal a yes/no question [Payne 1997: 296].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">InterrogativeOperator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/InterrogativeProform -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/InterrogativeProform">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/ProForm"/>
+        <rdfs:comment xml:lang="eng">An InterrogativeProform is a Proform that is used in questions to stand for the item questioned. [Schachter 1985: 34]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">InterrogativeProform</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/IntransitiveVerb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/IntransitiveVerb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/UnaryPredicator"/>
+        <rdfs:comment xml:lang="eng">An intransitive verb is a verb that cannot take a direct object, and describes a property, state, or situation involving only one participant [Crystal 1997: 397; Payne 1997: 171].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">IntransitiveVerb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Intransitivizer -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Intransitivizer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/DerivationalMorpheme"/>
+        <rdfs:comment xml:lang="eng">A derivational unit that derives an intransitive verb from a transitive verb. [Hornby 2010 (p.c.)]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Intransitivizer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Isolate -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Isolate">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GeneticTaxon"/>
+        <rdfs:comment xml:lang="eng">Isolate is the class of human language varieties such that there are no other varieties that are genetically related.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Isolate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Language -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Language">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GeneticTaxon"/>
+        <rdfs:comment xml:lang="eng">The most fundamental means of human communication. Language is a purely human activity, although some animals have communication systems which have certain analogies to human language. All human beings use language to interact with other members of the same speech community. Language is not only used as an instrument of communication, however, but also as a means of individual expression. Language is not instinctive; it has to be learnt as a system of arbitrary conventional symbols. Such symbols are primarily vocal, produced by the so-called organs of speech, but secondary systems such as writing and other codes may complement the vocalsystem. Some linguists, such as F. de Saussure, have stressed the view of language as general patterns in the speech of a community and as the speaking activity of an individual in a particular situation; others, with N.Chomsky, regard language as the innate capability of native speakers to understand and form grammatical sentences as as the actual utterances produced at a given time. [Hartmann and Stork 1972: 123-124]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Language</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LanguageFamily -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LanguageFamily">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GeneticTaxon"/>
+        <rdfs:comment xml:lang="eng">Group of languages that are genetically related, i.e can be traced to a common proto-language. The ordering of languages into a common language family is usually based on phonological, morphological, and lexical correspondences that stem from the proto-language. ... it refers to the largest spectrum of languages for which a genetic relationship can be demonstrated. [Bussmann 1996: 262]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LanguageFamily</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LanguageStock -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LanguageStock">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GeneticTaxon"/>
+        <rdfs:comment xml:lang="eng">A term used for postulated but undemonstrated higher-order, more inclusive families (proposed but as yet unproven distant genetic relationships). [Campbell 1999: 187]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LanguageStock</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LanguageSubfamily -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LanguageSubfamily">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GeneticTaxon"/>
+        <rdfs:comment xml:lang="eng">LanguageSubfamily (also called subgroup or branch) refers &apos;to a group of languages within a language family which are more closely related to each other than to other languages of that family.&apos; [Campbell 1999: 187] </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LanguageSubfamily</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LexicalItem -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LexicalItem">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">A unit of the vocabulary of a language such as a word, phrase or term as listed in a dictionary. It usually has a pronounceable or graphic form, fulfils a grammatical role in a sentence, and carries semantic meaning. [Hartmann and Stork 1972: 128]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LexicalItem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LexicalizedConcept -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LexicalizedConcept">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SemanticUnit"/>
+        <rdfs:comment xml:lang="eng">Grammatical or semantic category expressed by a lexical item, e.g. English &apos;make&apos; + &apos;dead&apos; together are lexicalized as &apos;kill&apos;, in German &apos;tot&apos; + &apos;machen&apos; &gt; &apos;töten&apos;, or the close linking of lexical items in an idiomatic phrase. [Hartmann and Stork 1972: 129]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LexicalizedConcept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Lexicon -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Lexicon">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">In its most general sense, the term is synonymous with vocabulary. A dictionary can be seen as a set of lexical entries. The lexicon has a special status in generative grammar, where it refers to the component containing all the information about the structural properties of the lexical items in a language. [Crystal 2008: 278] In linguistics, ... we don&apos;t normally speak of the vocabulary of a particular language; instead, we speak of the lexicon, the total store of words available to a speaker. Very commonly, the lexicon is not regarded merely as a long list of words. Rather, we conceive the lexicon as a set of lexical resources, including the morphemes of the languages, plus the processes available in the language for constructing words from those resources. Apart from the lexicon of a language as a whole, psycholinguists are interested in the mental lexicon, the words and lexical resources stored in an individual brain. [Trask 1999: 166-167]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Lexicon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LinguisticDataStructure -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LinguisticDataStructure">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Abstract"/>
+        <rdfs:comment xml:lang="eng">A linguistic data structure is an abstract container for grouping together instances of linguistic data, usually to suit a particular theory or computational implementation. Examples include: feature structures, lexical entries, and paradigms.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LinguisticDataStructure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LinguisticExpression -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LinguisticExpression">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Object"/>
+        <rdfs:comment xml:lang="eng">A LinguisticExpression is any physical form (sound, visual image or sequence thereof) used to represent a linguistic unit. A linguistic expression may be spoken, written, or signed. A linguistic expression is distinct form the actual process (speaking, writing, signing) that produces the expression.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LinguisticExpression</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LinguisticProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LinguisticProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Abstract"/>
+        <rdfs:comment xml:lang="eng">LinguisticProperty is the class  of properties that pertain to linguistic units. A unit&apos;s properties determine its behavior  in a grammatical system. Specific kinds of properties are relevant to certain types of units. In some language, for example, tense properties may be relevant for verbs. See also Feature and FeatureValue for the corresponding data structure for properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LinguisticProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LinguisticTaxon -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LinguisticTaxon">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Taxon"/>
+        <rdfs:comment xml:lang="eng">LinguisticTaxon is the class of  Taxons whose instances are used in the scientific classification language varieties. That is, instances of LinguisticTaxon have instances that are human language varieties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LinguisticTaxon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/LinguisticUnit -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/LinguisticUnit">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Abstract"/>
+        <rdfs:comment xml:lang="eng">This term is often used in linguistics and phonetics to refer to any entity which constitutes the focus of an enquiry. The unit is the stretch of language that carries grammatical patterns, and within which grammatical choices are made. For example, the unit sentence consists of one or more instances of the unit clause, and so on. [Crystal 2008: 503]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">LinguisticUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/MasculineGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/MasculineGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A gender property established on the basis of agreement, to which nouns may be assigned based on semantic or formal criteria.  In semantic gender systems, nouns belonging to the masculine gender typically denote male humans as well as nouns meeting certain physical criteria.  Some gender systems differentiate masculine nouns from all other nouns (e.g. masculine/other or male human/other), while others differentiate masculine, feminine and neuter nouns or several different gender classes. [Corbett 1991: 30]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">MasculineGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Modal -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Modal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A part of speech, usually associated with a verbal system, that expresses the concept of necessity and possibility, as well as the subject&apos;s attitude toward the factuality or actualization of the situation expressed by the rest of the clause.  Modals can code inception, termination, persistence, success, failure, attempt, intent, obligation or ability vis-a-vis the complement state/event, and the subject of the main clause is obligatorily also the subject of the complement clause. [Palmer 2001: 2; Givon 1984: 533; Huddleston and Pullam 2002: 173]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Modal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Morpheme -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Morpheme">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GrammarUnit"/>
+        <rdfs:comment xml:lang="eng">The smallest functioning unit in the composition of words, and the minimal distinctive unit of grammar.  Morphemes are commonly classified into free forms (morphemes which can occur as separate words) adn bound forms (morphemes which cannot so occur - mainly affixes).  A further distinction may be made between lexical and grammatical morphemes; the former are morphemes used for the construction of new words in a language; the latter are morphemes used to express grammatical relationships between a word and its context. [Crystal 2008: 300]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Morpheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/MorphologicalUnit -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/MorphologicalUnit"/>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/MorphosyntacticProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/MorphosyntacticProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticProperty"/>
+        <rdfs:comment xml:lang="eng">MorphosyntacticFeature is the class of linguistic features that govern the grammatical behavior of morphosyntactic units. E.g., two morphosyntactic units can agree according to shared morphosyntactic features. Morphosyntactic features are also called grammatical categories. This class is intended to represent only the formal aspects of morphosyntax; that is, there is no notional component. In a grammatical system, such features occur in contrast to one another other, and are typically expressed in the same fashion. [Crystal 1985: 43-44; Hopper, P. 1992: 81; Bybee 1985: 191]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">MorphosyntacticProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/MultiplicativeNumeral -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/MultiplicativeNumeral">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Numeral"/>
+        <rdfs:comment xml:lang="eng">A multiplicative numeral is a numeral that expresses how many fold or how many times [Pei and Gaynor 1954: 149; Hartmann and Stork 1972: 147].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">MultiplicativeNumeral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NegationOperator -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NegationOperator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">NegationOperator is a negative-marking phrase located in scope position of the verb (specifier or adjoined position).  Also called a &quot;negation particle&quot;, it is normally associated with the main verb of the clause but may also be a clause-level clitic.[Payne 2007:284; Haegeman 1995: 107, 286]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NegationOperator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NeuterGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NeuterGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A gender property established on the basis of agreement, to which nouns may be assigned, either by a semantic rule, if they belong to the semantic residue of the assignment system, or by a formal rule, if assignment depends on inflectional class membership. Typically, this means that the neuter gender may cover some inanimates and possibly some portion of lower order animates. Note: Although in familiar Indo-European languages the term neuter gender may be part of a system with three or less values, it can be used for systems containing more than three gender values (e.g. Bininj Gunwok). [Kibort and Corbett 2008a]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NeuterGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Nominal -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Nominal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A nominal is a partOfSpeech whose members differ grammatically from a substantive but which functions as one [Crystal 1997: 260].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Nominal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NominalClassifier -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NominalClassifier">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Classifier"/>
+        <rdfs:comment xml:lang="eng">A classifier used within a system of noun classes where the morphosyntactic loci are adjectives and, rarely, numerals, as modifiers. Nominal classifiers have all the properties of noun class system classifiers with differences regarding the size of the system (bigger); semantics (animacy/sex/shape/size), transparency of semantic basis (may be opaque), variability of assignment (possible), use in multiple classifier systems (possible), and interrelations with other categories (only with number). [Aikhenvald 2003: 68]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NominalClassifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NominalParticle -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NominalParticle">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Particle"/>
+        <rdfs:comment xml:lang="eng">A nominal particle is a member of a closed class of particles that co-occur with nouns.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NominalParticle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Nominalizer -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Nominalizer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/CategoryChanger"/>
+        <rdfs:comment xml:lang="eng">A derivational unit that forms a noun from some other word class. [Crystal 1997: 260]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Nominalizer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Noun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Noun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A term used in the grammatical classification of words, traditionally defines as the &quot;name of a person, place or thing,&quot; but the vagueness associated with the notions of &quot;name&quot; and &quot;thing&quot; (e.g. is &apos;beauty&apos; a thing?) has led linguistic descriptions to analyze this class in terms of the formal and functional criteria of syntax and morphology.  In linguistic terms, nouns are items which display certain types of inflection (e.g. of case or number), have a specific distribution (e.g. they may follow prepositions but not, say, modals), and perform a specific syntactic function (e.g. as subject or object of a sentence).  Nouns are generally subclassified into common and proper types, and analyzed in terms of number, gender, case and countability. [Crystal 2008: 320]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Noun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NounClassifier -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NounClassifier">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Classifier"/>
+        <rdfs:comment xml:lang="eng">A classifier is a partOfSpeech whose members express the classification of a noun [Crystal 1997: 61; Payne 1997: 107].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NounClassifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NounPhrase -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NounPhrase">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Phrase"/>
+        <rdfs:comment xml:lang="eng">Also called nominal groups, nouns phrases are the constructions into which nouns most commonly enter and of which they are the head word.  The structure of a noun phrase consists minimally of the noun (or noun substitute, such as a pronoun); the constructions preceding and following the noun are often described under the headings of premodification and postmodification respectively. [Crystal 2008: 320]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NounPhrase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NumberProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NumberProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/MorphosyntacticProperty"/>
+        <rdfs:comment xml:lang="eng">NumberProperty is the class of properties that concern the grammatical encoding of quantity. It is often found on nouns, pronouns, and verbs and expresses count distinctions--such as &apos;one&apos; or &apos;more than one&apos;. The count distinctions typically, but not always, correspond to the actual count of the referents of the marked noun or Pronoun. [Crystal 1980: 245; Hartmann and Stork 1972: 155]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NumberProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Numeral -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Numeral">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Quantifier"/>
+        <rdfs:comment xml:lang="eng">A numeral is a partOfSpeech whose members function most typically as adjectives or pronouns and express a number, or relation to the number, such as one of the following: quantity, sequence, frequency, fraction [Hartmann and Stork 1972: 155; Pei and Gaynor 1954: 149].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Numeral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NumeralClassifier -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/NumeralClassifier">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Classifier"/>
+        <rdfs:comment xml:lang="eng">Numeral classifiers are a grammatical device that reflects how speakers categorize objects that they count or quantify [Yamamoto 2005: 1].  They are a set of classifiers used in certain languages, e.g., Japanese, to indicate the class to which the noun modified by the numeral belongs [Pei and Gaynor 1980: 23].</rdfs:comment>
+        <rdfs:comment xml:lang="eng">Numeral classifiers are free or bound morphemes that occur in the context of quantification, appearing contiguous to numerals in numeral noun phrases and expressions of quantity. [Aikhenvald 2003: 98; Aikhenvald in Senft 2000: 93]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">NumeralClassifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Object -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Object">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Thing"/>
+        <rdfs:comment xml:lang="eng">Corresponds roughly to the class of ordinary objects. Examples include normal physical objects, geographical regions, and locations of processes, the complement of objects in the physical class. In a 4D ontology, an object is something whose spatiotemporal extent is thought of as dividing into spatial parts roughly parallel to the time-axis. [SUMO 2010]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/OrdinalNumeral -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/OrdinalNumeral">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Numeral"/>
+        <rdfs:comment xml:lang="eng">An ordinal numeral is a numeral belonging to a class whose members designate positions in a sequence [Crystal 1997: 272].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">OrdinalNumeral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/OrthographicPart -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/OrthographicPart">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/WrittenLinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">An OrthographicPart is a unit of an orthography that is not orthographically independent, that is, not necessarily able to stand alone as an orthographic word set off by whitespace. In the printed instance of the word &apos;conceive&apos;, &apos;eive&apos; is an instance of orthographic part. Note that an orthographic part is not the same as a single glyph, although, some orthographic parts are single glyphs.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">OrthographicPart</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/OrthographicPhrase -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/OrthographicPhrase">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/WrittenLinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">An OrthographicPhrase is a sequence of orthographic words.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">OrthographicPhrase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/OrthographicSentence -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/OrthographicSentence">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/OrthographicPhrase"/>
+        <rdfs:comment xml:lang="eng">An OrthographicSentence is a special type of orthographic phrase, usually representing a clause. In Western writing systems, an orthographic sentence is set off by white space on the left edge and some kind of puncuation, such as a period or question mark, on the right.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">OrthographicSentence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/OrthographicWord -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/OrthographicWord">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/WrittenLinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">An OrthographicWord is a fundamental unit of an orthography, usually set off by white space and dependent on the rules of a writing system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">OrthographicWord</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Paragraph -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Paragraph">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/WrittenLinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">A Paragraph is a self contained unit in written language composed of a sequence of orthographic sentences. Paragraphs are set off by vertical spacing, indentation or other conventions.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Paragraph</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PartOfSpeechProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PartOfSpeechProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticProperty"/>
+        <rdfs:comment xml:lang="eng">The property that identifies the grammatical class of a word.  The main &apos;parts of speech&apos; recognized by most school grammars derive from the work of the ancient Greek and Roman grammarians, primarily the noun, pronoun, verb, adverb, adjective, preposition, conjunction and interjection, with article, participle, and others often added.  Because of the inexplicitness with which these terms were traditionally defined and the restricted nature of their definitions, it has become preferable to use such terms as word-class or form-class, where the grouping is based on formal criteria of a more universally applicable kind. [Crystal 1997: 280]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PartOfSpeechProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Participle -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Participle">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A participle is a word which participates as both a verb (by showing tense) and as an adjective (by showing adjectival inflection).  In modern usage, the term refers to a non-finite part of the verb other than the infinitive (independent of the function of these forms in the sentence).  [Bauer 2004: 82]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Participle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Particle -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Particle">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A term used to refer to an invariable item with grammatical function, especially one which does not readily fit into a standard classification of parts of speech. [Crystal 1997: 279-280]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Particle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PartitiveNumeral -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PartitiveNumeral">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Numeral"/>
+        <rdfs:comment xml:lang="eng">A partitive numeral is a numeral that expresses a fraction [Pei and Gaynor 1954: 149; Hartmann and Stork 1972: 165].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PartitiveNumeral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PersonalPronoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PersonalPronoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Pronominal"/>
+        <rdfs:comment xml:lang="eng">A pronoun used to refer to the speaker, the person spoken to, and other persons and things whose referents are presumed to be clear from the context.  While some personal pronouns in some languages occur in essentially the same sentence position as other nominal expressions, it is rather common for them to show distributional peculiarities.  Personal pronouns may be clitics whose distribution may be consistently distinct from that of non-clitic nominals.  It is also common for the equivalent of personal pronouns to be expressed by affixes on the verb. [Schachter 1985: 25-26]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PersonalPronoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PhonologicalProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PhonologicalProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticProperty"/>
+        <rdfs:comment xml:lang="eng">The class of linguistic properties that pertain to phonological units and that are used to describe the sound system of languages [Hartmann and Stork 1972: 174]. Phonological units can be analyzed into complexes of distinctive properties that cross-classify the entire inventory of possible speech sounds into a densely packed network [Kenstowicz 1994: 19]. </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PhonologicalProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Phrase -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Phrase">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SyntacticConstruction"/>
+        <rdfs:comment xml:lang="eng">Phrase is the class of syntactic constructions that consist of one or more syntactic words, but lack the subject-predicate organization of a clause. Phrases get their grammatical characteristics according to what word occupies the head position; thus, all phrases have heads. [Crystal 1980: 232-233;  Pei and Gaynor 1954: 169; Pike and Pike 1982: 453]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Phrase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PlainAdjective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PlainAdjective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Adjectival"/>
+        <rdfs:comment xml:lang="eng">An adjective without any markings for comparative or superlative form, sometimes called &quot;positive&quot; form.  It is that form of an adjective which merely expresses the presence of a quality or condition, without comparing or indicating its degree.  [Pei and Gaynor 1980:  172, Hartmann and Stork 1972: 5]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PlainAdjective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PluralNumber -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PluralNumber">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/NumberProperty"/>
+        <rdfs:comment xml:lang="eng">PluralNumber is a number property that quantifies the denotation of the nominal element so that: 1) it specifies that there are more than one. In this English example below, plural is shown by both the noun and the verb in (2): 
+
+(1) my dog watches television 
+(2) my dogs watch television 
+
+[Corbett 2000: 5] 
+
+2) additionally, but not necessarily, pluralNumber may be assigned on the basis of formal properties (e.g. pluralia tantum, or measles / *measle). 3) if pluralNumber functions as generalNumber, it may specify a lack of commitment with regard to quantification ([Corbett 2000: 17] notes this system does not exist in pure form, that is, no language employs it as the normal case).
+
+Some Cushitic languages, generalNumber can be the same as singularNumber for some nouns, but the same as pluralNumber for other nouns. For example, in Arbore (arv), generalNumber may contrast with the singular in the absence of a distinct plural form: Ln Singular Ln tiis-in &apos;a maize cob&apos; Ln lasa-n &apos;a loaf&apos; 
+
+nebel-in &apos;a cock ostrich&apos; ln General ln tíise &apos;maize cob(s)&apos; ln lássa &apos;bread&apos; ln nebel &apos;ostrich(es)&apos; ln [Corbett 2000: 17-18]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PluralNumber</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PoliticalTaxon -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PoliticalTaxon">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticTaxon"/>
+        <rdfs:comment xml:lang="eng">PoliticalTaxon is the class of taxons whose instances are groupings based on political entities such as states or countries or larger politically defined entities, e.g., CameroonianLanguage.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PoliticalTaxon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PossessivePronoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/PossessivePronoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Pronominal"/>
+        <rdfs:comment xml:lang="eng">A possessive pronoun is a pronoun that expresses ownership and relationships like ownership, such as kinship, and other forms of association [Crystal 1997: 312].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">PossessivePronoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Postposition -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Postposition">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Adposition"/>
+        <rdfs:comment xml:lang="eng">A postposition is an adposition that occurs after its complement [Crystal 1997: 300; Payne 1997: 86].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Postposition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Predicator -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Predicator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">Predicator is the class of syntactic words that are fundamentally relation inducing. That is, predicators license argument structure [Anderson 1997: 14]. Verbs are quintessential predicators, though other categories, such as determiners and some nouns, are also predicative in nature.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Predicator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Prefix -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Prefix">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Affix"/>
+        <rdfs:comment xml:lang="eng">An affix which is added to the front of a root or stem.  [Hartmann and Stork 1972: 182]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Prefix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Prenoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Prenoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">An element which may be compounded to the front of a noun to signal information such as size, color, etc. [Valentine 2001: 152-154].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Prenoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Preposition -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Preposition">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Adposition"/>
+        <rdfs:comment xml:lang="eng">A preposition is an adposition that occurs before its complement [Crystal 1997: 305; Payne 1997: 86].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Preposition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Preverb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Preverb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">An element which may be compounded to the front of a verb, to signal information such as tense, direction, etc. [Valentine 2001: 154-158].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Preverb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ProForm -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ProForm">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A ProForm is a partOfSpeech whose members usually substitute for other constituents, including phrases, clauses, or sentences, and whose meaning is recoverable from the linguistic or extralinguistic context [Crystal 1997: 310; Schachter 1985: 24-25].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ProForm</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ProVerb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ProVerb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Verbal"/>
+        <rdfs:comment xml:lang="eng">A proverb (frequently written &quot;pro-verb&quot;) is a ProForm that substitutes for a verb or verb phrase. [Schachter 1985: 34]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ProVerb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Proadjective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Proadjective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/ProForm"/>
+        <rdfs:comment xml:lang="eng">A Proadjective is a ProForm that substitutes for an adjective or adjective phrase. [Crystal 1997: 310]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Proadjective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Proadverb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Proadverb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/ProForm"/>
+        <rdfs:comment xml:lang="eng">A Proadverb is a Proform that substitutes for an adverb or other expression having an adverbial function. [Crystal 1997: 310]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Proadverb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Processive -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Processive">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/DerivationalMorpheme"/>
+        <rdfs:comment xml:lang="eng">A derivational morpheme that derives transitives from other transitives or intransitive verb.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Processive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Proclitic -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Proclitic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Clitic"/>
+        <rdfs:comment xml:lang="eng">A proclitic is a clitic that precedes the lexical unit to which it is phonologically joined [Crystal 1980: 64; Hartmann and Stork 1972: 185; Pei and Gaynor 1954: 176].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Proclitic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Pronominal -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Pronominal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/ProForm"/>
+        <rdfs:comment xml:lang="eng">A Pronoun is a ProForm which functions like a noun and substitutes for a noun or  noun phrase [Crystal 1997: 312].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Pronominal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ProperNoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ProperNoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Noun"/>
+        <rdfs:comment xml:lang="eng">ProperNoun, also referred to as proper names, is the class of nouns that are used to address particular persons or culturally significant personages or places. They refer to specific entities and are not usually with articles, modifiers, possessors. [Payne 1997: 39]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ProperNoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Quantifier -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Quantifier">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A quantifier is a determiner that expresses a referent&apos;s definite or indefinite  number or amount. A quantifier functions as a modifier of a noun, or a pronoun. [Crystal 1997: 317]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Quantifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ReciprocalPronoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ReciprocalPronoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Pronominal"/>
+        <rdfs:comment xml:lang="eng">A reciprocal pronoun is a pronoun that expresses a mutual feeling or action among the referents of a plural subject [Crystal 1997: 323].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ReciprocalPronoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ReflexivePronoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ReflexivePronoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Pronominal"/>
+        <rdfs:comment xml:lang="eng">A pronoun which is interpreted as coreferential with another nominal, usually the subject, of the sentence or clause in which it occurs. [Schachter 1985: 27]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ReflexivePronoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/RelativePronoun -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/RelativePronoun">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Pronominal"/>
+        <rdfs:comment xml:lang="eng">A relative pronoun is a pronoun that marks a relative clause, functions grammatically within the relative clause, and is coreferential to the word modified by the relative clause [Crystal 1997: 329].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">RelativePronoun</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Relativizer -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Relativizer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SubordinatingConnective"/>
+        <rdfs:comment xml:lang="eng">A relativizer is a subordinating connective that links a relative clause to its head  noun. It is distinguishable from a relative pronoun in that it does not have a nominal function within the relative clause. [Payne 1997: 332]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Relativizer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Repetitive -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Repetitive">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/DerivationalMorpheme"/>
+        <rdfs:comment xml:lang="eng">A derivational unit that derives transitives from other transitive or intransitive stems adding the meaning of repetition to the resulting form. [concept mentioned in Kibort 2008c: 9]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Repetitive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/RomanNumeralGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/RomanNumeralGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">A convention for labeling gender values. Roman numerals are often used for languages for which there is a descriptive tradition involving use of the term &apos;noun class&apos; instead of &apos;gender&apos;, in particular in languages of the Caucasus or Bantu languages, and are particularly useful where the number of genders is large.If the &apos;noun classes&apos; are involved in agreement systems, they are gender systems. Roman numerals may also be used in instances where another label is possible. In one language the gender to which nouns with male rational denotation are assigned might be called &apos;masculine&apos;, whereas in another language nouns with a similar denotation may be assigned to a gender with an arbitrary Roman numerical label such as &apos;I&apos;. [Kibort and Corbett 2008a]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">RomanNumeralGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Root -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Root">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Morpheme"/>
+        <rdfs:comment xml:lang="eng">The base form of a word which cannot be further analyzed without total loss of identity. Roots may be free or bound morphemes and can be classified as simple (i.e. compositionally unanalyzable in terms of morphemes) or complex/compound (i.e. certain combinations of simple root forms), though for the latter, the term &apos;stem&apos; is often used.  From a semantic point of view, the root generally carried the main component of meaning in a word. [Crystal 1997: 336]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Root</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SemanticAssignmentSystem -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SemanticAssignmentSystem">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/FeatureAssignmentSystem"/>
+        <rdfs:comment xml:lang="eng">For natural language understanding, the process of fine-grain semantic role assignment is one of the prominent steps, which provides semantic relations between constituents. The sense and sense relations between constituents provide the core meaning of a sentence. Abstract semantic roles include thematic roles, such as agent, theme, and instrument, and secondary roles such as location, time, and manner. [Chen and You 2004: 1] </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SemanticAssignmentSystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SemanticProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SemanticProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticProperty"/>
+        <rdfs:comment xml:lang="eng">In componential analysis, one of several features which together can be said to make up the semantic meaning of a word or utterance.  Thus &apos;raining&apos; could be analyzed into the component features &apos;precipitation&apos;, &apos;liquid&apos; (not &apos;solid&apos; as in &apos;hail&apos;), &apos;average&apos; (not &apos;light&apos; as /drizzling/ or &apos;heavy&apos; as /pouring/), etc. [...] Alternative terms: semantic feature, semantic [component], semantic marker. [Hartmann and Stork 1972: 203]</rdfs:comment>
+        <rdfs:comment xml:lang="eng">The class of linguistic properties that pertain to semantic units. The units that underlie our intuitions about literal meaning and are associated with the grammatical structure of a language. [Frawley 1953: 12]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SemanticProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SemanticUnit -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SemanticUnit">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticUnit"/>
+        <rdfs:comment xml:lang="eng">A SemanticUnit is the class of semantics elements, or units of semantic structure (sometimes called a sememe). Semantic units serve as the meaning component of linguistic signs. A semantic unit is intended for linguistic description and no particular logical representation is implied.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SemanticUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SimpleSpecification -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SimpleSpecification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/FeatureSpecification"/>
+        <rdfs:comment xml:lang="eng">A SimpleSpecification is a kind of FeatureSpecification whose value must be a simple linguistic attribute [Maxwell, Simons and Hayashi 2000].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SimpleSpecification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SingularNumber -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SingularNumber">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/NumberProperty"/>
+        <rdfs:comment xml:lang="eng">Singular refers to one member of a designated class [Crystal 1980: 245; Hartmann and Stork 1972: 210].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SingularNumber</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SizeProperty -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SizeProperty">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/MorphosyntacticProperty"/>
+        <rdfs:comment xml:lang="eng">SizeProperty is a physical property with two values: large and small. Languages apparently do not encode a middle value of medium, at least not in the grammar. The marking of large size is traditionally called the augmentativem that for small size the diminutive. [Frawley 1992: 126]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SizeProperty</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Stem -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Stem">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Morpheme"/>
+        <rdfs:comment xml:lang="eng">Stem is the class of  morphological units that are analyzable into a root and possibly one or more derivational units. Stems can occur alone and are the basis for adding inflectional units. [Lyons 1977: 513, 521-526]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Stem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/StructuralDescription -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/StructuralDescription">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">A term used in (esp. classical) transformational grammar to refer to an analysis of a terminal string in terms of a labeled bracketing.  In transformational analysis, the SD identifies the input to a transformational rule: it specifies which phrase-markers are to be affected by the rule.  i.e. which will &apos;satisfy&apos; or &apos;meet&apos; the conditions of the rule. The terms structural analysis and structure index are also used. [Crystal 2008: 458] </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">StructuralDescription</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SubordinatingConnective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SubordinatingConnective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Connective"/>
+        <rdfs:comment xml:lang="eng">A subordinating connective is a connective that links constructions by making one of them a constituent of another. The subordinating conjunction typically marks the incorporated constituent. [Crystal 1997: 370]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SubordinatingConnective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Substantive -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Substantive">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">A substantive is a member of the syntactic class in which the names of physical, concrete, relatively unchanging experiences are most typically found whose members may act as subjects and  objects, and most of whose members have inherently determined grammatical  gender (in languages which inflect for gender) [Crystal 1997: 264; Givon 1984: 51-52; Payne 1997: 33].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Substantive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Suffix -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Suffix">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Affix"/>
+        <rdfs:comment xml:lang="eng">An affix, consisting of a letter, syllable, or syllables, that follows a stem or word, modifying its meaning. Suffixes may be inflectional or derivational. [Crystal 1987: 431; Hartmann and Stork 1972: 225; Pei and Gaynor 1980: 207]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Suffix</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SuperlativeAdjective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SuperlativeAdjective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Adjectival"/>
+        <rdfs:comment xml:lang="eng">That form of an adjective that expresses that the thing to which it refers possesses a certain quality or attribute to a greater extent than any other thing [Hartmann and Stork 1972: 60; Pei and Gaynor 1980: 207].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SuperlativeAdjective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SyntacticArgument -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SyntacticArgument">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/PartOfSpeechProperty"/>
+        <rdfs:comment xml:lang="eng">SyntacticArgument is the class of syntactic words that are fundamentally referable and  non-relational [Anderson 1997: 15]. Proper names are the quintessential arguments, though pronouns and nouns possess argument properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SyntacticArgument</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SyntacticConstruction -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SyntacticConstruction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SyntacticUnit"/>
+        <rdfs:comment xml:lang="eng">SyntacticConstruction is the class of grammar units that have syntactic structure, i.e., consisting of more than one syntactic word or construction in a syntactic configuration [Crystal 1980: 85-86].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SyntacticConstruction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SyntacticUnit -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SyntacticUnit">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GrammarUnit"/>
+        <rdfs:comment xml:lang="eng">SyntacticUnit (also called constituent) is a &apos;term in grammatical analysis for a linguistic unit which is a functional component of a larger construction. Based on a combination of intuitive and formal (e.g. distributional) criteria, a sentence can be analysed into a series of constituents, such as subject + predicate, or NP+VP, etc. [Crystal 2003: 99]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SyntacticUnit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SyntacticWord -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/SyntacticWord">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/SyntacticUnit"/>
+        <rdfs:comment xml:lang="eng">It can be moved about in the sentence, or at least its position relative to other constituents can be altered by inserting new material.  It cannot be interrupted or its parts reordered. [Cruse 2000: 87-88]</rdfs:comment>
+        <rdfs:comment xml:lang="eng">SyntacticWord is the class of syntactic units occupying the lowest position in a syntactic construction.  They are the largest units resistant to insertion of new constituents within their boundaries; or they are the smallest constituents that can be moved within a sentence without making the sentence ungrammatical. [SIL International 2004]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">SyntacticWord</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Taxon -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Taxon">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Abstract"/>
+        <rdfs:comment xml:lang="eng">Taxon is the class of scientific categories used to create a taxonomy and determined according to scientific principles in a given domain, e.g., Biology or Linguistics.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Taxon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Term -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Term">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">A vocabulary item which has a special meaning in a particular subject field, e.g. &apos;sound&apos; or &apos;voice&apos; in phonetics, or &apos;butterfly&apos; in swimming. [Hartmann and Stork 1972: 236]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Term</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Termset -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Termset">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticDataStructure"/>
+        <rdfs:comment xml:lang="eng">A set of scientific terms used as part of an annotation system, usually the standard terms from a particular linguistic theory.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Termset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/TertiaryPredicator -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/TertiaryPredicator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">TertiaryPredicator is the class of syntactic words that take three required arguments.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">TertiaryPredicator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Thing -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Thing">
+        <rdfs:comment xml:lang="eng">In Web Ontology Language, Thing is the superclass of all classes. The most basic concepts in a domain should correspond to classes that are the roots of various taxonomic trees. Every individual in the OWL world is a member of the class owl:Thing. Thus each user-defined class is implicitly a subclass of owl:Thing. Domain specific root classes are defined by simply declaring a named class. [Smith, Welty and McGuinness 2004]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/TransitiveVerb -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/TransitiveVerb">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/BinaryPredicator"/>
+        <rdfs:comment xml:lang="eng">A transitive verb is a verb that takes a direct object, and describes a relation between two participants [Crystal 1997: 397; Payne 1997: 171].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">TransitiveVerb</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Transitivizer -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Transitivizer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/DerivationalMorpheme"/>
+        <rdfs:comment xml:lang="eng">A derivational unit that derives transitive verbs from intransitive verb (stems).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Transitivizer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/UnaryPredicator -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/UnaryPredicator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">UnaryPredicator is the class of syntactic words that take only one required argument.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">UnaryPredicator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/VegetableGender -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/VegetableGender">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/GenderProperty"/>
+        <rdfs:comment xml:lang="eng">Vegetable gender refers to inanimates and exists in some four-way gender systems, e.g., masculine, feminine, neuter, and vegetable as in Bininj Gun-wok [Evans 2003: 202].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">VegetableGender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/VerbPhrase -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/VerbPhrase">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Phrase"/>
+        <rdfs:comment xml:lang="eng">A unit of sentence structure consisting of a verb and the other elements closely linked to it. Traditional grammarians divided a typical sentence into two parts: a subject and a predicate. In our modern elaboration of this, the syntactic category which acts as a subject is a noun phrase, while the category acting as the predicate is a verb phrase. A verb phrase always contains a verb, and it usually contains some other material closely linked to that verb. [Trask 1999: 335] According to the valence of the verb, the number and kind of the obligatory complements may vary; in addition, any number of free complements are possible. The border between obligatory and free complementsis often difficult to draw. [Bussmann 1996: 513]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">VerbPhrase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Verbal -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Verbal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">A Verbal is a part of speech whose members typically signal events and actions; constitute, singly or in a phrase, a minimal  predicate in a  clause; govern the number and types of other constituents which may occur in the clause; and, in inflectional languages, may be inflected for tense, aspect, voice, modality, or agreement with other constituents in person, number, or grammatical gender  [Crystal 1997: 409; Givon 1984: 52; Payne 1997: 47].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Verbal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/VerbalAdjective -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/VerbalAdjective">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Adjectival"/>
+        <rdfs:comment xml:lang="eng">An adjectival which is closely related in form and or meaning to a verb. For example, -ed and -ing forms in English which are used as adjectives. [Crystal 1985: 326; Hartmann and Stork 1972: 249; Pei and Gaynor 1980: 227]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">VerbalAdjective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/VerbalParticle -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/VerbalParticle">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Particle"/>
+        <rdfs:comment xml:lang="eng">Verbal particles are a closed class of uninflected words that co-occur with certain verbs. In some cases the verbal particles may have clearly distinguishable locative or directional meanings. In some languages some or all of the verbal particles also occur as (and are historically derived from) adpositions. In other languages, however, for example Ga&apos;anda, the verbal particles are entirely distinct from adpositions. [Schachter 1985: 45-46] </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">VerbalParticle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Verbalizer -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Verbalizer">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/CategoryChanger"/>
+        <rdfs:comment xml:lang="eng">Verbalizer is the class of category changing units that change nouns into verbs.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Verbalizer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Versive -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/Versive">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/CategoryChanger"/>
+        <rdfs:comment xml:lang="eng">Versive refers to an intransitive verb, usually derived from an adjective but occasionally from a noun or adverb, with the meaning &apos;to become X&apos;. [Edmonson 1995: 378]</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">Versive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/WrittenLinguisticExpression -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/WrittenLinguisticExpression">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/LinguisticExpression"/>
+        <rdfs:comment xml:lang="eng">A WrittenLinguisticExpression is the written physical form of language as distinct from either signed or spoken expressions. A written expression is the physical product of the writing process. </rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">WrittenLinguisticExpression</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/ZeroPlacePredicator -->
+
+    <owl:Class rdf:about="http://purl.org/linguistics/gold/ZeroPlacePredicator">
+        <rdfs:subClassOf rdf:resource="http://purl.org/linguistics/gold/Predicator"/>
+        <rdfs:comment xml:lang="eng">ZeroPlacePredicator is the class of syntactic words that need not take any arguments, but act as predicators nevertheless.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">ZeroPlacePredicator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/hasMorphologicalConstituent">
+        <rdfs:label xml:lang="eng">hasMorphologicalConstituent</rdfs:label>
+        <rdfs:comment xml:lang="eng">The relation hasMorphologicalConstituent is an abstract partial ordering relation that expresses dominance between two morphological units. This relation is meant to cover all possible types of morphological constituency.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/morphologicalRelation">
+        <rdfs:comment xml:lang="eng">A relation holding between morphological units.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/linguistics/gold</rdfs:isDefinedBy>
+        <rdfs:label xml:lang="eng">morphologicalRelation</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+

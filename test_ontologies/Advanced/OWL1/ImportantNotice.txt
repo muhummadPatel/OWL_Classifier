@@ -1,0 +1,1 @@
+These are not all OWL 1 DL ontologies, some are OWL Full. However, the classification matches the sublanguage tool of Protege 3.4.3

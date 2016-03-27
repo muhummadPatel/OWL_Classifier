@@ -55,7 +55,7 @@ public class OWL1ProfileChecker {
             };
 
             /* The OWL 1 validator api cannot return a list of violations.
-            The standard output is temporally redirected to a byte array output stream which can be converted into a string.
+            The standard output is temporarily redirected to a byte array output stream which can be converted into a string.
             The newlines are then used to separate it into an array. The output from the validator api has been
             set to a specific format (the code above) which is used to calculate at which profile the explanation is labeled.
             This is then used to filter the messages for each profile check.
@@ -72,6 +72,7 @@ public class OWL1ProfileChecker {
             speciesValidator = new SpeciesValidator();
             speciesValidator.setReporter(speciesValidatorReporter);
             OWL1ProfileReport profileReportLite = new OWL1ProfileReport();
+
             profileReportLite.setIsInProfile(speciesValidator.isOWLLite(ontologyFileURI));
             profileMap.put(PROFILE_NAMES.get(0), profileReportLite);
 

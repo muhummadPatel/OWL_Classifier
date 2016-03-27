@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ontology.dumontierlab.com/physics-complex#"
+     xml:base="http://ontology.dumontierlab.com/physics-complex"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ontology="http://ontology.dumontierlab.com/"
+     xmlns:span="http://www.ifomis.org/bfo/1.0/span#">
+    <owl:Ontology rdf:about="http://ontology.dumontierlab.com/physics-complex">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.0</owl:versionInfo>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2007-10-01</dc:date>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complex class expressions for the physics ontology.</dc:description>
+        <dc:publisher rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dumontier Lab</dc:publisher>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Michel Dumontier</dc:creator>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Physics Ontology (complex)</dc:title>
+        <dc:format rdf:datatype="http://www.w3.org/2001/XMLSchema#string">application/rdf+xml</dc:format>
+        <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</dc:language>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/nulo"/>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/physics-primitive"/>
+        <owl:imports rdf:resource="http://ontology.dumontierlab.com/subatomic-particle-complex"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/language"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/format"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.dumontierlab.com/hasParticipant"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.dumontierlab.com/DoubleProtonEmission -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/DoubleProtonEmission">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasParticipant"/>
+                <owl:onClass rdf:resource="http://ontology.dumontierlab.com/Proton"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/Proton"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Electron -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Electron"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Force -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Force">
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.0/span#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/GammaDecay -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/GammaDecay">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/Photon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/InternalConversion -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/InternalConversion">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/Electron"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Neutron -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Neutron"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NeutronEmission -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NeutronEmission">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/Neutron"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/NuclearReaction -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/NuclearReaction">
+        <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.0/span#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Photon -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Photon"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/Proton -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/Proton"/>
+    
+
+
+    <!-- http://ontology.dumontierlab.com/ProtonEmission -->
+
+    <owl:Class rdf:about="http://ontology.dumontierlab.com/ProtonEmission">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ontology.dumontierlab.com/hasParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://ontology.dumontierlab.com/Proton"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ifomis.org/bfo/1.0/span#Process -->
+
+    <owl:Class rdf:about="http://www.ifomis.org/bfo/1.0/span#Process"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

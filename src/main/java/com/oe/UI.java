@@ -52,6 +52,7 @@ public class UI extends JFrame {
 
     private JTextArea[] expAreas;
     private JTextArea[] vioAreas;
+    private boolean printResultsToTerminal;
 
     private int letterWidth = 10; //Total length of the letter + spaces used to for expressivity tabs
 
@@ -64,6 +65,9 @@ public class UI extends JFrame {
     }
 
     private void initialize() {
+        // Default to printing results to terminal
+        printResultsToTerminal = true;
+
         try {
             // Set System L&F
             UIManager.setLookAndFeel(
@@ -79,7 +83,7 @@ public class UI extends JFrame {
         }
 
         //The main frame
-        frame = new JFrame("Ontology Profile Checker");
+        frame = new JFrame("OntoCheck");
         frame.setSize(1000, 900);
         frame.setResizable(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -116,7 +120,7 @@ public class UI extends JFrame {
         checkboxHeading = new JLabel("<html><b><u>OWL Profiles</u></b></html>");
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.insets = new Insets(10, 10, 10, 10); //Padding
+        gbc.insets = new Insets(5, 10, 0, 0); //Padding
         gbc.gridwidth = 4;
         gbc.gridheight = 1;
         gbc.weighty = 0;
@@ -124,7 +128,7 @@ public class UI extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         frame.add(checkboxHeading, gbc);
 
-        gbc.insets = new Insets(0, 0, 0, 0); //Padding
+        gbc.insets = new Insets(0, 6, 5, 0); //Padding
         for (int i = 0; i < profiles.length; ++i) {
             checkBoxes[i] = new JCheckBox(profiles[i]);
             checkBoxes[i].setModel(new DefaultButtonModel() //Only way to make check boxes read only. SetEnabled(false) greys out the component
@@ -148,37 +152,46 @@ public class UI extends JFrame {
 
             frame.add(checkBoxes[i], gbc);
         }
-        gbc.insets = new Insets(10, 10, 10, 10); //Padding
 
+		//Explanation area heading
+		JLabel explanationHeading = new JLabel("<html><b><u>Expressivity Information</u></b></html>");
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.weighty = 0;
+		gbc.insets = new Insets(0, 10, 2, 0); //Padding different for label
+		gbc.gridheight = 1;
+		gbc.gridwidth = 5;
+		frame.add(explanationHeading, gbc);
 
         //The explanation area before the expressivity information
         explanationArea = new JTextArea("");
         explanationArea.setEditable(false);
         JScrollPane scrollableArea = new JScrollPane(explanationArea);//, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = 3;
         gbc.gridwidth = 9;
         gbc.gridheight = 3;
+		gbc.insets = new Insets(0, 10, 8, 0);
         gbc.weighty = 1;
         gbc.fill = GridBagConstraints.BOTH;
         frame.add(scrollableArea, gbc);
 
         expHeading = new JLabel("<html><b><u>Expressivity Axioms</u></b></html>");
         gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.weighty = 0;
-        gbc.insets = new Insets(0, 10, 10, 0); //Padding different for label
+        gbc.insets = new Insets(0, 10,2, 0); //Padding different for label
         gbc.gridheight = 1;
         frame.add(expHeading, gbc);
 
-        gbc.insets = new Insets(10, 10, 10, 10); //Reset padding
+        gbc.insets = new Insets(0, 10, 8, 0); //Reset padding
 
         expressivityPane = new JTabbedPane();
         JTextArea tempField1 = new JTextArea();
         //  expressivityPane.setSize(500,400);
         expressivityPane.addTab("          ", tempField1);
         gbc.gridx = 0;
-        gbc.gridy = 6;
+        gbc.gridy = 7;
         gbc.gridwidth = 9;
         gbc.gridheight = 4;
         gbc.weighty = 1;
@@ -188,20 +201,20 @@ public class UI extends JFrame {
 
         profileHeading = new JLabel("<html><b><u>Profile Violations</u></b></html>");
         gbc.gridx = 0;
-        gbc.gridy = 10;
+        gbc.gridy = 11;
         gbc.weighty = 0;
-        gbc.insets = new Insets(0, 10, 10, 0);
+        gbc.insets = new Insets(0, 10, 2, 0);
         gbc.gridheight = 1;
         frame.add(profileHeading, gbc);
 
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.insets = new Insets(0, 10, 8, 0);
 
         violationsPane = new JTabbedPane();
         JTextArea tempField2 = new JTextArea();
         //violationsPane.setSize(500,400);
         violationsPane.addTab("          ", tempField2);
         gbc.gridx = 0;
-        gbc.gridy = 11;
+        gbc.gridy = 12;
         gbc.gridwidth = 9;
         gbc.gridheight = 4;
         gbc.weighty = 1;
@@ -231,19 +244,27 @@ public class UI extends JFrame {
             String fullAxioms = "";
             String cleanedAxioms = "";
             for (OWLAxiom axiom : axiomClassifications.get(letter)) {
-                cleanedAxioms += counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                // regex but it works
+                if(axiom.toString().contains("#")){
+                    cleanedAxioms += counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
+                    // regex but it works
+                    area.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with the
+                    // list of axioms
+                }else{
+                    cleanedAxioms += counter + " - " + axiom.toString() + "\n";
+                    area.append(counter + " - " + axiom.toString() + "\n"); //Populate this area with the
+                    // list of axioms
+                }
                 fullAxioms += counter + " - " + axiom.toString() + "\n";
-                area.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with the
-                // list of axioms
                 ++counter;
             }
 
             //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
             expAreas[index] = area;
             expAreas[index].setCaretPosition(0);
-            System.out.println("=== " + letter + " ===");
-            System.out.println(area.getText());
+            if(printResultsToTerminal) {
+                System.out.println("=== " + letter + " ===");
+                System.out.println(area.getText());
+            }
             fullExpAxioms[index] = fullAxioms;
             cleanExpAxioms[index] = cleanedAxioms;
             JScrollPane scrollableArea = new JScrollPane(area);
@@ -267,7 +288,9 @@ public class UI extends JFrame {
         cleanVioAxioms = new String[profiles.length];
         int index = 0;
         for (String profileName : OWL2ProfileChecker.PROFILE_NAMES) {
-            System.out.println("Is in " + profileName + "? " + ontologyProfileReports.get(profileName).isInProfile());
+            if(printResultsToTerminal) {
+                System.out.println("Is in " + profileName + "? " + ontologyProfileReports.get(profileName).isInProfile());
+            }
             if (ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
             {
                 checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
@@ -280,17 +303,25 @@ public class UI extends JFrame {
             area.setEditable(false);
 
             for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
-                cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                // regex but it works
+                if(violation.toString().contains("#")){
+                    cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
+                    // regex but it works
+                    area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
+                    // the list of axioms
+                }else{
+                    cleanedAxioms += counter + " - " + violation.toString() + "\n";
+                    area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with
+                    // the list of axioms
+                }
                 fullAxioms += counter + " - " + violation.toString() + "\n";
-                area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
-                // the list of axioms
                 ++counter;
             }
             //Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
-            System.out.println(area.getText());
+            if(printResultsToTerminal) {
+                System.out.println(area.getText());
+            }
             fullVioAxioms[index] = fullAxioms;
             cleanVioAxioms[index] = cleanedAxioms;
             JScrollPane scrollableArea = new JScrollPane(area);
@@ -301,7 +332,9 @@ public class UI extends JFrame {
 
         //Now do the same for the OWL 1 profiles
         for (String profileName : OWL1ProfileChecker.PROFILE_NAMES) {
-            System.out.println("Is in " + profileName + "? " + owl1ontologyProfileReports.get(profileName).isInProfile());
+            if(printResultsToTerminal) {
+                System.out.println("Is in " + profileName + "? " + owl1ontologyProfileReports.get(profileName).isInProfile());
+            }
             if (owl1ontologyProfileReports.get(profileName).isInProfile()) //If there are no violations
             {
                 checkBoxes[Arrays.asList(profiles).indexOf(profileName)].setSelected(true); //It falls under the respective profile
@@ -316,11 +349,17 @@ public class UI extends JFrame {
             String cleanedAxioms = "";
 
             for (String violation : profileReport.getViolations()) {
-                cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                // regex but it works
+                if(violation.toString().contains("#")){
+                    cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
+                    // regex but it works
+                    area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
+                    // the list of axioms
+                }else{
+                    cleanedAxioms += counter + " - " + violation.toString() + "\n";
+                    area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with
+                    // the list of axioms
+                }
                 fullAxioms += counter + " - " + violation.toString() + "\n";
-                area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
-                // the list of axioms
                 ++counter;
             }
 
@@ -329,7 +368,9 @@ public class UI extends JFrame {
             counter = 1;
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
-            System.out.println(area.getText());
+            if(printResultsToTerminal) {
+                System.out.println(area.getText());
+            }
             fullVioAxioms[index] = fullAxioms;
             cleanVioAxioms[index] = cleanedAxioms;
             ++index;
@@ -357,7 +398,7 @@ public class UI extends JFrame {
             {
                 mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
                 ontologies = OntologyLoader.loadOntology(filePath, true);
-                frame.setTitle(frame.getTitle() + " - " + filePath);
+                frame.setTitle("OntoCheck" + " - " + filePath);
             } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
                 JOptionPane.showMessageDialog(new JFrame(), "Invalid file!", "Dialog", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -373,8 +414,10 @@ public class UI extends JFrame {
                 displayExplaination = "~ AL is the base language used";
             }
 
-            String explainMessage = "Expresivity: " + expChecker.getDescriptionLogicName() + "\n" + "Explanation of description logic name: \n" +
-                    displayExplaination;
+            String explainMessage = "Expresivity: " + expChecker.getDescriptionLogicName();
+            if(displayExplaination.trim().length() != 0) {
+                explainMessage += "\n" + "Explanation of description logic name: \n" + displayExplaination;
+            }
             explanationArea.setText(explainMessage);
             explanationArea.setCaretPosition(0);
             System.out.println("\n" + explainMessage);
@@ -445,13 +488,34 @@ public class UI extends JFrame {
             setTitle("Help");
             setSize(400, 550);
             setResizable(false);
+			setLayout(new BorderLayout());
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             addWindowListener(exitListener);
 
-            //The actualy help text
-            JLabel info = new JLabel("\n\n\nHeeeeeeeeeeeeeeeeeeeeeeeeeeeeey\n\n\n");
+            //The actual help text
+			String text =  "<html>******************************************************"
+			         		   + "<center>OntoCheck v1.0</center>"
+			         		   + "******************************************************<br>"
+			         		   + "<p align = justify>OntoCheck is a lightweight ontology profiler tool that classifies <br>"
+			         		   + "OWL 1 and OWL 2 ontologies and provides more information about  <br>"
+			         		   + "the expressivity and axioms. <br><br>"
 
-            add(info);
+					 		   + "Using the tool, users can check the profiles that ontologies fall<br>"
+					 		   + "under. The expressivity of the ontology and an explanation is<br>"
+					 		   + "also provided. Lastly, users can also check the axioms that<br>"
+					 		   + "cause the expressivity of the ontology and the axioms that<br>"
+							   + "violate the other OWL 1 and OWL 2 profiles.<br><br>"
+
+							   + "OntoCheck was created by a group of 3 university students at<br>"
+							   + "UCT as part of an Ontology Engineering course.<br>"
+							   + "<br>"
+							   + "<br>"
+					 		   + "</p></html>";
+            JLabel info = new JLabel(text);
+			info.setHorizontalAlignment(JLabel.CENTER);
+			info.setVerticalAlignment(JLabel.CENTER);
+
+            add(info, BorderLayout.CENTER);
         }
     }
 

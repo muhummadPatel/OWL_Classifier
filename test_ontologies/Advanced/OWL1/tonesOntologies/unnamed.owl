@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.owl-ontologies.com/unnamed.owl#"
+     xml:base="http://www.owl-ontologies.com/unnamed.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:unnamed="http://www.owl-ontologies.com/unnamed.owl#">
+    <owl:Ontology rdf:about="http://www.owl-ontologies.com/unnamed.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#has_part -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#has_part">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Protein -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Protein">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#RibosomeParts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeA -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeA">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeB -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeB">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeC -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeC">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeD -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeD">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeE -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeE">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeF -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeF">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#has_part"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+                            <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeG -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeG">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeH -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeH">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#Protein"/>
+                    <rdf:Description rdf:about="http://www.owl-ontologies.com/unnamed.owl#rRNA"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RibosomeParts -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RibosomeParts"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#rRNA -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#rRNA">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#RibosomeParts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1450) http://owlapi.sourceforge.net -->
+

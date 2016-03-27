@@ -1,0 +1,1332 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/#" >
+    <!ENTITY dcr "http://www.isocat.org/ns/dcr.rdf#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY description "http://purl.org/dc/elements/1.1/description#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.meteck.org/files/ontologies/ncs#"
+     xml:base="http://www.meteck.org/files/ontologies/ncs"
+     xmlns:dc="http://purl.org/dc/elements/1.1/#"
+     xmlns:dcr="http://www.isocat.org/ns/dcr.rdf#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:description="http://purl.org/dc/elements/1.1/description#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.meteck.org/files/ontologies/ncs.owl">
+        <description:creator>Maria Keet</description:creator>
+        <description:creator>Catherine Chavula</description:creator>
+        <owl:versionInfo xml:lang="en">This is the first version of the ontology Noun Class System (NCS). (Sept. 2014)</owl:versionInfo>
+        <rdfs:comment xml:lang="en">This ontology models the noun class system of the Bantu languages. The primary function of the ontology  is to annonate lexical items on the Semantic Web with noun class information to be used by applications in tasks such as ontology-based Natural Language Generation. 
+With v2, it is now also possible to classify nouns in the NCS w.r.t. the noun class system and derive the nc of the plural given the singular, and in in some cases also the singular given the plural.</rdfs:comment>
+        <rdfs:seeAlso xml:lang="en">v1 of the ontology is briefly described in:
+Chavula, C., Keet, C.M. Is Lemon Sufficient for Building Multilingual Ontologies for Bantu Languages? 11th OWL: Experiences and Directions Workshop (OWLED’14). Riva del Garda, Italy, Oct 17-18, 2014. CEUR-WS.</rdfs:seeAlso>
+        <owl:versionInfo xml:lang="en">v2 of the NCS (Feb. 2015), with all singlular/plural properties defind for the noun classes, annotations added, and some other minor additions (disjointness and others)</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">v2.1 (June 2015): aligned to a module of GOLD (that has a section of SUMO), and fixed a few IRI&apos;s in Nov&apos;15</owl:versionInfo>
+        <owl:imports rdf:resource="http://www.meteck.org/files/ontologies/goldModule.owl"/>
+        <owl:versionIRI rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description#creator -->
+
+    <owl:AnnotationProperty rdf:about="&description;creator"/>
+    
+
+
+    <!-- http://www.isocat.org/ns/dcr.rdf#datcat -->
+
+    <owl:AnnotationProperty rdf:about="&dcr;datcat"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#contains"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#containsMorpheme -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#containsMorpheme">
+        <rdfs:subPropertyOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#partOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#hasConcord -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasConcord"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#hasGender -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasGender">
+        <rdfs:comment xml:lang="en">This is not used in the ncs but is included for compatibility adn avoiding confusion in gender vs noun classes</rdfs:comment>
+        <rdfs:comment xml:lang="en">To association gender information to the noun, commonly understood as masculine, feminine, and neuter.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Gender"/>
+        <rdfs:domain rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Noun"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasMember">
+        <rdfs:domain rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/linguistics/gold/Noun"/>
+                    <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#containsMorpheme"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#hasNounClass -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasNounClass">
+        <rdfs:comment xml:lang="en">Property to associate a noun, stem, or root (specifically: one in any of the Bantu languages) to a NounClass. Each noun has only one noun class, but a stem can belong to more than one (e.g., -ntu)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Noun"/>
+        <rdfs:range rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#hasNumber -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasNumber">
+        <rdfs:comment xml:lang="en">The usual meaning in linguistics regarding singlualr, plural etc.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Noun"/>
+        <rdfs:range rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Number"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#hasPlural -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">to relate the singluar noun to the plural, as well as for noun classes that go together with singular/plural (e.g., Class1 and Class2). Generally, the odd numbers have the nouns in singular, the even numbers plural.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#hasSingular -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Inverse of hasPlural.
+to relate the plural noun to the singluar, as well as for noun classes that go together with singular/plural (e.g., Class1 and Class2). Generally, the odd numbers have the nouns in singular, the even numbers plural.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#partOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#partOf">
+        <rdfs:comment xml:lang="en">this is the reflexive antisymmetric transitive part of relation. to be mapped to the pw taxonoomy&apos;s part-of</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#properPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#properPartOf">
+        <rdfs:comment xml:lang="en">this is the irreflexive, asymmetric, transitive ppo. to be mapped to the ppo form the pw taxonomy&apos;s ppo</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#partOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/hasPrefix -->
+
+    <owl:ObjectProperty rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/hasPrefix">
+        <rdfs:comment xml:lang="en">The prefix of the nouns take in a particular class. The traditional Noun class system is constructed based on the prefix the noun take. According to Corbertt (gender, 1991:44),  the same root may occur in different lexical items which are differentitated by prefixes and the prefix may be used to establish the meaning of a particular lexical item as well as number.  For exanple, the same root may occur to indicate dimunitive or augementative meaning.  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Affix -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/Affix">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Affix"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Clitic -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/Clitic">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Clitic"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/GenderProperty -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/GenderProperty">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Gender"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Morpheme -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/Morpheme">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Morpheme"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/MorphosyntacticProperty -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/MorphosyntacticProperty">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#MorphoSyntacticProperty"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/NumberProperty -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/NumberProperty">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Number"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/PluralNumber -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/PluralNumber">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#PluralNumber"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Root -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/Root">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Root"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/SingularNumber -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/SingularNumber">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#SingularNumber"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Stem -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/Stem">
+        <owl:equivalentClass rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Stem"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/linguistics/gold/Thing -->
+
+    <rdf:Description rdf:about="http://purl.org/linguistics/gold/Thing">
+        <owl:equivalentClass rdf:resource="&owl;Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Affix -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Affix">
+        <rdfs:label xml:lang="en">affix</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Morpheme"/>
+        <owl:disjointWith rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Root"/>
+        <rdfs:comment xml:lang="en">An affix is a morpheme with an abstract meaning which can only be used when added to a root morpheme. These are classified in four different ways, depending on their position with reference to the root: suffix, prefix, circumfix and infix. [Haspelmath 2002: 265; Crystal 1980: 17]</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">some linguists tend to group the singular and plural into one noun class, hence also in the tools, though computationally not really convenient. This placeholder class groups them together to not soil the proper noun class with it.
+The naming scheme is sg/pl
+More will be added as they come along with adding more language-specific axiomatizations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#BoundRoot -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#BoundRoot">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Root"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#partOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#PartOfSpeech"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Roots that do not occur in isolation. Roots in Bantu never occur in isolation</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class1 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class1">
+        <rdfs:label xml:lang="en">class 1</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The Bantu noun class one is associated with humans and other animates. A  regular singular form of class 2, a combination commonly referred to as class 1/2 or gender 1 or animates by other Bantuist (Cobertt 1991 and Katamba 2003).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class10 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class10">
+        <rdfs:label xml:lang="en">class 10</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class11"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class9"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">bantu noun class denoting animals, tools, instruments and house hold effects. Has  noun class 9 as a regular singular.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class11 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class11">
+        <rdfs:label xml:lang="en">class 11</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">bantu noun class for inanimates, long thin objects, languages, body parts and natural phenomena. Has class 10 as a regular  plural.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class12 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class12">
+        <rdfs:label xml:lang="en">class 12</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class13"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">has to do with diminuitives, derogatives and augementatives of objects. Regularly  takes nc 13 as plural.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class13 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class13">
+        <rdfs:label xml:lang="en">class 13</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class12"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">regular plural of nc 12</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class14 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class14">
+        <rdfs:label xml:lang="en">class 14</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">Bantu noun class for abstract nouns  and collectives. (e.g., ubuhle &apos;beauty&apos;). doens&apos;t have a plural  in e.g., isiZulu, but can have one in others (e.g., in chichewa it has class6 as plural)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class15 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class15">
+        <rdfs:label xml:lang="en">class 15</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">class of Infinitives and body parts.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class16 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class16">
+        <rdfs:label xml:lang="en">class 16</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">This class is a locative with no plural form. 
+(e.g. pamsika: &apos;round&apos; the market)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class17 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class17">
+        <rdfs:label xml:lang="en">class 17</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">This class is locative with no plural form.
+(e.g. kumsika: &apos;at&apos; the market)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class18 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class18">
+        <rdfs:label xml:lang="en">class 18</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">This class is locative with no plural form.
+(e.g. mumsika &apos;in&apos; the market)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class19 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class19">
+        <rdfs:label xml:lang="en">class 19</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">Class for dimunitives.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class1a -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class1a">
+        <rdfs:label xml:lang="en">class 1a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class2"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class2a"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Bantu noun class also for people, but others that go in nc 1 such as proper names, personification, kinship terms and personifications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class2 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class2">
+        <rdfs:label xml:lang="en">class 2</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class1"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class1a"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A regular plural form of class 1, which together forms class 1/2</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class20 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class20">
+        <rdfs:label xml:lang="en">class 20</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class21"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class22"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">class of derogatives, augementatives, amelioratives and mannerism.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class21 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class21">
+        <rdfs:label xml:lang="en">class 21</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">class of augementatives and derogatives.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class22 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class22">
+        <rdfs:label xml:lang="en">class 22</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">plural of class 20.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class23 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class23">
+        <rdfs:label xml:lang="en">class 23</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">class for locative terms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class2a -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class2a">
+        <rdfs:label xml:lang="en">class 2a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class1"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class1a"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class3a"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">This class is the plural form of some elements in class 1, 1a , and 3a. This class is not available in some Bantu languages.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class2b -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class2b">
+        <rdfs:label xml:lang="en">class 2b</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">Regular plural of class 1a (in some languages).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class3 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class3">
+        <rdfs:label xml:lang="en">class 3</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The Bantu noun class 3, associated with trees, plants, non-paired body parts. class 4 is a regular plural for the class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class4 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class4">
+        <rdfs:label xml:lang="en">class 4</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class3"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A regular plural of class 3, which together make class 3/4 in other Bantuist classifications (Cobertt,1991)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class5 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class5">
+        <rdfs:label xml:lang="en">class 5</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Bantu noun class for entities that have something to do with fruits, paired body parts, and natural phenomena. class 6 is  as a plural class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class6 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class6">
+        <rdfs:label xml:lang="en">class 6</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class14"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class15"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class5"/>
+                            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class9a"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">plural of Class 5 or class 9a or Class 14 or 15, making pairs class 5/6 or class 14/6 etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class7 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class7">
+        <rdfs:label xml:lang="en">class 7</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class8"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Bantu nounclass for nouns that denote entities that have something to do with inanimates,  manner/style, insects , languages, diseases tools and outstanding people. Has class 8 as a regular plural.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class8 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class8">
+        <rdfs:label xml:lang="en">class 8</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasSingular"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">regular plural of class7, which together form a pair class 7/8 for other classifications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Class9 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Class9">
+        <rdfs:label xml:lang="en">class 9</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class10"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Bantu noun class for nouns of entities that are nonhuman. tools, instruments and house hold effects . takes 6 as plural</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Clitic -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Clitic">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Morpheme"/>
+        <rdfs:comment xml:lang="en">Clitic is the class of units which members exhibit syntactic characteristics of a lexical unit, but show evidence of being morphologically bound to another lexical unit, the host, by being unstressed or subject to word-level phonological rules [Crystal 1980: 64; Hartmann and Stork 1972: 38; Anderson 1985: 158; Klavans 1982: xi-xiv, 74-76, 83, 93-95, 100-101; Zwicky 1977: 5]. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#CommonNoun -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#CommonNoun">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Noun"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Enclitic -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Enclitic">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Clitic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Gender -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Gender">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#NominalClassification"/>
+        <owl:disjointWith rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:comment xml:lang="en">Gender of nouns</rdfs:comment>
+        <rdfs:comment xml:lang="en">This is not used in the ncs other than for declaring it is disjoint with NounClass</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#MassNoun -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#MassNoun">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Noun"/>
+        <rdfs:comment xml:lang="en">nouns referring to things that cannot be counted, or only in quantities, like gold, wood, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Morpheme -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Morpheme">
+        <rdfs:label xml:lang="en">morpheme</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#MorphosyntacticUnit"/>
+        <rdfs:comment xml:lang="en">Minimal linguistic unit that has a sound and meaning, and that cannot be further analysed</rdfs:comment>
+        <rdfs:comment xml:lang="en">The smallest functioning unit in the composition of words, and the minimal distinctive unit of grammar. Morphemes are commonly classified into free forms (morphemes which can occur as separate words) adn bound forms (morphemes which cannot so occur - mainly affixes). A further distinction may be made between lexical and grammatical morphemes; the former are morphemes used for the construction of new words in a language; the latter are morphemes used to express grammatical relationships between a word and its context. [Crystal 2008: 300] </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#MorphoSyntacticProperty -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#MorphoSyntacticProperty">
+        <rdfs:label xml:lang="en">Morphosyntactic Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Property"/>
+        <rdfs:comment xml:lang="en">A property of  that outlines the grammatical behavior of lexical units</rdfs:comment>
+        <rdfs:comment xml:lang="en">Included for easy alignment with other linguistic vocabularies and ontologies</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#MorphosyntacticUnit -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#MorphosyntacticUnit">
+        <rdfs:label xml:lang="en">Morphosyntactic Unit</rdfs:label>
+        <rdfs:comment xml:lang="en">Refers to a unit  which has both syntactic and morphological features .</rdfs:comment>
+        <rdfs:comment xml:lang="en">This hierarchy is mainly reproduced from the TDS Linguistic Ontology, with the addition of some parthood and more hierarchy under sublexical unit (doesn&apos;t contradict TDS)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#NominalClassification -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#NominalClassification">
+        <rdfs:label xml:lang="en">nominal classification</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#MorphoSyntacticProperty"/>
+        <rdfs:comment xml:lang="en">Classification of nouns based on different attributes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Noun -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Noun">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#PartOfSpeech"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#containsMorpheme"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Root"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#containsMorpheme"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/linguistics/gold/Stem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Noun is just one of the POS tags; the others we do not need (yet) and can be reused from another source</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Number -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Number">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#MorphoSyntacticProperty"/>
+        <rdfs:comment>Grammatical number referring to singular and plural.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Obsolete -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Obsolete"/>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#PartOfSpeech -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#PartOfSpeech">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Property"/>
+        <rdfs:comment xml:lang="en">The part of speech of a lexical item.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#PluralNumber -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#PluralNumber">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Number"/>
+        <owl:disjointWith rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#SingularNumber"/>
+        <rdfs:comment xml:lang="en">Value that expresses more than one object.
+</rdfs:comment>
+        <dcr:datcat>http://www.isocat.org/datcat/DC-1354</dcr:datcat>
+        <dcr:datcat>http://www.isocat.org/datcat/DC-253</dcr:datcat>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Proclitic -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Proclitic">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Clitic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#ProperNoun -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#ProperNoun">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Noun"/>
+        <rdfs:comment>names of objects, (John, Mary)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Property -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Property">
+        <rdfs:comment xml:lang="en">Property w.r.t. linguistic property, not general. This general term is used to keep the ontology easily compatible with other more general ontologies for linguistics</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Root -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Root">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Morpheme"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#partOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#PartOfSpeech"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The base form of a word which cannot be further analyzed without total loss of identity. Roots may be free or bound morphemes and can be classified as simple (i.e. compositionally unanalyzable in terms of morphemes) or complex/compound (i.e. certain combinations of simple root forms), though for the latter, the term &apos;stem&apos; is often used. From a semantic point of view, the root generally carried the main component of meaning in a word. [Crystal 1997: 336] </rdfs:comment>
+        <rdfs:comment xml:lang="en">root</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#SingularNumber -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#SingularNumber">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Number"/>
+        <rdfs:comment>Value that expresses one object.</rdfs:comment>
+        <dcr:datcat>http://www.isocat.org/datcat/DC-252</dcr:datcat>
+        <dcr:datcat>http://www.isocat.org/datcat/DC-1387</dcr:datcat>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#Stem -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#Stem">
+        <rdfs:label xml:lang="en">stem</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Morpheme"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#partOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#PartOfSpeech"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Stem is the class of morphological units that are analyzable into a root and possibly one or more derivational units. Stems can occur alone and are the basis for adding inflectional units. [Lyons 1977: 513, 521-526]</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class11-10 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class11-10">
+        <rdfs:label xml:lang="en">class 11/10</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class11"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class10"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class15-6 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class15-6">
+        <rdfs:label xml:lang="en">class 15/6</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class15"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class1a-2a -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class1a-2a">
+        <rdfs:label xml:lang="en">class 1a/2a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class1a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class2a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class20-21 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class20-21">
+        <rdfs:label xml:lang="en">class 20/21</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class20"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class21"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">arguably 20/22; not very clear</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class3a -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class3a">
+        <rdfs:label xml:lang="en">class 3a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class2a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">bantu nounclass for nonhuman entities. takes 2a as plural</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class3a-2a -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class3a-2a">
+        <rdfs:label xml:lang="en">class 3a/2a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class2a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#class3a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class9a -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class9a">
+        <rdfs:label xml:lang="en">class 9a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasPlural"/>
+                <owl:allValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">nonhuman objects</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl#class9a-6 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#class9a-6">
+        <rdfs:label xml:lang="en">class 9a/6</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#class9a"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/BleekMeinhofClassification">
+        <rdfs:label xml:lang="en">BantuNounClass</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#NominalClassification"/>
+        <rdfs:comment xml:lang="en">Classifications of nouns based on the affixes taken on the nouns. Thus, singular and plural forms go into separate classes with the other corresponding class being the inverse of the other (Katamba, 2003).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Traditional Bleek-Meinhof Bantu noun classifiocation : Class that a noun is categorised into, typically based on the meaning of the word. Other class assignment rules are based on phonological and morphological features. For instance, persons go in Class 1-2 and long thin objects in noun class 11 (in isiZulu at least).
+Not all Bantu laguages have all classes that have been included here. Many languages have their own set of classes with different mappings between singular and plural classes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/Circumfix -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/Circumfix">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Affix"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/Infix -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/Infix">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Affix"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/Prefix -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/Prefix">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Affix"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/Suffix -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/Suffix">
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Affix"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/class1-2 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/class1-2">
+        <rdfs:label xml:lang="en">class 1/2</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/class12-13 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/class12-13">
+        <rdfs:label xml:lang="en">class 12/13</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class12"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class13"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/class14-6 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/class14-6">
+        <rdfs:label xml:lang="en">class 14/6</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class14"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/class3-4 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/class3-4">
+        <rdfs:label xml:lang="en">class 3/4</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class3"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/class5-6 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/class5-6">
+        <rdfs:label xml:lang="en">class 5/6</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class5"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class6"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/class7-8 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/class7-8">
+        <rdfs:label xml:lang="en">class 7/8</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class7"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class8"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.meteck.org/files/ontologies/ncs.owl/class9-10 -->
+
+    <owl:Class rdf:about="http://www.meteck.org/files/ontologies/ncs.owl/class9-10">
+        <rdfs:label xml:lang="en">class 9/10</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#BantuNounClassSgPl"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class10"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#hasMember"/>
+                <owl:someValuesFrom rdf:resource="http://www.meteck.org/files/ontologies/ncs.owl#Class9"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#CommonNoun"/>
+            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#MassNoun"/>
+            <rdf:Description rdf:about="http://www.meteck.org/files/ontologies/ncs.owl#ProperNoun"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/AnimateGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/ArabicNumeralGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/FeminineGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/HumanGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/InanimateGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/MasculineGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/NeuterGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/RomanNumeralGender"/>
+            <rdf:Description rdf:about="http://purl.org/linguistics/gold/VegetableGender"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

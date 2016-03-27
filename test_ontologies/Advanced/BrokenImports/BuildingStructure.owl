@@ -1,0 +1,1119 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY BuildingStructure "http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#" >
+    <!ENTITY RCC-Ontology "http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#"
+     xml:base="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl"
+     xmlns:BuildingStructure="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:RCC-Ontology="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator xml:lang="en"
+            >Joana Hois, I1-OntoSpace</dc:creator>
+        <rdfs:comment
+            >functional and structural features of indoor environments, supports indoor ambient assistive living applications.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="#consistsOf">
+        <rdfs:comment xml:lang="en"
+            >consistsOf defines entities that contribute to a Building instance</rdfs:comment>
+        <rdfs:domain rdf:resource="#Building"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#functionalType -->
+
+    <owl:ObjectProperty rdf:about="#functionalType">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:comment xml:lang="en"
+            >The functional types of buildings or their parts.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#hasFunctionalStructure -->
+
+    <owl:ObjectProperty rdf:about="#hasFunctionalStructure">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Building structures can have functional structures.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#isFunctionalTypeOf -->
+
+    <owl:ObjectProperty rdf:about="#isFunctionalTypeOf">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Functional (abstract) structures are functional types of certain (physical) building structures.</rdfs:comment>
+        <rdfs:range rdf:resource="#BuildingStructure"/>
+        <rdfs:domain rdf:resource="#FunctionalStructure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#connectsWith -->
+
+    <owl:ObjectProperty rdf:about="&RCC-Ontology;connectsWith"/>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#externallyConnectedTo -->
+
+    <owl:ObjectProperty rdf:about="&RCC-Ontology;externallyConnectedTo"/>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#inverseProperPartOf -->
+
+    <owl:ObjectProperty rdf:about="&RCC-Ontology;inverseProperPartOf"/>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/RCC-Ontology.owl#properPartOf -->
+
+    <owl:ObjectProperty rdf:about="&RCC-Ontology;properPartOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#range -->
+
+    <owl:DatatypeProperty rdf:about="#range">
+        <rdfs:comment xml:lang="en"
+            >The range space of certain devices.</rdfs:comment>
+        <rdfs:domain rdf:resource="#RangeSpace"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#sensorValue -->
+
+    <owl:DatatypeProperty rdf:about="#sensorValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Concrete values of sensing device instances.</rdfs:comment>
+        <rdfs:domain rdf:resource="#SensoringDevice"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#specificFunction -->
+
+    <owl:DatatypeProperty rdf:about="#specificFunction">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Concrete functions that functional structure instances can have.</rdfs:comment>
+        <rdfs:domain rdf:resource="#FunctionalStructure"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Airport -->
+
+    <owl:Class rdf:about="#Airport">
+        <rdfs:subClassOf rdf:resource="#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ApartmentBuilding -->
+
+    <owl:Class rdf:about="#ApartmentBuilding">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ArchitecturalStructure -->
+
+    <owl:Class rdf:about="#ArchitecturalStructure"/>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ArtGallery -->
+
+    <owl:Class rdf:about="#ArtGallery">
+        <rdfs:subClassOf rdf:resource="#Culture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Balcony -->
+
+    <owl:Class rdf:about="#Balcony">
+        <rdfs:subClassOf rdf:resource="#OpenSpace"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Bank -->
+
+    <owl:Class rdf:about="#Bank">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Bar -->
+
+    <owl:Class rdf:about="#Bar">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Bathroom -->
+
+    <owl:Class rdf:about="#Bathroom">
+        <rdfs:subClassOf rdf:resource="#Home"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Bedroom -->
+
+    <owl:Class rdf:about="#Bedroom">
+        <rdfs:subClassOf rdf:resource="#Home"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Building -->
+
+    <owl:Class rdf:about="#Building">
+        <rdfs:subClassOf rdf:resource="#BuildingStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="#Entrance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;inverseProperPartOf"/>
+                <owl:someValuesFrom rdf:resource="#BuildingPart"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;inverseProperPartOf"/>
+                <owl:someValuesFrom rdf:resource="#ElectricalDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#functionalType"/>
+                <owl:someValuesFrom rdf:resource="#BuildingType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Parts or complexes of buildings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#BuildingConstructionPart -->
+
+    <owl:Class rdf:about="#BuildingConstructionPart">
+        <rdfs:subClassOf rdf:resource="#BuildingStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFunctionalStructure"/>
+                <owl:someValuesFrom rdf:resource="#FunctionalSpace"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Constructional yet conceptual parts of buildings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#BuildingFunction -->
+
+    <owl:Class rdf:about="#BuildingFunction">
+        <rdfs:subClassOf rdf:resource="#ArchitecturalStructure"/>
+        <rdfs:comment
+            >Functional types of building structures.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#BuildingPart -->
+
+    <owl:Class rdf:about="#BuildingPart">
+        <rdfs:subClassOf rdf:resource="#BuildingStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;inverseProperPartOf"/>
+                <owl:someValuesFrom rdf:resource="#ElectricalDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFunctionalStructure"/>
+                <owl:someValuesFrom rdf:resource="#FunctionalSpace"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#functionalType"/>
+                <owl:someValuesFrom rdf:resource="#BuildingPartType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Conceptual parts of buildings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#BuildingPartType -->
+
+    <owl:Class rdf:about="#BuildingPartType">
+        <rdfs:subClassOf rdf:resource="#BuildingFunction"/>
+        <rdfs:comment xml:lang="en"
+            >functional aspects (affordances) of parts or sets of parts of buildings</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#BuildingStructure -->
+
+    <owl:Class rdf:about="#BuildingStructure">
+        <rdfs:subClassOf rdf:resource="#ArchitecturalStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFunctionalStructure"/>
+                <owl:allValuesFrom rdf:resource="#FunctionalStructure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >BuildingStructure specifies entities on the basis of their structural and functional features in architectural design.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#BuildingType -->
+
+    <owl:Class rdf:about="#BuildingType">
+        <rdfs:subClassOf rdf:resource="#BuildingFunction"/>
+        <rdfs:comment xml:lang="en"
+            >functional aspects (affordances) of buildings</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Castle -->
+
+    <owl:Class rdf:about="#Castle">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Church -->
+
+    <owl:Class rdf:about="#Church">
+        <rdfs:subClassOf rdf:resource="#ReligiousBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Column -->
+
+    <owl:Class rdf:about="#Column">
+        <rdfs:subClassOf rdf:resource="#BuildingConstructionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#CommunicationDevice -->
+
+    <owl:Class rdf:about="#CommunicationDevice">
+        <rdfs:subClassOf rdf:resource="#ElectricalDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ComplexBuilding -->
+
+    <owl:Class rdf:about="#ComplexBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ConferenceHall -->
+
+    <owl:Class rdf:about="#ConferenceHall">
+        <rdfs:subClassOf rdf:resource="#PublicRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#CoolingDevice -->
+
+    <owl:Class rdf:about="#CoolingDevice">
+        <rdfs:subClassOf rdf:resource="#ElectricalDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#CopyRoom -->
+
+    <owl:Class rdf:about="#CopyRoom">
+        <rdfs:subClassOf rdf:resource="#EquipmentRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Corridor -->
+
+    <owl:Class rdf:about="#Corridor">
+        <rdfs:subClassOf rdf:resource="#BuildingPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;properPartOf"/>
+                <owl:onClass rdf:resource="#Level"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#functionalType"/>
+                <owl:onClass rdf:resource="#Passage"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;connectsWith"/>
+                <owl:someValuesFrom rdf:resource="#Room"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Culture -->
+
+    <owl:Class rdf:about="#Culture">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#DarkRoom -->
+
+    <owl:Class rdf:about="#DarkRoom">
+        <rdfs:subClassOf rdf:resource="#EquipmentRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Deck -->
+
+    <owl:Class rdf:about="#Deck">
+        <rdfs:subClassOf rdf:resource="#OpenSpace"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#DiningRoom -->
+
+    <owl:Class rdf:about="#DiningRoom">
+        <rdfs:subClassOf rdf:resource="#Home"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Door -->
+
+    <owl:Class rdf:about="#Door">
+        <rdfs:subClassOf rdf:resource="#BuildingConstructionPart"/>
+        <rdfs:seeAlso
+            >http://www.iai-tech.org/ifc/IFC2x4/alpha/html/ifcsharedbldgelements/lexical/ifcdoorstyleoperationenum.htm</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Education -->
+
+    <owl:Class rdf:about="#Education">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ElectricalDevice -->
+
+    <owl:Class rdf:about="#ElectricalDevice">
+        <rdfs:subClassOf rdf:resource="#BuildingStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFunctionalStructure"/>
+                <owl:onClass rdf:resource="#RangeSpace"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Electrical devices in buildings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ElementBuilding -->
+
+    <owl:Class rdf:about="#ElementBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Elevator -->
+
+    <owl:Class rdf:about="#Elevator">
+        <rdfs:subClassOf rdf:resource="#BuildingConstructionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Entrance -->
+
+    <owl:Class rdf:about="#Entrance">
+        <rdfs:subClassOf rdf:resource="#BuildingPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;externallyConnectedTo"/>
+                <owl:onClass rdf:resource="#Level"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#EquipmentRoom -->
+
+    <owl:Class rdf:about="#EquipmentRoom">
+        <rdfs:subClassOf rdf:resource="#BuildingPartType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Factory -->
+
+    <owl:Class rdf:about="#Factory">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#FunctionalSpace -->
+
+    <owl:Class rdf:about="#FunctionalSpace">
+        <rdfs:subClassOf rdf:resource="#FunctionalStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#specificFunction"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >An entity that specifies some functional space of building elements, e.g., navigational space of a floor or room, opening space of a door or window, entrance space of an elevator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#FunctionalStructure -->
+
+    <owl:Class rdf:about="#FunctionalStructure">
+        <rdfs:subClassOf rdf:resource="#ArchitecturalStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isFunctionalTypeOf"/>
+                <owl:onClass rdf:resource="#BuildingStructure"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >An entity that provides abstract functional features for other building elements, such as the interaction space of a door, the navigational properties of a floor, or the monitoring aspects of a movement sensor.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#GasSensor -->
+
+    <owl:Class rdf:about="#GasSensor">
+        <rdfs:subClassOf rdf:resource="#SensoringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#GovernmentBuilding -->
+
+    <owl:Class rdf:about="#GovernmentBuilding">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Harbor -->
+
+    <owl:Class rdf:about="#Harbor">
+        <rdfs:subClassOf rdf:resource="#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#HeatingDevice -->
+
+    <owl:Class rdf:about="#HeatingDevice">
+        <rdfs:subClassOf rdf:resource="#ElectricalDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#HigherEducation -->
+
+    <owl:Class rdf:about="#HigherEducation">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Home -->
+
+    <owl:Class rdf:about="#Home">
+        <rdfs:subClassOf rdf:resource="#BuildingPartType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Hotel -->
+
+    <owl:Class rdf:about="#Hotel">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#House -->
+
+    <owl:Class rdf:about="#House">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#HumiditySensor -->
+
+    <owl:Class rdf:about="#HumiditySensor">
+        <rdfs:subClassOf rdf:resource="#SensoringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Kitchen -->
+
+    <owl:Class rdf:about="#Kitchen">
+        <rdfs:subClassOf rdf:resource="#Home"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Laboratory -->
+
+    <owl:Class rdf:about="#Laboratory">
+        <rdfs:subClassOf rdf:resource="#EquipmentRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#LectureHall -->
+
+    <owl:Class rdf:about="#LectureHall">
+        <rdfs:subClassOf rdf:resource="#PublicRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Level -->
+
+    <owl:Class rdf:about="#Level">
+        <rdfs:subClassOf rdf:resource="#BuildingPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;connectsWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Level"/>
+                            <rdf:Description rdf:about="#Roof"/>
+                            <rdf:Description rdf:about="#Stair"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#consistsOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Corridor"/>
+                            <rdf:Description rdf:about="#Room"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Library -->
+
+    <owl:Class rdf:about="#Library">
+        <rdfs:subClassOf rdf:resource="#BuildingPartType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#LightningDevice -->
+
+    <owl:Class rdf:about="#LightningDevice">
+        <rdfs:subClassOf rdf:resource="#ElectricalDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#LivingRoom -->
+
+    <owl:Class rdf:about="#LivingRoom">
+        <rdfs:subClassOf rdf:resource="#Home"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Lobby -->
+
+    <owl:Class rdf:about="#Lobby">
+        <rdfs:subClassOf rdf:resource="#PublicRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Market -->
+
+    <owl:Class rdf:about="#Market">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#MeetingRoom -->
+
+    <owl:Class rdf:about="#MeetingRoom">
+        <rdfs:subClassOf rdf:resource="#EquipmentRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Mosque -->
+
+    <owl:Class rdf:about="#Mosque">
+        <rdfs:subClassOf rdf:resource="#ReligiousBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#MovementSensor -->
+
+    <owl:Class rdf:about="#MovementSensor">
+        <rdfs:subClassOf rdf:resource="#SensoringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Museum -->
+
+    <owl:Class rdf:about="#Museum">
+        <rdfs:subClassOf rdf:resource="#Culture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Office -->
+
+    <owl:Class rdf:about="#Office">
+        <rdfs:subClassOf rdf:resource="#EquipmentRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#OfficeBuilding -->
+
+    <owl:Class rdf:about="#OfficeBuilding">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#OpenSpace -->
+
+    <owl:Class rdf:about="#OpenSpace">
+        <rdfs:subClassOf rdf:resource="#BuildingPartType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#PartialBuilding -->
+
+    <owl:Class rdf:about="#PartialBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Passage -->
+
+    <owl:Class rdf:about="#Passage">
+        <rdfs:subClassOf rdf:resource="#BuildingPartType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Patio -->
+
+    <owl:Class rdf:about="#Patio">
+        <rdfs:subClassOf rdf:resource="#OpenSpace"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#PublicRoom -->
+
+    <owl:Class rdf:about="#PublicRoom">
+        <rdfs:subClassOf rdf:resource="#BuildingPartType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#RangeSpace -->
+
+    <owl:Class rdf:about="#RangeSpace">
+        <rdfs:subClassOf rdf:resource="#FunctionalStructure"/>
+        <rdfs:comment xml:lang="en"
+            >Range spaces define the range of the region of some electircal devices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ReligiousBuilding -->
+
+    <owl:Class rdf:about="#ReligiousBuilding">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#ResidentialBuilding -->
+
+    <owl:Class rdf:about="#ResidentialBuilding">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Restaurant -->
+
+    <owl:Class rdf:about="#Restaurant">
+        <rdfs:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Restroom -->
+
+    <owl:Class rdf:about="#Restroom">
+        <rdfs:subClassOf rdf:resource="#PublicRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Roof -->
+
+    <owl:Class rdf:about="#Roof">
+        <rdfs:subClassOf rdf:resource="#BuildingConstructionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Room -->
+
+    <owl:Class rdf:about="#Room">
+        <rdfs:subClassOf rdf:resource="#BuildingPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;connectsWith"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Corridor"/>
+                            <rdf:Description rdf:about="#Room"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="#Wall"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="#Door"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&RCC-Ontology;properPartOf"/>
+                <owl:onClass rdf:resource="#Level"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Salesroom -->
+
+    <owl:Class rdf:about="#Salesroom">
+        <rdfs:subClassOf rdf:resource="#PublicRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#School -->
+
+    <owl:Class rdf:about="#School">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#SensoringDevice -->
+
+    <owl:Class rdf:about="#SensoringDevice">
+        <rdfs:subClassOf rdf:resource="#ElectricalDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#sensorValue"/>
+                <owl:someValuesFrom rdf:resource="&xsd;int"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Service -->
+
+    <owl:Class rdf:about="#Service">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#SmokeSensor -->
+
+    <owl:Class rdf:about="#SmokeSensor">
+        <rdfs:subClassOf rdf:resource="#SensoringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Stair -->
+
+    <owl:Class rdf:about="#Stair">
+        <rdfs:subClassOf rdf:resource="#BuildingConstructionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Station -->
+
+    <owl:Class rdf:about="#Station">
+        <rdfs:subClassOf rdf:resource="#Transportation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#StorageRoom -->
+
+    <owl:Class rdf:about="#StorageRoom">
+        <rdfs:subClassOf rdf:resource="#BuildingPartType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Synagogue -->
+
+    <owl:Class rdf:about="#Synagogue">
+        <rdfs:subClassOf rdf:resource="#ReligiousBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#TemperatureSensor -->
+
+    <owl:Class rdf:about="#TemperatureSensor">
+        <rdfs:subClassOf rdf:resource="#SensoringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Temple -->
+
+    <owl:Class rdf:about="#Temple">
+        <rdfs:subClassOf rdf:resource="#ReligiousBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Theater -->
+
+    <owl:Class rdf:about="#Theater">
+        <rdfs:subClassOf rdf:resource="#Culture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Transportation -->
+
+    <owl:Class rdf:about="#Transportation">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#University -->
+
+    <owl:Class rdf:about="#University">
+        <rdfs:subClassOf rdf:resource="#Education"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#VentilationDevice -->
+
+    <owl:Class rdf:about="#VentilationDevice">
+        <rdfs:subClassOf rdf:resource="#ElectricalDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Villa -->
+
+    <owl:Class rdf:about="#Villa">
+        <rdfs:subClassOf rdf:resource="#BuildingType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Wall -->
+
+    <owl:Class rdf:about="#Wall">
+        <rdfs:subClassOf rdf:resource="#BuildingConstructionPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.informatik.uni-bremen.de/~joana/ontology/modSpace/BuildingStructure.owl#Window -->
+
+    <owl:Class rdf:about="#Window">
+        <rdfs:subClassOf rdf:resource="#BuildingConstructionPart"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,151 @@
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
+
+
+
+Ontology: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl>
+
+
+AnnotationProperty: rdfs:comment
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:double
+
+    
+ObjectProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#hasLineAngle>
+
+    Domain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Intersection>
+    
+    Range: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#LineAngle>
+    
+    InverseOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#lineAngleOf>
+    
+    
+ObjectProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#angleOfLineAngle>
+
+    Domain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#LineAngle>
+    
+    Range: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Angle>
+    
+    
+ObjectProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#intersectsWith>
+
+    Domain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Intersection>
+    
+    Range: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Line>
+    
+    InverseOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#hasIntersection>
+    
+    
+ObjectProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#lineOfLineAngle>
+
+    Domain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#LineAngle>
+    
+    Range: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Line>
+    
+    
+ObjectProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#hasIntersection>
+
+    Domain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Line>
+    
+    Range: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Intersection>
+    
+    InverseOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#intersectsWith>
+    
+    
+ObjectProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#lineAngleOf>
+
+    Domain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#LineAngle>
+    
+    Range: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Intersection>
+    
+    InverseOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#hasLineAngle>
+    
+    
+ObjectProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#isParallelWith>
+
+    SubPropertyChain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#hasIntersection> o <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#hasLineAngle> o <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#lineAngleOf> o <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#intersectsWith>
+    
+    Domain: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#PhysicalObject>
+    
+    Range: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#PhysicalObject>
+    
+    
+DataProperty: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#valueOf>
+
+    Range: 
+        xsd:double
+    
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#AbstractObject>
+
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Intersection>
+
+    SubClassOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#AbstractObject>
+    
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#ShapedThing>
+
+    SubClassOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#PhysicalObject>
+    
+    
+Class: owl:Thing
+
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#LineAngle>
+
+    SubClassOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#AbstractObject>
+    
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#PhysicalObject>
+
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Line>
+
+    SubClassOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#1DShapedThing>
+    
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#Angle>
+
+    SubClassOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#AbstractObject>
+    
+    
+Class: <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#1DShapedThing>
+
+    SubClassOf: 
+        <http://ontohub.org/repositories/fois-ontology-competition/FormalCAD/shapes.owl#ShapedThing>
+    
+    

@@ -1,0 +1,1669 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ontofont "http://www.metaontology.pl/metaontology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.metaontology.pl/metaontology.owl#"
+     xml:base="http://www.metaontology.pl/metaontology.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ontofont="http://www.metaontology.pl/metaontology.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.metaontology.pl/metaontology.owl">
+        <rdfs:label>OntOfOnt</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;date">11-05-2015</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string">This is an applied ontology for philosophical ontology. The development of the ontology was funded by National Research Center (2012/07/B/HS1/01938).</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#asDocumentedIn -->
+
+    <owl:AnnotationProperty rdf:about="&ontofont;asDocumentedIn">
+        <rdfs:label xml:lang="en">as documented in</rdfs:label>
+        <rdfs:range rdf:resource="&ontofont;knowledge_resource"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#asRenderedIn -->
+
+    <owl:AnnotationProperty rdf:about="&ontofont;asRenderedIn">
+        <rdfs:label xml:lang="en">as rendered in</rdfs:label>
+        <rdfs:label xml:lang="pl">jest używana w</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;asDocumentedIn"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#hasTextContent -->
+
+    <owl:AnnotationProperty rdf:about="&ontofont;hasTextContent">
+        <rdfs:label xml:lang="en">has text</rdfs:label>
+        <rdfs:label xml:lang="pl">zawiera tekst</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;knowledge_resource"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#categoryDefinedBy -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;categoryDefinedBy">
+        <rdfs:label xml:lang="en">defined by</rdfs:label>
+        <rdfs:label xml:lang="pl">jest zdefiniowana przez</rdfs:label>
+        <owl:inverseOf rdf:resource="&ontofont;defines"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;interpretedBy"/>
+        <rdfs:range rdf:resource="&ontofont;propositional_entity"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;category"/>
+                    <rdf:Description rdf:about="&ontofont;relation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#categoryHasExtension -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;categoryHasExtension">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">category has extension</rdfs:label>
+        <rdfs:label xml:lang="pl">kategoria ma zakres</rdfs:label>
+        <rdfs:range rdf:resource="&ontofont;category_extension"/>
+        <rdfs:domain rdf:resource="&ontofont;category_interpretation"/>
+        <owl:inverseOf rdf:resource="&ontofont;extensionOf"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;represents"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#categoryMaybeRelatedToCategory -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;categoryMaybeRelatedToCategory">
+        <rdfs:label xml:lang="en">may be related to</rdfs:label>
+        <rdfs:label xml:lang="pl">może być związana z</rdfs:label>
+        <rdfs:comment xml:lang="en">One category A may be related to another category B if there is an interpretation I(A) of A such that there is an interpretation I(B) of B such that I(A) is related to I(B).</rdfs:comment>
+        <rdfs:range rdf:resource="&ontofont;category_in_humanities"/>
+        <rdfs:domain rdf:resource="&ontofont;category_in_humanities"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;interpretedBy"/>
+            <rdf:Description rdf:about="&ontofont;categoryHasExtension"/>
+            <rdf:Description rdf:about="&ontofont;extensionRelatedToExtension"/>
+            <rdf:Description rdf:about="&ontofont;extensionOf"/>
+            <rdf:Description rdf:about="&ontofont;interprets"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#creates -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;creates">
+        <rdfs:label xml:lang="en">creates</rdfs:label>
+        <rdfs:label xml:lang="pl">sprawia</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;agent"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;genericallyDependsOnInverse"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#defines -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;defines">
+        <rdfs:label xml:lang="en">defines</rdfs:label>
+        <rdfs:label xml:lang="pl">definiuje</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;interprets"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#disjointWith -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;disjointWith">
+        <rdfs:label xml:lang="en">is disjoint with</rdfs:label>
+        <rdfs:label xml:lang="pl">jest rozłączny z</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;extensionRelatedToExtension"/>
+        <owl:propertyDisjointWith rdf:resource="&ontofont;narrowerOrEqualTo"/>
+        <owl:propertyDisjointWith rdf:resource="&ontofont;widerOrEqualTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#equalTo -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;equalTo">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">is equal to</rdfs:label>
+        <rdfs:label xml:lang="pl">jest równy</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;narrowerOrEqualTo"/>
+        <owl:propertyDisjointWith rdf:resource="&ontofont;narrowerThan"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;widerOrEqualTo"/>
+        <owl:propertyDisjointWith rdf:resource="&ontofont;widerThan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#expresses -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;expresses">
+        <rdfs:label xml:lang="en">expresses</rdfs:label>
+        <rdfs:label xml:lang="pl">wyraża</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;genericallyDependsOnInverse"/>
+        <rdfs:domain rdf:resource="&ontofont;knowledge_resource"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;hasParts"/>
+            <rdf:Description rdf:about="&ontofont;expresses"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#extensionHasMembership -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;extensionHasMembership">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">category extension has membership character</rdfs:label>
+        <rdfs:label xml:lang="pl">zakres kategorii ma charakter</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;category_extension"/>
+        <rdfs:range rdf:resource="&ontofont;membership"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#extensionOf -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;extensionOf">
+        <rdfs:label xml:lang="en">is extension of</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;representedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#extensionRelatedToExtension -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;extensionRelatedToExtension">
+        <rdfs:label xml:lang="en">is related to</rdfs:label>
+        <rdfs:label xml:lang="pl">jest związany z</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;category_extension"/>
+        <rdfs:range rdf:resource="&ontofont;category_extension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#genericallyDependsOn -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;genericallyDependsOn">
+        <rdfs:label xml:lang="en">generically depends on</rdfs:label>
+        <rdfs:label xml:lang="pl">zależy (rodzajowo) od</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#genericallyDependsOnInverse -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;genericallyDependsOnInverse">
+        <rdfs:label xml:lang="en">generically influences</rdfs:label>
+        <rdfs:label xml:lang="pl">(rodzajowo) wpływa na</rdfs:label>
+        <owl:inverseOf rdf:resource="&ontofont;genericallyDependsOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;hasAuthor">
+        <rdfs:label xml:lang="en">has author</rdfs:label>
+        <rdfs:label xml:lang="pl">ma autora</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;document"/>
+        <owl:inverseOf rdf:resource="&ontofont;isAuthorOf"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;isCreatedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#hasParts -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;hasParts">
+        <rdfs:label xml:lang="en">has parts</rdfs:label>
+        <rdfs:label xml:lang="pl">ma części</rdfs:label>
+        <owl:inverseOf rdf:resource="&ontofont;isPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#hasPublisher -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;hasPublisher">
+        <rdfs:label xml:lang="en">has publisher</rdfs:label>
+        <rdfs:label xml:lang="pl">ma wydawcę</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;isCreatedBy"/>
+        <owl:inverseOf rdf:resource="&ontofont;isPublisherOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;document"/>
+                    <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#has_conclusion -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;has_conclusion">
+        <rdfs:label xml:lang="en">has conclusion</rdfs:label>
+        <rdfs:label xml:lang="pl">ma wniosek</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;hasParts"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#has_premise -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;has_premise">
+        <rdfs:label xml:lang="en">has premise</rdfs:label>
+        <rdfs:label xml:lang="pl">ma przesłankę</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;hasParts"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#interpretedBy -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;interpretedBy">
+        <rdfs:label xml:lang="en">is interpreted by</rdfs:label>
+        <rdfs:label xml:lang="pl">jest interpretowany przez</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;isPartOf"/>
+        <rdfs:range rdf:resource="&ontofont;perspective"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#interprets -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;interprets">
+        <rdfs:label xml:lang="en">interprets</rdfs:label>
+        <rdfs:label xml:lang="pl">interpretuje</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;hasParts"/>
+        <owl:inverseOf rdf:resource="&ontofont;interpretedBy"/>
+        <rdfs:domain rdf:resource="&ontofont;perspective"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#isAuthorOf -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;isAuthorOf">
+        <rdfs:label xml:lang="en">is an author of</rdfs:label>
+        <rdfs:label xml:lang="pl">jest autorem</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;creates"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#isCreatedBy -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;isCreatedBy">
+        <rdfs:label xml:lang="en">is created by</rdfs:label>
+        <rdfs:label xml:lang="pl">jest wytworzony przez</rdfs:label>
+        <owl:inverseOf rdf:resource="&ontofont;creates"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;genericallyDependsOn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#isExpressedBy -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;isExpressedBy">
+        <rdfs:label xml:lang="en">is expressed in</rdfs:label>
+        <rdfs:label xml:lang="pl">jest wyrażony w</rdfs:label>
+        <owl:inverseOf rdf:resource="&ontofont;expresses"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;genericallyDependsOn"/>
+        <rdfs:domain rdf:resource="&ontofont;resource_content"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;isExpressedBy"/>
+            <rdf:Description rdf:about="&ontofont;isPartOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;isPartOf">
+        <rdfs:label xml:lang="en">is part of</rdfs:label>
+        <rdfs:label xml:lang="pl">jest częścią</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#isPublisherOf -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;isPublisherOf">
+        <rdfs:label xml:lang="en">is publisher of</rdfs:label>
+        <rdfs:label xml:lang="pl">jest wydawcą</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;creates"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#maybeDisjointWith -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;maybeDisjointWith">
+        <rdfs:label xml:lang="en">may be disjoint with</rdfs:label>
+        <rdfs:label xml:lang="pl">może być rozłączna z</rdfs:label>
+        <rdfs:comment xml:lang="en">One category A may be disjoint with another category B if there is an interpretation I(A) of A such that there is an interpretation I(B) of B such that I(A) is disjoint with I(B).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;categoryMaybeRelatedToCategory"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;interpretedBy"/>
+            <rdf:Description rdf:about="&ontofont;categoryHasExtension"/>
+            <rdf:Description rdf:about="&ontofont;disjointWith"/>
+            <rdf:Description rdf:about="&ontofont;extensionOf"/>
+            <rdf:Description rdf:about="&ontofont;interprets"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#maybeEqualTo -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;maybeEqualTo">
+        <rdfs:label xml:lang="en">may be equal to</rdfs:label>
+        <rdfs:label xml:lang="pl">może być równa</rdfs:label>
+        <rdfs:comment xml:lang="en">One category A may be equal to another category B if there is an interpretation I(A) of A such that there is an interpretation I(B) of B such that I(A) is equal to I(B).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;maybeNarrowOrEqualTo"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;maybeWiderOrEqualTo"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;interpretedBy"/>
+            <rdf:Description rdf:about="&ontofont;categoryHasExtension"/>
+            <rdf:Description rdf:about="&ontofont;equalTo"/>
+            <rdf:Description rdf:about="&ontofont;extensionOf"/>
+            <rdf:Description rdf:about="&ontofont;interprets"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#maybeNarrowOrEqualTo -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;maybeNarrowOrEqualTo">
+        <rdfs:label xml:lang="en">may be narrower or equal to</rdfs:label>
+        <rdfs:label xml:lang="pl">może być węższa lub równa</rdfs:label>
+        <rdfs:comment xml:lang="en">One category A may be narrower or equal to another category B if there is an interpretation I(A) of A such that there is an interpretation I(B) of B such that I(A) is narrower or equal to I(B).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;categoryMaybeRelatedToCategory"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;interpretedBy"/>
+            <rdf:Description rdf:about="&ontofont;categoryHasExtension"/>
+            <rdf:Description rdf:about="&ontofont;narrowerOrEqualTo"/>
+            <rdf:Description rdf:about="&ontofont;extensionOf"/>
+            <rdf:Description rdf:about="&ontofont;interprets"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#maybeNarrowerThan -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;maybeNarrowerThan">
+        <rdfs:label xml:lang="en">may be narrower than</rdfs:label>
+        <rdfs:label xml:lang="pl">może być węższa niż</rdfs:label>
+        <rdfs:comment xml:lang="en">One category A may be narrower than another category B if there is an interpretation I(A) of A such that there is an interpretation I(B) of B such that I(A) is narrower than I(B).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;maybeNarrowOrEqualTo"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;interpretedBy"/>
+            <rdf:Description rdf:about="&ontofont;categoryHasExtension"/>
+            <rdf:Description rdf:about="&ontofont;narrowerThan"/>
+            <rdf:Description rdf:about="&ontofont;extensionOf"/>
+            <rdf:Description rdf:about="&ontofont;interprets"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#maybeWiderOrEqualTo -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;maybeWiderOrEqualTo">
+        <rdfs:label xml:lang="en">may be wider or equal to</rdfs:label>
+        <rdfs:label xml:lang="pl">może być szersza lub równa</rdfs:label>
+        <rdfs:comment xml:lang="en">One category A may be wider or equal to another category B if there is an interpretation I(A) of A such that there is an interpretation I(B) of B such that I(A) is wider or equal to I(B).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;categoryMaybeRelatedToCategory"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;interpretedBy"/>
+            <rdf:Description rdf:about="&ontofont;categoryHasExtension"/>
+            <rdf:Description rdf:about="&ontofont;widerOrEqualTo"/>
+            <rdf:Description rdf:about="&ontofont;extensionOf"/>
+            <rdf:Description rdf:about="&ontofont;interprets"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#maybeWiderThan -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;maybeWiderThan">
+        <rdfs:label xml:lang="en">may be wider than</rdfs:label>
+        <rdfs:label xml:lang="pl">może być szersza niż</rdfs:label>
+        <rdfs:comment xml:lang="en">One category A may be wider than another category B if there is an interpretation I(A) of A such that there is an interpretation I(B) of B such that I(A) is wider than I(B).</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;maybeWiderOrEqualTo"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;interpretedBy"/>
+            <rdf:Description rdf:about="&ontofont;categoryHasExtension"/>
+            <rdf:Description rdf:about="&ontofont;widerThan"/>
+            <rdf:Description rdf:about="&ontofont;extensionOf"/>
+            <rdf:Description rdf:about="&ontofont;interprets"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#membershipHasMember -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;membershipHasMember">
+        <rdfs:label xml:lang="en">has member</rdfs:label>
+        <rdfs:label xml:lang="pl">ma element</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;category_extension"/>
+                    <rdf:Description rdf:about="&ontofont;membership"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#membershipHasParameter -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;membershipHasParameter">
+        <rdfs:label xml:lang="en">has parameter</rdfs:label>
+        <rdfs:label xml:lang="pl">ma parametr</rdfs:label>
+        <rdfs:range rdf:resource="&ontofont;category_extension"/>
+        <rdfs:domain rdf:resource="&ontofont;membership"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#mentionedIn -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;mentionedIn">
+        <rdfs:label xml:lang="en">is mentioned in</rdfs:label>
+        <rdfs:label xml:lang="pl">jest wzmiankowany w</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#mentions -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;mentions">
+        <rdfs:label xml:lang="en">mentions</rdfs:label>
+        <rdfs:label xml:lang="pl">wzmiankuje</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;knowledge_resource"/>
+        <owl:inverseOf rdf:resource="&ontofont;mentionedIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#narrowerOrEqualTo -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;narrowerOrEqualTo">
+        <rdfs:label xml:lang="en">is narrower or equal to</rdfs:label>
+        <rdfs:label xml:lang="pl">jest węższy lub równy</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;extensionRelatedToExtension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#narrowerThan -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;narrowerThan">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdfs:label xml:lang="en">is narrower than</rdfs:label>
+        <rdfs:label xml:lang="pl">jest węższy niż</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;narrowerOrEqualTo"/>
+        <owl:propertyDisjointWith rdf:resource="&ontofont;widerThan"/>
+        <owl:inverseOf rdf:resource="&ontofont;widerThan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#relationHasDomain -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;relationHasDomain">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">relation has domain</rdfs:label>
+        <rdfs:label xml:lang="pl">relacja ma dziedzinę</rdfs:label>
+        <rdfs:range rdf:resource="&ontofont;category"/>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;interprets"/>
+        <rdfs:domain rdf:resource="&ontofont;relation_domain_interpretation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#representedBy -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;representedBy">
+        <rdfs:label xml:lang="en">is represented by</rdfs:label>
+        <rdfs:label xml:lang="pl">jest reprezentowany przez</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#represents -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;represents">
+        <rdfs:label xml:lang="en">represents</rdfs:label>
+        <rdfs:label xml:lang="pl">reprezentuje</rdfs:label>
+        <owl:inverseOf rdf:resource="&ontofont;representedBy"/>
+        <rdfs:domain rdf:resource="&ontofont;semantic_entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#specifiesRelationDomain -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;specifiesRelationDomain">
+        <rdfs:label xml:lang="en">specifies interpretation of relation domain</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;hasParts"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#widerOrEqualTo -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;widerOrEqualTo">
+        <rdfs:label xml:lang="en">is wider or equal to</rdfs:label>
+        <rdfs:label xml:lang="pl">jest szerszy lub równy</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;extensionRelatedToExtension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#widerThan -->
+
+    <owl:ObjectProperty rdf:about="&ontofont;widerThan">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdfs:label xml:lang="en">is wider than</rdfs:label>
+        <rdfs:label xml:lang="pl">jest szerszy niż</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;widerOrEqualTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#categoryHasArity -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;categoryHasArity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">relation has arity</rdfs:label>
+        <rdfs:label xml:lang="pl">relacja ma arność</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;relation_interpretation"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#firstPageNo -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;firstPageNo">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">first page</rdfs:label>
+        <rdfs:label xml:lang="pl">pierwsza strona</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;document"/>
+                    <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#hasBibtex -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;hasBibtex">
+        <rdfs:label xml:lang="en">has Bibtex metadata</rdfs:label>
+        <rdfs:label xml:lang="pl">ma metadane w formacie Bibtex</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&ontofont;hasMetadata"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#hasMetadata -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;hasMetadata">
+        <rdfs:label xml:lang="en">has metadata</rdfs:label>
+        <rdfs:label xml:lang="pl">ma metadane</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;document"/>
+                    <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;hasTitle">
+        <rdfs:label xml:lang="en">has title</rdfs:label>
+        <rdfs:label xml:lang="pl">ma tytuł</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;document"/>
+                    <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#isArgument -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;isArgument">
+        <rdfs:label xml:lang="en">for relation has arity equal to</rdfs:label>
+        <rdfs:label xml:lang="pl">jest argumentem relacji o numerze</rdfs:label>
+        <rdfs:domain rdf:resource="&ontofont;relation_domain_interpretation"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#isPublishedInYear -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;isPublishedInYear">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">is published in</rdfs:label>
+        <rdfs:label xml:lang="pl">jest opublikowany w roku</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;document"/>
+                    <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#lastPageNo -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;lastPageNo">
+        <rdfs:label xml:lang="en">last page</rdfs:label>
+        <rdfs:label xml:lang="pl">ostatnia strona</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;document"/>
+                    <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#locationInCollection -->
+
+    <owl:DatatypeProperty rdf:about="&ontofont;locationInCollection">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">location in collection</rdfs:label>
+        <rdfs:label xml:lang="pl">lokalizacja w kolekcji</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;document"/>
+                    <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#agent -->
+
+    <owl:Class rdf:about="&ontofont;agent">
+        <rdfs:label xml:lang="en">agent</rdfs:label>
+        <rdfs:label xml:lang="pl">sprawca</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#apodeictic_mode -->
+
+    <owl:Class rdf:about="&ontofont;apodeictic_mode">
+        <rdfs:label xml:lang="en">apodeictic modes</rdfs:label>
+        <rdfs:label xml:lang="en">necessity</rdfs:label>
+        <rdfs:label xml:lang="pl">odniesienie koniecznościowe</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;ontological_mode_of_representation"/>
+        <owl:disjointWith rdf:resource="&ontofont;existential_modes"/>
+        <owl:disjointWith rdf:resource="&ontofont;problematic_mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#argument -->
+
+    <owl:Class rdf:about="&ontofont;argument">
+        <rdfs:label xml:lang="en">argument</rdfs:label>
+        <rdfs:label xml:lang="pl">argument</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;has_conclusion"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;has_premise"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;propositional_structure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#category -->
+
+    <owl:Class rdf:about="&ontofont;category">
+        <rdfs:label xml:lang="en">category</rdfs:label>
+        <rdfs:label xml:lang="pl">kategoria</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isPartOf"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&ontofont;mode_of_propositional_representation"/>
+        <owl:disjointWith rdf:resource="&ontofont;propositional_entity"/>
+        <rdfs:comment xml:lang="en">A category is a resource content whose role is to represent (i.e., stand for) a collection of entities.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#category_extension -->
+
+    <owl:Class rdf:about="&ontofont;category_extension">
+        <rdfs:label xml:lang="en">category extension</rdfs:label>
+        <rdfs:label xml:lang="pl">zakres kategorii</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en">A category extension (for a category) is an abstract object that collects all entites that fall under this category.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#category_in_humanities -->
+
+    <owl:Class rdf:about="&ontofont;category_in_humanities">
+        <rdfs:label xml:lang="en">category in humanities</rdfs:label>
+        <rdfs:label xml:lang="pl">kategoria w humanistyce</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;category"/>
+                    <rdf:Description rdf:about="&ontofont;semantic_entity_in_humanities"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;category"/>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity_in_humanities"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;interpretedBy"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;category_interpretation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#category_interpretation -->
+
+    <owl:Class rdf:about="&ontofont;category_interpretation">
+        <rdfs:label xml:lang="en">interpretation of category</rdfs:label>
+        <rdfs:label xml:lang="pl">interpretacja kategorii</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;interprets"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;category"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;resource_content_interpretation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;categoryHasExtension"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#document -->
+
+    <owl:Class rdf:about="&ontofont;document">
+        <rdfs:label xml:lang="en">document</rdfs:label>
+        <rdfs:label xml:lang="pl">dokument</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;knowledge_resource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isPartOf"/>
+                <owl:onClass rdf:resource="&ontofont;documents_collection"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasAuthor"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:onClass rdf:resource="&ontofont;document_part"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://purl.obolibrary.org/obo/IAO_0000310</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#document_part -->
+
+    <owl:Class rdf:about="&ontofont;document_part">
+        <rdfs:label xml:lang="en">document part</rdfs:label>
+        <rdfs:label xml:lang="pl">fragment dokumentu</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isPartOf"/>
+                <owl:onClass rdf:resource="&ontofont;document"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;knowledge_resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#documents_collection -->
+
+    <owl:Class rdf:about="&ontofont;documents_collection">
+        <rdfs:label xml:lang="en">document collection</rdfs:label>
+        <rdfs:label xml:lang="pl">zbiór dokumentów</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;knowledge_resource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasPublisher"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&ontofont;document"/>
+                            <rdf:Description rdf:about="&ontofont;documents_collection"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#empty_category_extension_singleton -->
+
+    <owl:Class rdf:about="&ontofont;empty_category_extension_singleton">
+        <rdfs:label xml:lang="en">empty category extension singleton</rdfs:label>
+        <rdfs:label xml:lang="pl">pusty zakres kategorii</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;extensional_category_extension"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;widerThan"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&owl;Thing"/>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;extensional_category_extension"/>
+        <owl:disjointWith rdf:resource="&ontofont;universal_category_non_modal_extension"/>
+        <rdfs:comment xml:lang="en">This is a singleton.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#existential_modes -->
+
+    <owl:Class rdf:about="&ontofont;existential_modes">
+        <rdfs:label xml:lang="en">existential mode</rdfs:label>
+        <rdfs:label xml:lang="en">existential quantifier</rdfs:label>
+        <rdfs:label xml:lang="pl">odniesienie egzystencjalne</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;ontological_mode_of_representation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;represents"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;universal_category_non_modal_extension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&ontofont;problematic_mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#extensional_category_extension -->
+
+    <owl:Class rdf:about="&ontofont;extensional_category_extension">
+        <rdfs:label xml:lang="en">extensional category extension</rdfs:label>
+        <rdfs:label xml:lang="pl">ekstensjonalny zakres kategorii</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;category_extension"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;extensionHasMembership"/>
+                        <owl:allValuesFrom rdf:resource="&ontofont;extensional_membership"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;category_extension"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;extensionRelatedToExtension"/>
+                <owl:allValuesFrom rdf:resource="&ontofont;extensional_category_extension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An extensional category extension (for a category) is a class of all entites that fall under this category.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#extensional_membership -->
+
+    <owl:Class rdf:about="&ontofont;extensional_membership">
+        <rdfs:label xml:lang="en">extensional membership</rdfs:label>
+        <rdfs:label xml:lang="pl">ekstensjonalne należenie</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;membership"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;membershipHasParameter"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;membership"/>
+        <rdfs:comment xml:lang="en">This is the relation of set-theoretical membership.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#knowledge_resource -->
+
+    <owl:Class rdf:about="&ontofont;knowledge_resource">
+        <rdfs:label xml:lang="en">knowledge resource</rdfs:label>
+        <rdfs:label xml:lang="pl">zasób wiedzy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isCreatedBy"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://purl.obolibrary.org/obo/IAO_0000030</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#membership -->
+
+    <owl:Class rdf:about="&ontofont;membership">
+        <rdfs:label xml:lang="en">membership</rdfs:label>
+        <rdfs:label xml:lang="pl">należenie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;membershipHasMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">This is the reification of the relation of membership.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#mode_of_propositional_representation -->
+
+    <owl:Class rdf:about="&ontofont;mode_of_propositional_representation">
+        <rdfs:label xml:lang="en">mode of propositional representation</rdfs:label>
+        <rdfs:label xml:lang="pl">sądowy sposób odniesienia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isPartOf"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&ontofont;propositional_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#ontological_category -->
+
+    <owl:Class rdf:about="&ontofont;ontological_category">
+        <rdfs:label xml:lang="en">ontological category</rdfs:label>
+        <rdfs:label xml:lang="pl">kategoria ontologiczna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;category_in_humanities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#ontological_mode_of_representation -->
+
+    <owl:Class rdf:about="&ontofont;ontological_mode_of_representation">
+        <rdfs:label xml:lang="en">ontological mode of representation</rdfs:label>
+        <rdfs:label xml:lang="pl">sądowy sposób odniesienia w ontologii</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;mode_of_propositional_representation"/>
+                    <rdf:Description rdf:about="&ontofont;semantic_entity_in_humanities"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;mode_of_propositional_representation"/>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity_in_humanities"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;apodeictic_mode"/>
+            <rdf:Description rdf:about="&ontofont;existential_modes"/>
+            <rdf:Description rdf:about="&ontofont;problematic_mode"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#ontological_proposition -->
+
+    <owl:Class rdf:about="&ontofont;ontological_proposition">
+        <rdfs:label xml:lang="en">ontological proposition</rdfs:label>
+        <rdfs:label xml:lang="pl">sąd ontologiczny</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                        <owl:someValuesFrom rdf:resource="&ontofont;ontological_category"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                        <owl:onClass rdf:resource="&ontofont;ontological_mode_of_representation"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;proposition"/>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity_in_humanities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#ontological_relation -->
+
+    <owl:Class rdf:about="&ontofont;ontological_relation">
+        <rdfs:label xml:lang="en">ontological relation</rdfs:label>
+        <rdfs:label xml:lang="pl">relacja ontologiczna</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;ontological_category"/>
+                    <rdf:Description rdf:about="&ontofont;relation"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;relation"/>
+        <rdfs:subClassOf rdf:resource="&ontofont;relation_in_humanities"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;interpretedBy"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;relation_interpretation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#ontological_theory -->
+
+    <owl:Class rdf:about="&ontofont;ontological_theory">
+        <rdfs:label xml:lang="en">ontological theory</rdfs:label>
+        <rdfs:label xml:lang="pl">teoria ontologiczna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity_in_humanities"/>
+        <rdfs:subClassOf rdf:resource="&ontofont;theory"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isPartOf"/>
+                <owl:hasValue rdf:resource="&ontofont;ontology"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;ontological_proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#perspective -->
+
+    <owl:Class rdf:about="&ontofont;perspective">
+        <rdfs:label xml:lang="en">interpretation</rdfs:label>
+        <rdfs:label xml:lang="pl">perspektywa</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;interprets"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;propositional_entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#philosophical_discipline -->
+
+    <owl:Class rdf:about="&ontofont;philosophical_discipline">
+        <rdfs:label xml:lang="en">philosophical discipline</rdfs:label>
+        <rdfs:label xml:lang="pl">dyscyplina filozoficzna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;research_discipline"/>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity_in_humanities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#problematic_mode -->
+
+    <owl:Class rdf:about="&ontofont;problematic_mode">
+        <rdfs:label xml:lang="en">possibility</rdfs:label>
+        <rdfs:label xml:lang="en">problematic mode</rdfs:label>
+        <rdfs:label xml:lang="pl">odniesienia możliwościowe</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;ontological_mode_of_representation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;represents"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;universal_category_extension_singleton"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#proposition -->
+
+    <owl:Class rdf:about="&ontofont;proposition">
+        <rdfs:label xml:lang="en">proposition</rdfs:label>
+        <rdfs:label xml:lang="pl">sąd</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;propositional_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;category"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&ontofont;proposition"/>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A proposition is a resource content whose role is to represent atomic situations (or, in the philosophical jargon, states of affairs)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#propositional_entity -->
+
+    <owl:Class rdf:about="&ontofont;propositional_entity">
+        <rdfs:label xml:lang="en">propositional entity</rdfs:label>
+        <rdfs:label xml:lang="pl">byt propozycjonalny</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;category"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;mode_of_propositional_representation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#propositional_structure -->
+
+    <owl:Class rdf:about="&ontofont;propositional_structure">
+        <rdfs:label xml:lang="en">propositional structure</rdfs:label>
+        <rdfs:label xml:lang="pl">struktura propozycjonalna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;propositional_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:onClass rdf:resource="&ontofont;proposition"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#relation -->
+
+    <owl:Class rdf:about="&ontofont;relation">
+        <rdfs:label xml:lang="en">relation</rdfs:label>
+        <rdfs:label xml:lang="pl">relacja</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isPartOf"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#relation_domain_interpretation -->
+
+    <owl:Class rdf:about="&ontofont;relation_domain_interpretation">
+        <rdfs:label xml:lang="en">interpretation of relation domain</rdfs:label>
+        <rdfs:label xml:lang="pl">interpretacja dziedziny relacji</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;category_interpretation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;relationHasDomain"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isPartOf"/>
+                <owl:onClass rdf:resource="&ontofont;relation_interpretation"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isArgument"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#relation_in_humanities -->
+
+    <owl:Class rdf:about="&ontofont;relation_in_humanities">
+        <rdfs:label xml:lang="en">relation in humanities</rdfs:label>
+        <rdfs:label xml:lang="pl">relacja w humanistyce</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;relation"/>
+                    <rdf:Description rdf:about="&ontofont;semantic_entity_in_humanities"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity_in_humanities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#relation_interpretation -->
+
+    <owl:Class rdf:about="&ontofont;relation_interpretation">
+        <rdfs:label xml:lang="en">interpretation of relation</rdfs:label>
+        <rdfs:label xml:lang="pl">interpretacja relacji</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;interprets"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;relation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;resource_content_interpretation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;categoryHasArity"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:onClass rdf:resource="&ontofont;relation_domain_interpretation"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#research_discipline -->
+
+    <owl:Class rdf:about="&ontofont;research_discipline">
+        <rdfs:label xml:lang="en">research discipline</rdfs:label>
+        <rdfs:label xml:lang="pl">dyscyplina</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;propositional_structure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;theory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#resource_content -->
+
+    <owl:Class rdf:about="&ontofont;resource_content">
+        <rdfs:label xml:lang="en">resource content</rdfs:label>
+        <rdfs:label xml:lang="pl">zawartość zasobu</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;isExpressedBy"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;knowledge_resource"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#resource_content_interpretation -->
+
+    <owl:Class rdf:about="&ontofont;resource_content_interpretation">
+        <rdfs:label xml:lang="en">interpretation of resource content</rdfs:label>
+        <rdfs:label xml:lang="pl">interpretacja zawartości zasobu</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;interprets"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;resource_content"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;perspective"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#semantic_entity -->
+
+    <owl:Class rdf:about="&ontofont;semantic_entity">
+        <rdfs:label xml:lang="en">semantic entity</rdfs:label>
+        <rdfs:label xml:lang="pl">byt semantyczny</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;resource_content"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;represents"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#semantic_entity_in_humanities -->
+
+    <owl:Class rdf:about="&ontofont;semantic_entity_in_humanities">
+        <rdfs:label xml:lang="en">semantic entity in humanities</rdfs:label>
+        <rdfs:label xml:lang="pl">byt semantyczny w humanistyce</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;semantic_entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;interpretedBy"/>
+                <owl:someValuesFrom rdf:resource="&owl;Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#theory -->
+
+    <owl:Class rdf:about="&ontofont;theory">
+        <rdfs:label xml:lang="en">theory</rdfs:label>
+        <rdfs:label xml:lang="pl">teoria</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;propositional_structure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ontofont;hasParts"/>
+                <owl:someValuesFrom rdf:resource="&ontofont;proposition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#universal_category_extension_singleton -->
+
+    <owl:Class rdf:about="&ontofont;universal_category_extension_singleton">
+        <rdfs:label xml:lang="en">universal category extension singleton</rdfs:label>
+        <rdfs:label xml:lang="pl">uniwersalny zakres kategorii</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ontofont;extensional_category_extension"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ontofont;narrowerThan"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="&owl;Thing"/>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ontofont;extensional_category_extension"/>
+        <rdfs:comment xml:lang="en">This is a singleton.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#universal_category_non_modal_extension -->
+
+    <owl:Class rdf:about="&ontofont;universal_category_non_modal_extension">
+        <rdfs:label xml:lang="en">universal category actual extension singleton</rdfs:label>
+        <rdfs:label xml:lang="pl">uniwersalny aktualny zakres</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ontofont;extensional_category_extension"/>
+        <rdfs:comment xml:lang="en">This is a singleton.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="&owl;Thing">
+        <rdfs:label xml:lang="en">entity</rdfs:label>
+        <rdfs:label xml:lang="pl">byt</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.metaontology.pl/metaontology.owl#ontology -->
+
+    <owl:NamedIndividual rdf:about="&ontofont;ontology">
+        <rdf:type rdf:resource="&ontofont;philosophical_discipline"/>
+        <rdfs:label xml:lang="en">ontology</rdfs:label>
+        <rdfs:label xml:lang="pl">ontologia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;category_in_humanities"/>
+            <rdf:Description rdf:about="&ontofont;ontological_mode_of_representation"/>
+            <rdf:Description rdf:about="&ontofont;ontological_proposition"/>
+            <rdf:Description rdf:about="&ontofont;ontological_theory"/>
+            <rdf:Description rdf:about="&ontofont;philosophical_discipline"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ontofont;agent"/>
+            <rdf:Description rdf:about="&ontofont;category_extension"/>
+            <rdf:Description rdf:about="&ontofont;knowledge_resource"/>
+            <rdf:Description rdf:about="&ontofont;membership"/>
+            <rdf:Description rdf:about="&ontofont;resource_content"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
