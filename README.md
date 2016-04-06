@@ -12,7 +12,7 @@ Please feel free to direct any and all comments, queries, and/or suggestions reg
 OWL Classifier is a Java app that loads an ontology (as specified by the user) and provides a quick report of the features being used in that ontology. Furthermore, the OWL Classifier analyses the features of OWL that are being used in the loaded ontology and indicates which of the OWL sub-languages that ontology can be classified as. The reports also list the axioms that prevent the ontology from being classified as the other sub-languages. The OWL Classifier also reports on the expressivity of the OWL file and shows how each axiom added to the expressivity of the ontology and explains the derivation of the final expressivity class.
 
 ###Using OWL Classifier:
-Should you wish to use OWL Classifier, simply download the .jar file from this repository and run it. This will run the latest release of OWL Classifier. Should you wish to build OWL Classifier, see the sections below.
+Should you wish to use OWL Classifier, simply download the latest release (as a .jar file) from this repository and run it. This will run the latest release of OWL Classifier. Should you wish to build OWL Classifier, see the sections below.
 
 ###Setting Up This Project:
 OWL Classifier is a Java project built and managed using Maven. The build process has been encapsulated in a makefile for easy building and running (see next section for further details on using the makefile). The following is a quick guide to getting the OWL Classifier project up and running on your machine:
