@@ -18,7 +18,7 @@ import org.semanticweb.owlapi.model.*;
  * The code in this class to calculate the expressivity of the ontology is based entirely on the DLExpressivityChecker code which can be found here:
  * https://github.com/owlcs/owlapi/blob/version4/api/src/main/java/org/semanticweb/owlapi/util/DLExpressivityChecker.java
  *
- * @author ⁠⁠⁠⁠Muhummad Patel⁠⁠⁠⁠⁠
+ * @author Muhummad Patel
  */
 public class ExpressivityChecker extends org.semanticweb.owlapi.util.DLExpressivityChecker {
 
