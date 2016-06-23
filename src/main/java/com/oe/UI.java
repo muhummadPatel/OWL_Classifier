@@ -240,9 +240,11 @@ public class UI extends JFrame {
                 }
                 ++counter;
             }
-
+            
+            axioms.trimToSize();
             area.setText(axioms.toString());
             axioms.setLength(0);
+
             expAreas[index] = area;
             expAreas[index].setCaretPosition(0);
             if (printResultsToTerminal) {
@@ -289,8 +291,11 @@ public class UI extends JFrame {
                 }
                 ++counter;
             }
+
+            axiomViolations.trimToSize();
             area.setText(axiomViolations.toString());
             axiomViolations.setLength(0);
+
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if (printResultsToTerminal) {
@@ -332,8 +337,10 @@ public class UI extends JFrame {
             violationsPane.addTab(profileName, scrollableArea);
             counter = 1;
 
+            axiomViolations.trimToSize();
             area.setText(axiomViolations.toString());
             axiomViolations.setLength(0);
+
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if (printResultsToTerminal) {
