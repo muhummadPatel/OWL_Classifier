@@ -231,7 +231,7 @@ public class UI extends JFrame {
         for (String letter : axiomClassifications.keySet()) {
             JTextArea area = new JTextArea(); //The list of axioms for this particular letter
             area.setEditable(false);
-            StringBuilder axioms = new StringBuilder();
+            StringBuilder axioms = new StringBuilder(1000);
             for (OWLAxiom axiom : axiomClassifications.get(letter)) {
                 if (isDisplayingCleanResults && axiom.toString().contains("#")) {
                     axioms.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n");
@@ -240,7 +240,7 @@ public class UI extends JFrame {
                 }
                 ++counter;
             }
-            
+
             axioms.trimToSize();
             area.setText(axioms.toString());
             axioms.setLength(0);
@@ -279,7 +279,7 @@ public class UI extends JFrame {
                 ++index;
                 continue;
             }
-            StringBuilder axiomViolations = new StringBuilder();
+            StringBuilder axiomViolations = new StringBuilder(10000);
             JTextArea area = new JTextArea(); //The list of axioms for this particular profile
             area.setEditable(false);
 
@@ -322,7 +322,7 @@ public class UI extends JFrame {
             area.setEditable(false);
             OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
 
-            StringBuilder axiomViolations = new StringBuilder();
+            StringBuilder axiomViolations = new StringBuilder(10000);
 
             for (String violation : profileReport.getViolations()) {
                 if (isDisplayingCleanResults && violation.toString().contains("#")) {
