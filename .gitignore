@@ -4,6 +4,7 @@ catalog-v001*
 target/*
 !target/.gitkeep
 
+*.jar
 .idea
 *.iml
 
