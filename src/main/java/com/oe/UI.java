@@ -36,12 +36,6 @@ public class UI extends JFrame {
     private float fileNameAreaPercentage = 0.5f; //Percentage of the width of the screen that the file name text area occupies
     private float fontSize = 12.0f; //Approximation of the font size, to calculate the width of text components
 
-    //For the toggling, can't reverse a regex so we need this
-    private String[] fullExpAxioms;
-    private String[] fullVioAxioms;
-    private String[] cleanExpAxioms;
-    private String[] cleanVioAxioms;
-
     //Heading
     private JLabel checkboxHeading;
     private JLabel profileHeading;
@@ -51,10 +45,11 @@ public class UI extends JFrame {
     private JTextArea[] vioAreas;
     private boolean printResultsToTerminal;
 
-    private int letterWidth = 10; //Total length of the letter + spaces used to for expressivity tabs
 
-    OWLOntology mainOntology;
-    Set<OWLOntology> ontologies;
+    private int letterWidth = 10; //Total length of the letter + spaces used to for expressivity tabs
+    private String filePath;
+
+    private Set<OWLOntology> ontologies;
 
     //Constructor
     public UI() {
@@ -93,7 +88,7 @@ public class UI extends JFrame {
         JMenu viewMenu = new JMenu("View");
         JMenuItem loadItem = new JMenuItem("Load Ontology");
         JMenuItem helpItem = new JMenuItem("Help");
-        toggleIriButton = new JCheckBoxMenuItem("Show full IRI");
+        toggleIriButton = new JCheckBoxMenuItem("Show full IRI (requires re-calculation)");
         toggleIriButton.addActionListener(new ToggleIRIClickListener());
         loadItem.addActionListener(new OpenFileClickListener());
         helpItem.addActionListener(new HelpClickListener());
@@ -223,38 +218,31 @@ public class UI extends JFrame {
     }
 
     //Called when an owl file is loaded to populate the tabbed pane with the letters and their axioms
-    public void populateExpressivityPane(HashMap<String, ArrayList<OWLAxiom>> axiomClassifications) {
+    public void populateExpressivityPane(HashMap<String, ArrayList<OWLAxiom>> axiomClassifications, boolean isDisplayingCleanResults) {
         //Remove the current content in the expressivity tabbed pane
         while (expressivityPane.getTabCount() > 0) //Remove current tabs
             expressivityPane.remove(0);
 
         int size = axiomClassifications.keySet().size();
         expAreas = new JTextArea[size];
-        fullExpAxioms = new String[size];
-        cleanExpAxioms = new String[size];
 
         int counter = 1; //Counter of axioms for each letter
         int index = 0;
         for (String letter : axiomClassifications.keySet()) {
             JTextArea area = new JTextArea(); //The list of axioms for this particular letter
             area.setEditable(false);
-            StringBuilder fullAxioms = new StringBuilder();
-            StringBuilder cleanedAxioms = new StringBuilder();
+            StringBuilder axioms = new StringBuilder();
             for (OWLAxiom axiom : axiomClassifications.get(letter)) {
-                if(axiom.toString().contains("#")){
-                    cleanedAxioms.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n");
+                if(isDisplayingCleanResults && axiom.toString().contains("#")){
+                    axioms.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n");
                 }else{
-                    cleanedAxioms.append(counter + " - " + axiom.toString() + "\n");
+                    axioms.append(counter + " - " + axiom.toString() + "\n");
                 }
-                //fullAxioms.append(counter + " - " + axiom.toString() + "\n");
                 ++counter;
             }
 
-            //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
-
-            fullExpAxioms[index] = fullAxioms.toString();
-            //cleanExpAxioms[index] = cleanedAxioms.toString();
-            area.setText(cleanedAxioms.toString());
+            area.setText(axioms.toString());
+            axioms.setLength(0);
             expAreas[index] = area;
             expAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
@@ -271,15 +259,13 @@ public class UI extends JFrame {
 
     //To populate the violations pane
     public void populateViolationsPane(HashMap<String, OWLProfileReport> ontologyProfileReports, HashMap<String, OWL1ProfileReport>
-            owl1ontologyProfileReports) {
+            owl1ontologyProfileReports, boolean isDisplayingCleanResults) {
         while (violationsPane.getTabCount() > 0) //Remove current tabs
             violationsPane.remove(0);
 
         int counter = 1; //Counter of axioms for each letter
 
         vioAreas = new JTextArea[profiles.length];
-        fullVioAxioms = new String[profiles.length];
-        cleanVioAxioms = new String[profiles.length];
         int index = 0;
         for (String profileName : OWL2ProfileChecker.PROFILE_NAMES) {
             if(printResultsToTerminal) {
@@ -291,25 +277,20 @@ public class UI extends JFrame {
                 ++index;
                 continue;
             }
-            StringBuilder fullAxioms = new StringBuilder();
-            StringBuilder cleanedAxioms = new StringBuilder();
+            StringBuilder axiomViolations = new StringBuilder();
             JTextArea area = new JTextArea(); //The list of axioms for this particular profile
             area.setEditable(false);
 
             for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
-                if(violation.toString().contains("#")){
-                    cleanedAxioms.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n");
+                if(isDisplayingCleanResults && violation.toString().contains("#")){
+                    axiomViolations.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n");
                 }else{
-                    cleanedAxioms.append(counter + " - " + violation.toString() + "\n");
+                    axiomViolations.append(counter + " - " + violation.toString() + "\n");
                 }
-                //fullAxioms.append(counter + " - " + violation.toString() + "\n");
                 ++counter;
             }
-            //Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
-
-            fullVioAxioms[index] = fullAxioms.toString();
-            //cleanVioAxioms[index] = cleanedAxioms.toString();
-            area.setText(cleanedAxioms.toString());
+            area.setText(axiomViolations.toString());
+            axiomViolations.setLength(0);
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
@@ -336,16 +317,14 @@ public class UI extends JFrame {
             area.setEditable(false);
             OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
 
-            StringBuilder fullAxioms = new StringBuilder();
-            StringBuilder cleanedAxioms = new StringBuilder();
+            StringBuilder axiomViolations = new StringBuilder();
 
             for (String violation : profileReport.getViolations()) {
-                if(violation.toString().contains("#")){
-                    cleanedAxioms.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n");
+                if(isDisplayingCleanResults && violation.toString().contains("#")){
+                    axiomViolations.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n");
                 }else{
-                    cleanedAxioms.append(counter + " - " + violation.toString() + "\n");
+                    axiomViolations.append(counter + " - " + violation.toString() + "\n");
                 }
-                //fullAxioms.append(counter + " - " + violation.toString() + "\n");
                 ++counter;
             }
 
@@ -353,9 +332,8 @@ public class UI extends JFrame {
             violationsPane.addTab(profileName, scrollableArea);
             counter = 1;
 
-            fullVioAxioms[index] = fullAxioms.toString();
-            //cleanVioAxioms[index] = cleanedAxioms.toString();
-            area.setText(cleanedAxioms.toString());
+            area.setText(axiomViolations.toString());
+            axiomViolations.setLength(0);
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
@@ -373,7 +351,6 @@ public class UI extends JFrame {
             File workingDirectory = new File(System.getProperty("user.dir"));
             chooser.setCurrentDirectory(workingDirectory);
 
-            String filePath = "";
             chooser.showOpenDialog(null);
             try {
                 filePath = chooser.getSelectedFile().getAbsolutePath();
@@ -394,59 +371,66 @@ public class UI extends JFrame {
             for (JCheckBox checkbox : checkBoxes) {
                 checkbox.setSelected(false);
             }
-            ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
-            ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
-            String displayExplaination = result.explanation;
-            if (expChecker.getDescriptionLogicName().trim().equals("AL") && displayExplaination.trim().length() == 0) {
-                displayExplaination = "~ AL is the base language used";
-            }
-
-            String explainMessage = "Expresivity: " + expChecker.getDescriptionLogicName();
-            if(displayExplaination.trim().length() != 0) {
-                explainMessage += "\n" + "Explanation of description logic name: \n" + displayExplaination;
-            }
-            explanationArea.setText(explainMessage);
-            explanationArea.setCaretPosition(0);
-            System.out.println("\n" + explainMessage);
-            HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
-            HashMap<String, OWLProfileReport> ontologyProfileReports = OWL2ProfileChecker.calculateOntologyProfileReports(ontologies.iterator().next());
-            HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI
-                    (filePath));
-
-            populateExpressivityPane(axiomClassifications);
-            populateViolationsPane(ontologyProfileReports, owl1ontologyProfileReports);
+            runCalculations(true);
         }
     }
 
     //On click for the 'View full IRI's" toggle check box
     private class ToggleIRIClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            if (expAreas != null) {
+            if (expAreas != null && vioAreas != null) {
                 //Toggle between full and cleaned axioms
-                for (int i = 0; i < expAreas.length; ++i) {
-                    if (toggleIriButton.isSelected()) {
-                        expAreas[i].setText(fullExpAxioms[i]);
-                    } else {
-                        expAreas[i].setText(cleanExpAxioms[i]);
+                for(JTextArea expArea : expAreas) {
+                    if(expArea != null) {
+                        expArea.setText(null);
                     }
-                    expAreas[i].setCaretPosition(0);
                 }
-                for (int i = 0; i < vioAreas.length; ++i) {
-                    if (vioAreas[i] == null) { //Not all of the profiles will be violated
-                        continue;
+                for(JTextArea vioArea : vioAreas) {
+                    if(vioArea != null) {
+                        vioArea.setText(null);
                     }
-
-                    if (toggleIriButton.isSelected()) {
-                        vioAreas[i].setText(fullVioAxioms[i]);
-                    } else {
-                        vioAreas[i].setText(cleanVioAxioms[i]);
-                    }
-                    vioAreas[i].setCaretPosition(0);
+                }
+                if (toggleIriButton.isSelected()) {
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            runCalculations(false);
+                        }
+                    });
+                } else {
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            runCalculations(true);
+                        }
+                    });
                 }
             } else {
                 toggleIriButton.setSelected(false);
             }
         }
+    }
+
+    private void runCalculations(boolean isDisplayingCleanResults) {
+        ExpressivityChecker expChecker = new ExpressivityChecker(ontologies);
+        ExpressivityChecker.AxiomClassificationResult result = expChecker.getAxiomClassifications();
+        String displayExplaination = result.explanation;
+        if (expChecker.getDescriptionLogicName().trim().equals("AL") && displayExplaination.trim().length() == 0) {
+            displayExplaination = "~ AL is the base language used";
+        }
+
+        String explainMessage = "Expresivity: " + expChecker.getDescriptionLogicName();
+        if(displayExplaination.trim().length() != 0) {
+            explainMessage += "\n" + "Explanation of description logic name: \n" + displayExplaination;
+        }
+        explanationArea.setText(explainMessage);
+        explanationArea.setCaretPosition(0);
+        System.out.println("\n" + explainMessage);
+        HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
+        HashMap<String, OWLProfileReport> ontologyProfileReports = OWL2ProfileChecker.calculateOntologyProfileReports(ontologies.iterator().next());
+        HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI
+                (filePath));
+
+        populateExpressivityPane(axiomClassifications, isDisplayingCleanResults);
+        populateViolationsPane(ontologyProfileReports, owl1ontologyProfileReports, isDisplayingCleanResults);
     }
 
     //On click for the 'Help' menu item
