@@ -246,15 +246,15 @@ public class UI extends JFrame {
                 }else{
                     cleanedAxioms.append(counter + " - " + axiom.toString() + "\n");
                 }
-                fullAxioms.append(counter + " - " + axiom.toString() + "\n");
+                //fullAxioms.append(counter + " - " + axiom.toString() + "\n");
                 ++counter;
             }
 
             //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
 
             fullExpAxioms[index] = fullAxioms.toString();
-            cleanExpAxioms[index] = cleanedAxioms.toString();
-            area.setText(cleanExpAxioms[index]);
+            //cleanExpAxioms[index] = cleanedAxioms.toString();
+            area.setText(cleanedAxioms.toString());
             expAreas[index] = area;
             expAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
@@ -302,14 +302,14 @@ public class UI extends JFrame {
                 }else{
                     cleanedAxioms.append(counter + " - " + violation.toString() + "\n");
                 }
-                fullAxioms.append(counter + " - " + violation.toString() + "\n");
+                //fullAxioms.append(counter + " - " + violation.toString() + "\n");
                 ++counter;
             }
             //Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
 
             fullVioAxioms[index] = fullAxioms.toString();
-            cleanVioAxioms[index] = cleanedAxioms.toString();
-            area.setText(cleanVioAxioms[index]);
+            //cleanVioAxioms[index] = cleanedAxioms.toString();
+            area.setText(cleanedAxioms.toString());
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
@@ -345,7 +345,7 @@ public class UI extends JFrame {
                 }else{
                     cleanedAxioms.append(counter + " - " + violation.toString() + "\n");
                 }
-                fullAxioms.append(counter + " - " + violation.toString() + "\n");
+                //fullAxioms.append(counter + " - " + violation.toString() + "\n");
                 ++counter;
             }
 
@@ -354,8 +354,8 @@ public class UI extends JFrame {
             counter = 1;
 
             fullVioAxioms[index] = fullAxioms.toString();
-            cleanVioAxioms[index] = cleanedAxioms.toString();
-            area.setText(cleanVioAxioms[index]);
+            //cleanVioAxioms[index] = cleanedAxioms.toString();
+            area.setText(cleanedAxioms.toString());
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
