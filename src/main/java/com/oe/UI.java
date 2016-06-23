@@ -252,11 +252,11 @@ public class UI extends JFrame {
 
             //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
 
-            expAreas[index] = area;
-            expAreas[index].setCaretPosition(0);
             fullExpAxioms[index] = fullAxioms.toString();
             cleanExpAxioms[index] = cleanedAxioms.toString();
             area.setText(cleanExpAxioms[index]);
+            expAreas[index] = area;
+            expAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
                 System.out.println("=== " + letter + " ===");
                 System.out.println(area.getText());
@@ -306,11 +306,12 @@ public class UI extends JFrame {
                 ++counter;
             }
             //Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
-            vioAreas[index] = area;
-            vioAreas[index].setCaretPosition(0);
+
             fullVioAxioms[index] = fullAxioms.toString();
             cleanVioAxioms[index] = cleanedAxioms.toString();
             area.setText(cleanVioAxioms[index]);
+            vioAreas[index] = area;
+            vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
                 System.out.println(area.getText());
             }
@@ -351,12 +352,12 @@ public class UI extends JFrame {
             JScrollPane scrollableArea = new JScrollPane(area);
             violationsPane.addTab(profileName, scrollableArea);
             counter = 1;
-            vioAreas[index] = area;
-            vioAreas[index].setCaretPosition(0);
 
             fullVioAxioms[index] = fullAxioms.toString();
             cleanVioAxioms[index] = cleanedAxioms.toString();
             area.setText(cleanVioAxioms[index]);
+            vioAreas[index] = area;
+            vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
                 System.out.println(area.getText());
             }
