@@ -5,7 +5,7 @@ target/*
 !target/.gitkeep
 
 .idea
-.iml
+*.iml
 
 ## File-based project format:
 *.iws
