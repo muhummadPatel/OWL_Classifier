@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author Aashiq Parker
  * @author Brian Mc George
- * @author Muhummad Patel⁠⁠⁠⁠⁠
+ * @author Muhummad Patel
  */
 public class UI extends JFrame {
     private JFrame frame;
@@ -238,32 +238,29 @@ public class UI extends JFrame {
         for (String letter : axiomClassifications.keySet()) {
             JTextArea area = new JTextArea(); //The list of axioms for this particular letter
             area.setEditable(false);
-            String fullAxioms = "";
-            String cleanedAxioms = "";
+            StringBuilder fullAxioms = new StringBuilder();
+            StringBuilder cleanedAxioms = new StringBuilder();
             for (OWLAxiom axiom : axiomClassifications.get(letter)) {
                 if(axiom.toString().contains("#")){
-                    cleanedAxioms += counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                    // regex but it works
-                    area.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with the
-                    // list of axioms
+                    cleanedAxioms.append(counter + " - " + axiom.toString().replaceAll("http:[^#]*/", "") + "\n");
                 }else{
-                    cleanedAxioms += counter + " - " + axiom.toString() + "\n";
-                    area.append(counter + " - " + axiom.toString() + "\n"); //Populate this area with the
-                    // list of axioms
+                    cleanedAxioms.append(counter + " - " + axiom.toString() + "\n");
                 }
-                fullAxioms += counter + " - " + axiom.toString() + "\n";
+                fullAxioms.append(counter + " - " + axiom.toString() + "\n");
                 ++counter;
             }
 
             //Add the final list for the letter as a tab in the tabbed pane. We want it to be scrollable.
+
+            fullExpAxioms[index] = fullAxioms.toString();
+            cleanExpAxioms[index] = cleanedAxioms.toString();
+            area.setText(cleanExpAxioms[index]);
             expAreas[index] = area;
             expAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
                 System.out.println("=== " + letter + " ===");
                 System.out.println(area.getText());
             }
-            fullExpAxioms[index] = fullAxioms;
-            cleanExpAxioms[index] = cleanedAxioms;
             JScrollPane scrollableArea = new JScrollPane(area);
             String formatString = String.format(letter + "%1$" + letterWidth + "s", ""); //Add the padding
             expressivityPane.addTab(formatString, scrollableArea);
@@ -294,33 +291,30 @@ public class UI extends JFrame {
                 ++index;
                 continue;
             }
-            String fullAxioms = "";
-            String cleanedAxioms = "";
+            StringBuilder fullAxioms = new StringBuilder();
+            StringBuilder cleanedAxioms = new StringBuilder();
             JTextArea area = new JTextArea(); //The list of axioms for this particular profile
             area.setEditable(false);
 
             for (OWLProfileViolation violation : ontologyProfileReports.get(profileName).getViolations()) {
                 if(violation.toString().contains("#")){
-                    cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                    // regex but it works
-                    area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
-                    // the list of axioms
+                    cleanedAxioms.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n");
                 }else{
-                    cleanedAxioms += counter + " - " + violation.toString() + "\n";
-                    area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with
-                    // the list of axioms
+                    cleanedAxioms.append(counter + " - " + violation.toString() + "\n");
                 }
-                fullAxioms += counter + " - " + violation.toString() + "\n";
+                fullAxioms.append(counter + " - " + violation.toString() + "\n");
                 ++counter;
             }
             //Add the final list for the profile as a tab in the tabbed pane. We want it to be scrollable.
+
+            fullVioAxioms[index] = fullAxioms.toString();
+            cleanVioAxioms[index] = cleanedAxioms.toString();
+            area.setText(cleanVioAxioms[index]);
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
                 System.out.println(area.getText());
             }
-            fullVioAxioms[index] = fullAxioms;
-            cleanVioAxioms[index] = cleanedAxioms;
             JScrollPane scrollableArea = new JScrollPane(area);
             violationsPane.addTab(profileName, scrollableArea);
             counter = 1;
@@ -342,34 +336,31 @@ public class UI extends JFrame {
             area.setEditable(false);
             OWL1ProfileReport profileReport = owl1ontologyProfileReports.get(profileName);
 
-            String fullAxioms = "";
-            String cleanedAxioms = "";
+            StringBuilder fullAxioms = new StringBuilder();
+            StringBuilder cleanedAxioms = new StringBuilder();
 
             for (String violation : profileReport.getViolations()) {
                 if(violation.toString().contains("#")){
-                    cleanedAxioms += counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"; //Not the most elegant
-                    // regex but it works
-                    area.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n"); //Populate this area with
-                    // the list of axioms
+                    cleanedAxioms.append(counter + " - " + violation.toString().replaceAll("http:[^#]*/", "") + "\n");
                 }else{
-                    cleanedAxioms += counter + " - " + violation.toString() + "\n";
-                    area.append(counter + " - " + violation.toString() + "\n"); //Populate this area with
-                    // the list of axioms
+                    cleanedAxioms.append(counter + " - " + violation.toString() + "\n");
                 }
-                fullAxioms += counter + " - " + violation.toString() + "\n";
+                fullAxioms.append(counter + " - " + violation.toString() + "\n");
                 ++counter;
             }
 
             JScrollPane scrollableArea = new JScrollPane(area);
             violationsPane.addTab(profileName, scrollableArea);
             counter = 1;
+
+            fullVioAxioms[index] = fullAxioms.toString();
+            cleanVioAxioms[index] = cleanedAxioms.toString();
+            area.setText(cleanVioAxioms[index]);
             vioAreas[index] = area;
             vioAreas[index].setCaretPosition(0);
             if(printResultsToTerminal) {
                 System.out.println(area.getText());
             }
-            fullVioAxioms[index] = fullAxioms;
-            cleanVioAxioms[index] = cleanedAxioms;
             ++index;
         }
     }
@@ -393,8 +384,7 @@ public class UI extends JFrame {
 
             try //Try to open owl file
             {
-                mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
-                ontologies = OntologyLoader.loadOntology(filePath, true);
+                ontologies = OntologyLoader.loadOntology(filePath, false);
                 frame.setTitle("OWL Classifier" + " - " + filePath);
             } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
                 JOptionPane.showMessageDialog(new JFrame(), "Invalid file!", "Dialog", JOptionPane.ERROR_MESSAGE);
@@ -419,8 +409,7 @@ public class UI extends JFrame {
             explanationArea.setCaretPosition(0);
             System.out.println("\n" + explainMessage);
             HashMap<String, ArrayList<OWLAxiom>> axiomClassifications = result.classifications;
-
-            HashMap<String, OWLProfileReport> ontologyProfileReports = OWL2ProfileChecker.calculateOntologyProfileReports(mainOntology);
+            HashMap<String, OWLProfileReport> ontologyProfileReports = OWL2ProfileChecker.calculateOntologyProfileReports(ontologies.iterator().next());
             HashMap<String, OWL1ProfileReport> owl1ontologyProfileReports = OWL1ProfileChecker.calculateOntologyProfileReports(OntologyLoader.getOntologyURI
                     (filePath));
 
@@ -493,20 +482,20 @@ public class UI extends JFrame {
 			panel.setLayout(new BorderLayout());
 
             //The actual help text
-			String text =  "<html>******************************************************"
-			         		   + "<center>OWL Classifier v1.0</center>"
-			         		   + "******************************************************<br>"
-			         		   + "<p align = justify>OWL Classifier is a lightweight ontology profiler tool that classifies"
-			         		   + "OWL 1 and OWL 2 ontologies and provides more information about"
+			String text =  "<html>************************************************************"
+			         		   + "<center>OWL Classifier</center>"
+			         		   + "************************************************************<br>"
+			         		   + "<p align = justify>OWL Classifier is a lightweight ontology profiler tool that classifies "
+			         		   + "OWL 1 and OWL 2 ontologies and provides more information about "
 			         		   + "the expressivity and axioms. <br><br>"
 
-					 		   + "Using the tool, users can check the profiles that ontologies fall"
-					 		   + "under. The expressivity of the ontology and an explanation is"
-					 		   + "also provided. Lastly, users can also check the axioms that"
-					 		   + "cause the expressivity of the ontology and the axioms that"
+					 		   + "Using the tool, users can check the profiles that ontologies fall "
+					 		   + "under. The expressivity of the ontology and an explanation is "
+					 		   + "also provided. Lastly, users can also check the axioms that "
+					 		   + "cause the expressivity of the ontology and the axioms that "
 							   + "violate the other OWL 1 and OWL 2 profiles.<br><br>"
 
-							   + "OWL Classifier was created by a group of 3 university students at"
+							   + "OWL Classifier was created by a group of 3 university students at "
 							   + "UCT as part of an Ontology Engineering course.<br><br>"
 					 		   + "</p></html>";
             JLabel info = new JLabel(text);
