@@ -19,8 +19,14 @@ public class Main {
         /**
          * Example calls to OntologyLoader for single or a set of ontologies
          */
-        OWLOntology mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
-        Set<OWLOntology> ontologies = OntologyLoader.loadOntology(filePath, true);
+        OWLOntology mainOntology = null;
+        Set<OWLOntology> ontologies = null;
+        try {
+            mainOntology = OntologyLoader.loadOntology(filePath, false).iterator().next();
+            ontologies = OntologyLoader.loadOntology(filePath, true);
+        } catch (OWLOntologyCreationException e) {
+            e.printStackTrace();
+        }
         System.out.println();
 
         // Example call to ExpressivityChecker

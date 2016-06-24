@@ -366,8 +366,13 @@ public class UI extends JFrame {
             {
                 ontologies = OntologyLoader.loadOntology(filePath, false);
                 frame.setTitle("OWL Classifier" + " - " + filePath);
+            } catch (OWLOntologyCreationException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(new JFrame(), "Invalid ontology", "OWL Classifier", JOptionPane.ERROR_MESSAGE);
+                return;
             } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
-                JOptionPane.showMessageDialog(new JFrame(), "Invalid file!", "Dialog", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(new JFrame(), "Failed to load ontology - check that imports are accessible via IRI", "OWL Classifier", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
