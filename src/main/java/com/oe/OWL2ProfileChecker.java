@@ -11,11 +11,11 @@ import java.util.*;
  * @author Brian Mc George
  */
 public class OWL2ProfileChecker {
-    public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList(new OWL2Profile().getName(), new OWL2ELProfile().getName(),
-            new OWL2DLProfile().getName(), new OWL2QLProfile().getName(), new OWL2RLProfile().getName()));
+    public static final List<String> PROFILE_NAMES = Collections.unmodifiableList(Arrays.asList(new OWL2ELProfile().getName(),
+            new OWL2QLProfile().getName(), new OWL2RLProfile().getName(), new OWL2DLProfile().getName(), new OWL2Profile().getName()));
 
-    public static final List<Class<? extends org.semanticweb.owlapi.profiles.OWLProfile>> OWL_PROFILES = Collections.unmodifiableList(Arrays.asList(OWL2Profile
-            .class, OWL2ELProfile.class, OWL2DLProfile.class, OWL2QLProfile.class, OWL2RLProfile.class));
+    public static final List<Class<? extends org.semanticweb.owlapi.profiles.OWLProfile>> OWL_PROFILES = Collections.unmodifiableList(Arrays.asList(OWL2ELProfile.class,
+            OWL2QLProfile.class, OWL2RLProfile.class, OWL2DLProfile.class, OWL2Profile.class));
 
     /**
      * Calculates the a report of the OWL profiles which can be used to determine if an ontology falls within that profile and the getViolations (if any) that

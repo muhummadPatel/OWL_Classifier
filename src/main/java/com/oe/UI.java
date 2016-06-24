@@ -378,7 +378,11 @@ public class UI extends JFrame {
             for (JCheckBox checkbox : checkBoxes) {
                 checkbox.setSelected(false);
             }
-            runCalculations(true);
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    runCalculations(true);
+                }
+            });
         }
     }
 
