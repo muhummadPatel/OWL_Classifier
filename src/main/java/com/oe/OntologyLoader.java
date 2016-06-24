@@ -16,12 +16,14 @@ import java.util.Set;
  * @author Brian Mc George
  */
 public class OntologyLoader {
+
     /**
      * Takes a path to a file and a boolean representing if imports should be included and returns a set of OWLOntology objects
      *
      * @param filePath         path to file being loaded
      * @param isLoadingImports should imports be included in the set
      * @return A set of OWLOntology objects
+     * @throws OWLOntologyCreationException
      */
     public static Set<OWLOntology> loadOntology(String filePath, boolean isLoadingImports) throws OWLOntologyCreationException {
         String extra;
