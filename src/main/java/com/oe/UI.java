@@ -370,7 +370,7 @@ public class UI extends JFrame {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(new JFrame(), "Invalid ontology", "OWL Classifier", JOptionPane.ERROR_MESSAGE);
                 return;
-            } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
+            } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(new JFrame(), "Failed to load ontology - check that imports are accessible via IRI", "OWL Classifier", JOptionPane.ERROR_MESSAGE);
                 return;
