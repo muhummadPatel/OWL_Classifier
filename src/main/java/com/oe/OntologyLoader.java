@@ -16,14 +16,16 @@ import java.util.Set;
  * @author Brian Mc George
  */
 public class OntologyLoader {
+
     /**
      * Takes a path to a file and a boolean representing if imports should be included and returns a set of OWLOntology objects
      *
      * @param filePath         path to file being loaded
      * @param isLoadingImports should imports be included in the set
      * @return A set of OWLOntology objects
+     * @throws OWLOntologyCreationException
      */
-    public static Set<OWLOntology> loadOntology(String filePath, boolean isLoadingImports) {
+    public static Set<OWLOntology> loadOntology(String filePath, boolean isLoadingImports) throws OWLOntologyCreationException {
         String extra;
         if (isLoadingImports) {
             extra = " including imports";
@@ -36,23 +38,14 @@ public class OntologyLoader {
         OWLOntology ontology;
         Set<OWLOntology> ontologies = new HashSet<>();
 
-        try {
-            File ontFile = new File(filePath);
-            ontology = owlOntologyManager.loadOntologyFromOntologyDocument(ontFile);
-            ontologies.add(ontology);
-            if (isLoadingImports) {
-                addImports(ontologies, ontology);
-            }
-
-            System.out.println(ontFile.getName() + " loaded" + extra);
-
-        } catch (OWLOntologyCreationException ex) {
-            ex.printStackTrace();
-            return null;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
+        File ontFile = new File(filePath);
+        ontology = owlOntologyManager.loadOntologyFromOntologyDocument(ontFile);
+        ontologies.add(ontology);
+        if (isLoadingImports) {
+            addImports(ontologies, ontology);
         }
+
+        System.out.println(ontFile.getName() + " loaded" + extra);
 
         return ontologies;
     }

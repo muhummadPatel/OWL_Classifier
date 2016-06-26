@@ -33,12 +33,10 @@ public class OWL1ProfileChecker {
             SpeciesValidatorReporter speciesValidatorReporter = new SpeciesValidatorReporter() {
                 @Override
                 public void ontology(OWLOntology owlOntology) {
-
                 }
 
                 @Override
                 public void done(String s) {
-
                 }
 
                 @Override
@@ -49,18 +47,17 @@ public class OWL1ProfileChecker {
                 @Override
                 public void explain(int l, int code, String s) {
                     String message = level(l) + "[" + SpeciesValidator.readableCode(code).trim() + "]: " + s.replaceAll("\t", "");
-                    ;
                     System.out.println(message);
                 }
             };
 
             /* The OWL 1 validator api cannot return a list of violations.
             The standard output is temporarily redirected to a byte array output stream which can be converted into a string.
-            The newlines are then used to separate it into an array. The output from the validator api has been
-            set to a specific format (the code above) which is used to calculate at which profile the explanation is labeled.
+            The newlines are then used to separate it into an array. The output from the validator API has been
+            set to a specific format (the code above) which is used to calculate at which profile the explanation is labelled.
             This is then used to filter the messages for each profile check.
             The violation message is then cleaned up and added to the profile report.
-            Standard output is restored after all the profiles are calculated.*/
+            Standard output is restored after all the profiles are calculated. */
 
             // Create a stream to redirect standard output
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -109,7 +106,6 @@ public class OWL1ProfileChecker {
             speciesValidator.setReporter(speciesValidatorReporter);
             rdr = new BufferedReader(new StringReader(outputStream.toString()));
             for (String line = rdr.readLine(); line != null; line = rdr.readLine()) {
-                // This may still require tweaking
                 if (line.contains(NOT_OWL)) {
                     profileReportFull.addViolation(removePadding(line));
                 }
@@ -121,9 +117,7 @@ public class OWL1ProfileChecker {
             System.out.flush();
             System.setOut(old);
 
-        } catch (OWLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (OWLException | IOException e) {
             e.printStackTrace();
         }
 

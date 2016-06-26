@@ -24,7 +24,6 @@ import java.util.List;
 public class UI extends JFrame {
     private JFrame frame;
     private JTextArea explanationArea;
-    private JLabel speciesLabel;
     private JTabbedPane expressivityPane;
     private JTabbedPane violationsPane;
 
@@ -32,9 +31,6 @@ public class UI extends JFrame {
     private JCheckBox[] checkBoxes; //The check box profiles
 
     private JCheckBoxMenuItem toggleIriButton;
-
-    private float fileNameAreaPercentage = 0.5f; //Percentage of the width of the screen that the file name text area occupies
-    private float fontSize = 12.0f; //Approximation of the font size, to calculate the width of text components
 
     //Heading
     private JLabel checkboxHeading;
@@ -137,7 +133,7 @@ public class UI extends JFrame {
             //		gbc.weighty = 0; gbc.weightx = 0;
 
             //Remove the checkBoxes MouseListener so that it doesnt seem as if you can click it
-            MouseListener[] ml = (MouseListener[]) checkBoxes[i].getListeners(MouseListener.class);
+            MouseListener[] ml = checkBoxes[i].getListeners(MouseListener.class);
 
             for (int j = 0; j < ml.length; ++j)
                 checkBoxes[i].removeMouseListener(ml[j]);
@@ -370,15 +366,24 @@ public class UI extends JFrame {
             {
                 ontologies = OntologyLoader.loadOntology(filePath, false);
                 frame.setTitle("OWL Classifier" + " - " + filePath);
-            } catch (Exception ex) { //The program still crashes if the owl file is invalid, maybe add a return boolean in the method to indicate success?
-                JOptionPane.showMessageDialog(new JFrame(), "Invalid file!", "Dialog", JOptionPane.ERROR_MESSAGE);
+            } catch (OWLOntologyCreationException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(new JFrame(), "Invalid ontology", "OWL Classifier", JOptionPane.ERROR_MESSAGE);
+                return;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(new JFrame(), "Failed to load ontology - check that imports are accessible via IRI", "OWL Classifier", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             for (JCheckBox checkbox : checkBoxes) {
                 checkbox.setSelected(false);
             }
-            runCalculations(true);
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    runCalculations(true);
+                }
+            });
         }
     }
 
