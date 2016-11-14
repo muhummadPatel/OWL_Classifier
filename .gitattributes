@@ -1,2 +1,3 @@
 lib/* linguist-vendored
 test_ontologies/* linguist-vendored
+*.owl linguist-vendored
